@@ -133,7 +133,7 @@ class MenuController: UIViewController {
     
     //Any of the genre buttons tapped = this action
 
-	@objc func genreButtonTapped(_ sender: UIButton!) {
+	@objc func genreButtonTapped(_ sender: SPButton!) {
         
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized{

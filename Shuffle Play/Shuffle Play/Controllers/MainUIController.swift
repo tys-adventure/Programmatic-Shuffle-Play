@@ -172,9 +172,9 @@ class MainUIController: UIViewController {
 	
     //User Button controls--Play, Pause, Stop, Skip
 
-	var playButtonTapped : UIButton!
+	var playButtonTapped : SPButton!
     
-	@objc func playButtonTapped(_ sender: UIButton) {
+	@objc func playButtonTapped(_ sender: SPButton) {
         musicPlayer.shuffleMode = .songs
         musicPlayer.play()
         sender.pulsate()
@@ -183,7 +183,7 @@ class MainUIController: UIViewController {
     
 	var pauseButtonTapped : UIButton!
     
-    @objc func pauseButtonTapped(_ sender: UIButton) {
+    @objc func pauseButtonTapped(_ sender: SPButton) {
         
         musicPlayer.pause()
         sender.pulsate()
@@ -191,7 +191,7 @@ class MainUIController: UIViewController {
     
 	var previousButtonTapped : UIButton!
     
-    @objc func previousButtonTapped(_ sender: UIButton) {
+    @objc func previousButtonTapped(_ sender: SPButton) {
         
         musicPlayer.skipToPreviousItem()
         sender.pulsate()
@@ -199,7 +199,7 @@ class MainUIController: UIViewController {
     
 	var nextButtonTapped : UIButton!
     
-	@objc func nextButtonTapped(_ sender: UIButton) {
+	@objc func nextButtonTapped(_ sender: SPButton) {
         
         musicPlayer.skipToNextItem()
         sender.pulsate()
