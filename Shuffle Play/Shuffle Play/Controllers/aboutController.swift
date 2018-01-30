@@ -45,12 +45,12 @@ class aboutController: UIViewController {
 		// Y = Left to Right
 		
 		let profileButton = UIButton(type: UIButtonType.system) as UIButton
-		profileButton.frame = CGRect(x: 50, y: 50, width: 25, height: 25)
+		profileButton.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
 		profileButton.tintColor=UIColor .black
 		profileButton.setTitle("Home", for: .normal)
-		if let image  = UIImage(named: "profile-icon.png") {
-		profileButton.setImage(image, for: .normal)
-		}
+			if let image  = UIImage(named: "profile-icon.png") {
+				profileButton.setImage(image, for: .normal)
+			}
 		profileButton.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
 		self.view.addSubview(profileButton)
 		
@@ -72,16 +72,44 @@ class aboutController: UIViewController {
 		aboutLabel.text = "About Shuffle Play"
 		self.view.addSubview(aboutLabel)
 		
-		//Paragraph Label
-		/*
-		let paragraphLabel = UILabel(frame: CGRect(x: 190, y: 400, width: 200, height: 21))
-		paragraphLabel.center = CGPoint(x: 190, y: 50)
-		paragraphLabel.textAlignment = .center
-		//paragraphLabel.lineBreakMode = .byWordWrapping
-		//paragraphLabel.numberOfLines = 4
-		paragraphLabel.text = "Shuffle Play was created by Tyler Phillips, with the goal of making it easier to shuffle your music library by genre."
-		self.view.addSubview(paragraphLabel)
-		*/
+		//Social Buttons
+		
+		let InstagramButton = UIButton(frame: CGRect(x: 50, y: 575, width: 45, height: 45))
+		InstagramButton.tintColor=UIColor .black
+		InstagramButton.setTitle("Instagram", for: .normal)
+			if let image  = UIImage(named: "insta-logo-2.png") {
+				InstagramButton.setImage(image, for: .normal)
+			}
+		InstagramButton.addTarget(self, action: #selector(InstagramButton(_:)), for:.touchUpInside)
+		self.view.addSubview(InstagramButton)
+		
+		let TwitterButton = UIButton(frame: CGRect(x: 165, y: 575, width: 45, height: 45))
+		TwitterButton.tintColor=UIColor .black
+		TwitterButton.setTitle("Twitter", for: .normal)
+			if let image  = UIImage(named: "twitter-logo-3.png") {
+				TwitterButton.setImage(image, for: .normal)
+			}
+		TwitterButton.addTarget(self, action: #selector(TwitterButton(_:)), for:.touchUpInside)
+		self.view.addSubview(TwitterButton)
+		
+		let GitButton = UIButton(frame: CGRect(x: 275, y: 575, width: 45, height: 45))
+		GitButton.tintColor=UIColor .black
+		GitButton.setTitle("GitHub", for: .normal)
+			if let image  = UIImage(named: "github-logo2.png") {
+				GitButton.setImage(image, for: .normal)
+			}
+		GitButton.addTarget(self, action: #selector(GitButton(_:)), for:.touchUpInside)
+		self.view.addSubview(GitButton)
+		
+		//About Paragraph/Label
+		
+		let aboutParagraph = UILabel(frame: CGRect(x: 50, y: 300, width: 200, height: 21))
+		aboutParagraph.center = CGPoint(x: 200, y: 300)
+		aboutParagraph.textAlignment = .center
+		aboutParagraph.text = "Tid Bits about Shuffle Play bla blah blah blah blah blah blah"
+		aboutParagraph.sizeToFit()
+		self.view.addSubview(aboutParagraph)
+	
 		
 		// Do any additional setup after loading the view.
 	}
@@ -99,6 +127,58 @@ class aboutController: UIViewController {
 		//Segue between ViewControllers
 		let vc = ProfileController() //view controller
 		self.present(vc, animated: true, completion: nil)
+		
+	}
+	
+	
+	//Instagram Button Func
+	
+	var InstagramButton : UIButton!
+	
+	@objc func InstagramButton(_ sender: UIButton) {
+		
+		openUrl(urlStr: "https://www.instagram.com/thetylerjp")
+	}
+	
+	func openUrl(urlStr:String!) {
+		
+		if let url = NSURL(string:urlStr) {
+			UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+		}
+		
+	}
+	
+	//Twitter Button Func
+	
+	var TwitterButton : UIButton!
+	
+	@objc func TwitterButton(_ sender: UIButton) {
+		
+		openUrl2(urlStr: "https://www.twitter.com/thetylerjp")
+	}
+	
+	func openUrl2(urlStr:String!) {
+		
+		if let url = NSURL(string:urlStr) {
+			UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+		}
+		
+	}
+	
+	//Git Button Func
+	
+	var GitButton : UIButton!
+	
+	@objc func GitButton(_ sender: UIButton) {
+		
+		openUrl3(urlStr: "https://www.github.com/thetylerjp")
+	}
+	
+	func openUrl3(urlStr:String!) {
+		
+		if let url = NSURL(string:urlStr) {
+			UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+		}
 		
 	}
 	

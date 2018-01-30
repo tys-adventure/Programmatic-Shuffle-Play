@@ -24,7 +24,7 @@ class GenreButtonScreen: UIViewController {
         
     }
     
-    @IBAction func genreButtonTapped(_ sender: SPButton) {
+    @IBAction func genreButtonTapped(_ sender: UIButton) {
         
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized{
@@ -36,25 +36,25 @@ class GenreButtonScreen: UIViewController {
         
     }
     
-    @IBAction func PlayButtonTapped(_ sender: SPButton) {
+    @IBAction func PlayButtonTapped(_ sender: UIButton) {
         musicPlayer.shuffleMode = .songs
         musicPlayer.play()
         sender.pulsate()
     }
     
-    @IBAction func pauseButtonTapped(_ sender: SPButton) {
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
         
         musicPlayer.pause()
         sender.pulsate()
     }
     
-    @IBAction func previousButtonTapped(_ sender: SPButton) {
+    @IBAction func previousButtonTapped(_ sender: UIButton) {
         
         musicPlayer.skipToPreviousItem()
         sender.pulsate()
     }
     
-    @IBAction func nextButtonTapped(_ sender: SPButton) {
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
        
         musicPlayer.skipToNextItem()
         sender.pulsate()

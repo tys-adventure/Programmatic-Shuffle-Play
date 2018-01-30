@@ -83,31 +83,7 @@ class ProfileController: UIViewController {
 		AboutButton.setTitle("About Shuffle Play", for: .normal)
 		AboutButton.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
 		self.view.addSubview(AboutButton)
-        
-        let InstagramButton = UIButton(frame: CGRect(x: 30, y: 575, width: 55, height: 50))
-		InstagramButton.tintColor=UIColor .black
-		InstagramButton.setTitle("Home", for: .normal)
-		if let image  = UIImage(named: "instagram-logo.png") {
-		InstagramButton.setImage(image, for: .normal)
-		}
-		InstagramButton.addTarget(self, action: #selector(InstagramButton(_:)), for:.touchUpInside)
-		self.view.addSubview(InstagramButton)
-        
-        let TwitterButton = UIButton(frame: CGRect(x: 35, y: 35, width: 25, height: 25))
-        TwitterButton.backgroundColor = .blue
-        TwitterButton.setTitle("Twitter", for: .normal)
-        
-        let GitButton = UIButton(frame: CGRect(x: 25, y: 25, width: 25, height: 25))
-        GitButton.backgroundColor = .blue
-        GitButton.setTitle("GitHub", for: .normal)
-        
-        let image = UIImage(named: "play button") as UIImage?
-        let Gitbutton   = UIButton(type: UIButtonType.custom) as UIButton
-        Gitbutton.frame =  CGRect(x: 100, y: 100, width: 100, height: 100)
-        Gitbutton.setImage(image, for: .normal)
-        Gitbutton.addTarget(self, action: Selector(("btnTouched:")), for:.touchUpInside)
-        self.view.addSubview(Gitbutton)
-        
+		
         
         // Do any additional setup after loading the view.
     }
@@ -128,6 +104,9 @@ class ProfileController: UIViewController {
 	
 	@objc func ServicesButtonTapped(_ sender: UIButton) {
 		
+		//Segue between ViewControllers
+		let vc = streamingController() //view controller
+		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
@@ -135,6 +114,9 @@ class ProfileController: UIViewController {
 	
 	@objc func GenreSelectionButtonTapped(_ sender: UIButton) {
 		
+		//Segue between ViewControllers
+		let vc = selectionsController() //view controller
+		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
@@ -152,6 +134,15 @@ class ProfileController: UIViewController {
 	
 	@objc func InstagramButton(_ sender: UIButton) {
 		
+		openUrl(urlStr: "https://www.instagram.com/thetylerjp")
+	}
+	
+	func openUrl(urlStr:String!) {
+		
+		if let url = NSURL(string:urlStr) {
+			UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+		}
+
 	}
 	
 	

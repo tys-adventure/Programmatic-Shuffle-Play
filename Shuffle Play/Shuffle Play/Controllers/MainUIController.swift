@@ -44,17 +44,6 @@ class MainUIController: UIViewController {
 		animateGradient()
 
 		
-		//AutoLayout using UIViewAutoResizing
-		/*
-		let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 750, height: 1334))
-		mainView.backgroundColor = UIColor.blue
-		view.addSubview(mainView)
-		
-		mainView.translatesAutoresizingMaskIntoConstraints = true
-		mainView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-		mainView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
-		*/
-		
 		//Track Title Label
 		
 		let trackLabel = UILabel(frame: CGRect(x: 190, y: 400, width: 200, height: 21))
@@ -89,7 +78,7 @@ class MainUIController: UIViewController {
 		let menuButtonTapped = UIButton(type: UIButtonType.system) as UIButton
 		menuButtonTapped.frame = CGRect(x: 300, y: 50, width: 35, height: 35)
 		menuButtonTapped.tintColor=UIColor .black
-		menuButtonTapped.setTitle("Genre's", for: .normal)
+		menuButtonTapped.setTitle("Menu", for: .normal)
 		if let image  = UIImage(named: "menu-icon.png") {
 		menuButtonTapped.setImage(image, for: .normal)
 		}
@@ -99,7 +88,7 @@ class MainUIController: UIViewController {
 		let profileButtonTapped = UIButton(type: UIButtonType.system) as UIButton
 		profileButtonTapped.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
 		profileButtonTapped.tintColor=UIColor .black
-		profileButtonTapped.setTitle("Home", for: .normal)
+		profileButtonTapped.setTitle("Profile", for: .normal)
 		if let image  = UIImage(named: "profile-icon.png") {
 		profileButtonTapped.setImage(image, for: .normal)
 		}
@@ -172,9 +161,9 @@ class MainUIController: UIViewController {
 	
     //User Button controls--Play, Pause, Stop, Skip
 
-	var playButtonTapped : SPButton!
+	var playButtonTapped : UIButton!
     
-	@objc func playButtonTapped(_ sender: SPButton) {
+	@objc func playButtonTapped(_ sender: UIButton) {
         musicPlayer.shuffleMode = .songs
         musicPlayer.play()
         sender.pulsate()
@@ -183,7 +172,7 @@ class MainUIController: UIViewController {
     
 	var pauseButtonTapped : UIButton!
     
-    @objc func pauseButtonTapped(_ sender: SPButton) {
+    @objc func pauseButtonTapped(_ sender: UIButton) {
         
         musicPlayer.pause()
         sender.pulsate()
@@ -191,7 +180,7 @@ class MainUIController: UIViewController {
     
 	var previousButtonTapped : UIButton!
     
-    @objc func previousButtonTapped(_ sender: SPButton) {
+    @objc func previousButtonTapped(_ sender: UIButton) {
         
         musicPlayer.skipToPreviousItem()
         sender.pulsate()
@@ -199,13 +188,11 @@ class MainUIController: UIViewController {
     
 	var nextButtonTapped : UIButton!
     
-	@objc func nextButtonTapped(_ sender: SPButton) {
+	@objc func nextButtonTapped(_ sender: UIButton) {
         
         musicPlayer.skipToNextItem()
         sender.pulsate()
     }
-	
-	// override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
 	
 	// Now Playing
 	
