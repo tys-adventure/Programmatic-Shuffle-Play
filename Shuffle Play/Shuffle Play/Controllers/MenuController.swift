@@ -68,56 +68,79 @@ class MenuController: UIViewController {
 		// X = left to right
 		// Y = top to bottom
 		
-        let RockButton = UIButton(frame: CGRect(x: 50, y: 100, width: 260, height: 50))
+        let RockButton = UIButton(frame: CGRect(x: 55, y: 100, width: 260, height: 45))
 		RockButton.tintColor=UIColor .gray
+		RockButton.layer.cornerRadius = 5
+		RockButton.layer.borderWidth = 1
+		RockButton.layer.borderColor = UIColor.black.cgColor
         RockButton.setTitle("Rock", for: .normal)
 		RockButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		self.view.addSubview(RockButton)
         
-        let PopButton = UIButton(frame: CGRect(x: 50, y: 150, width: 260, height: 50))
+        let PopButton = UIButton(frame: CGRect(x: 55, y: 165, width: 260, height: 45))
 		PopButton.tintColor=UIColor .gray
+		PopButton.layer.cornerRadius = 5
+		PopButton.layer.borderWidth = 1
+		PopButton.layer.borderColor = UIColor.black.cgColor
 		PopButton.setTitle("Pop", for: .normal)
 		PopButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		self.view.addSubview(PopButton)
         
-        let HipHopButton = UIButton(frame: CGRect(x: 50, y: 200, width: 260, height: 50))
+        let HipHopButton = UIButton(frame: CGRect(x: 55, y: 230, width: 260, height: 45))
 		HipHopButton.tintColor=UIColor .gray
+		HipHopButton.layer.cornerRadius = 5
+		HipHopButton.layer.borderWidth = 1
+		HipHopButton.layer.borderColor = UIColor.black.cgColor
 		HipHopButton.setTitle("Hip-Hop", for: .normal)
 		HipHopButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		self.view.addSubview(HipHopButton)
         
-        let AlternativeButton = UIButton(frame: CGRect(x: 50, y: 250, width: 260, height: 50))
+        let AlternativeButton = UIButton(frame: CGRect(x: 55, y: 295, width: 260, height: 45))
 		AlternativeButton.tintColor=UIColor .gray
+		AlternativeButton.layer.cornerRadius = 5
+		AlternativeButton.layer.borderWidth = 1
+		AlternativeButton.layer.borderColor = UIColor.black.cgColor
 		AlternativeButton.setTitle("Alternative", for: .normal)
 		AlternativeButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		self.view.addSubview(AlternativeButton)
         
-        let RapButton = UIButton(frame: CGRect(x: 50, y: 300, width: 260, height: 50))
+        let RapButton = UIButton(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
 		RapButton.tintColor=UIColor .gray
+		RapButton.layer.cornerRadius = 5
+		RapButton.layer.borderWidth = 1
+		RapButton.layer.borderColor = UIColor.black.cgColor
 		RapButton.setTitle("Rap", for: .normal)
 		RapButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		self.view.addSubview(RapButton)
         
-        let RHButton = UIButton(frame: CGRect(x: 50, y: 350, width: 260, height: 50))
+        let RHButton = UIButton(frame: CGRect(x: 55, y: 425, width: 260, height: 45))
 		RHButton.tintColor=UIColor .gray
+		RHButton.layer.cornerRadius = 5
+		RHButton.layer.borderWidth = 1
+		RHButton.layer.borderColor = UIColor.black.cgColor
 		RHButton.setTitle("Hip Hop/Rap", for: .normal)
 		RHButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		self.view.addSubview(RHButton)
         
-        let PopRockButton = UIButton(frame: CGRect(x: 50, y: 400, width: 260, height: 50))
+        let PopRockButton = UIButton(frame: CGRect(x: 55, y: 490, width: 260, height: 45))
 		PopRockButton.tintColor=UIColor .gray
+		PopRockButton.layer.cornerRadius = 5
+		PopRockButton.layer.borderWidth = 1
+		PopRockButton.layer.borderColor = UIColor.black.cgColor
 		PopRockButton.setTitle("Pop/Rock", for: .normal)
 		PopRockButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		self.view.addSubview(PopRockButton)
         
-        let HeavyButton = UIButton(frame: CGRect(x: 50, y: 450, width: 260, height: 50))
+        let HeavyButton = UIButton(frame: CGRect(x: 55, y: 555, width: 260, height: 45))
 		HeavyButton.tintColor=UIColor .gray
+		HeavyButton.layer.cornerRadius = 5
+		HeavyButton.layer.borderWidth = 1
+		HeavyButton.layer.borderColor = UIColor.black.cgColor
 		HeavyButton.setTitle("Heavy Metal", for: .normal)
 		HeavyButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		self.view.addSubview(HeavyButton)
 		
-		
-        
+
         // Do any additional setup after loading the view.
     }
 	

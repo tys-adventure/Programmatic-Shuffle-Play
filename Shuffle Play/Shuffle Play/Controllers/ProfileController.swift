@@ -63,27 +63,36 @@ class ProfileController: UIViewController {
 		self.view.addSubview(profileButtonTapped)
 		
         //Buttons
-		// X = Top to Bottom
-		// Y = Left to Right
+		// Y = Top to Bottom
+		// X = Left to Right
+		
+		
+        let aboutSPButtonTapped = UIButton(frame: CGRect(x: 70, y: 200, width: 240, height: 50))
+		aboutSPButtonTapped.tintColor=UIColor .black
+		aboutSPButtonTapped.layer.cornerRadius = 5
+		aboutSPButtonTapped.layer.borderWidth = 1
+		aboutSPButtonTapped.layer.borderColor = UIColor.black.cgColor
+		aboutSPButtonTapped.setTitle("About Shuffle Play", for: .normal)
+		aboutSPButtonTapped.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
+		self.view.addSubview(aboutSPButtonTapped)
         
-        let ServicesButtonTapped = UIButton(frame: CGRect(x: 65, y: 200, width: 240, height: 50))
-		ServicesButtonTapped.tintColor=UIColor .black
-		ServicesButtonTapped.setTitle("Your Streaming Services", for: .normal)
-		ServicesButtonTapped.addTarget(self, action: #selector(ServicesButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(ServicesButtonTapped)
-        
-        let GenreSelectionButtonTapped = UIButton(frame: CGRect(x: 65, y: 300, width: 240, height: 50))
+        let GenreSelectionButtonTapped = UIButton(frame: CGRect(x: 70, y: 300, width: 240, height: 50))
 		GenreSelectionButtonTapped.tintColor=UIColor .black
+		GenreSelectionButtonTapped.layer.cornerRadius = 5
+		GenreSelectionButtonTapped.layer.borderWidth = 1
+		GenreSelectionButtonTapped.layer.borderColor = UIColor.black.cgColor
 		GenreSelectionButtonTapped.setTitle("Your Genre Selectons", for: .normal)
 		GenreSelectionButtonTapped.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
 		self.view.addSubview(GenreSelectionButtonTapped)
-        
-        let AboutButton = UIButton(frame: CGRect(x: 65, y: 400, width:240, height: 50))
+	
+        let AboutButton = UIButton(frame: CGRect(x: 70, y: 400, width:240, height: 50))
 		AboutButton.tintColor=UIColor .black
-		AboutButton.setTitle("About Shuffle Play", for: .normal)
+		AboutButton.layer.cornerRadius = 5
+		AboutButton.layer.borderWidth = 1
+		AboutButton.layer.borderColor = UIColor.black.cgColor
+		AboutButton.setTitle("About The Developer", for: .normal)
 		AboutButton.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
 		self.view.addSubview(AboutButton)
-		
         
         // Do any additional setup after loading the view.
     }
@@ -100,13 +109,14 @@ class ProfileController: UIViewController {
 		
 	}
 	
-	var ServicesButtonTapped : UIButton!
+	var aboutSPButtonTapped : UIButton!
 	
-	@objc func ServicesButtonTapped(_ sender: UIButton) {
+	@objc func aboutSPButtonTapped(_ sender: UIButton) {
 		
 		//Segue between ViewControllers
-		let vc = streamingController() //view controller
+		let vc = aboutSPController() //view controller
 		self.present(vc, animated: true, completion: nil)
+		sender.pulsate()
 		
 	}
 	
@@ -117,6 +127,7 @@ class ProfileController: UIViewController {
 		//Segue between ViewControllers
 		let vc = selectionsController() //view controller
 		self.present(vc, animated: true, completion: nil)
+		sender.pulsate()
 		
 	}
 	
@@ -127,6 +138,7 @@ class ProfileController: UIViewController {
 		//Segue between ViewControllers
 		let vc = aboutController() //view controller
 		self.present(vc, animated: true, completion: nil)
+		sender.pulsate()
 		
 	}
 	

@@ -43,7 +43,7 @@ class MainUIController: UIViewController {
 		
 		animateGradient()
 
-		
+		/*
 		//Track Title Label
 		
 		let trackLabel = UILabel(frame: CGRect(x: 190, y: 400, width: 200, height: 21))
@@ -59,7 +59,7 @@ class MainUIController: UIViewController {
 		artistLabel.textAlignment = .center
 		artistLabel.text = "------Artist Name------"
 		self.view.addSubview(artistLabel)
-		
+		*/
 		
 		
 		//UIImageView for Album Art
@@ -98,6 +98,9 @@ class MainUIController: UIViewController {
 		let playButtonTapped = UIButton(type: UIButtonType.system) as UIButton
 		playButtonTapped.frame = CGRect(x: 225, y: 500, width: 120, height: 50)
 		playButtonTapped.tintColor=UIColor .black
+		playButtonTapped.layer.cornerRadius = 5
+		playButtonTapped.layer.borderWidth = 1
+		playButtonTapped.layer.borderColor = UIColor.black.cgColor
 		if let image  = UIImage(named: "play-control-button.png") {
 			playButtonTapped.setImage(image, for: .normal)
 		}
@@ -108,6 +111,9 @@ class MainUIController: UIViewController {
 		let pauseButtonTapped = UIButton(type: UIButtonType.system) as UIButton
 		pauseButtonTapped.frame = CGRect(x: 30, y: 500, width: 120, height: 50)
 		pauseButtonTapped.tintColor=UIColor .black
+		pauseButtonTapped.layer.cornerRadius = 5
+		pauseButtonTapped.layer.borderWidth = 1
+		pauseButtonTapped.layer.borderColor = UIColor.black.cgColor
 		if let image  = UIImage(named: "pause.png") {
 			pauseButtonTapped.setImage(image, for: .normal)
 		}
@@ -118,6 +124,9 @@ class MainUIController: UIViewController {
 		let previousButtonTapped = UIButton(type: UIButtonType.system) as UIButton
 		previousButtonTapped.frame = CGRect(x: 30, y: 575, width: 120, height: 50)
 		previousButtonTapped.tintColor=UIColor .black
+		previousButtonTapped.layer.cornerRadius = 5
+		previousButtonTapped.layer.borderWidth = 1
+		previousButtonTapped.layer.borderColor = UIColor.black.cgColor
 		if let image  = UIImage(named: "previous.png") {
 			previousButtonTapped.setImage(image, for: .normal)
 		}
@@ -128,6 +137,9 @@ class MainUIController: UIViewController {
 		let nextButtonTapped = UIButton(type: UIButtonType.system) as UIButton
 		nextButtonTapped.frame = CGRect(x: 225, y: 575, width: 120, height: 50)
 		nextButtonTapped.tintColor=UIColor .black
+		nextButtonTapped.layer.cornerRadius = 5
+		nextButtonTapped.layer.borderWidth = 1
+		nextButtonTapped.layer.borderColor = UIColor.black.cgColor
 		if let image  = UIImage(named: "next-track.png") {
 			nextButtonTapped.setImage(image, for: .normal)
 		}

@@ -1,17 +1,15 @@
 //
-//  streamingController.swift
+//  aboutSPController.swift
 //  Shuffle Play
 //
-//  Created by Tyler Phillips on 1/28/18.
+//  Created by Tyler Phillips on 2/4/18.
 //  Copyright © 2018 Tyler Phillips. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-import UIKit
-
-class streamingController: UIViewController {
+class aboutSPController: UIViewController {
 	
 	//UIGradient Color
 	let gradient = CAGradientLayer()
@@ -49,45 +47,64 @@ class streamingController: UIViewController {
 		let profileButton = UIButton(type: UIButtonType.system) as UIButton
 		profileButton.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
 		profileButton.tintColor=UIColor .black
-		profileButton.setTitle("Profile", for: .normal)
+		profileButton.setTitle("Home", for: .normal)
 		if let image  = UIImage(named: "profile-icon.png") {
 			profileButton.setImage(image, for: .normal)
 		}
 		profileButton.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
 		self.view.addSubview(profileButton)
 		
+		//SP Logo Image
+		
+		let imageName = "SPEmoji.png"
+		let image = UIImage(named: imageName)
+		let logoView = UIImageView(image: image!)
+		
+		logoView.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+		view.addSubview(logoView)
+		
+		
 		//About Label
 		
-		let streamingLabel = UILabel(frame: CGRect(x: 190, y: 450, width: 200, height: 21))
-		streamingLabel.center = CGPoint(x: 190, y: 50)
-		streamingLabel.textAlignment = .center
-		streamingLabel.text = "Streaming Services"
-		self.view.addSubview(streamingLabel)
+		let aboutLabel = UILabel(frame: CGRect(x: 190, y: 450, width: 200, height: 21))
+		aboutLabel.center = CGPoint(x: 190, y: 50)
+		aboutLabel.textAlignment = .center
+		aboutLabel.text = "About Shuffle Play"
+		self.view.addSubview(aboutLabel)
 		
-		let appleButton = UIButton(frame: CGRect(x: 50, y: 100, width: 192, height: 192))
-		appleButton.tintColor=UIColor .black
-		appleButton.setTitle("Apple Music", for: .normal)
+		//Feedback Button
 		/*
-		if let image  = UIImage(named: "apple-music-logo.png") {
-			appleButton.setImage(image, for: .normal)
-		} */
-		appleButton.addTarget(self, action: #selector(appleButton(_:)), for:.touchUpInside)
-		self.view.addSubview(appleButton)
+		let feedbackButton = UIButton(frame: CGRect(x: 55, y: 555, width: 260, height: 45))
+		feedbackButton.tintColor=UIColor .gray
+		feedbackButton.layer.cornerRadius = 5
+		feedbackButton.layer.borderWidth = 1
+		feedbackButton.layer.borderColor = UIColor.black.cgColor
+		feedbackButton.setTitle("Give me feedback!", for: .normal)
+		feedbackButton.addTarget(self, action: #selector(feedbackButton(_:)), for:.touchUpInside)
+		self.view.addSubview(feedbackButton)
+		*/
 		
-
-		let spotifyButton = UIButton(frame: CGRect(x: 50, y: 450, width: 192, height: 170))
-		spotifyButton.tintColor=UIColor .black
-		spotifyButton.setTitle("Spotify", for: .normal)
-		/*
-		if let image  = UIImage(named: "spotify-logo-2.png") {
-			spotifyButton.setImage(image, for: .normal)
-		} */
-		spotifyButton.addTarget(self, action: #selector(spotifyButton(_:)), for:.touchUpInside)
-		self.view.addSubview(spotifyButton)
+		//About Paragraph/Label
+	
+		let aboutSPLabel = UILabel(frame: CGRect(x: 265, y: 300, width: 400, height: 200))
+		aboutSPLabel.center = CGPoint(x: 265, y: 300)
+		aboutSPLabel.textAlignment = .center
+		aboutSPLabel.numberOfLines = 0
+		aboutSPLabel.lineBreakMode = .byWordWrapping
+		aboutSPLabel.textColor = UIColor.black
+		aboutSPLabel.font = UIFont(name:"Avenir Next", size: 25.0)
+		aboutSPLabel.text = "Shuffle Play shuffles your locally stored library from Apple Music, or your iPhone's storage. Allowing you to choose a genre and listen!"
+		aboutSPLabel.frame.size.width = 250
+		aboutSPLabel.sizeToFit()
+		self.view.addSubview(aboutSPLabel)
 		
 		
 		// Do any additional setup after loading the view.
 	}
+	
+	//SP Logo Func
+	
+	var logoView : UIImageView!
 	
 	//Profile Button Func
 	
@@ -101,19 +118,21 @@ class streamingController: UIViewController {
 		
 	}
 	
-	//Apple Music Button
-	var appleButton : UIButton!
 	
-	@objc func appleButton(_ sender: UIButton) {
+	//Feedback Button Func
+	
+	var feedbackButton : UIButton!
+	
+	@objc func feedbackButton(_ sender: UIButton) {
 		
-		
+		openUrl(urlStr: "thetylerjp@icloud.com")
 	}
 	
-	//Spotify Music Button
-	var spotifyButton : UIButton!
-	
-	@objc func spotifyButton(_ sender: UIButton) {
+	func openUrl(urlStr:String!) {
 		
+		if let url = NSURL(string:urlStr) {
+			UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+		}
 		
 	}
 	
@@ -143,7 +162,7 @@ class streamingController: UIViewController {
 	
 }
 
-extension streamingController: CAAnimationDelegate {
+extension aboutSPController: CAAnimationDelegate {
 	func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
 		if flag {
 			gradient.colors = gradientSet[currentGradient]
@@ -157,5 +176,7 @@ extension streamingController: CAAnimationDelegate {
 	
 	
 	
+	
+	
+	
 }
-

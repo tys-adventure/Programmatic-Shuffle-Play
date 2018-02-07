@@ -62,6 +62,18 @@ class selectionsController: UIViewController {
 		selectionsLabel.text = "Your Genre Selections"
 		self.view.addSubview(selectionsLabel)
 		
+		let soonLabel = UILabel(frame: CGRect(x: 280, y: 300, width: 400, height: 200))
+		soonLabel.center = CGPoint(x: 280, y: 300)
+		soonLabel.textAlignment = .center
+		soonLabel.numberOfLines = 0
+		soonLabel.lineBreakMode = .byWordWrapping
+		soonLabel.textColor = UIColor.black
+		soonLabel.font = UIFont(name:"Avenir Next", size: 25.0)
+		soonLabel.text = "Genre Selections is coming soon, in a future update!"
+		soonLabel.frame.size.width = 250
+		soonLabel.sizeToFit()
+		self.view.addSubview(soonLabel)
+		
 		
 		// Do any additional setup after loading the view.
 }

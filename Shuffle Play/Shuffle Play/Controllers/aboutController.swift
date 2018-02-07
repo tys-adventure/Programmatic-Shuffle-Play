@@ -56,11 +56,13 @@ class aboutController: UIViewController {
 		
 		//SP Logo Image
 		
-		let imageName = "SPEmoji.png"
+		let imageName = "tyler2.png"
 		let image = UIImage(named: imageName)
 		let logoView = UIImageView(image: image!)
+		logoView.layer.cornerRadius = 5
+		logoView.clipsToBounds = true
 		
-		logoView.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+		logoView.frame = CGRect(x: 135, y: 100, width: 110, height: 110)
 		view.addSubview(logoView)
 		
 		
@@ -69,7 +71,7 @@ class aboutController: UIViewController {
 		let aboutLabel = UILabel(frame: CGRect(x: 190, y: 450, width: 200, height: 21))
 		aboutLabel.center = CGPoint(x: 190, y: 50)
 		aboutLabel.textAlignment = .center
-		aboutLabel.text = "About Shuffle Play"
+		aboutLabel.text = "About The Developer"
 		self.view.addSubview(aboutLabel)
 		
 		//Social Buttons
@@ -92,23 +94,28 @@ class aboutController: UIViewController {
 		TwitterButton.addTarget(self, action: #selector(TwitterButton(_:)), for:.touchUpInside)
 		self.view.addSubview(TwitterButton)
 		
-		let GitButton = UIButton(frame: CGRect(x: 275, y: 575, width: 45, height: 45))
-		GitButton.tintColor=UIColor .black
-		GitButton.setTitle("GitHub", for: .normal)
-			if let image  = UIImage(named: "github-logo2.png") {
-				GitButton.setImage(image, for: .normal)
+		let webButton = UIButton(frame: CGRect(x: 275, y: 575, width: 45, height: 45))
+		webButton.tintColor=UIColor .black
+		webButton.setTitle("GitHub", for: .normal)
+			if let image  = UIImage(named: "globeicon2.png") {
+				webButton.setImage(image, for: .normal)
 			}
-		GitButton.addTarget(self, action: #selector(GitButton(_:)), for:.touchUpInside)
-		self.view.addSubview(GitButton)
+		webButton.addTarget(self, action: #selector(webButton(_:)), for:.touchUpInside)
+		self.view.addSubview(webButton)
 		
 		//About Paragraph/Label
 		
-		let aboutParagraph = UILabel(frame: CGRect(x: 50, y: 300, width: 200, height: 21))
-		aboutParagraph.center = CGPoint(x: 200, y: 300)
-		aboutParagraph.textAlignment = .center
-		aboutParagraph.text = "Tid Bits about Shuffle Play bla blah blah blah blah blah blah"
-		aboutParagraph.sizeToFit()
-		self.view.addSubview(aboutParagraph)
+		let aboutSPLabel = UILabel(frame: CGRect(x: 265, y: 340, width: 400, height: 200))
+		aboutSPLabel.center = CGPoint(x: 265, y: 340)
+		aboutSPLabel.textAlignment = .center
+		aboutSPLabel.numberOfLines = 0
+		aboutSPLabel.lineBreakMode = .byWordWrapping
+		aboutSPLabel.textColor = UIColor.black
+		aboutSPLabel.font = UIFont(name:"Avenir Next", size: 19.0)
+		aboutSPLabel.text = "I'm Tyler, a 24 yearold iOS Developer from Cleveland, Ohio. Shuffle Play is my first iOS app, created with 2 goals. First is to create a platfrom where you can choose what genre you want to listen to. Second is to learn as much as I can while building Shuffle Play!"
+		aboutSPLabel.frame.size.width = 250
+		aboutSPLabel.sizeToFit()
+		self.view.addSubview(aboutSPLabel)
 	
 		
 		// Do any additional setup after loading the view.
@@ -167,11 +174,11 @@ class aboutController: UIViewController {
 	
 	//Git Button Func
 	
-	var GitButton : UIButton!
+	var webButton : UIButton!
 	
-	@objc func GitButton(_ sender: UIButton) {
+	@objc func webButton(_ sender: UIButton) {
 		
-		openUrl3(urlStr: "https://www.github.com/thetylerjp")
+		openUrl3(urlStr: "https://www.tylerjphillips.xyz")
 	}
 	
 	func openUrl3(urlStr:String!) {

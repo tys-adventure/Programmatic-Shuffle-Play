@@ -15,6 +15,7 @@
 		5C1B38651FE86197003179A1 /* Shuffle_PlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B38641FE86197003179A1 /* Shuffle_PlayTests.swift */; };
 		5C1B38701FE86197003179A1 /* Shuffle_PlayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B386F1FE86197003179A1 /* Shuffle_PlayUITests.swift */; };
 		5C1B387E1FE861EB003179A1 /* GenreButtonScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B387D1FE861EB003179A1 /* GenreButtonScreen.swift */; };
+		5C286CA42027E02200DD90FB /* aboutSPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C286CA32027E02200DD90FB /* aboutSPController.swift */; };
 		5C698CAE20099745005FD7C4 /* MainUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CAD20099745005FD7C4 /* MainUIController.swift */; };
 		5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CAF2009975A005FD7C4 /* MenuController.swift */; };
 		5C698CB22009976C005FD7C4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CB12009976C005FD7C4 /* ProfileController.swift */; };
@@ -56,6 +57,7 @@
 		5C1B386F1FE86197003179A1 /* Shuffle_PlayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shuffle_PlayUITests.swift; sourceTree = "<group>"; };
 		5C1B38711FE86197003179A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C1B387D1FE861EB003179A1 /* GenreButtonScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreButtonScreen.swift; sourceTree = "<group>"; };
+		5C286CA32027E02200DD90FB /* aboutSPController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutSPController.swift; sourceTree = "<group>"; };
 		5C698CAD20099745005FD7C4 /* MainUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIController.swift; sourceTree = "<group>"; };
 		5C698CAF2009975A005FD7C4 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		5C698CB12009976C005FD7C4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				5CEF02A1201D3DDB00D63D3E /* aboutController.swift */,
 				5CEF02A3201E34F800D63D3E /* selectionsController.swift */,
 				5CEF02A5201E353100D63D3E /* streamingController.swift */,
+				5C286CA32027E02200DD90FB /* aboutSPController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */,
 				5C1B387E1FE861EB003179A1 /* GenreButtonScreen.swift in Sources */,
 				5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */,
+				5C286CA42027E02200DD90FB /* aboutSPController.swift in Sources */,
 				5C698CAE20099745005FD7C4 /* MainUIController.swift in Sources */,
 				5CEF02A2201D3DDB00D63D3E /* aboutController.swift in Sources */,
 			);
