@@ -11,6 +11,50 @@ import UIKit
 
 class aboutSPController: UIViewController {
 	
+	//Profile UIButton
+	let profileButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("Profile", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+			if let homeImage  = UIImage(named: "profile-icon2.png") {
+				button.setImage(homeImage, for: .normal)
+			}
+		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//Tyler imageView
+	let shuffleImageView: UIImageView = {
+		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		return imageView
+	}()
+	
+	//Profile Shuffle Play textView
+	let aboutLabelTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 25.0)
+		textView.font = UIFont.boldSystemFont(ofSize: 18)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.text = "About Shuffle Play"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
+	//About Shuffle Play textView
+	let aboutTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 25.0)
+		textView.font = UIFont.boldSystemFont(ofSize: 18)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.text = "Have you ever wanted to listen to a specific genre? Shuffle Play let's you do just that! Using your locally stored library from Apple Music, or your iPhone's storage, Shuffle Play shuffles the music on your phone by genre. Allowing you to choose a genre and listen!"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
 	//UIGradient Color
 	let gradient = CAGradientLayer()
 	var gradientSet = [[CGColor]]()
@@ -40,75 +84,50 @@ class aboutSPController: UIViewController {
 		animateGradient()
 		
 		
-		//Menu Button
-		// X = Top to Bottom
-		// Y = Left to Right
+		//setupLayout
 		
-		let profileButton = UIButton(type: UIButtonType.system) as UIButton
-		profileButton.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
-		profileButton.tintColor=UIColor .black
-		profileButton.setTitle("Home", for: .normal)
-		if let image  = UIImage(named: "profile-icon.png") {
-			profileButton.setImage(image, for: .normal)
-		}
-		profileButton.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
-		self.view.addSubview(profileButton)
+		view.addSubview(profileButton)
+		view.addSubview(aboutLabelTextView)
+		view.addSubview(shuffleImageView)
+		view.addSubview(aboutTextView)
 		
-		//SP Logo Image
-		
-		let imageName = "SPEmoji.png"
-		let image = UIImage(named: imageName)
-		let logoView = UIImageView(image: image!)
-		
-		logoView.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
-		view.addSubview(logoView)
-		
-		
-		//About Label
-		
-		let aboutLabel = UILabel(frame: CGRect(x: 190, y: 450, width: 200, height: 21))
-		aboutLabel.center = CGPoint(x: 190, y: 50)
-		aboutLabel.textAlignment = .center
-		aboutLabel.text = "About Shuffle Play"
-		self.view.addSubview(aboutLabel)
-		
-		//Feedback Button
-		/*
-		let feedbackButton = UIButton(frame: CGRect(x: 55, y: 555, width: 260, height: 45))
-		feedbackButton.tintColor=UIColor .gray
-		feedbackButton.layer.cornerRadius = 5
-		feedbackButton.layer.borderWidth = 1
-		feedbackButton.layer.borderColor = UIColor.black.cgColor
-		feedbackButton.setTitle("Give me feedback!", for: .normal)
-		feedbackButton.addTarget(self, action: #selector(feedbackButton(_:)), for:.touchUpInside)
-		self.view.addSubview(feedbackButton)
-		*/
-		
-		//About Paragraph/Label
+		setupLayout()
+
 	
-		let aboutSPLabel = UILabel(frame: CGRect(x: 265, y: 300, width: 400, height: 200))
-		aboutSPLabel.center = CGPoint(x: 265, y: 300)
-		aboutSPLabel.textAlignment = .center
-		aboutSPLabel.numberOfLines = 0
-		aboutSPLabel.lineBreakMode = .byWordWrapping
-		aboutSPLabel.textColor = UIColor.black
-		aboutSPLabel.font = UIFont(name:"Avenir Next", size: 25.0)
-		aboutSPLabel.text = "Shuffle Play shuffles your locally stored library from Apple Music, or your iPhone's storage. Allowing you to choose a genre and listen!"
-		aboutSPLabel.frame.size.width = 250
-		aboutSPLabel.sizeToFit()
-		self.view.addSubview(aboutSPLabel)
-		
-		
 		// Do any additional setup after loading the view.
 	}
 	
-	//SP Logo Func
-	
-	var logoView : UIImageView!
+	private func setupLayout() {
+		
+		aboutLabelTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		aboutLabelTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		aboutLabelTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		aboutLabelTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+		aboutLabelTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+		
+		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
+		
+		shuffleImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		shuffleImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+		shuffleImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+		shuffleImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+		
+		aboutTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		aboutTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		aboutTextView.widthAnchor.constraint(equalToConstant: 400).isActive = true
+		aboutTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+		aboutTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+		aboutTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+		
+	}
+
 	
 	//Profile Button Func
 	
-	var profileButton : UIButton!
+	
 	
 	@objc func profileButton(_ sender: UIButton) {
 		
@@ -118,23 +137,6 @@ class aboutSPController: UIViewController {
 		
 	}
 	
-	
-	//Feedback Button Func
-	
-	var feedbackButton : UIButton!
-	
-	@objc func feedbackButton(_ sender: UIButton) {
-		
-		openUrl(urlStr: "thetylerjp@icloud.com")
-	}
-	
-	func openUrl(urlStr:String!) {
-		
-		if let url = NSURL(string:urlStr) {
-			UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
-		}
-		
-	}
 	
 	//UIGradient Func
 	override func viewDidAppear(_ animated: Bool) {
@@ -162,13 +164,7 @@ class aboutSPController: UIViewController {
 	
 }
 
-extension aboutSPController: CAAnimationDelegate {
-	func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-		if flag {
-			gradient.colors = gradientSet[currentGradient]
-			animateGradient()
-		}
-	}
+
 	
 	
 	
@@ -178,5 +174,4 @@ extension aboutSPController: CAAnimationDelegate {
 	
 	
 	
-	
-}
+

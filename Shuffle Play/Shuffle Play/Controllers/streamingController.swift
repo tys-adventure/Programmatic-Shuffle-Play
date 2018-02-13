@@ -143,13 +143,7 @@ class streamingController: UIViewController {
 	
 }
 
-extension streamingController: CAAnimationDelegate {
-	func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-		if flag {
-			gradient.colors = gradientSet[currentGradient]
-			animateGradient()
-		}
-	}
+
 	
 	
 	
@@ -157,5 +151,5 @@ extension streamingController: CAAnimationDelegate {
 	
 	
 	
-}
+
 

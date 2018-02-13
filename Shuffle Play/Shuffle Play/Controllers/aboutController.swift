@@ -10,7 +10,95 @@ import Foundation
 import UIKit
 
 class aboutController: UIViewController {
+	
+	//Profile UIButton
+	let profileButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("Profile", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+			if let homeImage  = UIImage(named: "profile-icon2.png") {
+				button.setImage(homeImage, for: .normal)
+				button.tintColor = UIColor.black
+			}
+		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
 
+	let instaButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("Instagram", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		if let homeImage  = UIImage(named: "insta-logo-2.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		button.addTarget(self, action: #selector(instaButton(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	let twitterButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("Twitter", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		if let homeImage  = UIImage(named: "twitter-logo-3.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		button.addTarget(self, action: #selector(twitterButton(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	let webButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("My Website", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		if let homeImage  = UIImage(named: "globeicon2.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		button.addTarget(self, action: #selector(webButton(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+
+	
+	//Tyler Image View
+	let tylerImageView: UIImageView = {
+		let imageView = UIImageView(image: #imageLiteral(resourceName: "tyler2"))
+		imageView.layer.cornerRadius = 5
+		imageView.clipsToBounds = true
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		return imageView
+	}()
+	
+	//About Developer textView
+	let aboutTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 25.0)
+		textView.font = UIFont.boldSystemFont(ofSize: 18)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.text = "About The Developer"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
+	//About Tyler textView
+	let aboutTylerTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 18.0)
+		//textView.font = UIFont.boldSystemFont(ofSize: 18)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.text = "I'm Tyler, a 24 yearold iOS Developer from Cleveland, Ohio. Shuffle Play is my first iOS app, created with 2 goals. First is to create a platfrom where you can choose what genre you want to listen to. Second is to learn as much as I can while building Shuffle Play!"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
+	
 	//UIGradient Color
 	let gradient = CAGradientLayer()
 	var gradientSet = [[CGColor]]()
@@ -39,86 +127,65 @@ class aboutController: UIViewController {
 		
 		animateGradient()
 		
+		//setupLayout
 		
-		//Menu Button
-		// X = Top to Bottom
-		// Y = Left to Right
+		view.addSubview(aboutTylerTextView)
+		view.addSubview(aboutTextView)
+		view.addSubview(profileButton)
+		view.addSubview(tylerImageView)
+		view.addSubview(instaButton)
+		view.addSubview(twitterButton)
+		view.addSubview(webButton)
 		
-		let profileButton = UIButton(type: UIButtonType.system) as UIButton
-		profileButton.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
-		profileButton.tintColor=UIColor .black
-		profileButton.setTitle("Home", for: .normal)
-			if let image  = UIImage(named: "profile-icon.png") {
-				profileButton.setImage(image, for: .normal)
-			}
-		profileButton.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
-		self.view.addSubview(profileButton)
-		
-		//SP Logo Image
-		
-		let imageName = "tyler2.png"
-		let image = UIImage(named: imageName)
-		let logoView = UIImageView(image: image!)
-		logoView.layer.cornerRadius = 5
-		logoView.clipsToBounds = true
-		
-		logoView.frame = CGRect(x: 135, y: 100, width: 110, height: 110)
-		view.addSubview(logoView)
-		
-		
-		//About Label
-		
-		let aboutLabel = UILabel(frame: CGRect(x: 190, y: 450, width: 200, height: 21))
-		aboutLabel.center = CGPoint(x: 190, y: 50)
-		aboutLabel.textAlignment = .center
-		aboutLabel.text = "About The Developer"
-		self.view.addSubview(aboutLabel)
-		
-		//Social Buttons
-		
-		let InstagramButton = UIButton(frame: CGRect(x: 50, y: 575, width: 45, height: 45))
-		InstagramButton.tintColor=UIColor .black
-		InstagramButton.setTitle("Instagram", for: .normal)
-			if let image  = UIImage(named: "insta-logo-2.png") {
-				InstagramButton.setImage(image, for: .normal)
-			}
-		InstagramButton.addTarget(self, action: #selector(InstagramButton(_:)), for:.touchUpInside)
-		self.view.addSubview(InstagramButton)
-		
-		let TwitterButton = UIButton(frame: CGRect(x: 165, y: 575, width: 45, height: 45))
-		TwitterButton.tintColor=UIColor .black
-		TwitterButton.setTitle("Twitter", for: .normal)
-			if let image  = UIImage(named: "twitter-logo-3.png") {
-				TwitterButton.setImage(image, for: .normal)
-			}
-		TwitterButton.addTarget(self, action: #selector(TwitterButton(_:)), for:.touchUpInside)
-		self.view.addSubview(TwitterButton)
-		
-		let webButton = UIButton(frame: CGRect(x: 275, y: 575, width: 45, height: 45))
-		webButton.tintColor=UIColor .black
-		webButton.setTitle("GitHub", for: .normal)
-			if let image  = UIImage(named: "globeicon2.png") {
-				webButton.setImage(image, for: .normal)
-			}
-		webButton.addTarget(self, action: #selector(webButton(_:)), for:.touchUpInside)
-		self.view.addSubview(webButton)
-		
-		//About Paragraph/Label
-		
-		let aboutSPLabel = UILabel(frame: CGRect(x: 265, y: 340, width: 400, height: 200))
-		aboutSPLabel.center = CGPoint(x: 265, y: 340)
-		aboutSPLabel.textAlignment = .center
-		aboutSPLabel.numberOfLines = 0
-		aboutSPLabel.lineBreakMode = .byWordWrapping
-		aboutSPLabel.textColor = UIColor.black
-		aboutSPLabel.font = UIFont(name:"Avenir Next", size: 19.0)
-		aboutSPLabel.text = "I'm Tyler, a 24 yearold iOS Developer from Cleveland, Ohio. Shuffle Play is my first iOS app, created with 2 goals. First is to create a platfrom where you can choose what genre you want to listen to. Second is to learn as much as I can while building Shuffle Play!"
-		aboutSPLabel.frame.size.width = 250
-		aboutSPLabel.sizeToFit()
-		self.view.addSubview(aboutSPLabel)
-	
-		
+		setupLayout()
+
 		// Do any additional setup after loading the view.
+	}
+	
+	private func setupLayout() {
+		
+		aboutTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		aboutTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		aboutTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		aboutTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+		aboutTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+		
+		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
+		
+		instaButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		instaButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
+		instaButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
+		instaButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		twitterButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		twitterButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
+		twitterButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
+		twitterButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		twitterButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 75).isActive = true
+		
+		webButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		webButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
+		webButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
+		webButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		webButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -80).isActive = true
+		
+		tylerImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		tylerImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+		tylerImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
+		tylerImageView.heightAnchor.constraint(equalToConstant: 110).isActive = true
+		
+		aboutTylerTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		aboutTylerTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		aboutTylerTextView.widthAnchor.constraint(equalToConstant: 400).isActive = true
+		aboutTylerTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+		aboutTylerTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+		aboutTylerTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+		
+
+		
 	}
 	
 	//SP Logo Func
@@ -127,8 +194,7 @@ class aboutController: UIViewController {
 	
 	//Profile Button Func
 	
-	var profileButton : UIButton!
-	
+
 	@objc func profileButton(_ sender: UIButton) {
 		
 		//Segue between ViewControllers
@@ -139,10 +205,8 @@ class aboutController: UIViewController {
 	
 	
 	//Instagram Button Func
-	
-	var InstagramButton : UIButton!
-	
-	@objc func InstagramButton(_ sender: UIButton) {
+
+	@objc func instaButton(_ sender: UIButton) {
 		
 		openUrl(urlStr: "https://www.instagram.com/thetylerjp")
 	}
@@ -156,10 +220,8 @@ class aboutController: UIViewController {
 	}
 	
 	//Twitter Button Func
-	
-	var TwitterButton : UIButton!
-	
-	@objc func TwitterButton(_ sender: UIButton) {
+
+	@objc func twitterButton(_ sender: UIButton) {
 		
 		openUrl2(urlStr: "https://www.twitter.com/thetylerjp")
 	}
@@ -172,9 +234,7 @@ class aboutController: UIViewController {
 		
 	}
 	
-	//Git Button Func
-	
-	var webButton : UIButton!
+	//Web Button Func
 	
 	@objc func webButton(_ sender: UIButton) {
 		
@@ -214,23 +274,5 @@ class aboutController: UIViewController {
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}
 	
-	}
-
-	extension aboutController: CAAnimationDelegate {
-		func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-			if flag {
-				gradient.colors = gradientSet[currentGradient]
-				animateGradient()
-			}
-		}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
+

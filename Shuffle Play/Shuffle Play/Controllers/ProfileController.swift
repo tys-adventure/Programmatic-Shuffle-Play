@@ -14,6 +14,77 @@ class ProfileController: UIViewController {
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	var nowPlayingInfo = MPNowPlayingInfoCenter.self
 
+	
+	//Profile UIButton
+	let profileButtonTapped: UIButton = {
+		let button = UIButton()
+		button.setTitle("Home", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+			if let homeImage  = UIImage(named: "home-icon.png") {
+					button.setImage(homeImage, for: .normal)
+				}
+		button.addTarget(self, action: #selector(profileButtonTapped(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//Profile Shuffle Play textView
+	let profileTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 25.0)
+		textView.font = UIFont.boldSystemFont(ofSize: 18)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.text = "Your Profile"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
+	//AboutSPButton
+	let aboutSPButtonTapped: UIButton = {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("About Shuffle Play", for: .normal)
+		button.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//Selections Button
+	let GenreSelectionButtonTapped: UIButton = {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("Genre Selections", for: .normal)
+		button.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//About Button
+	let AboutButton: UIButton = {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("About The Developer", for: .normal)
+		button.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
 	//UIGradient Color
 	let gradient = CAGradientLayer()
 	var gradientSet = [[CGColor]]()
@@ -42,64 +113,49 @@ class ProfileController: UIViewController {
 		
 		animateGradient()
 		
-		//Profile Label
+		view.addSubview(profileButtonTapped)
+		view.addSubview(profileTextView)
+		view.addSubview(aboutSPButtonTapped)
+		view.addSubview(AboutButton)
+		view.addSubview(GenreSelectionButtonTapped)
 		
-		let profileLabel = UILabel(frame: CGRect(x: 190, y: 450, width: 200, height: 21))
-		profileLabel.center = CGPoint(x: 190, y: 50)
-		profileLabel.textAlignment = .center
-		profileLabel.text = "Profile"
-		self.view.addSubview(profileLabel)
-
-		//Menu Button
+		setupLayout()
 		
-		let profileButtonTapped = UIButton(type: UIButtonType.system) as UIButton
-		profileButtonTapped.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
-		profileButtonTapped.tintColor=UIColor .black
-		profileButtonTapped.setTitle("Home", for: .normal)
-		if let image  = UIImage(named: "home-icon.png") {
-		profileButtonTapped.setImage(image, for: .normal)
-		}
-		profileButtonTapped.addTarget(self, action: #selector(profileButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(profileButtonTapped)
-		
-        //Buttons
-		// Y = Top to Bottom
-		// X = Left to Right
-		
-		
-        let aboutSPButtonTapped = UIButton(frame: CGRect(x: 70, y: 200, width: 240, height: 50))
-		aboutSPButtonTapped.tintColor=UIColor .black
-		aboutSPButtonTapped.layer.cornerRadius = 5
-		aboutSPButtonTapped.layer.borderWidth = 1
-		aboutSPButtonTapped.layer.borderColor = UIColor.black.cgColor
-		aboutSPButtonTapped.setTitle("About Shuffle Play", for: .normal)
-		aboutSPButtonTapped.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(aboutSPButtonTapped)
-        
-        let GenreSelectionButtonTapped = UIButton(frame: CGRect(x: 70, y: 300, width: 240, height: 50))
-		GenreSelectionButtonTapped.tintColor=UIColor .black
-		GenreSelectionButtonTapped.layer.cornerRadius = 5
-		GenreSelectionButtonTapped.layer.borderWidth = 1
-		GenreSelectionButtonTapped.layer.borderColor = UIColor.black.cgColor
-		GenreSelectionButtonTapped.setTitle("Your Genre Selectons", for: .normal)
-		GenreSelectionButtonTapped.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(GenreSelectionButtonTapped)
-	
-        let AboutButton = UIButton(frame: CGRect(x: 70, y: 400, width:240, height: 50))
-		AboutButton.tintColor=UIColor .black
-		AboutButton.layer.cornerRadius = 5
-		AboutButton.layer.borderWidth = 1
-		AboutButton.layer.borderColor = UIColor.black.cgColor
-		AboutButton.setTitle("About The Developer", for: .normal)
-		AboutButton.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
-		self.view.addSubview(AboutButton)
-        
         // Do any additional setup after loading the view.
     }
+	
+	
+	private func setupLayout() {
+	
+		profileButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		profileButtonTapped.widthAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
+		
+		profileTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		profileTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		profileTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		profileTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+		profileTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+		
+		AboutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		AboutButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+		AboutButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		AboutButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		GenreSelectionButtonTapped.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		GenreSelectionButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+		GenreSelectionButtonTapped.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		GenreSelectionButtonTapped.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		aboutSPButtonTapped.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		aboutSPButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+		aboutSPButtonTapped.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		aboutSPButtonTapped.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+	}
 
 	//Button functions
-	
-	var profileButtonTapped : UIButton!
 	
 	@objc func profileButtonTapped(_ sender: UIButton) {
 		
@@ -109,7 +165,7 @@ class ProfileController: UIViewController {
 		
 	}
 	
-	var aboutSPButtonTapped : UIButton!
+
 	
 	@objc func aboutSPButtonTapped(_ sender: UIButton) {
 		
@@ -120,7 +176,7 @@ class ProfileController: UIViewController {
 		
 	}
 	
-	var GenreSelectionButtonTapped : UIButton!
+
 	
 	@objc func GenreSelectionButtonTapped(_ sender: UIButton) {
 		
@@ -131,7 +187,6 @@ class ProfileController: UIViewController {
 		
 	}
 	
-	var AboutButton : UIButton!
 	
 	@objc func AboutButton(_ sender: UIButton) {
 		
@@ -184,13 +239,7 @@ class ProfileController: UIViewController {
 	
 	}
 
-	extension MenuController: CAAnimationDelegate {
-		func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-			if flag {
-				gradient.colors = gradientSet[currentGradient]
-				animateGradient()
-		}
-	}
+
 
 
     /*
@@ -203,5 +252,5 @@ class ProfileController: UIViewController {
     }
     */
 
-}
+
 

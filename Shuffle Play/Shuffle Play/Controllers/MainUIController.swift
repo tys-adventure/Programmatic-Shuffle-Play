@@ -10,12 +10,114 @@ import UIKit
 import MediaPlayer
 
 class MainUIController: UIViewController {
-
-	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-	var nowPlayingInfo = MPNowPlayingInfoCenter.self
-	var playImage = UIImage.self
 	
-	//UIGradient Color
+	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
+	
+	//Album Image View
+	let albumImageView: UIImageView = {
+		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		return imageView
+	}()
+	
+	//ProfileButton
+	let profileButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("Profile", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		if let homeImage  = UIImage(named: "profile-icon2.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//Menu
+	let menuButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("Menu", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		if let homeImage  = UIImage(named: "menu-icon.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		button.addTarget(self, action: #selector(menuButton(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//Play
+	let playButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+			if let homeImage  = UIImage(named: "play-control-button.png") {
+				button.setImage(homeImage, for: .normal)
+				button.tintColor = UIColor.black
+			}
+		button.addTarget(self, action: #selector(playButtonTapped(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//Pause
+	let pauseButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+			if let homeImage  = UIImage(named: "pause.png") {
+				button.setImage(homeImage, for: .normal)
+				button.tintColor = UIColor.black
+			}
+		button.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//Previous
+	let previousButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		if let homeImage  = UIImage(named: "previous.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		button.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//Next
+	let nextButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		if let homeImage  = UIImage(named: "next-track.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		button.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+
+	
 	let gradient = CAGradientLayer()
 	var gradientSet = [[CGColor]]()
 	var currentGradient: Int = 0
@@ -24,11 +126,10 @@ class MainUIController: UIViewController {
 	let gradientTwo = UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor
 	let gradientThree = UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		//UIGradient
+		//Gradient
 		gradientSet.append([gradientOne, gradientTwo])
 		gradientSet.append([gradientTwo, gradientThree])
 		gradientSet.append([gradientThree, gradientOne])
@@ -42,127 +143,72 @@ class MainUIController: UIViewController {
 		self.view.layer.addSublayer(gradient)
 		
 		animateGradient()
-
-		/*
-		//Track Title Label
+	
 		
-		let trackLabel = UILabel(frame: CGRect(x: 190, y: 400, width: 200, height: 21))
-		trackLabel.center = CGPoint(x: 190, y: 400)
-		trackLabel.textAlignment = .center
-		trackLabel.text = "Track Name"
-		self.view.addSubview(trackLabel)
+		//Setup Layout
+		view.addSubview(albumImageView)
+		view.addSubview(profileButton)
+		view.addSubview(menuButton)
+		view.addSubview(playButton)
+		view.addSubview(pauseButton)
+		view.addSubview(previousButton)
+		view.addSubview(nextButton)
 		
-		//Artist Name Label
-		
-		let artistLabel = UILabel(frame: CGRect(x: 190, y: 450, width: 200, height: 21))
-		artistLabel.center = CGPoint(x: 190, y: 450)
-		artistLabel.textAlignment = .center
-		artistLabel.text = "------Artist Name------"
-		self.view.addSubview(artistLabel)
-		*/
-		
-		
-		//UIImageView for Album Art
-		
-		let imageName = "SPEmoji.png"
-		let image = UIImage(named: imageName)
-		let albumView = UIImageView(image: image!)
-		
-		albumView.frame = CGRect(x: 90, y: 125, width: 200, height: 200)
-		view.addSubview(albumView)
-		
-        //Buttons
-		// X = left to right
-		// Y = top to bottom
-		
-		let menuButtonTapped = UIButton(type: UIButtonType.system) as UIButton
-		menuButtonTapped.frame = CGRect(x: 300, y: 50, width: 35, height: 35)
-		menuButtonTapped.tintColor=UIColor .black
-		menuButtonTapped.setTitle("Menu", for: .normal)
-		if let image  = UIImage(named: "menu-icon.png") {
-		menuButtonTapped.setImage(image, for: .normal)
-		}
-		menuButtonTapped.addTarget(self, action: #selector(menuButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(menuButtonTapped)
-		
-		let profileButtonTapped = UIButton(type: UIButtonType.system) as UIButton
-		profileButtonTapped.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
-		profileButtonTapped.tintColor=UIColor .black
-		profileButtonTapped.setTitle("Profile", for: .normal)
-		if let image  = UIImage(named: "profile-icon.png") {
-		profileButtonTapped.setImage(image, for: .normal)
-		}
-		profileButtonTapped.addTarget(self, action: #selector(profileButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(profileButtonTapped)
-		
-		let playButtonTapped = UIButton(type: UIButtonType.system) as UIButton
-		playButtonTapped.frame = CGRect(x: 225, y: 500, width: 120, height: 50)
-		playButtonTapped.tintColor=UIColor .black
-		playButtonTapped.layer.cornerRadius = 5
-		playButtonTapped.layer.borderWidth = 1
-		playButtonTapped.layer.borderColor = UIColor.black.cgColor
-		if let image  = UIImage(named: "play-control-button.png") {
-			playButtonTapped.setImage(image, for: .normal)
-		}
-		playButtonTapped.addTarget(self, action: #selector(playButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(playButtonTapped)
-
-		
-		let pauseButtonTapped = UIButton(type: UIButtonType.system) as UIButton
-		pauseButtonTapped.frame = CGRect(x: 30, y: 500, width: 120, height: 50)
-		pauseButtonTapped.tintColor=UIColor .black
-		pauseButtonTapped.layer.cornerRadius = 5
-		pauseButtonTapped.layer.borderWidth = 1
-		pauseButtonTapped.layer.borderColor = UIColor.black.cgColor
-		if let image  = UIImage(named: "pause.png") {
-			pauseButtonTapped.setImage(image, for: .normal)
-		}
-		pauseButtonTapped.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(pauseButtonTapped)
-		
-		
-		let previousButtonTapped = UIButton(type: UIButtonType.system) as UIButton
-		previousButtonTapped.frame = CGRect(x: 30, y: 575, width: 120, height: 50)
-		previousButtonTapped.tintColor=UIColor .black
-		previousButtonTapped.layer.cornerRadius = 5
-		previousButtonTapped.layer.borderWidth = 1
-		previousButtonTapped.layer.borderColor = UIColor.black.cgColor
-		if let image  = UIImage(named: "previous.png") {
-			previousButtonTapped.setImage(image, for: .normal)
-		}
-		previousButtonTapped.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(previousButtonTapped)
-
-		
-		let nextButtonTapped = UIButton(type: UIButtonType.system) as UIButton
-		nextButtonTapped.frame = CGRect(x: 225, y: 575, width: 120, height: 50)
-		nextButtonTapped.tintColor=UIColor .black
-		nextButtonTapped.layer.cornerRadius = 5
-		nextButtonTapped.layer.borderWidth = 1
-		nextButtonTapped.layer.borderColor = UIColor.black.cgColor
-		if let image  = UIImage(named: "next-track.png") {
-			nextButtonTapped.setImage(image, for: .normal)
-		}
-		nextButtonTapped.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(nextButtonTapped)
-		
+		setupLayout()
+	
         // Do any additional setup after loading the view.
     }
+	
+	private func setupLayout() {
+		
+		albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		albumImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+		albumImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+		albumImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+		
+		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
+		
+		menuButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		menuButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
+		menuButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+		menuButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -35).isActive = true
+		
+		playButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
+		playButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+		playButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+		playButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+		
+		pauseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
+		pauseButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+		pauseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+		pauseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+		
+		previousButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
+		previousButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+		previousButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+		previousButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+	
+		nextButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
+		nextButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+		nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+		nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
 
-	//Menu Button
+	}
+
+	//Menu/Profile Button
 	
-	var menuButtonTapped : UIButton!
-	
-	@objc func menuButtonTapped(_ sender: UIButton) {
+	@objc func menuButton(_ sender: UIButton) {
 		
 		let vc = MenuController() //your view controller
 		self.present(vc, animated: true, completion: nil)
 
 	}
 	
-	var profileButtonTapped : UIButton!
-	
-	@objc func profileButtonTapped(_ sender: UIButton) {
+
+	@objc func profileButton(_ sender: UIButton) {
 		
 		//Segue between ViewControllers
 		let vc = ProfileController() //your view controller
@@ -206,20 +252,6 @@ class MainUIController: UIViewController {
         sender.pulsate()
     }
 	
-	// Now Playing
-	
-	
-	var albumView : UIImageView!
-
-	
-	
-	//UIGradient Func
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
-	}
-	
-	
 	//UIColor Gradient Func
 	
 	func animateGradient() {
@@ -237,15 +269,10 @@ class MainUIController: UIViewController {
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}
 	
-	}
+	
+	
+}
 
-	extension MainUIController: CAAnimationDelegate {
-		func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-			if flag {
-				gradient.colors = gradientSet[currentGradient]
-				animateGradient()
-			}
-		}
 
 
     /*
@@ -258,4 +285,4 @@ class MainUIController: UIViewController {
     }
     */
 	
-}
+

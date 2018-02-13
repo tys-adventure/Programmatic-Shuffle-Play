@@ -11,6 +11,43 @@ import UIKit
 
 class selectionsController: UIViewController {
 	
+	//Profile Shuffle Play textView
+	let selectionsTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 25.0)
+		textView.font = UIFont.boldSystemFont(ofSize: 18)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.text = "Genre Selections is coming soon, in a future update! Thank you for understanding."
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
+	//Profile UIButton
+	let profileButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("Profile", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+			if let homeImage  = UIImage(named: "profile-icon2.png") {
+				button.setImage(homeImage, for: .normal)
+			}
+		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//Profile Shuffle Play textView
+	let genreTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 25.0)
+		textView.font = UIFont.boldSystemFont(ofSize: 18)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.text = "Your Genre Selections"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
 	//UIGradient Color
 	let gradient = CAGradientLayer()
 	var gradientSet = [[CGColor]]()
@@ -39,48 +76,42 @@ class selectionsController: UIViewController {
 		
 		animateGradient()
 		
+		//setupLayout()
 		
-		//Menu Button
-		// X = Top to Bottom
-		// Y = Left to Right
+		view.addSubview(genreTextView)
+		view.addSubview(selectionsTextView)
+		view.addSubview(profileButton)
 		
-		let profileButton = UIButton(type: UIButtonType.system) as UIButton
-		profileButton.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
-		profileButton.tintColor=UIColor .black
-		profileButton.setTitle("Home", for: .normal)
-		if let image  = UIImage(named: "profile-icon.png") {
-			profileButton.setImage(image, for: .normal)
-		}
-		profileButton.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
-		self.view.addSubview(profileButton)
-		
-		//About Label
-		
-		let selectionsLabel = UILabel(frame: CGRect(x: 190, y: 450, width: 200, height: 21))
-		selectionsLabel.center = CGPoint(x: 190, y: 50)
-		selectionsLabel.textAlignment = .center
-		selectionsLabel.text = "Your Genre Selections"
-		self.view.addSubview(selectionsLabel)
-		
-		let soonLabel = UILabel(frame: CGRect(x: 280, y: 300, width: 400, height: 200))
-		soonLabel.center = CGPoint(x: 280, y: 300)
-		soonLabel.textAlignment = .center
-		soonLabel.numberOfLines = 0
-		soonLabel.lineBreakMode = .byWordWrapping
-		soonLabel.textColor = UIColor.black
-		soonLabel.font = UIFont(name:"Avenir Next", size: 25.0)
-		soonLabel.text = "Genre Selections is coming soon, in a future update!"
-		soonLabel.frame.size.width = 250
-		soonLabel.sizeToFit()
-		self.view.addSubview(soonLabel)
-		
+		setupLayout()
 		
 		// Do any additional setup after loading the view.
 }
+	
+	private func setupLayout() {
+		
+		
+		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
+		
+		genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		genreTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		genreTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		genreTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+		genreTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+		
+		selectionsTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		selectionsTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		selectionsTextView.widthAnchor.constraint(equalToConstant: 400).isActive = true
+		selectionsTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+		selectionsTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+		selectionsTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+		
+		
+	}
 
 	//Profile Button Func
-	
-	var profileButton : UIButton!
 	
 	@objc func profileButton(_ sender: UIButton) {
 		
@@ -116,18 +147,4 @@ class selectionsController: UIViewController {
 	
 }
 
-extension selectionsController: CAAnimationDelegate {
-	func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-		if flag {
-			gradient.colors = gradientSet[currentGradient]
-			animateGradient()
-		}
-	}
 
-
-
-
-
-
-
-}

@@ -12,9 +12,155 @@ import MediaPlayer
 class MenuController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-	var nowPlayingInfo = MPNowPlayingInfoCenter.self
-
-	//UIGradient Color
+	
+	//Genre Shuffle Play textView
+	let genreTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 25.0)
+		textView.font = UIFont.boldSystemFont(ofSize: 18)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.text = "Genre's"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
+	//Profile UIButton
+	//Fix Button Image Please
+	let mainButtonTapped: UIButton = {
+		let button = UIButton()
+		button.setTitle("Home", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		if let homeImage  = UIImage(named: "home-icon.png") {
+			button.setImage(homeImage, for: .normal)
+		}
+		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//RockButton
+	let RockButton: UIButton = {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("Rock", for: .normal)
+		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+	
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//PopButton
+	let PopButton: UIButton = {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("Pop", for: .normal)
+		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//HipHopButton
+	let HipHopButton: UIButton = {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("Hip-Hop", for: .normal)
+		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//AlternativeButton
+	let AlternativeButton: UIButton = {//(frame: CGRect(x: 55, y: 295, width: 260, height: 45))
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("Alternative", for: .normal)
+		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//RapButton
+	let RapButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("Rap", for: .normal)
+		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+	
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//HipHipRapButton
+	let RHButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("Hip Hop/Rap", for: .normal)
+		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//PopRockButton
+	let PopRockButton: UIButton = {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("Pop/Rock", for: .normal)
+		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	//HeavyButton
+	let HeavyButton: UIButton = {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		button.setTitle("Heavy Metal", for: .normal)
+		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
+	
+	//Gradient
 	let gradient = CAGradientLayer()
 	var gradientSet = [[CGColor]]()
 	var currentGradient: Int = 0
@@ -22,12 +168,11 @@ class MenuController: UIViewController {
 	let gradientOne = UIColor(red: 48/255, green: 62/255, blue: 103/255, alpha: 1).cgColor
 	let gradientTwo = UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor
 	let gradientThree = UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor
-	
-    override func viewDidLoad() {
+
+	override func viewDidLoad() {
         super.viewDidLoad()
-	
 		
-		//UIGradient
+		//Gradient
 		gradientSet.append([gradientOne, gradientTwo])
 		gradientSet.append([gradientTwo, gradientThree])
 		gradientSet.append([gradientThree, gradientOne])
@@ -41,110 +186,83 @@ class MenuController: UIViewController {
 		self.view.layer.addSublayer(gradient)
 		
 		animateGradient()
-
-		//Genre Label
-		
-		let genreLabel = UILabel(frame: CGRect(x: 190, y: 450, width: 200, height: 21))
-		genreLabel.center = CGPoint(x: 190, y: 50)
-		genreLabel.textAlignment = .center
-		genreLabel.text = "Genre's"
-		self.view.addSubview(genreLabel)
 		
 		
+		//Setup Layout
 		
-		//Buttons
+		view.addSubview(genreTextView)
+		view.addSubview(mainButtonTapped)
+		view.addSubview(RockButton)
+		view.addSubview(PopButton)
+		view.addSubview(HipHopButton)
+		view.addSubview(AlternativeButton)
+		view.addSubview(RapButton)
+		view.addSubview(RHButton)
+		view.addSubview(PopRockButton)
+		view.addSubview(HeavyButton)
 		
-		let mainButtonTapped = UIButton(type: UIButtonType.system) as UIButton
-		mainButtonTapped.frame = CGRect(x: 300, y: 50, width: 35, height: 35)
-		mainButtonTapped.tintColor=UIColor .black
-		mainButtonTapped.setTitle("Home", for: .normal)
-		if let image  = UIImage(named: "home-icon.png") {
-			mainButtonTapped.setImage(image, for: .normal)
-		}
-		mainButtonTapped.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(mainButtonTapped)
-		
-		//Genre
-		// X = left to right
-		// Y = top to bottom
-		
-        let RockButton = UIButton(frame: CGRect(x: 55, y: 100, width: 260, height: 45))
-		RockButton.tintColor=UIColor .gray
-		RockButton.layer.cornerRadius = 5
-		RockButton.layer.borderWidth = 1
-		RockButton.layer.borderColor = UIColor.black.cgColor
-        RockButton.setTitle("Rock", for: .normal)
-		RockButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(RockButton)
-        
-        let PopButton = UIButton(frame: CGRect(x: 55, y: 165, width: 260, height: 45))
-		PopButton.tintColor=UIColor .gray
-		PopButton.layer.cornerRadius = 5
-		PopButton.layer.borderWidth = 1
-		PopButton.layer.borderColor = UIColor.black.cgColor
-		PopButton.setTitle("Pop", for: .normal)
-		PopButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(PopButton)
-        
-        let HipHopButton = UIButton(frame: CGRect(x: 55, y: 230, width: 260, height: 45))
-		HipHopButton.tintColor=UIColor .gray
-		HipHopButton.layer.cornerRadius = 5
-		HipHopButton.layer.borderWidth = 1
-		HipHopButton.layer.borderColor = UIColor.black.cgColor
-		HipHopButton.setTitle("Hip-Hop", for: .normal)
-		HipHopButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(HipHopButton)
-        
-        let AlternativeButton = UIButton(frame: CGRect(x: 55, y: 295, width: 260, height: 45))
-		AlternativeButton.tintColor=UIColor .gray
-		AlternativeButton.layer.cornerRadius = 5
-		AlternativeButton.layer.borderWidth = 1
-		AlternativeButton.layer.borderColor = UIColor.black.cgColor
-		AlternativeButton.setTitle("Alternative", for: .normal)
-		AlternativeButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(AlternativeButton)
-        
-        let RapButton = UIButton(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		RapButton.tintColor=UIColor .gray
-		RapButton.layer.cornerRadius = 5
-		RapButton.layer.borderWidth = 1
-		RapButton.layer.borderColor = UIColor.black.cgColor
-		RapButton.setTitle("Rap", for: .normal)
-		RapButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(RapButton)
-        
-        let RHButton = UIButton(frame: CGRect(x: 55, y: 425, width: 260, height: 45))
-		RHButton.tintColor=UIColor .gray
-		RHButton.layer.cornerRadius = 5
-		RHButton.layer.borderWidth = 1
-		RHButton.layer.borderColor = UIColor.black.cgColor
-		RHButton.setTitle("Hip Hop/Rap", for: .normal)
-		RHButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(RHButton)
-        
-        let PopRockButton = UIButton(frame: CGRect(x: 55, y: 490, width: 260, height: 45))
-		PopRockButton.tintColor=UIColor .gray
-		PopRockButton.layer.cornerRadius = 5
-		PopRockButton.layer.borderWidth = 1
-		PopRockButton.layer.borderColor = UIColor.black.cgColor
-		PopRockButton.setTitle("Pop/Rock", for: .normal)
-		PopRockButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(PopRockButton)
-        
-        let HeavyButton = UIButton(frame: CGRect(x: 55, y: 555, width: 260, height: 45))
-		HeavyButton.tintColor=UIColor .gray
-		HeavyButton.layer.cornerRadius = 5
-		HeavyButton.layer.borderWidth = 1
-		HeavyButton.layer.borderColor = UIColor.black.cgColor
-		HeavyButton.setTitle("Heavy Metal", for: .normal)
-		HeavyButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		self.view.addSubview(HeavyButton)
-		
-
+		setupLayout()
+	
         // Do any additional setup after loading the view.
     }
 	
-	var mainButtonTapped : UIButton!
+	private func setupLayout() {
+		
+		genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		genreTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		genreTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		genreTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+		genreTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+		
+		mainButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+		mainButtonTapped.widthAnchor.constraint(equalToConstant: 35).isActive = true
+		mainButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
+		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
+		
+		
+		RockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		RockButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+		RockButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		RockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		PopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		PopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 165).isActive = true
+		PopButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		PopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		HipHopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		HipHopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 230).isActive = true
+		HipHopButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		HipHopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		AlternativeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		AlternativeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 295).isActive = true
+		AlternativeButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		AlternativeButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		RapButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		RapButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 360).isActive = true
+		RapButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		RapButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		RHButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		RHButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 425).isActive = true
+		RHButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		RHButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		PopRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		PopRockButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 490).isActive = true
+		PopRockButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		PopRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		HeavyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		HeavyButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 555).isActive = true
+		HeavyButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		HeavyButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+	}
+	
+	
 	
 	@objc func mainButtonTapped(_ sender: UIButton) {
 		
@@ -180,7 +298,7 @@ class MenuController: UIViewController {
         musicPlayer.shuffleMode = .songs
         musicPlayer.play()
     
-    }
+    	}
 	
 	//UIGradient Func
 	override func viewDidAppear(_ animated: Bool) {
@@ -204,17 +322,11 @@ class MenuController: UIViewController {
 		gradientChangeAnimation.fillMode = kCAFillModeForwards
 		gradientChangeAnimation.isRemovedOnCompletion = false
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
-	}
+	}			
 	
-	}
+}
 
-	extension ProfileController: CAAnimationDelegate {
-		func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-			if flag {
-				gradient.colors = gradientSet[currentGradient]
-				animateGradient()
-		}
-	}
+
 
     
 
@@ -228,4 +340,5 @@ class MenuController: UIViewController {
     }
     */
 
-}
+
+

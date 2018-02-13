@@ -20,6 +20,9 @@
 		5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CAF2009975A005FD7C4 /* MenuController.swift */; };
 		5C698CB22009976C005FD7C4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CB12009976C005FD7C4 /* ProfileController.swift */; };
 		5CA600AD1FF855C200DD40E6 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA600AC1FF855C200DD40E6 /* UIButtonExtension.swift */; };
+		5CC20AE1202FB3AB00CFF27C /* gradientUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */; };
+		5CC20AE3202FB69E00CFF27C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC20AE2202FB69E00CFF27C /* Constants.swift */; };
+		5CD87DDA202EBB2600F795EF /* pulseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD87DD9202EBB2600F795EF /* pulseExtension.swift */; };
 		5CEF02A2201D3DDB00D63D3E /* aboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A1201D3DDB00D63D3E /* aboutController.swift */; };
 		5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A3201E34F800D63D3E /* selectionsController.swift */; };
 		5CEF02A6201E353100D63D3E /* streamingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A5201E353100D63D3E /* streamingController.swift */; };
@@ -62,6 +65,9 @@
 		5C698CAF2009975A005FD7C4 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		5C698CB12009976C005FD7C4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		5CA600AC1FF855C200DD40E6 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradientUIViewExtension.swift; sourceTree = "<group>"; };
+		5CC20AE2202FB69E00CFF27C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5CD87DD9202EBB2600F795EF /* pulseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pulseExtension.swift; sourceTree = "<group>"; };
 		5CEF02A1201D3DDB00D63D3E /* aboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutController.swift; sourceTree = "<group>"; };
 		5CEF02A3201E34F800D63D3E /* selectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectionsController.swift; sourceTree = "<group>"; };
 		5CEF02A5201E353100D63D3E /* streamingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streamingController.swift; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 			children = (
 				5C698CAA200996EA005FD7C4 /* Controllers */,
 				5C698CB32009AAD8005FD7C4 /* Extensions */,
+				5CC20AE2202FB69E00CFF27C /* Constants.swift */,
 				5C1B38501FE86197003179A1 /* Main.storyboard */,
 				5C1B384C1FE86197003179A1 /* AppDelegate.swift */,
 				5C1B387D1FE861EB003179A1 /* GenreButtonScreen.swift */,
@@ -165,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				5CA600AC1FF855C200DD40E6 /* UIButtonExtension.swift */,
+				5CD87DD9202EBB2600F795EF /* pulseExtension.swift */,
+				5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -313,10 +322,13 @@
 				5C1B384D1FE86197003179A1 /* AppDelegate.swift in Sources */,
 				5CA600AD1FF855C200DD40E6 /* UIButtonExtension.swift in Sources */,
 				5C1B38551FE86197003179A1 /* Shuffle_Play.xcdatamodeld in Sources */,
+				5CC20AE1202FB3AB00CFF27C /* gradientUIViewExtension.swift in Sources */,
 				5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */,
 				5C1B387E1FE861EB003179A1 /* GenreButtonScreen.swift in Sources */,
 				5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */,
 				5C286CA42027E02200DD90FB /* aboutSPController.swift in Sources */,
+				5CD87DDA202EBB2600F795EF /* pulseExtension.swift in Sources */,
+				5CC20AE3202FB69E00CFF27C /* Constants.swift in Sources */,
 				5C698CAE20099745005FD7C4 /* MainUIController.swift in Sources */,
 				5CEF02A2201D3DDB00D63D3E /* aboutController.swift in Sources */,
 			);
@@ -488,7 +500,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -506,7 +518,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
