@@ -35,27 +35,32 @@ class ProfileController: UIViewController {
 		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
 		textView.text = "Your Profile"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
 	
-	//AboutSPButton
+	//About Shuffle Play Button
 	let aboutSPButtonTapped: UIButton = {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("About Shuffle Play", for: .normal)
-		button.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
-		
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
+		let btn = MenuController.createSPButton()
+		btn.setTitle("About Shuffle Play", for: .normal)
+		btn.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	//Selections Button
+	let GenreSelectionButtonTapped: UIButton = {
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Your Genre Selections", for: .normal)
+		btn.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
+	}()
+	
+	//Selections Button
+	/*
 	let GenreSelectionButtonTapped: UIButton = {
 		let button = UIButton()
 		button.tintColor=UIColor .gray
@@ -69,20 +74,15 @@ class ProfileController: UIViewController {
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
+	*/
 	
-	//About Button
+	//About Developer Button
 	let AboutButton: UIButton = {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("About The Developer", for: .normal)
-		button.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
-		
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
+		let btn = MenuController.createSPButton()
+		btn.setTitle("About The Developer", for: .normal)
+		btn.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	//UIGradient Color

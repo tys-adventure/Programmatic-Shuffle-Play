@@ -38,6 +38,7 @@ class aboutSPController: UIViewController {
 		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
 		textView.text = "About Shuffle Play"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -50,6 +51,7 @@ class aboutSPController: UIViewController {
 		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
 		textView.text = "Have you ever wanted to listen to a specific genre? Shuffle Play let's you do just that! Using your locally stored library from Apple Music, or your iPhone's storage, Shuffle Play shuffles the music on your phone by genre. Allowing you to choose a genre and listen!"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView

@@ -18,6 +18,7 @@ class selectionsController: UIViewController {
 		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
 		textView.text = "Genre Selections is coming soon, in a future update! Thank you for understanding."
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -43,6 +44,7 @@ class selectionsController: UIViewController {
 		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
 		textView.text = "Your Genre Selections"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView

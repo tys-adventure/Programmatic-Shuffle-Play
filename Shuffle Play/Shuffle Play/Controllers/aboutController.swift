@@ -81,6 +81,7 @@ class aboutController: UIViewController {
 		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
 		textView.text = "About The Developer"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -93,6 +94,7 @@ class aboutController: UIViewController {
 		//textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
 		textView.text = "I'm Tyler, a 24 yearold iOS Developer from Cleveland, Ohio. Shuffle Play is my first iOS app, created with 2 goals. First is to create a platfrom where you can choose what genre you want to listen to. Second is to learn as much as I can while building Shuffle Play!"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView

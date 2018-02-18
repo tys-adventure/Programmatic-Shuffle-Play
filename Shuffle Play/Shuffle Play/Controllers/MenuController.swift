@@ -20,7 +20,8 @@ class MenuController: UIViewController {
 		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
-		textView.text = "Genre's"
+		textView.isUserInteractionEnabled = false
+		textView.text = "Genres"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -40,6 +41,7 @@ class MenuController: UIViewController {
 	}()
 	
 	//RockButton
+	/*
 	let RockButton: UIButton = {
 		let button = UIButton()
 		button.tintColor=UIColor .gray
@@ -53,110 +55,77 @@ class MenuController: UIViewController {
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
+	*/
+	
+	let RockButton: UIButton = {
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Rock", for: .normal)
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
+	}()
 	
 	//PopButton
 	let PopButton: UIButton = {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("Pop", for: .normal)
-		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Pop", for: .normal)
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	//HipHopButton
 	let HipHopButton: UIButton = {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("Hip-Hop", for: .normal)
-		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Hip-Hop", for: .normal)
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	//AlternativeButton
 	let AlternativeButton: UIButton = {//(frame: CGRect(x: 55, y: 295, width: 260, height: 45))
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("Alternative", for: .normal)
-		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Alternative", for: .normal)
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	//RapButton
 	let RapButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("Rap", for: .normal)
-		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-	
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Rap", for: .normal)
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	//HipHipRapButton
 	let RHButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("Hip Hop/Rap", for: .normal)
-		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Hip Hop/Rap", for: .normal)
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	//PopRockButton
 	let PopRockButton: UIButton = {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("Pop/Rock", for: .normal)
-		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Pop/Rock", for: .normal)
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	//HeavyButton
 	let HeavyButton: UIButton = {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("Heavy Metal", for: .normal)
-		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Heavy Metal", for: .normal)
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	
@@ -262,7 +231,16 @@ class MenuController: UIViewController {
 		
 	}
 	
-	
+	//All Genre Button Functions (NEW)
+	static func createSPButton() -> UIButton {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		return button
+	}
 	
 	@objc func mainButtonTapped(_ sender: UIButton) {
 		
