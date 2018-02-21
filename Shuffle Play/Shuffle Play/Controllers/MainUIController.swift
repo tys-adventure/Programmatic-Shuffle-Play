@@ -25,7 +25,7 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("Profile", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "profile-icon2.png") {
+		if let homeImage  = UIImage(named: "chart1.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
@@ -39,7 +39,7 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("Menu", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "menu-icon.png") {
+		if let homeImage  = UIImage(named: "headphones.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
@@ -53,10 +53,10 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-			if let homeImage  = UIImage(named: "play-control-button.png") {
+		//button.layer.cornerRadius = 5
+		//button.layer.borderWidth = 1
+		//button.layer.borderColor = UIColor.black.cgColor
+			if let homeImage  = UIImage(named: "play.png") {
 				button.setImage(homeImage, for: .normal)
 				button.tintColor = UIColor.black
 			}
@@ -70,9 +70,9 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
+		//button.layer.cornerRadius = 5
+		//button.layer.borderWidth = 1
+		//button.layer.borderColor = UIColor.black.cgColor
 			if let homeImage  = UIImage(named: "pause.png") {
 				button.setImage(homeImage, for: .normal)
 				button.tintColor = UIColor.black
@@ -87,9 +87,9 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
+		//button.layer.cornerRadius = 5
+		//button.layer.borderWidth = 1
+		//button.layer.borderColor = UIColor.black.cgColor
 		if let homeImage  = UIImage(named: "previous.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
@@ -104,10 +104,10 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		if let homeImage  = UIImage(named: "next-track.png") {
+		//button.layer.cornerRadius = 5
+		//button.layer.borderWidth = 1
+		//button.layer.borderColor = UIColor.black.cgColor
+		if let homeImage  = UIImage(named: "next.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
@@ -176,25 +176,25 @@ class MainUIController: UIViewController {
 		menuButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		menuButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -35).isActive = true
 		
-		playButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
-		playButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-		playButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-		playButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+		playButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 480).isActive = true
+		playButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
+		playButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+		playButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
 		
-		pauseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
-		pauseButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-		pauseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-		pauseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+		pauseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 480).isActive = true
+		pauseButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
+		pauseButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+		pauseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
 		
 		previousButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
-		previousButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-		previousButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-		previousButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+		previousButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
+		previousButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+		previousButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
 	
 		nextButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
-		nextButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-		nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-		nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+		nextButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
+		nextButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+		nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
 
 	}
 
