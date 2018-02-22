@@ -9,6 +9,8 @@
 import UIKit
 import MediaPlayer
 
+//Yo How You doing?
+
 class MainUIController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
@@ -29,6 +31,13 @@ class MainUIController: UIViewController {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 0.5
+		
 		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -43,6 +52,13 @@ class MainUIController: UIViewController {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 0.5
+		
 		button.addTarget(self, action: #selector(menuButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -53,13 +69,17 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		//button.layer.cornerRadius = 5
-		//button.layer.borderWidth = 1
-		//button.layer.borderColor = UIColor.black.cgColor
 			if let homeImage  = UIImage(named: "play.png") {
 				button.setImage(homeImage, for: .normal)
 				button.tintColor = UIColor.black
 			}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 0.5
+		
 		button.addTarget(self, action: #selector(playButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -70,13 +90,17 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		//button.layer.cornerRadius = 5
-		//button.layer.borderWidth = 1
-		//button.layer.borderColor = UIColor.black.cgColor
 			if let homeImage  = UIImage(named: "pause.png") {
 				button.setImage(homeImage, for: .normal)
 				button.tintColor = UIColor.black
 			}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 0.5
+		
 		button.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -87,13 +111,17 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		//button.layer.cornerRadius = 5
-		//button.layer.borderWidth = 1
-		//button.layer.borderColor = UIColor.black.cgColor
 		if let homeImage  = UIImage(named: "previous.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 0.5
+		
 		button.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -104,13 +132,17 @@ class MainUIController: UIViewController {
 		let button = UIButton()
 		button.setTitle("", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		//button.layer.cornerRadius = 5
-		//button.layer.borderWidth = 1
-		//button.layer.borderColor = UIColor.black.cgColor
 		if let homeImage  = UIImage(named: "next.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 0.5
+		
 		button.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -176,22 +208,22 @@ class MainUIController: UIViewController {
 		menuButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		menuButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -35).isActive = true
 		
-		playButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 480).isActive = true
+		playButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		playButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		playButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
 		playButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
 		
-		pauseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 480).isActive = true
+		pauseButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		pauseButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		pauseButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
 		pauseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
 		
-		previousButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
+		previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 255).isActive = true
 		previousButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		previousButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
 		previousButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
 	
-		nextButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
+		nextButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 255).isActive = true
 		nextButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		nextButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
 		nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true

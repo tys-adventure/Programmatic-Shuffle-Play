@@ -20,9 +20,16 @@ class ProfileController: UIViewController {
 		let button = UIButton()
 		button.setTitle("Home", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-			if let homeImage  = UIImage(named: "home-icon.png") {
-					button.setImage(homeImage, for: .normal)
-				}
+		if let homeImage  = UIImage(named: "music.png") {
+			button.setImage(homeImage, for: .normal)
+		}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 0.5
+		
 		button.addTarget(self, action: #selector(profileButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -45,6 +52,14 @@ class ProfileController: UIViewController {
 	let aboutSPButtonTapped: UIButton = {
 		let btn = MenuController.createSPButton()
 		btn.setTitle("About Shuffle Play", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -54,6 +69,14 @@ class ProfileController: UIViewController {
 	let GenreSelectionButtonTapped: UIButton = {
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Your Genre Selections", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -80,6 +103,14 @@ class ProfileController: UIViewController {
 	let AboutButton: UIButton = {
 		let btn = MenuController.createSPButton()
 		btn.setTitle("About The Developer", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn

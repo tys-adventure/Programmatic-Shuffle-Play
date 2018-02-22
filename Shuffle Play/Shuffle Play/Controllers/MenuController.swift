@@ -32,9 +32,16 @@ class MenuController: UIViewController {
 		let button = UIButton()
 		button.setTitle("Home", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "home-icon.png") {
+		if let homeImage  = UIImage(named: "music.png") {
 			button.setImage(homeImage, for: .normal)
 		}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 0.5
+		
 		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -60,6 +67,14 @@ class MenuController: UIViewController {
 	let RockButton: UIButton = {
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Rock", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -69,6 +84,14 @@ class MenuController: UIViewController {
 	let PopButton: UIButton = {
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Pop", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -78,6 +101,14 @@ class MenuController: UIViewController {
 	let HipHopButton: UIButton = {
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Hip-Hop", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -87,6 +118,14 @@ class MenuController: UIViewController {
 	let AlternativeButton: UIButton = {//(frame: CGRect(x: 55, y: 295, width: 260, height: 45))
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Alternative", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -96,6 +135,14 @@ class MenuController: UIViewController {
 	let RapButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Rap", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -105,6 +152,14 @@ class MenuController: UIViewController {
 	let RHButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Hip Hop/Rap", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -114,6 +169,14 @@ class MenuController: UIViewController {
 	let PopRockButton: UIButton = {
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Pop/Rock", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -123,6 +186,14 @@ class MenuController: UIViewController {
 	let HeavyButton: UIButton = {
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Heavy Metal", for: .normal)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -177,11 +248,12 @@ class MenuController: UIViewController {
 	
 	private func setupLayout() {
 		
-		genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		//genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+		genreTextView.bottomAnchor.constraint(equalTo: RockButton.topAnchor, constant: -15).isActive = true
 		genreTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		genreTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		genreTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-		genreTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+		genreTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
 		
 		mainButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
 		mainButtonTapped.widthAnchor.constraint(equalToConstant: 35).isActive = true

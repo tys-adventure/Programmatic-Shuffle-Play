@@ -50,9 +50,16 @@ class streamingController: UIViewController {
 		profileButton.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
 		profileButton.tintColor=UIColor .black
 		profileButton.setTitle("Profile", for: .normal)
-		if let image  = UIImage(named: "profile-icon.png") {
+		if let image  = UIImage(named: "chart1.png") {
 			profileButton.setImage(image, for: .normal)
 		}
+		// Shadow and Radius for Circle Button
+		profileButton.layer.shadowColor = UIColor.black.cgColor
+		profileButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		profileButton.layer.masksToBounds = false
+		profileButton.layer.shadowRadius = 3.0
+		profileButton.layer.shadowOpacity = 0.5
+		
 		profileButton.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
 		self.view.addSubview(profileButton)
 		

@@ -16,9 +16,16 @@ class aboutSPController: UIViewController {
 		let button = UIButton()
 		button.setTitle("Profile", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-			if let homeImage  = UIImage(named: "profile-icon2.png") {
-				button.setImage(homeImage, for: .normal)
-			}
+		if let homeImage  = UIImage(named: "chart1.png") {
+			button.setImage(homeImage, for: .normal)
+		}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 0.5
+		
 		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
