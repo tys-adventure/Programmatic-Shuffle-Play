@@ -248,8 +248,8 @@ class MenuController: UIViewController {
 	
 	private func setupLayout() {
 		
-		//genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
-		genreTextView.bottomAnchor.constraint(equalTo: RockButton.topAnchor, constant: -15).isActive = true
+		genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 45).isActive = true
+		//genreTextView.bottomAnchor.constraint(equalTo: RockButton.topAnchor, constant: -15).isActive = true
 		genreTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		genreTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		genreTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -260,44 +260,43 @@ class MenuController: UIViewController {
 		mainButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
-		
 		RockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		RockButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+		RockButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
 		RockButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		RockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		PopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		PopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 165).isActive = true
+		PopButton.topAnchor.constraint(equalTo: RockButton.bottomAnchor, constant: 20).isActive = true
 		PopButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		PopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		HipHopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		HipHopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 230).isActive = true
+		HipHopButton.topAnchor.constraint(equalTo: PopButton.bottomAnchor, constant: 20).isActive = true
 		HipHopButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		HipHopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		AlternativeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		AlternativeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 295).isActive = true
+		AlternativeButton.topAnchor.constraint(equalTo: HipHopButton.bottomAnchor, constant: 20).isActive = true
 		AlternativeButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		AlternativeButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		RapButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		RapButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 360).isActive = true
+		RapButton.topAnchor.constraint(equalTo: AlternativeButton.bottomAnchor, constant: 20).isActive = true
 		RapButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		RapButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		RHButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		RHButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 425).isActive = true
+		RHButton.topAnchor.constraint(equalTo: RapButton.bottomAnchor, constant: 20).isActive = true
 		RHButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		RHButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		PopRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		PopRockButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 490).isActive = true
+		PopRockButton.topAnchor.constraint(equalTo: RHButton.bottomAnchor, constant: 20).isActive = true
 		PopRockButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		PopRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		HeavyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		HeavyButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 555).isActive = true
+		HeavyButton.topAnchor.constraint(equalTo: PopRockButton.bottomAnchor, constant: 20).isActive = true
 		HeavyButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		HeavyButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
