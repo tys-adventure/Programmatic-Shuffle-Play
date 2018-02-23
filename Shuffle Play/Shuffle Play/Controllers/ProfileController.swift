@@ -28,7 +28,7 @@ class ProfileController: UIViewController {
 		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		button.layer.masksToBounds = false
 		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOpacity = 1.0
 		
 		button.addTarget(self, action: #selector(profileButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -121,9 +121,9 @@ class ProfileController: UIViewController {
 	var gradientSet = [[CGColor]]()
 	var currentGradient: Int = 0
 	
-	let gradientOne = UIColor(red: 48/255, green: 62/255, blue: 103/255, alpha: 1).cgColor
-	let gradientTwo = UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor
-	let gradientThree = UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor
+	let gradientOne = UIColor(red: 235/255, green: 88/255, blue: 80/255, alpha: 1).cgColor
+	let gradientTwo = UIColor(red: 235/255, green: 88/255, blue: 80/255, alpha: 1).cgColor
+	let gradientThree = UIColor(red: 235/255, green: 88/255, blue: 80/255, alpha: 1).cgColor
 
 	
     override func viewDidLoad() {

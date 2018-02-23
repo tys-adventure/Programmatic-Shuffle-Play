@@ -36,7 +36,7 @@ class MainUIController: UIViewController {
 		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		button.layer.masksToBounds = false
 		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOpacity = 1.0
 		
 		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +57,7 @@ class MainUIController: UIViewController {
 		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		button.layer.masksToBounds = false
 		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOpacity = 1.0
 		
 		button.addTarget(self, action: #selector(menuButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +78,7 @@ class MainUIController: UIViewController {
 		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		button.layer.masksToBounds = false
 		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOpacity = 1.0
 		
 		button.addTarget(self, action: #selector(playButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +99,7 @@ class MainUIController: UIViewController {
 		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		button.layer.masksToBounds = false
 		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOpacity = 1.0
 		
 		button.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -120,7 +120,7 @@ class MainUIController: UIViewController {
 		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		button.layer.masksToBounds = false
 		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOpacity = 1.0
 		
 		button.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -141,25 +141,25 @@ class MainUIController: UIViewController {
 		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		button.layer.masksToBounds = false
 		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOpacity = 1.0
 		
 		button.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
 	
-
-	
 	let gradient = CAGradientLayer()
 	var gradientSet = [[CGColor]]()
 	var currentGradient: Int = 0
 	
-	let gradientOne = UIColor(red: 48/255, green: 62/255, blue: 103/255, alpha: 1).cgColor
-	let gradientTwo = UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor
-	let gradientThree = UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor
+	let gradientOne = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
+	let gradientTwo = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
+	let gradientThree = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
 
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
 		
 		//Gradient
 		gradientSet.append([gradientOne, gradientTwo])
@@ -175,7 +175,6 @@ class MainUIController: UIViewController {
 		self.view.layer.addSublayer(gradient)
 		
 		animateGradient()
-	
 		
 		//Setup Layout
 		view.addSubview(albumImageView)
@@ -211,22 +210,25 @@ class MainUIController: UIViewController {
 		playButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		playButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		playButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-		playButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+		//playButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -110).isActive = true
+		playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 40).isActive = true
 		
 		pauseButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		pauseButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		pauseButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-		pauseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+		pauseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 110).isActive = true
+		pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40).isActive = true
 		
-		previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 255).isActive = true
+		previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
+		//previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 255).isActive = true
 		previousButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		previousButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-		previousButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+		previousButton.leftAnchor.constraint(equalTo: pauseButton.leftAnchor, constant: -75).isActive = true
 	
-		nextButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 255).isActive = true
+		nextButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		nextButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		nextButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-		nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+		nextButton.rightAnchor.constraint(equalTo: playButton.rightAnchor, constant: 80).isActive = true
 
 	}
 
@@ -283,6 +285,7 @@ class MainUIController: UIViewController {
         musicPlayer.skipToNextItem()
         sender.pulsate()
     }
+
 	
 	//UIColor Gradient Func
 	
@@ -294,16 +297,16 @@ class MainUIController: UIViewController {
 		}
 		
 		let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-		gradientChangeAnimation.duration = 7.00
+		gradientChangeAnimation.duration = 15.00
 		gradientChangeAnimation.toValue = gradientSet[currentGradient]
 		gradientChangeAnimation.fillMode = kCAFillModeForwards
 		gradientChangeAnimation.isRemovedOnCompletion = false
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}
-	
-	
+
 	
 }
+
 
 
 

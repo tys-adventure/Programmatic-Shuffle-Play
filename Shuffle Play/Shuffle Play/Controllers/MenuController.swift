@@ -40,7 +40,7 @@ class MenuController: UIViewController {
 		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		button.layer.masksToBounds = false
 		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOpacity = 1.0
 		
 		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -205,9 +205,10 @@ class MenuController: UIViewController {
 	var gradientSet = [[CGColor]]()
 	var currentGradient: Int = 0
 	
-	let gradientOne = UIColor(red: 48/255, green: 62/255, blue: 103/255, alpha: 1).cgColor
-	let gradientTwo = UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor
-	let gradientThree = UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor
+	//Shades of blue
+	let gradientOne = UIColor(red: 129/255, green: 219/255, blue: 181/255, alpha: 1).cgColor
+	let gradientTwo = UIColor(red: 129/255, green: 219/255, blue: 181/255, alpha: 1).cgColor
+	let gradientThree = UIColor(red: 129/255, green: 219/255, blue: 181/255, alpha: 1).cgColor
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -366,7 +367,7 @@ class MenuController: UIViewController {
 		}
 		
 		let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-		gradientChangeAnimation.duration = 7.00
+		gradientChangeAnimation.duration = 15.00
 		gradientChangeAnimation.toValue = gradientSet[currentGradient]
 		gradientChangeAnimation.fillMode = kCAFillModeForwards
 		gradientChangeAnimation.isRemovedOnCompletion = false
