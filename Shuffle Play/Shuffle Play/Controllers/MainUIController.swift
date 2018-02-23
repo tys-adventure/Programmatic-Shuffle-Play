@@ -14,11 +14,20 @@ import MediaPlayer
 class MainUIController: UIViewController {
 	
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-	let trackName = nowPlaying.valueForProperty(MPMediaItemPropertyTitle) as String
-	let nowPlaying = musicPlayer()
+	//let trackName = MusicTrack.valueForProperty(MPMediaItemPropertyTitle) as String
+	
+	var albumImageView: UIImageView = {
+		let imageView = UIImageView()
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		return imageView
+	}()
+	
+	
+	//Animated Gif
+	var scaleImages: [UIImage] = []
 	
 	//Album Image View
-	let albumImageView: UIImageView = {
+	let album2ImageView: UIImageView = {
 		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
@@ -177,7 +186,8 @@ class MainUIController: UIViewController {
 		
 		animateGradient()
 		
-		UIApplication.shared.beginReceivingRemoteControlEvents()
+		scaleImages = createImageArray(total: 24, imagePrefix: "Angus")
+		
 		
 		//Setup Layout
 		view.addSubview(albumImageView)
@@ -187,6 +197,7 @@ class MainUIController: UIViewController {
 		view.addSubview(pauseButton)
 		view.addSubview(previousButton)
 		view.addSubview(nextButton)
+		
 		
 		setupLayout()
 	
@@ -234,11 +245,33 @@ class MainUIController: UIViewController {
 
 	}
 	
+	func createImageArray(total: Int, imagePrefix: String) -> [UIImage] {
+		
+		var imageArray: [UIImage] = []
+		
+		for imageCount in 0..<total {
+			let imageName = "\(imagePrefix)-\(imageCount).png"
+			let image = UIImage(named: imageName)
+			
+			imageArray.append(image!)
+		}
+		return imageArray
+	}
+	
+	func animate(imageView: UIImageView, images: [UIImage]) {
+		imageView.animationImages = images
+		imageView.animationDuration = 1.0
+		imageView.animationRepeatCount = 20
+		imageView.startAnimating()
+	}
+	
+	
+	/*
 	//Possibly NowPlaying?
 	func initAudioPlayer(file:String, type:String){
 		let path = Bundle.main.path(forResource: file, ofType: type)!
 		let url = NSURL(fileURLWithPath: path)
-		let audioShouldPlay = nowPlaying()
+		let audioShouldPlay = trackName()
 		do{
 			try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
 			try AVAudioSession.sharedInstance().setActive(true)
@@ -252,7 +285,7 @@ class MainUIController: UIViewController {
 			}
 		}
 		catch{}
-	}
+	} */
 
 	//Menu/Profile Button
 	
@@ -281,6 +314,7 @@ class MainUIController: UIViewController {
         musicPlayer.shuffleMode = .songs
         musicPlayer.play()
         sender.pulsate()
+		animate(imageView: albumImageView, images: scaleImages)
 	
     }
     
