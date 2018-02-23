@@ -13,7 +13,9 @@ import MediaPlayer
 
 class MainUIController: UIViewController {
 	
-	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
+	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
+	let trackName = nowPlaying.valueForProperty(MPMediaItemPropertyTitle) as String
+	let nowPlaying = musicPlayer()
 	
 	//Album Image View
 	let albumImageView: UIImageView = {
@@ -160,7 +162,6 @@ class MainUIController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		
 		//Gradient
 		gradientSet.append([gradientOne, gradientTwo])
 		gradientSet.append([gradientTwo, gradientThree])
@@ -175,6 +176,8 @@ class MainUIController: UIViewController {
 		self.view.layer.addSublayer(gradient)
 		
 		animateGradient()
+		
+		UIApplication.shared.beginReceivingRemoteControlEvents()
 		
 		//Setup Layout
 		view.addSubview(albumImageView)
@@ -220,7 +223,6 @@ class MainUIController: UIViewController {
 		pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40).isActive = true
 		
 		previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
-		//previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 255).isActive = true
 		previousButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		previousButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
 		previousButton.leftAnchor.constraint(equalTo: pauseButton.leftAnchor, constant: -75).isActive = true
@@ -230,6 +232,26 @@ class MainUIController: UIViewController {
 		nextButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
 		nextButton.rightAnchor.constraint(equalTo: playButton.rightAnchor, constant: 80).isActive = true
 
+	}
+	
+	//Possibly NowPlaying?
+	func initAudioPlayer(file:String, type:String){
+		let path = Bundle.main.path(forResource: file, ofType: type)!
+		let url = NSURL(fileURLWithPath: path)
+		let audioShouldPlay = nowPlaying()
+		do{
+			try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+			try AVAudioSession.sharedInstance().setActive(true)
+			let audioPlayer:AVAudioPlayer = try AVAudioPlayer(contentsOf: url as URL)
+			audioPlayer.numberOfLoops = -1
+			audioPlayer.prepareToPlay()
+			if(audioShouldPlay){
+				audioPlayer.play()
+				let mpic = MPNowPlayingInfoCenter.default()
+				mpic.nowPlayingInfo = [MPMediaItemPropertyTitle:"title", MPMediaItemPropertyArtist:"artist"]
+			}
+		}
+		catch{}
 	}
 
 	//Menu/Profile Button
