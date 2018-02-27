@@ -267,37 +267,37 @@ class MenuController: UIViewController {
 		RockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		PopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		PopButton.topAnchor.constraint(equalTo: RockButton.bottomAnchor, constant: 20).isActive = true
+		PopButton.topAnchor.constraint(equalTo: RockButton.bottomAnchor, constant: 15).isActive = true
 		PopButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		PopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		HipHopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		HipHopButton.topAnchor.constraint(equalTo: PopButton.bottomAnchor, constant: 20).isActive = true
+		HipHopButton.topAnchor.constraint(equalTo: PopButton.bottomAnchor, constant: 15).isActive = true
 		HipHopButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		HipHopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		AlternativeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		AlternativeButton.topAnchor.constraint(equalTo: HipHopButton.bottomAnchor, constant: 20).isActive = true
+		AlternativeButton.topAnchor.constraint(equalTo: HipHopButton.bottomAnchor, constant: 15).isActive = true
 		AlternativeButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		AlternativeButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		RapButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		RapButton.topAnchor.constraint(equalTo: AlternativeButton.bottomAnchor, constant: 20).isActive = true
+		RapButton.topAnchor.constraint(equalTo: AlternativeButton.bottomAnchor, constant: 15).isActive = true
 		RapButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		RapButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		RHButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		RHButton.topAnchor.constraint(equalTo: RapButton.bottomAnchor, constant: 20).isActive = true
+		RHButton.topAnchor.constraint(equalTo: RapButton.bottomAnchor, constant: 15).isActive = true
 		RHButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		RHButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		PopRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		PopRockButton.topAnchor.constraint(equalTo: RHButton.bottomAnchor, constant: 20).isActive = true
+		PopRockButton.topAnchor.constraint(equalTo: RHButton.bottomAnchor, constant: 15).isActive = true
 		PopRockButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		PopRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		HeavyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		HeavyButton.topAnchor.constraint(equalTo: PopRockButton.bottomAnchor, constant: 20).isActive = true
+		HeavyButton.topAnchor.constraint(equalTo: PopRockButton.bottomAnchor, constant: 15).isActive = true
 		HeavyButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		HeavyButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
@@ -316,8 +316,9 @@ class MenuController: UIViewController {
 	
 	@objc func mainButtonTapped(_ sender: UIButton) {
 		
-		//Segue between ViewControllers
-		let vc = MainUIController() //your view controller
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = MainUIController() 
 		self.present(vc, animated: true, completion: nil)
 		
 	}

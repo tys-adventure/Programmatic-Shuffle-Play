@@ -83,21 +83,27 @@ class ProfileController: UIViewController {
 	}()
 	
 	//Selections Button
-	/*
-	let GenreSelectionButtonTapped: UIButton = {
+	
+	let ReviewButtonTapped: UIButton = {
 		let button = UIButton()
 		button.tintColor=UIColor .gray
 		button.setTitleColor(.black, for: .normal)
 		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
+		button.layer.borderWidth = 2
 		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("Genre Selections", for: .normal)
-		button.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
+		button.setTitle("Review SPP on the App Store!", for: .normal)
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 2.0
+		button.layer.shadowOpacity = 0.5
+		button.addTarget(self, action: #selector(ReviewButtonTapped(_:)), for:.touchUpInside)
 		
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
-	*/
+	
 	
 	//About Developer Button
 	let AboutButton: UIButton = {
@@ -114,6 +120,19 @@ class ProfileController: UIViewController {
 		btn.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
+	}()
+	
+	//About Tyler textView
+	let reviewTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 18.0)
+		//textView.font = UIFont.boldSystemFont(ofSize: 18)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
+		textView.text = "If you like Shuffle Play Plus, or you have ways I can improve Shuffle Play Plux, please leave a review on the app store and I'll make sure to try and add it to the feature list!"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
 	}()
 	
 	//UIGradient Color
@@ -149,6 +168,8 @@ class ProfileController: UIViewController {
 		view.addSubview(aboutSPButtonTapped)
 		view.addSubview(AboutButton)
 		view.addSubview(GenreSelectionButtonTapped)
+		view.addSubview(ReviewButtonTapped)
+		view.addSubview(reviewTextView)
 		
 		setupLayout()
 		
@@ -170,19 +191,31 @@ class ProfileController: UIViewController {
 		profileTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
 		
 		AboutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		AboutButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+		AboutButton.topAnchor.constraint(equalTo: GenreSelectionButtonTapped.bottomAnchor, constant: 25  ).isActive = true
 		AboutButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		AboutButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		GenreSelectionButtonTapped.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		GenreSelectionButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+		GenreSelectionButtonTapped.topAnchor.constraint(equalTo: aboutSPButtonTapped.bottomAnchor, constant: 25).isActive = true
 		GenreSelectionButtonTapped.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		GenreSelectionButtonTapped.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
+		ReviewButtonTapped.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		ReviewButtonTapped.topAnchor.constraint(equalTo: AboutButton.bottomAnchor, constant: 200).isActive = true
+		ReviewButtonTapped.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		ReviewButtonTapped.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
 		aboutSPButtonTapped.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		aboutSPButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+		aboutSPButtonTapped.topAnchor.constraint(equalTo: profileTextView.bottomAnchor, constant: -450 ).isActive = true
 		aboutSPButtonTapped.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		aboutSPButtonTapped.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		reviewTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		reviewTextView.topAnchor.constraint(equalTo: AboutButton.bottomAnchor, constant: 50).isActive = true
+		reviewTextView.widthAnchor.constraint(equalToConstant: 400).isActive = true
+		reviewTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+		reviewTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+		reviewTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
 		
 	}
 
@@ -190,8 +223,9 @@ class ProfileController: UIViewController {
 	
 	@objc func profileButtonTapped(_ sender: UIButton) {
 		
-		//Segue between ViewControllers
-		let vc = MainUIController() //view controller
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = MainUIController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
@@ -200,8 +234,7 @@ class ProfileController: UIViewController {
 	
 	@objc func aboutSPButtonTapped(_ sender: UIButton) {
 		
-		//Segue between ViewControllers
-		let vc = aboutSPController() //view controller
+		let vc = aboutSPController()
 		self.present(vc, animated: true, completion: nil)
 		sender.pulsate()
 		
@@ -211,8 +244,7 @@ class ProfileController: UIViewController {
 	
 	@objc func GenreSelectionButtonTapped(_ sender: UIButton) {
 		
-		//Segue between ViewControllers
-		let vc = selectionsController() //view controller
+		let vc = selectionsController()
 		self.present(vc, animated: true, completion: nil)
 		sender.pulsate()
 		
@@ -221,18 +253,15 @@ class ProfileController: UIViewController {
 	
 	@objc func AboutButton(_ sender: UIButton) {
 		
-		//Segue between ViewControllers
-		let vc = aboutController() //view controller
+		let vc = aboutController()
 		self.present(vc, animated: true, completion: nil)
 		sender.pulsate()
 		
 	}
 	
-	var InstagramButton : UIButton!
-	
-	@objc func InstagramButton(_ sender: UIButton) {
+	@objc func ReviewButtonTapped(_ sender: UIButton) {
 		
-		openUrl(urlStr: "https://www.instagram.com/thetylerjp")
+		openUrl(urlStr: "https://itunes.apple.com/us/app/shuffle-play-plus/id1340720169?mt=8")
 	}
 	
 	func openUrl(urlStr:String!) {
@@ -240,9 +269,8 @@ class ProfileController: UIViewController {
 		if let url = NSURL(string:urlStr) {
 			UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
 		}
-
+		
 	}
-	
 	
 	
 	//UIGradient Func

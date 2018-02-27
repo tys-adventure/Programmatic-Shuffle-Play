@@ -24,6 +24,19 @@ extension UIButton {
 		
 		layer.add(pulse, forKey: nil)
 	}
+	
+	func flash() {
+		
+		let flash = CABasicAnimation(keyPath: "opacity")
+		flash.duration = 1.0
+		flash.fromValue = 1
+		flash.toValue = 0.1
+		flash.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+		flash.autoreverses = true
+		flash.repeatCount = 1
+		
+		layer.add(flash, forKey: nil)
+	}
 
 
 /*

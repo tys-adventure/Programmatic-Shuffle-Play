@@ -113,9 +113,9 @@ class aboutController: UIViewController {
 	var gradientSet = [[CGColor]]()
 	var currentGradient: Int = 0
 	
-	let gradientOne = UIColor(red: 48/255, green: 62/255, blue: 103/255, alpha: 1).cgColor
-	let gradientTwo = UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor
-	let gradientThree = UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor
+	let gradientOne = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
+	let gradientTwo = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
+	let gradientThree = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -182,7 +182,7 @@ class aboutController: UIViewController {
 		webButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -80).isActive = true
 		
 		tylerImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		tylerImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+		tylerImageView.topAnchor.constraint(equalTo: aboutTextView.bottomAnchor, constant: -500 ).isActive = true
 		tylerImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
 		tylerImageView.heightAnchor.constraint(equalToConstant: 110).isActive = true
 		
@@ -190,8 +190,8 @@ class aboutController: UIViewController {
 		aboutTylerTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		aboutTylerTextView.widthAnchor.constraint(equalToConstant: 400).isActive = true
 		aboutTylerTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-		aboutTylerTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-		aboutTylerTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+		aboutTylerTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+		aboutTylerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
 		
 
 		
@@ -206,8 +206,9 @@ class aboutController: UIViewController {
 
 	@objc func profileButton(_ sender: UIButton) {
 		
-		//Segue between ViewControllers
-		let vc = ProfileController() //view controller
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = ProfileController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}

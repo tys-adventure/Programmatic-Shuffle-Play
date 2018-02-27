@@ -124,8 +124,9 @@ class selectionsController: UIViewController {
 	
 	@objc func profileButton(_ sender: UIButton) {
 		
-		//Segue between ViewControllers
-		let vc = ProfileController() //view controller
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = ProfileController()
 		self.present(vc, animated: true, completion: nil)
 		
 }

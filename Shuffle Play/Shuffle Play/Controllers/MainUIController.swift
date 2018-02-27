@@ -13,21 +13,18 @@ import MediaPlayer
 
 class MainUIController: UIViewController {
 	
+	//DO NOT DELETE AGAIN!!!!
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-	//let trackName = MusicTrack.valueForProperty(MPMediaItemPropertyTitle) as String
 	
-	var albumImageView: UIImageView = {
-		let imageView = UIImageView()
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		return imageView
-	}()
+	//toggle state
 	
+	var toggleState = 1
 	
 	//Animated Gif
 	var scaleImages: [UIImage] = []
 	
 	//Album Image View
-	let album2ImageView: UIImageView = {
+	let albumImageView: UIImageView = {
 		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
@@ -186,7 +183,7 @@ class MainUIController: UIViewController {
 		
 		animateGradient()
 		
-		scaleImages = createImageArray(total: 24, imagePrefix: "Angus")
+		//scaleImages = createImageArray(total: 48, imagePrefix: "Angus")
 		
 		
 		//Setup Layout
@@ -224,7 +221,6 @@ class MainUIController: UIViewController {
 		playButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		playButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
 		playButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-		//playButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -110).isActive = true
 		playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 40).isActive = true
 		
 		pauseButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
@@ -244,27 +240,6 @@ class MainUIController: UIViewController {
 		nextButton.rightAnchor.constraint(equalTo: playButton.rightAnchor, constant: 80).isActive = true
 
 	}
-	
-	func createImageArray(total: Int, imagePrefix: String) -> [UIImage] {
-		
-		var imageArray: [UIImage] = []
-		
-		for imageCount in 0..<total {
-			let imageName = "\(imagePrefix)-\(imageCount).png"
-			let image = UIImage(named: imageName)
-			
-			imageArray.append(image!)
-		}
-		return imageArray
-	}
-	
-	func animate(imageView: UIImageView, images: [UIImage]) {
-		imageView.animationImages = images
-		imageView.animationDuration = 1.0
-		imageView.animationRepeatCount = 20
-		imageView.startAnimating()
-	}
-	
 	
 	/*
 	//Possibly NowPlaying?
@@ -291,31 +266,34 @@ class MainUIController: UIViewController {
 	
 	@objc func menuButton(_ sender: UIButton) {
 		
-		let vc = MenuController() //your view controller
+		sender.flash()
+		
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = MenuController() 
 		self.present(vc, animated: true, completion: nil)
-
+		
 	}
 	
-
 	@objc func profileButton(_ sender: UIButton) {
 		
-		//Segue between ViewControllers
-		let vc = ProfileController() //your view controller
+		let vc = ProfileController()
 		self.present(vc, animated: true, completion: nil)
 		
+		sender.flash()
+		
 	}
-
 	
     //User Button controls--Play, Pause, Stop, Skip
 
 	var playButtonTapped : UIButton!
     
 	@objc func playButtonTapped(_ sender: UIButton) {
+		
         musicPlayer.shuffleMode = .songs
         musicPlayer.play()
         sender.pulsate()
-		animate(imageView: albumImageView, images: scaleImages)
-	
+		
     }
     
 	var pauseButtonTapped : UIButton!
