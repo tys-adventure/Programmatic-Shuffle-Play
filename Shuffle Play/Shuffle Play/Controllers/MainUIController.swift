@@ -16,13 +16,6 @@ class MainUIController: UIViewController {
 	//DO NOT DELETE AGAIN!!!!
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	
-	//toggle state
-	
-	var toggleState = 1
-	
-	//Animated Gif
-	var scaleImages: [UIImage] = []
-	
 	//Album Image View
 	let albumImageView: UIImageView = {
 		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
@@ -240,27 +233,6 @@ class MainUIController: UIViewController {
 		nextButton.rightAnchor.constraint(equalTo: playButton.rightAnchor, constant: 80).isActive = true
 
 	}
-	
-	/*
-	//Possibly NowPlaying?
-	func initAudioPlayer(file:String, type:String){
-		let path = Bundle.main.path(forResource: file, ofType: type)!
-		let url = NSURL(fileURLWithPath: path)
-		let audioShouldPlay = trackName()
-		do{
-			try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-			try AVAudioSession.sharedInstance().setActive(true)
-			let audioPlayer:AVAudioPlayer = try AVAudioPlayer(contentsOf: url as URL)
-			audioPlayer.numberOfLoops = -1
-			audioPlayer.prepareToPlay()
-			if(audioShouldPlay){
-				audioPlayer.play()
-				let mpic = MPNowPlayingInfoCenter.default()
-				mpic.nowPlayingInfo = [MPMediaItemPropertyTitle:"title", MPMediaItemPropertyArtist:"artist"]
-			}
-		}
-		catch{}
-	} */
 
 	//Menu/Profile Button
 	

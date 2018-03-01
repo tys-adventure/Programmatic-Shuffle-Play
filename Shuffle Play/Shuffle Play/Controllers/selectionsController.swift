@@ -62,9 +62,9 @@ class selectionsController: UIViewController {
 	var gradientSet = [[CGColor]]()
 	var currentGradient: Int = 0
 	
-	let gradientOne = UIColor(red: 48/255, green: 62/255, blue: 103/255, alpha: 1).cgColor
-	let gradientTwo = UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor
-	let gradientThree = UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor
+	let gradientOne = UIColor(red: 255/255, green: 214/255, blue: 139/255, alpha: 1).cgColor
+	let gradientTwo = UIColor(red: 255/255, green: 214/255, blue: 139/255, alpha: 1).cgColor
+	let gradientThree = UIColor(red: 255/255, green: 214/255, blue: 139/255, alpha: 1).cgColor
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

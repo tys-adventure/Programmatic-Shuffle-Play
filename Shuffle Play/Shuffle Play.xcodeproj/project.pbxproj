@@ -73,6 +73,7 @@
 		5CC20AE1202FB3AB00CFF27C /* gradientUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */; };
 		5CC20AE3202FB69E00CFF27C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC20AE2202FB69E00CFF27C /* Constants.swift */; };
 		5CD87DDA202EBB2600F795EF /* pulseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD87DD9202EBB2600F795EF /* pulseExtension.swift */; };
+		5CDA80D420467BED003995B8 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA80D320467BED003995B8 /* AlertExtension.swift */; };
 		5CEF02A2201D3DDB00D63D3E /* aboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A1201D3DDB00D63D3E /* aboutController.swift */; };
 		5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A3201E34F800D63D3E /* selectionsController.swift */; };
 		5CEF02A6201E353100D63D3E /* streamingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A5201E353100D63D3E /* streamingController.swift */; };
@@ -168,6 +169,7 @@
 		5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradientUIViewExtension.swift; sourceTree = "<group>"; };
 		5CC20AE2202FB69E00CFF27C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5CD87DD9202EBB2600F795EF /* pulseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pulseExtension.swift; sourceTree = "<group>"; };
+		5CDA80D320467BED003995B8 /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
 		5CEF02A1201D3DDB00D63D3E /* aboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutController.swift; sourceTree = "<group>"; };
 		5CEF02A3201E34F800D63D3E /* selectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectionsController.swift; sourceTree = "<group>"; };
 		5CEF02A5201E353100D63D3E /* streamingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streamingController.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				5CA600AC1FF855C200DD40E6 /* UIButtonExtension.swift */,
 				5CD87DD9202EBB2600F795EF /* pulseExtension.swift */,
 				5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */,
+				5CDA80D320467BED003995B8 /* AlertExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				5C1B387E1FE861EB003179A1 /* GenreButtonScreen.swift in Sources */,
 				5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */,
 				5C286CA42027E02200DD90FB /* aboutSPController.swift in Sources */,
+				5CDA80D420467BED003995B8 /* AlertExtension.swift in Sources */,
 				5CD87DDA202EBB2600F795EF /* pulseExtension.swift in Sources */,
 				5CC20AE3202FB69E00CFF27C /* Constants.swift in Sources */,
 				5C698CAE20099745005FD7C4 /* MainUIController.swift in Sources */,

@@ -113,9 +113,9 @@ class aboutController: UIViewController {
 	var gradientSet = [[CGColor]]()
 	var currentGradient: Int = 0
 	
-	let gradientOne = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
-	let gradientTwo = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
-	let gradientThree = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
+	let gradientOne = UIColor(red: 192/255, green: 144/255, blue: 232/255, alpha: 1).cgColor
+	let gradientTwo = UIColor(red: 192/255, green: 144/255, blue: 232/255, alpha: 1).cgColor
+	let gradientThree = UIColor(red: 192/255, green: 144/255, blue: 232/255, alpha: 1).cgColor
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

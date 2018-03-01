@@ -12,6 +12,7 @@ import MediaPlayer
 class MenuController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
+
 	
 	//Genre Shuffle Play textView
 	let genreTextView: UITextView = {
@@ -199,6 +200,114 @@ class MenuController: UIViewController {
 		return btn
 	}()
 	
+	//Christian Button
+	let ChristianButton: UIButton = {
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Christianity", for: .normal)
+		//btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
+	}()
+	
+	//Country Button
+	let CountryButton: UIButton = {
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Country", for: .normal)
+		//btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
+	}()
+	
+	//Soft Rock Button
+	let SoftRockButton: UIButton = {
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Soft Rock", for: .normal)
+		//btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
+	}()
+	
+	//R&B/Soul Button
+	let SoulButton: UIButton = {
+		let btn = MenuController.createSPButton()
+		btn.setTitle("R&B/Soul", for: .normal)
+		//btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
+	}()
+	
+	//Hair Metal Button
+	let HairMetalButton: UIButton = {
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Hair Metal", for: .normal)
+		//btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
+	}()
+	
+	//Hard Rock Button
+	let HardRockButton: UIButton = {
+		let btn = MenuController.createSPButton()
+		btn.setTitle("Hard Rock", for: .normal)
+		//btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+		btn.layer.borderWidth = 2
+		// Shadow and Radius for Circle Button
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
+		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
+	}()
+	
 	
 	//Gradient
 	let gradient = CAGradientLayer()
@@ -241,8 +350,32 @@ class MenuController: UIViewController {
 		view.addSubview(RHButton)
 		view.addSubview(PopRockButton)
 		view.addSubview(HeavyButton)
+		view.addSubview(ChristianButton)
+		view.addSubview(CountryButton)
+		view.addSubview(SoftRockButton)
+		view.addSubview(SoulButton)
+		view.addSubview(HairMetalButton)
+		view.addSubview(HardRockButton)
 		
 		setupLayout()
+		
+		/*
+		//Alert Controller
+		let alertController = UIAlertController(title: "Sorry!", message: "This genre isnn't in your library!", preferredStyle: .alert)
+		
+		let destructiveAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+			// ...
+		}
+		alertController.addAction(destructiveAction)
+		
+		let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+			// ...
+		}
+		alertController.addAction(OKAction)
+		
+		self.present(alertController, animated: true) {
+			// ...
+		} */
 	
         // Do any additional setup after loading the view.
     }
@@ -261,47 +394,89 @@ class MenuController: UIViewController {
 		mainButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
-		RockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		RockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
 		RockButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
-		RockButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		RockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		RockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
-		PopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		PopButton.topAnchor.constraint(equalTo: RockButton.bottomAnchor, constant: 15).isActive = true
-		PopButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		PopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
+		PopButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
+		PopButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		PopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
-		HipHopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		HipHopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
 		HipHopButton.topAnchor.constraint(equalTo: PopButton.bottomAnchor, constant: 15).isActive = true
-		HipHopButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		HipHopButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		HipHopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
-		AlternativeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		AlternativeButton.topAnchor.constraint(equalTo: HipHopButton.bottomAnchor, constant: 15).isActive = true
-		AlternativeButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		AlternativeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
+		AlternativeButton.topAnchor.constraint(equalTo: RockButton.bottomAnchor, constant: 15).isActive = true
+		AlternativeButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		AlternativeButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
-		RapButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		RapButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
 		RapButton.topAnchor.constraint(equalTo: AlternativeButton.bottomAnchor, constant: 15).isActive = true
-		RapButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		RapButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		RapButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
-		RHButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		RHButton.topAnchor.constraint(equalTo: RapButton.bottomAnchor, constant: 15).isActive = true
-		RHButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		RHButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
+		RHButton.topAnchor.constraint(equalTo: HipHopButton.bottomAnchor, constant: 15).isActive = true
+		RHButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		RHButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
-		PopRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		PopRockButton.topAnchor.constraint(equalTo: RHButton.bottomAnchor, constant: 15).isActive = true
-		PopRockButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		PopRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
+		PopRockButton.topAnchor.constraint(equalTo: RapButton.bottomAnchor, constant: 15).isActive = true
+		PopRockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		PopRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
-		HeavyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		HeavyButton.topAnchor.constraint(equalTo: PopRockButton.bottomAnchor, constant: 15).isActive = true
-		HeavyButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
+		HeavyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
+		HeavyButton.topAnchor.constraint(equalTo: RHButton.bottomAnchor, constant: 15).isActive = true
+		HeavyButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		HeavyButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
+		ChristianButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
+		ChristianButton.topAnchor.constraint(equalTo: PopRockButton.bottomAnchor, constant: 15).isActive = true
+		ChristianButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
+		ChristianButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		CountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
+		CountryButton.topAnchor.constraint(equalTo: HeavyButton.bottomAnchor, constant: 15).isActive = true
+		CountryButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
+		CountryButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		SoftRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
+		SoftRockButton.topAnchor.constraint(equalTo: ChristianButton.bottomAnchor, constant: 15).isActive = true
+		SoftRockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
+		SoftRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		SoulButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
+		SoulButton.topAnchor.constraint(equalTo: CountryButton.bottomAnchor, constant: 15).isActive = true
+		SoulButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
+		SoulButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		HairMetalButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
+		HairMetalButton.topAnchor.constraint(equalTo: SoftRockButton.bottomAnchor, constant: 15).isActive = true
+		HairMetalButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
+		HairMetalButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
+		HardRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
+		HardRockButton.topAnchor.constraint(equalTo: SoulButton.bottomAnchor, constant: 15).isActive = true
+		HardRockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
+		HardRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		
 	}
+	
+	//Alert Function
+	
+	func createAlert (title:String, message:String) {
+		
+		let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+		alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: ( (action), in
+			alert.dismiss(animated: true, completion: nil)
+		)))
+		
+	}
+	
 	
 	//All Genre Button Functions (NEW)
 	static func createSPButton() -> UIButton {
@@ -331,8 +506,7 @@ class MenuController: UIViewController {
             if status == .authorized{
                 self.playGenre(genre: sender.currentTitle!)
             }
-        }
-        
+		}
         sender.pulsate()
         
     }
@@ -342,7 +516,7 @@ class MenuController: UIViewController {
         musicPlayer.stop()
         let query = MPMediaQuery()
         let predicate = MPMediaPropertyPredicate(value: genre, forProperty: MPMediaItemPropertyGenre)
-        
+	
         query.addFilterPredicate(predicate)
         
         musicPlayer.setQueue(with: query)

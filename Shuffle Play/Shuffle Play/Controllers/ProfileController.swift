@@ -104,7 +104,6 @@ class ProfileController: UIViewController {
 		return button
 	}()
 	
-	
 	//About Developer Button
 	let AboutButton: UIButton = {
 		let btn = MenuController.createSPButton()
