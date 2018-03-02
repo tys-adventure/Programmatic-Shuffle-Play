@@ -20,7 +20,7 @@ class ProfileController: UIViewController {
 		let button = UIButton()
 		button.setTitle("Home", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "music.png") {
+		if let homeImage  = UIImage(named: "music-white.png") {
 			button.setImage(homeImage, for: .normal)
 		}
 		// Shadow and Radius for Circle Button
@@ -57,7 +57,7 @@ class ProfileController: UIViewController {
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowRadius = 4.0
 		btn.layer.shadowOpacity = 0.5
 		
 		btn.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
@@ -74,7 +74,7 @@ class ProfileController: UIViewController {
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowRadius = 4.0
 		btn.layer.shadowOpacity = 0.5
 		
 		btn.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
@@ -87,16 +87,18 @@ class ProfileController: UIViewController {
 	let ReviewButtonTapped: UIButton = {
 		let button = UIButton()
 		button.tintColor=UIColor .gray
+		button.backgroundColor = UIColor.white
+		button.alpha = 0.4
 		button.setTitleColor(.black, for: .normal)
 		button.layer.cornerRadius = 5
 		button.layer.borderWidth = 2
-		button.layer.borderColor = UIColor.black.cgColor
+		button.layer.borderColor = UIColor.white.cgColor
 		button.setTitle("Review SPP on the App Store!", for: .normal)
 		// Shadow and Radius for Circle Button
 		button.layer.shadowColor = UIColor.black.cgColor
 		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 2.0
+		button.layer.shadowRadius = 4.0
 		button.layer.shadowOpacity = 0.5
 		button.addTarget(self, action: #selector(ReviewButtonTapped(_:)), for:.touchUpInside)
 		
@@ -113,7 +115,7 @@ class ProfileController: UIViewController {
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowRadius = 4.0
 		btn.layer.shadowOpacity = 0.5
 		
 		btn.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
@@ -125,6 +127,7 @@ class ProfileController: UIViewController {
 	let reviewTextView: UITextView = {
 		let textView = UITextView()
 		textView.font = UIFont(name:"Avenir Next", size: 18.0)
+		textView.textColor = .white 
 		//textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
@@ -221,10 +224,12 @@ class ProfileController: UIViewController {
 	static func createSPButton() -> UIButton {
 		let button = UIButton()
 		button.tintColor=UIColor .gray
+		button.backgroundColor = UIColor.white
+		button.alpha = 0.4
 		button.setTitleColor(.black, for: .normal)
 		button.layer.cornerRadius = 5
 		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
+		button.layer.borderColor = UIColor.white.cgColor
 		return button
 	}
 

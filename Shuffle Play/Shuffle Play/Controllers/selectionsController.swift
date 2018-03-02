@@ -29,7 +29,7 @@ class selectionsController: UIViewController {
 		let button = UIButton()
 		button.setTitle("Profile", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "chart1.png") {
+		if let homeImage  = UIImage(named: "chart1-white.png") {
 			button.setImage(homeImage, for: .normal)
 		}
 		// Shadow and Radius for Circle Button

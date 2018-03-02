@@ -32,8 +32,8 @@ class MenuController: UIViewController {
 	let mainButtonTapped: UIButton = {
 		let button = UIButton()
 		button.setTitle("Home", for: .normal)
-		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "music.png") {
+		button.setTitleColor(.white, for: .normal)
+		if let homeImage  = UIImage(named: "music-white.png") {
 			button.setImage(homeImage, for: .normal)
 		}
 		// Shadow and Radius for Circle Button
@@ -277,9 +277,13 @@ class MenuController: UIViewController {
 	//Hard Rock Button
 	let HardRockButton: UIButton = {
 		let btn = MenuController.createSPButton()
-		btn.setTitle("Hard Rock", for: .normal)
+		//btn.setTitle("Hard Rock", for: .normal)
 		//btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
 		btn.layer.borderWidth = 2
+		if let homeImage  = UIImage(named: "backback2.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
+		btn.setTitle("Hard Rock", for: .normal)
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -430,22 +434,21 @@ class MenuController: UIViewController {
 		SoftRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
 		SoftRockButton.topAnchor.constraint(equalTo: ChristianButton.bottomAnchor, constant: 15).isActive = true
 		SoftRockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		SoftRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		SoftRockButton.heightAnchor.constraint(equalToConstant: 130).isActive = true
 		
 		SoulButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
 		SoulButton.topAnchor.constraint(equalTo: CountryButton.bottomAnchor, constant: 15).isActive = true
 		SoulButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		SoulButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-		
+		SoulButton.heightAnchor.constraint(equalToConstant: 120)
 		HairMetalButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
 		HairMetalButton.topAnchor.constraint(equalTo: SoftRockButton.bottomAnchor, constant: 15).isActive = true
 		HairMetalButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		HairMetalButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		HairMetalButton.heightAnchor.constraint(equalToConstant: 130).isActive = true
 		
 		HardRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
 		HardRockButton.topAnchor.constraint(equalTo: SoulButton.bottomAnchor, constant: 15).isActive = true
 		HardRockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		HardRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		HardRockButton.heightAnchor.constraint(equalToConstant: 130).isActive = true
 		
 	}
 	
@@ -465,10 +468,12 @@ class MenuController: UIViewController {
 	static func createSPButton() -> UIButton {
 		let button = UIButton()
 		button.tintColor=UIColor .gray
+		button.backgroundColor = UIColor.white
+		button.alpha = 0.4
 		button.setTitleColor(.black, for: .normal)
 		button.layer.cornerRadius = 5
 		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
+		button.layer.borderColor = UIColor.white.cgColor
 		return button
 	}
 	
