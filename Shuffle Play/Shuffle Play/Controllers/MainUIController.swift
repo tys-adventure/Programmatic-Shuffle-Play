@@ -24,34 +24,12 @@ class MainUIController: UIViewController {
 		return imageView
 	}() */
 	
-	/*
+	
 	//Album Image View
 	let albumImageView: UIImageView = {
 		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
-	}() */
-	
-	//Album Image Button
-	//ProfileButton
-	let testButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("Profile", for: .normal)
-		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "SPEmoji.png") {
-			button.setImage(homeImage, for: .normal)
-			button.tintColor = UIColor.black
-		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
-		button.addTarget(self, action: #selector(testButton(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
 	}()
 	
 	//ProfileButton
@@ -212,8 +190,7 @@ class MainUIController: UIViewController {
 		
 		//Setup Layout
 		//view.addSubview(backgroundImageView)
-		//view.addSubview(albumImageView)
-		view.addSubview(testButton)
+		view.addSubview(albumImageView)
 		view.addSubview(profileButton)
 		view.addSubview(menuButton)
 		view.addSubview(playButton)
@@ -236,15 +213,10 @@ class MainUIController: UIViewController {
 		backgroundImageView.heightAnchor.constraint(equalToConstant: 2436).isActive = true
 		*/
 
-		testButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		testButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
-		testButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
-		testButton.heightAnchor.constraint(equalToConstant: 150).isActive = true
-
-//		albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//		albumImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
-//		albumImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-//		albumImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+		albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		albumImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+		albumImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+		albumImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
 		
 		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
 		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
@@ -256,23 +228,23 @@ class MainUIController: UIViewController {
 		menuButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		menuButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -35).isActive = true
 		
-		playButton.topAnchor.constraint(equalTo: testButton.bottomAnchor, constant: 150).isActive = true
+		playButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		playButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		playButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 40).isActive = true
 		
-		pauseButton.topAnchor.constraint(equalTo: testButton.bottomAnchor, constant: 150).isActive = true
+		pauseButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		pauseButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		pauseButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		//pauseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 110).isActive = true
 		pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40).isActive = true
 		
-		previousButton.topAnchor.constraint(equalTo: testButton.bottomAnchor, constant: 150).isActive = true
+		previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		previousButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		previousButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		previousButton.leftAnchor.constraint(equalTo: pauseButton.leftAnchor, constant: -75).isActive = true
 	
-		nextButton.topAnchor.constraint(equalTo: testButton.bottomAnchor, constant: 150).isActive = true
+		nextButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		nextButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		nextButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		nextButton.rightAnchor.constraint(equalTo: playButton.rightAnchor, constant: 80).isActive = true
@@ -287,7 +259,7 @@ class MainUIController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = MenuController() 
+		let vc = genreScroll() 
 		self.present(vc, animated: true, completion: nil)
 		
 	}

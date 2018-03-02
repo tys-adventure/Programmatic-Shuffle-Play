@@ -19,6 +19,7 @@
 		5C3D66BD20489CB30058A20B /* CountryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D66BC20489CB30058A20B /* CountryController.swift */; };
 		5C3D66BF2048AA360058A20B /* PopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D66BE2048AA360058A20B /* PopController.swift */; };
 		5C3D67452049DD310058A20B /* genreSroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D67442049DD310058A20B /* genreSroll.swift */; };
+		5C3D67472049F4E50058A20B /* ElectronicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D67462049F4E50058A20B /* ElectronicController.swift */; };
 		5C698CAE20099745005FD7C4 /* MainUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CAD20099745005FD7C4 /* MainUIController.swift */; };
 		5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CAF2009975A005FD7C4 /* MenuController.swift */; };
 		5C698CB22009976C005FD7C4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CB12009976C005FD7C4 /* ProfileController.swift */; };
@@ -69,6 +70,7 @@
 		5C3D66BC20489CB30058A20B /* CountryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryController.swift; sourceTree = "<group>"; };
 		5C3D66BE2048AA360058A20B /* PopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopController.swift; sourceTree = "<group>"; };
 		5C3D67442049DD310058A20B /* genreSroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genreSroll.swift; sourceTree = "<group>"; };
+		5C3D67462049F4E50058A20B /* ElectronicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectronicController.swift; sourceTree = "<group>"; };
 		5C698CAD20099745005FD7C4 /* MainUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIController.swift; sourceTree = "<group>"; };
 		5C698CAF2009975A005FD7C4 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		5C698CB12009976C005FD7C4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				5CA5423C2047CBBF005FCBD6 /* BluesController.swift */,
 				5C3D66BC20489CB30058A20B /* CountryController.swift */,
 				5C3D66BE2048AA360058A20B /* PopController.swift */,
+				5C3D67462049F4E50058A20B /* ElectronicController.swift */,
 				5C698CAD20099745005FD7C4 /* MainUIController.swift */,
 				5C698CAF2009975A005FD7C4 /* MenuController.swift */,
 				5C698CB12009976C005FD7C4 /* ProfileController.swift */,
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CEF02A6201E353100D63D3E /* streamingController.swift in Sources */,
+				5C3D67472049F4E50058A20B /* ElectronicController.swift in Sources */,
 				5C698CB22009976C005FD7C4 /* ProfileController.swift in Sources */,
 				5C1B384D1FE86197003179A1 /* AppDelegate.swift in Sources */,
 				5CA600AD1FF855C200DD40E6 /* UIButtonExtension.swift in Sources */,
