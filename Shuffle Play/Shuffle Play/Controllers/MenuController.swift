@@ -22,7 +22,7 @@ class MenuController: UIViewController {
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
-		textView.text = "Genres"
+		textView.text = "Select Your Main Genre"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -48,26 +48,10 @@ class MenuController: UIViewController {
 		return button
 	}()
 	
-	//RockButton
-	/*
-	let RockButton: UIButton = {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		button.setTitle("Rock", for: .normal)
-		button.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-	
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
-	*/
-	
-	let RockButton: UIButton = {
+	//Blues Button
+	let BluesButton: UIButton = {
 		let btn = MenuController.createSPButton()
-		btn.setTitle("Rock", for: .normal)
+		btn.setTitle("Blues", for: .normal)
 		btn.layer.borderWidth = 2
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
@@ -76,12 +60,12 @@ class MenuController: UIViewController {
 		btn.layer.shadowRadius = 2.0
 		btn.layer.shadowOpacity = 0.5
 		
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.addTarget(self, action: #selector(BluesButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
-	//PopButton
+	//Pop Button
 	let PopButton: UIButton = {
 		let btn = MenuController.createSPButton()
 		btn.setTitle("Pop", for: .normal)
@@ -93,7 +77,7 @@ class MenuController: UIViewController {
 		btn.layer.shadowRadius = 2.0
 		btn.layer.shadowOpacity = 0.5
 		
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.addTarget(self, action: #selector(PopButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
@@ -231,7 +215,7 @@ class MenuController: UIViewController {
 		btn.layer.shadowRadius = 2.0
 		btn.layer.shadowOpacity = 0.5
 		
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		btn.addTarget(self, action: #selector(CountryButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
@@ -342,7 +326,7 @@ class MenuController: UIViewController {
 		
 		view.addSubview(genreTextView)
 		view.addSubview(mainButtonTapped)
-		view.addSubview(RockButton)
+		view.addSubview(BluesButton)
 		view.addSubview(PopButton)
 		view.addSubview(HipHopButton)
 		view.addSubview(AlternativeButton)
@@ -383,7 +367,6 @@ class MenuController: UIViewController {
 	private func setupLayout() {
 		
 		genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 45).isActive = true
-		//genreTextView.bottomAnchor.constraint(equalTo: RockButton.topAnchor, constant: -15).isActive = true
 		genreTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		genreTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		genreTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -394,13 +377,13 @@ class MenuController: UIViewController {
 		mainButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
-		RockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		RockButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
-		RockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		RockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		BluesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
+		BluesButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -515).isActive = true
+		BluesButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
+		BluesButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		PopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		PopButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
+		PopButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -515).isActive = true
 		PopButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		PopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
@@ -410,7 +393,7 @@ class MenuController: UIViewController {
 		HipHopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		AlternativeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		AlternativeButton.topAnchor.constraint(equalTo: RockButton.bottomAnchor, constant: 15).isActive = true
+		AlternativeButton.topAnchor.constraint(equalTo: BluesButton.bottomAnchor, constant: 15).isActive = true
 		AlternativeButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
 		AlternativeButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
@@ -467,7 +450,7 @@ class MenuController: UIViewController {
 	}
 	
 	//Alert Function
-	
+	/*
 	func createAlert (title:String, message:String) {
 		
 		let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -475,7 +458,7 @@ class MenuController: UIViewController {
 			alert.dismiss(animated: true, completion: nil)
 		)))
 		
-	}
+	} */
 	
 	
 	//All Genre Button Functions (NEW)
@@ -497,6 +480,43 @@ class MenuController: UIViewController {
 		self.present(vc, animated: true, completion: nil)
 		
 	}
+	
+	@objc func BluesButton(_ sender: UIButton) {
+		
+		//self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = BluesController()
+		self.present(vc, animated: true, completion: nil)
+		
+	}
+	
+	@objc func CountryButton(_ sender: UIButton) {
+		
+		//self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = CountryController()
+		self.present(vc, animated: true, completion: nil)
+		
+	}
+	
+	@objc func PopButton(_ sender: UIButton) {
+		
+		//self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = PopController()
+		self.present(vc, animated: true, completion: nil)
+		
+	}
+	
+	/*
+	@objc func RHButton(_ sender: UIButton) {
+		
+		//self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = HipHopRapController()
+		self.present(vc, animated: true, completion: nil)
+		
+	} */
     
     //Any of the genre buttons tapped = this action
 

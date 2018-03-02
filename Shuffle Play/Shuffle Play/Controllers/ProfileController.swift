@@ -50,7 +50,7 @@ class ProfileController: UIViewController {
 	
 	//About Shuffle Play Button
 	let aboutSPButtonTapped: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("About Shuffle Play", for: .normal)
 		btn.layer.borderWidth = 2
 		// Shadow and Radius for Circle Button
@@ -67,7 +67,7 @@ class ProfileController: UIViewController {
 	
 	//Selections Button
 	let GenreSelectionButtonTapped: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Your Genre Selections", for: .normal)
 		btn.layer.borderWidth = 2
 		// Shadow and Radius for Circle Button
@@ -106,7 +106,7 @@ class ProfileController: UIViewController {
 	
 	//About Developer Button
 	let AboutButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("About The Developer", for: .normal)
 		btn.layer.borderWidth = 2
 		// Shadow and Radius for Circle Button
@@ -216,6 +216,16 @@ class ProfileController: UIViewController {
 		reviewTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
 		reviewTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
 		
+	}
+	
+	static func createSPButton() -> UIButton {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.black.cgColor
+		return button
 	}
 
 	//Button functions
