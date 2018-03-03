@@ -46,10 +46,13 @@ class genreScroll: UIViewController {
 	
 	//Blues Button
 	let BluesButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Blues", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.backgroundColor = UIColor.white
+		if let homeImage  = UIImage(named: "bluesbutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -64,9 +67,12 @@ class genreScroll: UIViewController {
 	
 	//Pop Button
 	let PopButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Pop", for: .normal)
 		btn.layer.borderWidth = 2
+		if let homeImage  = UIImage(named: "popbutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -81,10 +87,13 @@ class genreScroll: UIViewController {
 	
 	//Country Button
 	let CountryButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Country", for: .normal)
 		//btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
 		btn.layer.borderWidth = 2
+		if let homeImage  = UIImage(named: "countrybutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -99,10 +108,13 @@ class genreScroll: UIViewController {
 	
 	//Electronic Button
 	let ElectronicButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Electronic", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.backgroundColor = UIColor.white
+		if let homeImage  = UIImage(named: "electronicbutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -117,10 +129,13 @@ class genreScroll: UIViewController {
 	
 	//Singer/Songwriter Button
 	let SingerButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Singer/Songwriter", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.backgroundColor = UIColor.white
+		if let homeImage  = UIImage(named: "singerbutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -135,10 +150,13 @@ class genreScroll: UIViewController {
 	
 	//R&B/Soul Button
 	let RBSoulButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("R&B/Soul", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.backgroundColor = UIColor.white
+		if let homeImage  = UIImage(named: "soulbutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -153,10 +171,13 @@ class genreScroll: UIViewController {
 	
 	//Dance
 	let DanceButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Dance", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.backgroundColor = UIColor.white
+		if let homeImage  = UIImage(named: "dancebutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -171,10 +192,13 @@ class genreScroll: UIViewController {
 	
 	//HipHop/Rap Button
 	let HipHopRapButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Hip-Hop/Rap", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.backgroundColor = UIColor.white
+		if let homeImage  = UIImage(named: "hiprapbutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -189,10 +213,13 @@ class genreScroll: UIViewController {
 	
 	//Alternative Button
 	let AlternativeButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Alternative", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.backgroundColor = UIColor.white
+		if let homeImage  = UIImage(named: "alternativebutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -207,10 +234,13 @@ class genreScroll: UIViewController {
 	
 	//Rock Button
 	let RockButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Rock", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.backgroundColor = UIColor.white
+		if let homeImage  = UIImage(named: "rockbutton.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -225,10 +255,13 @@ class genreScroll: UIViewController {
 	
 	//Christian/Gospel
 	let ChristianButton: UIButton = {
-		let btn = MenuController.createSPButton()
+		let btn = createSPButton()
 		btn.setTitle("Christian/Gospel", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.backgroundColor = UIColor.white
+		if let homeImage  = UIImage(named: "christian.png") {
+			btn.setImage(homeImage, for: .normal)
+		}
 		// Shadow and Radius for Circle Button
 		btn.layer.shadowColor = UIColor.black.cgColor
 		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -244,13 +277,15 @@ class genreScroll: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		view.backgroundColor = UIColor.white
+		
 		let screensize: CGRect = UIScreen.main.bounds
 		let screenWidth = screensize.width
 		let screenHeight = screensize.height
 		var scrollView: UIScrollView!
-		scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+		scrollView = UIScrollView(frame: CGRect(x: 0, y: 18, width: screenWidth, height: screenHeight))
 		
-		scrollView.backgroundColor = UIColor .orange
+		scrollView.backgroundColor = UIColor .white
 		
 		scrollView.addSubview(mainButtonTapped)
 		scrollView.addSubview(genreTextView)
@@ -348,6 +383,18 @@ class genreScroll: UIViewController {
 		//ViewDidLoadEnd
 	}
 
+	static func createSPButton() -> UIButton {
+		let button = UIButton()
+		button.tintColor=UIColor .gray
+		button.backgroundColor = UIColor.white
+		//button.alpha = 0.4
+		button.setTitleColor(.black, for: .normal)
+		button.layer.cornerRadius = 5
+		button.layer.borderWidth = 1
+		button.layer.borderColor = UIColor.white.cgColor
+		return button
+	}
+	
 	
 	@objc func BluesButton(_ sender: UIButton) {
 		
