@@ -15,22 +15,14 @@ class MainUIController: UIViewController {
 	
 	//DO NOT DELETE AGAIN!!!!
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-	
+
+	//Album Image View
 	/*
-	//Album Image View
-	let backgroundImageView: UIImageView = {
-		let imageView = UIImageView(image: #imageLiteral(resourceName: "backback2"))
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		return imageView
-	}() */
-	
-	
-	//Album Image View
 	let albumImageView: UIImageView = {
 		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
-	}()
+	}() */
 	
 	//ProfileButton
 	let profileButton: UIButton = {
@@ -73,6 +65,27 @@ class MainUIController: UIViewController {
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
+	
+	let secretButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("", for: .normal)
+		button.setTitleColor(.black, for: .normal)
+		if let homeImage  = UIImage(named: "SPEmoji.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 3.0
+		button.layer.shadowOpacity = 1.0
+		
+		button.addTarget(self, action: #selector(secretButton(_:)), for:.touchUpInside)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
 	
 	//Play
 	let playButton: UIButton = {
@@ -185,12 +198,10 @@ class MainUIController: UIViewController {
 		
 		animateGradient()
 		
-		//scaleImages = createImageArray(total: 48, imagePrefix: "Angus")
-		
 		
 		//Setup Layout
-		//view.addSubview(backgroundImageView)
-		view.addSubview(albumImageView)
+		view.addSubview(secretButton)
+		//view.addSubview(albumImageView)
 		view.addSubview(profileButton)
 		view.addSubview(menuButton)
 		view.addSubview(playButton)
@@ -205,19 +216,19 @@ class MainUIController: UIViewController {
     }
 	
 	private func setupLayout() {
+	
+		secretButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		secretButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+		secretButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+		secretButton.heightAnchor.constraint(equalToConstant: 150).isActive = true
 		
 		/*
-		backgroundImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		backgroundImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-		backgroundImageView.widthAnchor.constraint(equalToConstant: 1125).isActive = true
-		backgroundImageView.heightAnchor.constraint(equalToConstant: 2436).isActive = true
-		*/
-
 		albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		albumImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
 		albumImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
 		albumImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-		
+		*/
+
 		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
 		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
 		profileButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
@@ -228,23 +239,22 @@ class MainUIController: UIViewController {
 		menuButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		menuButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -35).isActive = true
 		
-		playButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
+		playButton.topAnchor.constraint(equalTo: secretButton.bottomAnchor, constant: 150).isActive = true
 		playButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		playButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 40).isActive = true
 		
-		pauseButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
+		pauseButton.topAnchor.constraint(equalTo: secretButton.bottomAnchor, constant: 150).isActive = true
 		pauseButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		pauseButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
-		//pauseButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 110).isActive = true
 		pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40).isActive = true
 		
-		previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
+		previousButton.topAnchor.constraint(equalTo: secretButton.bottomAnchor, constant: 150).isActive = true
 		previousButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		previousButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		previousButton.leftAnchor.constraint(equalTo: pauseButton.leftAnchor, constant: -75).isActive = true
 	
-		nextButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
+		nextButton.topAnchor.constraint(equalTo: secretButton.bottomAnchor, constant: 150).isActive = true
 		nextButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		nextButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		nextButton.rightAnchor.constraint(equalTo: playButton.rightAnchor, constant: 80).isActive = true
@@ -259,7 +269,7 @@ class MainUIController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = genreScroll() 
+		let vc = MenuController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
@@ -273,7 +283,7 @@ class MainUIController: UIViewController {
 		
 	}
 	
-	@objc func testButton(_ sender: UIButton){
+	@objc func secretButton(_ sender: UIButton){
 		
 		let vc = genreScroll()
 		self.present(vc, animated: true, completion: nil)
@@ -316,6 +326,12 @@ class MainUIController: UIViewController {
         sender.pulsate()
     }
 
+	//Shake to skip
+	override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+		
+		musicPlayer.skipToNextItem()
+		
+	}
 	
 	//UIColor Gradient Func
 	
@@ -337,17 +353,5 @@ class MainUIController: UIViewController {
 	
 }
 
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 	
 

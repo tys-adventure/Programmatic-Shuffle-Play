@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C00C0CF204D4003002F346F /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00C0CE204D4003002F346F /* MainScreenController.swift */; };
 		5C1B384D1FE86197003179A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B384C1FE86197003179A1 /* AppDelegate.swift */; };
 		5C1B38521FE86197003179A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B38501FE86197003179A1 /* Main.storyboard */; };
 		5C1B38551FE86197003179A1 /* Shuffle_Play.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B38531FE86197003179A1 /* Shuffle_Play.xcdatamodeld */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C00C0CE204D4003002F346F /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		5C1B38491FE86197003179A1 /* Shuffle Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shuffle Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1B384C1FE86197003179A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C1B38511FE86197003179A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				5CEF02A5201E353100D63D3E /* streamingController.swift */,
 				5C286CA32027E02200DD90FB /* aboutSPController.swift */,
 				5C3D67442049DD310058A20B /* genreSroll.swift */,
+				5C00C0CE204D4003002F346F /* MainScreenController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				5CDA80D420467BED003995B8 /* AlertExtension.swift in Sources */,
 				5CD87DDA202EBB2600F795EF /* pulseExtension.swift in Sources */,
 				5CC20AE3202FB69E00CFF27C /* Constants.swift in Sources */,
+				5C00C0CF204D4003002F346F /* MainScreenController.swift in Sources */,
 				5C698CAE20099745005FD7C4 /* MainUIController.swift in Sources */,
 				5CEF02A2201D3DDB00D63D3E /* aboutController.swift in Sources */,
 				5CA5423D2047CBBF005FCBD6 /* BluesController.swift in Sources */,

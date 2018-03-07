@@ -25,12 +25,10 @@ class streamingController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
 		//UIGradient
 		gradientSet.append([gradientOne, gradientTwo])
 		gradientSet.append([gradientTwo, gradientThree])
 		gradientSet.append([gradientThree, gradientOne])
-		
 		
 		gradient.frame = self.view.bounds
 		gradient.colors = gradientSet[currentGradient]
@@ -43,8 +41,6 @@ class streamingController: UIViewController {
 		
 		
 		//Menu Button
-		// X = Top to Bottom
-		// Y = Left to Right
 		
 		let profileButton = UIButton(type: UIButtonType.system) as UIButton
 		profileButton.frame = CGRect(x: 50, y: 50, width: 35, height: 35)

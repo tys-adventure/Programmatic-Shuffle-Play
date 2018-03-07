@@ -14,8 +14,27 @@ class ProfileController: UIViewController {
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	var nowPlayingInfo = MPNowPlayingInfoCenter.self
 
+	//MARK: TextViews
+	let reviewTextView: UITextView = {
+		let textView = createTextView()
+		textView.font = UIFont(name:"Avenir Next", size: 18.0)
+		textView.text = "If you like Shuffle Play Plus, or you have ways I can improve Shuffle Play Plus, please leave a review on the app store and I'll make sure to try and add it to the feature list!"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
 	
-	//Profile UIButton
+	let profileTextView: UITextView = {
+		let textView = UITextView()
+		textView.font = UIFont(name:"Avenir Next", size: 25.0)
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
+		textView.text = "Your Profile"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
+	//MARK: Buttons
 	let profileButtonTapped: UIButton = {
 		let button = UIButton()
 		button.setTitle("Home", for: .normal)
@@ -35,106 +54,36 @@ class ProfileController: UIViewController {
 		return button
 	}()
 	
-	//Profile Shuffle Play textView
-	let profileTextView: UITextView = {
-		let textView = UITextView()
-		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
-		textView.textAlignment = .center
-		textView.backgroundColor = UIColor.clear
-		textView.isUserInteractionEnabled = false
-		textView.text = "Your Profile"
-		textView.translatesAutoresizingMaskIntoConstraints = false
-		return textView
-	}()
-	
-	//About Shuffle Play Button
 	let aboutSPButtonTapped: UIButton = {
-		let btn = createSPButton()
+		let btn = createProfileButton()
 		btn.setTitle("About Shuffle Play", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 4.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
-	//Selections Button
 	let GenreSelectionButtonTapped: UIButton = {
-		let btn = createSPButton()
+		let btn = createProfileButton()
 		btn.setTitle("Your Genre Selections", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 4.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
-	//Selections Button
-	
 	let ReviewButtonTapped: UIButton = {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.backgroundColor = UIColor.white
-		button.alpha = 0.4
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 2
-		button.layer.borderColor = UIColor.white.cgColor
-		button.setTitle("Review SPP on the App Store!", for: .normal)
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 4.0
-		button.layer.shadowOpacity = 0.5
-		button.addTarget(self, action: #selector(ReviewButtonTapped(_:)), for:.touchUpInside)
-		
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
-	
-	//About Developer Button
-	let AboutButton: UIButton = {
-		let btn = createSPButton()
-		btn.setTitle("About The Developer", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 4.0
-		btn.layer.shadowOpacity = 0.5
-		
-		btn.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
+		let btn = createProfileButton()
+		btn.setTitle("Review SPP on the App Store!", for: .normal)
+		btn.addTarget(self, action: #selector(ReviewButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
-	
-	//About Tyler textView
-	let reviewTextView: UITextView = {
-		let textView = UITextView()
-		textView.font = UIFont(name:"Avenir Next", size: 18.0)
-		textView.textColor = .white 
-		//textView.font = UIFont.boldSystemFont(ofSize: 18)
-		textView.textAlignment = .center
-		textView.backgroundColor = UIColor.clear
-		textView.isUserInteractionEnabled = false
-		textView.text = "If you like Shuffle Play Plus, or you have ways I can improve Shuffle Play Plux, please leave a review on the app store and I'll make sure to try and add it to the feature list!"
-		textView.translatesAutoresizingMaskIntoConstraints = false
-		return textView
+
+	let AboutButton: UIButton = {
+		let btn = createProfileButton()
+		btn.setTitle("About The Developer", for: .normal)
+		btn.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
+		btn.translatesAutoresizingMaskIntoConstraints = false
+		return btn
 	}()
 	
 	//UIGradient Color
@@ -165,6 +114,7 @@ class ProfileController: UIViewController {
 		
 		animateGradient()
 		
+		//MARK: .addSubView
 		view.addSubview(profileButtonTapped)
 		view.addSubview(profileTextView)
 		view.addSubview(aboutSPButtonTapped)
@@ -219,21 +169,39 @@ class ProfileController: UIViewController {
 		reviewTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
 		reviewTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
 		
+		//End viewDidLoad
 	}
 	
-	static func createSPButton() -> UIButton {
+	//MARK: TextView Functions
+	static func createTextView() -> UITextView{
+		let textView = UITextView()
+		textView.textColor = .white
+		textView.textAlignment = .center
+		textView.backgroundColor = UIColor.clear
+		textView.isUserInteractionEnabled = false
+		
+		return textView
+	}
+	
+	//MARK: Button Functions
+	static func createProfileButton() -> UIButton {
 		let button = UIButton()
 		button.tintColor=UIColor .gray
 		button.backgroundColor = UIColor.white
 		button.alpha = 0.4
 		button.setTitleColor(.black, for: .normal)
 		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
+		button.layer.borderWidth = 2
 		button.layer.borderColor = UIColor.white.cgColor
+		// Shadow and Radius for Circle Button
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		button.layer.masksToBounds = false
+		button.layer.shadowRadius = 4.0
+		button.layer.shadowOpacity = 0.5
+		
 		return button
 	}
-
-	//Button functions
 	
 	@objc func profileButtonTapped(_ sender: UIButton) {
 		
@@ -244,8 +212,6 @@ class ProfileController: UIViewController {
 		
 	}
 	
-
-	
 	@objc func aboutSPButtonTapped(_ sender: UIButton) {
 		
 		let vc = aboutSPController()
@@ -254,8 +220,6 @@ class ProfileController: UIViewController {
 		
 	}
 	
-
-	
 	@objc func GenreSelectionButtonTapped(_ sender: UIButton) {
 		
 		let vc = selectionsController()
@@ -263,7 +227,6 @@ class ProfileController: UIViewController {
 		sender.pulsate()
 		
 	}
-	
 	
 	@objc func AboutButton(_ sender: UIButton) {
 		
@@ -286,14 +249,11 @@ class ProfileController: UIViewController {
 		
 	}
 	
-	
-	//UIGradient Func
+	//MARK: UIGradient Func
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
 	}
-	
-	//UIColor Gradient Func
 	
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
@@ -314,16 +274,6 @@ class ProfileController: UIViewController {
 
 
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 
 

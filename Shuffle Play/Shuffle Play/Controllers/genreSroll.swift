@@ -13,19 +13,12 @@ import MediaPlayer
 class genreScroll: UIViewController {
 	
 	let mainButtonTapped: UIButton = {
-		let button = UIButton()
+		let button = MenuController.controllerButton()
 		button.setTitle("Home", for: .normal)
 		button.setTitleColor(.white, for: .normal)
 		if let homeImage  = UIImage(named: "music-white.png") {
 			button.setImage(homeImage, for: .normal)
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -33,12 +26,8 @@ class genreScroll: UIViewController {
 	
 	//Genre Shuffle Play textView
 	let genreTextView: UITextView = {
-		let textView = UITextView()
+		let textView = ProfileController.createTextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
-		textView.textAlignment = .center
-		textView.backgroundColor = UIColor.clear
-		textView.isUserInteractionEnabled = false
 		textView.text = "Select Your Main Genre"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -48,18 +37,6 @@ class genreScroll: UIViewController {
 	let BluesButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		btn.backgroundColor = UIColor.white
-		if let homeImage  = UIImage(named: "bluesbutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(BluesButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -70,16 +47,6 @@ class genreScroll: UIViewController {
 		let btn = createSPButton()
 		btn.setTitle("Pop", for: .normal)
 		btn.layer.borderWidth = 2
-		if let homeImage  = UIImage(named: "popbutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(PopButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -89,18 +56,6 @@ class genreScroll: UIViewController {
 	let CountryButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("Country", for: .normal)
-		//btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-		btn.layer.borderWidth = 2
-		if let homeImage  = UIImage(named: "countrybutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(CountryButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -110,18 +65,6 @@ class genreScroll: UIViewController {
 	let ElectronicButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("Electronic", for: .normal)
-		btn.layer.borderWidth = 2
-		btn.backgroundColor = UIColor.white
-		if let homeImage  = UIImage(named: "electronicbutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(ElectronicButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -131,18 +74,6 @@ class genreScroll: UIViewController {
 	let SingerButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("Singer/Songwriter", for: .normal)
-		btn.layer.borderWidth = 2
-		btn.backgroundColor = UIColor.white
-		if let homeImage  = UIImage(named: "singerbutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(SingerButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -152,18 +83,6 @@ class genreScroll: UIViewController {
 	let RBSoulButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("R&B/Soul", for: .normal)
-		btn.layer.borderWidth = 2
-		btn.backgroundColor = UIColor.white
-		if let homeImage  = UIImage(named: "soulbutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(RBSoulButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -173,18 +92,6 @@ class genreScroll: UIViewController {
 	let DanceButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("Dance", for: .normal)
-		btn.layer.borderWidth = 2
-		btn.backgroundColor = UIColor.white
-		if let homeImage  = UIImage(named: "dancebutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -194,18 +101,6 @@ class genreScroll: UIViewController {
 	let HipHopRapButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("Hip-Hop/Rap", for: .normal)
-		btn.layer.borderWidth = 2
-		btn.backgroundColor = UIColor.white
-		if let homeImage  = UIImage(named: "hiprapbutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -215,18 +110,6 @@ class genreScroll: UIViewController {
 	let AlternativeButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("Alternative", for: .normal)
-		btn.layer.borderWidth = 2
-		btn.backgroundColor = UIColor.white
-		if let homeImage  = UIImage(named: "alternativebutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -236,18 +119,6 @@ class genreScroll: UIViewController {
 	let RockButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("Rock", for: .normal)
-		btn.layer.borderWidth = 2
-		btn.backgroundColor = UIColor.white
-		if let homeImage  = UIImage(named: "rockbutton.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -257,18 +128,6 @@ class genreScroll: UIViewController {
 	let ChristianButton: UIButton = {
 		let btn = createSPButton()
 		btn.setTitle("Christian/Gospel", for: .normal)
-		btn.layer.borderWidth = 2
-		btn.backgroundColor = UIColor.white
-		if let homeImage  = UIImage(named: "christian.png") {
-			btn.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -277,15 +136,14 @@ class genreScroll: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		view.backgroundColor = UIColor.white
-		
 		let screensize: CGRect = UIScreen.main.bounds
 		let screenWidth = screensize.width
 		let screenHeight = screensize.height
 		var scrollView: UIScrollView!
 		scrollView = UIScrollView(frame: CGRect(x: 0, y: 18, width: screenWidth, height: screenHeight))
 		
-		scrollView.backgroundColor = UIColor .white
+		view.backgroundColor = UIColor.orange
+		scrollView.backgroundColor = UIColor .orange
 		
 		scrollView.addSubview(mainButtonTapped)
 		scrollView.addSubview(genreTextView)
@@ -301,44 +159,37 @@ class genreScroll: UIViewController {
 		scrollView.addSubview(RockButton)
 		scrollView.addSubview(ChristianButton)
 		
-		
+		//MARK: AutoLayout Constraints
 		NSLayoutConstraint(item: mainButtonTapped, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 20).isActive = true
 		NSLayoutConstraint(item: mainButtonTapped, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 35 ).isActive = true
 		NSLayoutConstraint(item: mainButtonTapped, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 5).isActive = true
 		NSLayoutConstraint(item: mainButtonTapped, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 35).isActive = true
 		
-		//Genre Text View
 		NSLayoutConstraint(item: genreTextView, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
 		NSLayoutConstraint(item: genreTextView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260 ).isActive = true
 		NSLayoutConstraint(item: genreTextView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 10).isActive = true
 		NSLayoutConstraint(item: genreTextView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 30).isActive = true
 		
-		
-		//Blues Button
 		NSLayoutConstraint(item: BluesButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
 		NSLayoutConstraint(item: BluesButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
 		NSLayoutConstraint(item: BluesButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 100).isActive = true
 		NSLayoutConstraint(item: BluesButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
-		
-		//Country Button
+
 		NSLayoutConstraint(item: CountryButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
 		NSLayoutConstraint(item: CountryButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
 		NSLayoutConstraint(item: CountryButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 250).isActive = true
 		NSLayoutConstraint(item: CountryButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
-		
-		//Pop Button
+
 		NSLayoutConstraint(item: PopButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
 		NSLayoutConstraint(item: PopButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
 		NSLayoutConstraint(item: PopButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 400).isActive = true
 		NSLayoutConstraint(item: PopButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		//Electronic Button
 		NSLayoutConstraint(item: ElectronicButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
 		NSLayoutConstraint(item: ElectronicButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
 		NSLayoutConstraint(item: ElectronicButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 550).isActive = true
 		NSLayoutConstraint(item: ElectronicButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
-		
-		//Singer/Songwriter Button
+
 		NSLayoutConstraint(item: SingerButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
 		NSLayoutConstraint(item: SingerButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
 		NSLayoutConstraint(item: SingerButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 700).isActive = true
@@ -374,9 +225,8 @@ class genreScroll: UIViewController {
 		NSLayoutConstraint(item: ChristianButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1600).isActive = true
 		NSLayoutConstraint(item: ChristianButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		
-		
-		scrollView.contentSize = CGSize(width: screenWidth, height: 2000)
+		//Change height to larger size
+		scrollView.contentSize = CGSize(width: screenWidth, height: 3000)
 		view.addSubview(scrollView)
 		
 		
@@ -384,21 +234,31 @@ class genreScroll: UIViewController {
 	}
 
 	static func createSPButton() -> UIButton {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.backgroundColor = UIColor.white
-		//button.alpha = 0.4
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.white.cgColor
-		return button
+		
+		let btn = UIButton()
+		btn.tintColor=UIColor .gray
+		btn.backgroundColor = UIColor.white
+		btn.alpha = 0.4
+		btn.setTitleColor(.black, for: .normal)
+		btn.layer.cornerRadius = 5
+		btn.layer.borderWidth = 2
+		btn.layer.borderColor = UIColor.white.cgColor
+		
+		btn.layer.shadowColor = UIColor.black.cgColor
+		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		btn.layer.masksToBounds = false
+		btn.layer.shadowRadius = 2.0
+		btn.layer.shadowOpacity = 0.5
+		
+		return btn
+	}
+	
+	func switchViewController() {
+		
 	}
 	
 	
 	@objc func BluesButton(_ sender: UIButton) {
-		
-		//self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
 		let vc = BluesController()
 		self.present(vc, animated: true, completion: nil)
@@ -407,17 +267,12 @@ class genreScroll: UIViewController {
 
 
 	@objc func CountryButton(_ sender: UIButton) {
-	
-		//self.presentingViewController?.dismiss(animated: true, completion: nil)
-	
 		let vc = CountryController()
 		self.present(vc, animated: true, completion: nil)
 	
 	}
 
 	@objc func PopButton(_ sender: UIButton) {
-	
-		//self.presentingViewController?.dismiss(animated: true, completion: nil)
 	
 		let vc = PopController()
 		self.present(vc, animated: true, completion: nil)
@@ -426,16 +281,12 @@ class genreScroll: UIViewController {
 	
 	@objc func ElectronicButton(_ sender: UIButton) {
 		
-		//self.presentingViewController?.dismiss(animated: true, completion: nil)
-		
 		let vc = ElectronicController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
 	@objc func SingerButton(_ sender: UIButton) {
-		
-		//self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
 		//Change
 		let vc = ElectronicController()
@@ -445,8 +296,6 @@ class genreScroll: UIViewController {
 	
 	@objc func RBSoulButton(_ sender: UIButton) {
 		
-		//self.presentingViewController?.dismiss(animated: true, completion: nil)
-		
 		//Change
 		let vc = ElectronicController()
 		self.present(vc, animated: true, completion: nil)
@@ -454,8 +303,6 @@ class genreScroll: UIViewController {
 	}
 	
 	@objc func DanceButton(_ sender: UIButton) {
-		
-		//self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
 		//Change
 		let vc = ElectronicController()
@@ -495,12 +342,4 @@ class genreScroll: UIViewController {
 		self.present(vc, animated: true, completion: nil)
 		
 	}
-
-
-
-	
-	
-	
-	
-	
 }

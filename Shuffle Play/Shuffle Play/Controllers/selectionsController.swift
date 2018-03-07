@@ -12,13 +12,18 @@ import UIKit
 class selectionsController: UIViewController {
 	
 	//Profile Shuffle Play textView
-	let selectionsTextView: UITextView = {
-		let textView = UITextView()
+	let genreTextView: UITextView = {
+		let textView = ProfileController.createTextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
-		textView.textAlignment = .center
-		textView.backgroundColor = UIColor.clear
-		textView.isUserInteractionEnabled = false
+		textView.text = "Your Genre Selections"
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+	}()
+	
+	//Profile Shuffle Play textView
+	let selectionsTextView: UITextView = {
+		let textView = ProfileController.createTextView()
+		textView.font = UIFont(name:"Avenir Next", size: 25.0)
 		textView.text = "Genre Selections is coming soon, in a future update! Thank you for understanding."
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -26,38 +31,16 @@ class selectionsController: UIViewController {
 	
 	//Profile UIButton
 	let profileButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("Profile", for: .normal)
-		button.setTitleColor(.black, for: .normal)
+		let button = MenuController.controllerButton()
 		if let homeImage  = UIImage(named: "chart1-white.png") {
 			button.setImage(homeImage, for: .normal)
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
-		
 		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
 	
-	//Profile Shuffle Play textView
-	let genreTextView: UITextView = {
-		let textView = UITextView()
-		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
-		textView.textAlignment = .center
-		textView.backgroundColor = UIColor.clear
-		textView.isUserInteractionEnabled = false
-		textView.text = "Your Genre Selections"
-		textView.translatesAutoresizingMaskIntoConstraints = false
-		return textView
-	}()
-	
-	//UIGradient Color
+	//MARK: UIGradient Color
 	let gradient = CAGradientLayer()
 	var gradientSet = [[CGColor]]()
 	var currentGradient: Int = 0
@@ -85,8 +68,7 @@ class selectionsController: UIViewController {
 		
 		animateGradient()
 		
-		//setupLayout()
-		
+		//MARK: addSubView
 		view.addSubview(genreTextView)
 		view.addSubview(selectionsTextView)
 		view.addSubview(profileButton)
@@ -97,7 +79,6 @@ class selectionsController: UIViewController {
 }
 	
 	private func setupLayout() {
-		
 		
 		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
 		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
@@ -121,15 +102,13 @@ class selectionsController: UIViewController {
 	}
 
 	//Profile Button Func
-	
 	@objc func profileButton(_ sender: UIButton) {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
 		let vc = ProfileController()
 		self.present(vc, animated: true, completion: nil)
-		
-}
+	}
 
 	//UIGradient Func
 	override func viewDidAppear(_ animated: Bool) {
@@ -137,9 +116,7 @@ class selectionsController: UIViewController {
 		
 	}
 	
-	
 	//UIColor Gradient Func
-	
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
 			currentGradient += 1

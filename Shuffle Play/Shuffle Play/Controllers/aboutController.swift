@@ -13,20 +13,13 @@ class aboutController: UIViewController {
 	
 	//Profile UIButton
 	let profileButton: UIButton = {
-		let button = UIButton()
+		let button = MenuController.controllerButton()
 		button.setTitle("Profile", for: .normal)
 		button.setTitleColor(.black, for: .normal)
 		if let homeImage  = UIImage(named: "chart1-white.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 0.5
-		
 		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -192,9 +185,6 @@ class aboutController: UIViewController {
 		aboutTylerTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
 		aboutTylerTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
 		aboutTylerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-		
-
-		
 	}
 	
 	//SP Logo Func
@@ -202,8 +192,6 @@ class aboutController: UIViewController {
 	var logoView : UIImageView!
 	
 	//Profile Button Func
-	
-
 	@objc func profileButton(_ sender: UIButton) {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -212,7 +200,6 @@ class aboutController: UIViewController {
 		self.present(vc, animated: true, completion: nil)
 		
 	}
-	
 	
 	//Instagram Button Func
 
@@ -259,15 +246,11 @@ class aboutController: UIViewController {
 		
 	}
 	
-	
 	//UIGradient Func
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
 	}
-	
-	
-	//UIColor Gradient Func
 	
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
