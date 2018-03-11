@@ -14,155 +14,82 @@ class BluesController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	
-	
-	//Genre Shuffle Play textView
+	//MARK: textView
 	let genreTextView: UITextView = {
 		let textView = UITextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
-		textView.text = "Genres"
+		textView.textColor = UIColor.white
+		textView.text = "Blues"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
 	
-	//Profile UIButton
-	//Fix Button Image Please
+	//MARK: Buttons
 	let mainButtonTapped: UIButton = {
-		let button = UIButton()
+		let button = UIButton.controllerButton()
 		button.setTitle("Home", for: .normal)
-		button.setTitleColor(.black, for: .normal)
 		if let homeImage  = UIImage(named: "music.png") {
 			button.setImage(homeImage, for: .normal)
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
 	
-	//Chicago Blues Button
 	let ChicagoButton: UIButton = {
-		let btn = createSPButton()
+		let btn = ProfileController.createProfileButton()
 		btn.setTitle("Chicago Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
-	//Classic Blues Button
 	let ClassicButton: UIButton = {
-		let btn = createSPButton()
+		let btn = ProfileController.createProfileButton()
 		btn.setTitle("Classic Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
-	//Contemporary Blues Button
 	let ContemporaryBluesButton: UIButton = {
-		let btn = createSPButton()
+		let btn = ProfileController.createProfileButton()
 		btn.setTitle("Contemporary Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
-	//Country Blues Button
-	let CountryBluesButton: UIButton = {//(frame: CGRect(x: 55, y: 295, width: 260, height: 45))
-		let btn = createSPButton()
+	let CountryBluesButton: UIButton = {
+		let btn = ProfileController.createProfileButton()
 		btn.setTitle("Country Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
-	//Delta Blues Button
-	let DeltaButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let btn = createSPButton()
+	let DeltaButton: UIButton = {
+		let btn = ProfileController.createProfileButton()
 		btn.setTitle("Delta Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
-	//Electric Blues Button
-	let ElectricBluesButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let btn = createSPButton()
+	let ElectricBluesButton: UIButton = {
+		let btn = ProfileController.createProfileButton()
 		btn.setTitle("Electric Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
-	//Acoustic Blues Button
 	let AcousticBluesButton: UIButton = {
-		let btn = createSPButton()
+		let btn = ProfileController.createProfileButton()
 		btn.setTitle("Acoutic Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -227,39 +154,39 @@ class BluesController: UIViewController {
 		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
 		ChicagoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		ChicagoButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
+		ChicagoButton.topAnchor.constraint(equalTo: ContemporaryBluesButton.bottomAnchor, constant: 15).isActive = true
 		ChicagoButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		ChicagoButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		ChicagoButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		ClassicButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		ClassicButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
+		ClassicButton.topAnchor.constraint(equalTo: ContemporaryBluesButton.bottomAnchor, constant: 15).isActive = true
 		ClassicButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		ClassicButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		ClassicButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
-		ContemporaryBluesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		ContemporaryBluesButton.topAnchor.constraint(equalTo: ClassicButton.bottomAnchor, constant: 15).isActive = true
-		ContemporaryBluesButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		ContemporaryBluesButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		ContemporaryBluesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		ContemporaryBluesButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -500).isActive = true
+		ContemporaryBluesButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
+		ContemporaryBluesButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		CountryBluesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
 		CountryBluesButton.topAnchor.constraint(equalTo: ChicagoButton.bottomAnchor, constant: 15).isActive = true
 		CountryBluesButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		CountryBluesButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		CountryBluesButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		DeltaButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
 		DeltaButton.topAnchor.constraint(equalTo: CountryBluesButton.bottomAnchor, constant: 15).isActive = true
 		DeltaButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		DeltaButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		DeltaButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		ElectricBluesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		ElectricBluesButton.topAnchor.constraint(equalTo: ContemporaryBluesButton.bottomAnchor, constant: 15).isActive = true
+		ElectricBluesButton.topAnchor.constraint(equalTo: ClassicButton.bottomAnchor, constant: 15).isActive = true
 		ElectricBluesButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		ElectricBluesButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		ElectricBluesButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
-		AcousticBluesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		AcousticBluesButton.topAnchor.constraint(equalTo: DeltaButton.bottomAnchor, constant: 15).isActive = true
+		AcousticBluesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
+		AcousticBluesButton.topAnchor.constraint(equalTo: ElectricBluesButton.bottomAnchor, constant: 15).isActive = true
 		AcousticBluesButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		AcousticBluesButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		AcousticBluesButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 	}
 	
@@ -274,7 +201,6 @@ class BluesController: UIViewController {
 		return button
 	}
 	
-	//Main Button Tapped
 	@objc func mainButtonTapped(_ sender: UIButton) {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -283,7 +209,6 @@ class BluesController: UIViewController {
 		self.present(vc, animated: true, completion: nil)
 		
 	}
-	
 	
 	//Any of the genre buttons tapped = this action
 	
@@ -317,8 +242,7 @@ class BluesController: UIViewController {
 		super.viewDidAppear(animated)
 		
 	}
-	
-	
+
 	//UIColor Gradient Func
 	
 	func animateGradient() {

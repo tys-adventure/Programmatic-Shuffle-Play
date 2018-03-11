@@ -13,9 +13,14 @@ import MediaPlayer
 
 class MainUIController: UIViewController {
 	
-	//DO NOT DELETE AGAIN!!!!
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-
+	
+	//var nowPlayingInfo: [String : Any]? { albumArtist }
+	var albumArtist: String?
+	var albumTitle: String?
+	var artist: String?
+	var artwork: MPMediaEntityPersistentID?
+	
 	//Album Image View
 	/*
 	let albumImageView: UIImageView = {
@@ -26,20 +31,13 @@ class MainUIController: UIViewController {
 	
 	//ProfileButton
 	let profileButton: UIButton = {
-		let button = UIButton()
+		let button = UIButton.controllerButton()
 		button.setTitle("Profile", for: .normal)
 		button.setTitleColor(.black, for: .normal)
 		if let homeImage  = UIImage(named: "chart1-white.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -47,62 +45,36 @@ class MainUIController: UIViewController {
 	
 	//Menu
 	let menuButton: UIButton = {
-		let button = UIButton()
+		let button = UIButton.controllerButton()
 		button.setTitle("Menu", for: .normal)
 		button.setTitleColor(.black, for: .normal)
 		if let homeImage  = UIImage(named: "headphones-white.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(menuButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
 	
 	let secretButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("", for: .normal)
-		button.setTitleColor(.black, for: .normal)
+		let button = UIButton.musicButton()
 		if let homeImage  = UIImage(named: "SPEmoji.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(secretButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
 	
-	
 	//Play
 	let playButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("", for: .normal)
-		button.setTitleColor(.black, for: .normal)
+		let button = UIButton.musicButton()
 			if let homeImage  = UIImage(named: "play-white.png") {
 				button.setImage(homeImage, for: .normal)
 				button.tintColor = UIColor.black
 			}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(playButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -110,20 +82,11 @@ class MainUIController: UIViewController {
 	
 	//Pause
 	let pauseButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("", for: .normal)
-		button.setTitleColor(.black, for: .normal)
+		let button = UIButton.musicButton()
 			if let homeImage  = UIImage(named: "pause-white3.png") {
 				button.setImage(homeImage, for: .normal)
 				button.tintColor = UIColor.black
 			}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -131,20 +94,12 @@ class MainUIController: UIViewController {
 	
 	//Previous
 	let previousButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("", for: .normal)
-		button.setTitleColor(.black, for: .normal)
+		let button = UIButton.musicButton()
+
 		if let homeImage  = UIImage(named: "previous-white.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -152,20 +107,11 @@ class MainUIController: UIViewController {
 	
 	//Next
 	let nextButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("", for: .normal)
-		button.setTitleColor(.black, for: .normal)
+		let button = UIButton.musicButton()
 		if let homeImage  = UIImage(named: "next-white.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -188,7 +134,6 @@ class MainUIController: UIViewController {
 		gradientSet.append([gradientTwo, gradientThree])
 		gradientSet.append([gradientThree, gradientOne])
 		
-		
 		gradient.frame = self.view.bounds
 		gradient.colors = gradientSet[currentGradient]
 		gradient.startPoint = CGPoint(x:0, y:0)
@@ -198,8 +143,7 @@ class MainUIController: UIViewController {
 		
 		animateGradient()
 		
-		
-		//Setup Layout
+		//MARK: addSubView
 		view.addSubview(secretButton)
 		//view.addSubview(albumImageView)
 		view.addSubview(profileButton)
@@ -208,7 +152,6 @@ class MainUIController: UIViewController {
 		view.addSubview(pauseButton)
 		view.addSubview(previousButton)
 		view.addSubview(nextButton)
-		
 		
 		setupLayout()
 	
@@ -285,13 +228,12 @@ class MainUIController: UIViewController {
 	
 	@objc func secretButton(_ sender: UIButton){
 		
-		let vc = genreScroll()
-		self.present(vc, animated: true, completion: nil)
+//		let vc = genreScroll()
+//		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
     //User Button controls--Play, Pause, Stop, Skip
-
 	var playButtonTapped : UIButton!
     
 	@objc func playButtonTapped(_ sender: UIButton) {
@@ -334,7 +276,6 @@ class MainUIController: UIViewController {
 	}
 	
 	//UIColor Gradient Func
-	
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
 			currentGradient += 1

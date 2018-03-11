@@ -29,6 +29,7 @@ class ProfileController: UIViewController {
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
+		textView.textColor = UIColor.white
 		textView.text = "Your Profile"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -55,7 +56,7 @@ class ProfileController: UIViewController {
 	}()
 	
 	let aboutSPButtonTapped: UIButton = {
-		let btn = createProfileButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("About Shuffle Play", for: .normal)
 		btn.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +64,7 @@ class ProfileController: UIViewController {
 	}()
 	
 	let GenreSelectionButtonTapped: UIButton = {
-		let btn = createProfileButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Your Genre Selections", for: .normal)
 		btn.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +72,7 @@ class ProfileController: UIViewController {
 	}()
 	
 	let ReviewButtonTapped: UIButton = {
-		let btn = createProfileButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Review SPP on the App Store!", for: .normal)
 		btn.addTarget(self, action: #selector(ReviewButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +80,7 @@ class ProfileController: UIViewController {
 	}()
 
 	let AboutButton: UIButton = {
-		let btn = createProfileButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("About The Developer", for: .normal)
 		btn.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false

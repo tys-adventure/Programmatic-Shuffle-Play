@@ -14,36 +14,27 @@ class ElectronicController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	
-	
 	//Genre Shuffle Play textView
 	let genreTextView: UITextView = {
 		let textView = UITextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
+		textView.textColor = UIColor.white
 		textView.text = "Electronic"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
 	
 	//Profile UIButton
-	//Fix Button Image Please
 	let mainButtonTapped: UIButton = {
-		let button = UIButton()
+		let button = UIButton.controllerButton()
 		button.setTitle("Home", for: .normal)
 		button.setTitleColor(.black, for: .normal)
 		if let homeImage  = UIImage(named: "music.png") {
 			button.setImage(homeImage, for: .normal)
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -51,16 +42,8 @@ class ElectronicController: UIViewController {
 	
 	//Ambient Button
 	let AmbientButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Ambient", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -68,16 +51,8 @@ class ElectronicController: UIViewController {
 	
 	//Downtempo Button
 	let DowntempoButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Downtempo", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -85,67 +60,35 @@ class ElectronicController: UIViewController {
 	
 	//Electronica Button
 	let ElectronicaButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Electronica", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Industrial Button
-	let IndustrialButton: UIButton = {//(frame: CGRect(x: 55, y: 295, width: 260, height: 45))
-		let btn = createSPButton()
+	let IndustrialButton: UIButton = {
+		let btn = UIButton.createButton()
 		btn.setTitle("Industrial", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Delta Blues Button
-	let DeltaButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let btn = createSPButton()
+	let DeltaButton: UIButton = {
+		let btn = UIButton.createButton()
 		btn.setTitle("Delta Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Electric Blues Button
-	let ElectricBluesButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let btn = createSPButton()
+	let ElectricBluesButton: UIButton = {
+		let btn = UIButton.createButton()
 		btn.setTitle("Electric Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -153,16 +96,8 @@ class ElectronicController: UIViewController {
 	
 	//Acoustic Blues Button
 	let AcousticBluesButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Acoutic Blues", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -224,36 +159,25 @@ class ElectronicController: UIViewController {
 		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
 		AmbientButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		AmbientButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
+		AmbientButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -500).isActive = true
 		AmbientButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		AmbientButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		AmbientButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		DowntempoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		DowntempoButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
+		DowntempoButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -500).isActive = true
 		DowntempoButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		DowntempoButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		DowntempoButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		ElectronicaButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
 		ElectronicaButton.topAnchor.constraint(equalTo: DowntempoButton.bottomAnchor, constant: 15).isActive = true
 		ElectronicaButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		ElectronicaButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		ElectronicaButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		IndustrialButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
 		IndustrialButton.topAnchor.constraint(equalTo: AmbientButton.bottomAnchor, constant: 15).isActive = true
 		IndustrialButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		IndustrialButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		IndustrialButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
-	}
-	
-	//ALL BUTTONS
-	static func createSPButton() -> UIButton {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		return button
 	}
 	
 	//Main Button Tapped
@@ -266,9 +190,7 @@ class ElectronicController: UIViewController {
 		
 	}
 	
-	
 	//Any of the genre buttons tapped = this action
-	
 	@objc func genreButtonTapped(_ sender: UIButton!) {
 		
 		MPMediaLibrary.requestAuthorization { (status) in
@@ -300,9 +222,7 @@ class ElectronicController: UIViewController {
 		
 	}
 	
-	
 	//UIColor Gradient Func
-	
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
 			currentGradient += 1

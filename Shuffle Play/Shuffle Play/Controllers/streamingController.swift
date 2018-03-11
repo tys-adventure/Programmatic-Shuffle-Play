@@ -5,6 +5,7 @@
 //  Created by Tyler Phillips on 1/28/18.
 //  Copyright © 2018 Tyler Phillips. All rights reserved.
 //
+//	This viewController is not currently in use, and is either to be used for a future feature, or to be scrapped.
 
 import Foundation
 import UIKit

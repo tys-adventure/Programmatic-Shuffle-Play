@@ -19,11 +19,11 @@ class CountryController: UIViewController {
 	let genreTextView: UITextView = {
 		let textView = UITextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
-		textView.text = "Genres"
+		textView.textColor = UIColor.white
+		textView.text = "Country"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -31,19 +31,12 @@ class CountryController: UIViewController {
 	//Profile UIButton
 	//Fix Button Image Please
 	let mainButtonTapped: UIButton = {
-		let button = UIButton()
+		let button = UIButton.controllerButton()
 		button.setTitle("Home", for: .normal)
 		button.setTitleColor(.black, for: .normal)
 		if let homeImage  = UIImage(named: "music.png") {
 			button.setImage(homeImage, for: .normal)
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -51,16 +44,8 @@ class CountryController: UIViewController {
 	
 	//Alternative Country Button
 	let AlternativeCountryButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Alternative Country", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -68,16 +53,8 @@ class CountryController: UIViewController {
 	
 	//Americana Button
 	let AmericanaButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Americana", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -85,67 +62,35 @@ class CountryController: UIViewController {
 	
 	//Bluegrass Button
 	let BluegrassButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Bluegrass", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Contemporary Bluegrass Button
-	let ContemporaryBlueButton: UIButton = {//(frame: CGRect(x: 55, y: 295, width: 260, height: 45))
-		let btn = createSPButton()
+	let ContemporaryBlueButton: UIButton = {
+		let btn = UIButton.createButton()
 		btn.setTitle("Contemporary Bluegrass", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Contemporary Countrt Button
-	let ContemporaryCountryButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let btn = createSPButton()
+	let ContemporaryCountryButton: UIButton = {
+		let btn = UIButton.createButton()
 		btn.setTitle("Contemporary Country", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Country Gospel Button
-	let CountryGospelButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let btn = createSPButton()
+	let CountryGospelButton: UIButton = {
+		let btn = UIButton.createButton()
 		btn.setTitle("Country Gospel", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -153,16 +98,8 @@ class CountryController: UIViewController {
 	
 	//Honk Tonk Button
 	let HonkyTonkButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Honky Tonk", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -170,50 +107,17 @@ class CountryController: UIViewController {
 	
 	//Outlaw Country Button
 	let OutlawButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Outlaw Country", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
-	
-	//Traditional Bluegrass Button
-	let TradBluegrassButton: UIButton = {
-		let btn = createSPButton()
-		btn.setTitle("Traditional Bluegrass", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
 		
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
 	//Honk Tonk Button
 	let TradCountryButton: UIButton = {
-		let btn = createSPButton()
-		btn.setTitle("Honky Tonk", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
+		let btn = UIButton.createButton()
+		btn.setTitle("Traditional Country", for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -221,16 +125,8 @@ class CountryController: UIViewController {
 	
 	//Urban Country Button
 	let UrbanCountryButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Urban Country", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -254,7 +150,6 @@ class CountryController: UIViewController {
 		gradientSet.append([gradientTwo, gradientThree])
 		gradientSet.append([gradientThree, gradientOne])
 		
-		
 		gradient.frame = self.view.bounds
 		gradient.colors = gradientSet[currentGradient]
 		gradient.startPoint = CGPoint(x:0, y:0)
@@ -264,9 +159,7 @@ class CountryController: UIViewController {
 		
 		animateGradient()
 		
-		
-		//Setup Layout
-		
+		//MARK: addSubView
 		view.addSubview(genreTextView)
 		view.addSubview(mainButtonTapped)
 		view.addSubview(AlternativeCountryButton)
@@ -277,7 +170,6 @@ class CountryController: UIViewController {
 		view.addSubview(CountryGospelButton)
 		view.addSubview(HonkyTonkButton)
 		view.addSubview(OutlawButton)
-		view.addSubview(TradBluegrassButton)
 		view.addSubview(TradCountryButton)
 		view.addSubview(UrbanCountryButton)
 		
@@ -298,74 +190,58 @@ class CountryController: UIViewController {
 		mainButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
-		AlternativeCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		AlternativeCountryButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
-		AlternativeCountryButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		AlternativeCountryButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		AlternativeCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		AlternativeCountryButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -515).isActive = true
+		AlternativeCountryButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
+		AlternativeCountryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		AmericanaButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		AmericanaButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
+		AmericanaButton.topAnchor.constraint(equalTo: UrbanCountryButton.bottomAnchor, constant: 10).isActive = true
 		AmericanaButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		AmericanaButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		AmericanaButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		BluegrassButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		BluegrassButton.topAnchor.constraint(equalTo: AmericanaButton.bottomAnchor, constant: 15).isActive = true
+		BluegrassButton.topAnchor.constraint(equalTo: CountryGospelButton.bottomAnchor, constant: 10).isActive = true
 		BluegrassButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		BluegrassButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		BluegrassButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
-		ContemporaryBlueButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		ContemporaryBlueButton.topAnchor.constraint(equalTo: AlternativeCountryButton.bottomAnchor, constant: 15).isActive = true
-		ContemporaryBlueButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		ContemporaryBlueButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		ContemporaryBlueButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		ContemporaryBlueButton.topAnchor.constraint(equalTo: AlternativeCountryButton.bottomAnchor, constant: 10).isActive = true
+		ContemporaryBlueButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
+		ContemporaryBlueButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
-		ContemporaryCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		ContemporaryCountryButton.topAnchor.constraint(equalTo: ContemporaryBlueButton.bottomAnchor, constant: 15).isActive = true
-		ContemporaryCountryButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		ContemporaryCountryButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		ContemporaryCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		ContemporaryCountryButton.topAnchor.constraint(equalTo: ContemporaryBlueButton.bottomAnchor, constant: 10).isActive = true
+		ContemporaryCountryButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
+		ContemporaryCountryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		CountryGospelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		CountryGospelButton.topAnchor.constraint(equalTo: BluegrassButton.bottomAnchor, constant: 15).isActive = true
+		CountryGospelButton.topAnchor.constraint(equalTo: TradCountryButton.bottomAnchor, constant: 10).isActive = true
 		CountryGospelButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		CountryGospelButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		CountryGospelButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		HonkyTonkButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		HonkyTonkButton.topAnchor.constraint(equalTo: CountryGospelButton.bottomAnchor, constant: 15).isActive = true
+		HonkyTonkButton.topAnchor.constraint(equalTo: TradCountryButton.bottomAnchor, constant: 10).isActive = true
 		HonkyTonkButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		HonkyTonkButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		HonkyTonkButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
-		OutlawButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		OutlawButton.topAnchor.constraint(equalTo: ContemporaryCountryButton.bottomAnchor, constant: 15).isActive = true
+		OutlawButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
+		OutlawButton.topAnchor.constraint(equalTo: UrbanCountryButton.bottomAnchor, constant: 10).isActive = true
 		OutlawButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		OutlawButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		OutlawButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
-		TradBluegrassButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		TradBluegrassButton.topAnchor.constraint(equalTo: HonkyTonkButton.bottomAnchor, constant: 15).isActive = true
-		TradBluegrassButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		TradBluegrassButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-		
-		TradCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		TradCountryButton.topAnchor.constraint(equalTo: OutlawButton.bottomAnchor, constant: 15).isActive = true
-		TradCountryButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		TradCountryButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		TradCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		TradCountryButton.topAnchor.constraint(equalTo: ContemporaryCountryButton.bottomAnchor, constant: 10).isActive = true
+		TradCountryButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
+		TradCountryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		UrbanCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		UrbanCountryButton.topAnchor.constraint(equalTo: TradBluegrassButton.bottomAnchor, constant: 15).isActive = true
+		UrbanCountryButton.topAnchor.constraint(equalTo: HonkyTonkButton.bottomAnchor, constant: 10).isActive = true
 		UrbanCountryButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		UrbanCountryButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		UrbanCountryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 	}
-	
-	//ALL BUTTONS
-	static func createSPButton() -> UIButton {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		return button
-	}
-	
+
 	//Main Button Tapped
 	@objc func mainButtonTapped(_ sender: UIButton) {
 		
@@ -376,9 +252,7 @@ class CountryController: UIViewController {
 		
 	}
 	
-	
 	//Any of the genre buttons tapped = this action
-	
 	@objc func genreButtonTapped(_ sender: UIButton!) {
 		
 		MPMediaLibrary.requestAuthorization { (status) in
@@ -410,9 +284,7 @@ class CountryController: UIViewController {
 		
 	}
 	
-	
 	//UIColor Gradient Func
-	
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
 			currentGradient += 1

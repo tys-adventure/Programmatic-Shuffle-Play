@@ -32,7 +32,7 @@ class aboutSPController: UIViewController {
 		return button
 	}()
 	
-	//Tyler imageView
+	//Logo imageView
 	let shuffleImageView: UIImageView = {
 		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
 		imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,10 +43,10 @@ class aboutSPController: UIViewController {
 	let aboutLabelTextView: UITextView = {
 		let textView = UITextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
+		textView.textColor = UIColor.white
 		textView.text = "About Shuffle Play"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -56,10 +56,10 @@ class aboutSPController: UIViewController {
 	let aboutTextView: UITextView = {
 		let textView = UITextView()
 		textView.font = UIFont(name:"Avenir Next", size: 15.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 15)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
+		textView.textColor = UIColor.white
 		textView.text = "Have you ever wanted to listen to a specific genre? Shuffle Play let's you do just that! Using your locally stored library from Apple Music, or your iPhone's storage, Shuffle Play shuffles the music on your phone by genre. Allowing you to choose a genre and listen!"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -69,10 +69,10 @@ class aboutSPController: UIViewController {
 	let howToTextView: UITextView = {
 		let textView = UITextView()
 		textView.font = UIFont(name:"Avenir Next", size: 15.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 15)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
+		textView.textColor = UIColor.white
 		textView.text = "Select a genre from the menu screen on the right. Once a genre is selected, music from your locally stored library, or your Apple Music library will play! **Note: If you do not have a specific genre within your library, music will not play.**"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -86,6 +86,7 @@ class aboutSPController: UIViewController {
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
+		textView.textColor = UIColor.white
 		textView.text = "How To Use Shuffle Play Plus:"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -149,11 +150,10 @@ class aboutSPController: UIViewController {
 		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
 		shuffleImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		shuffleImageView.topAnchor.constraint(equalTo: aboutLabelTextView.bottomAnchor, constant: -500).isActive = true
+		shuffleImageView.topAnchor.constraint(equalTo: aboutLabelTextView.bottomAnchor, constant: -465).isActive = true
 		shuffleImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
 		shuffleImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
 		
-		//aboutTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		aboutTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		aboutTextView.topAnchor.constraint(equalTo: shuffleImageView.bottomAnchor, constant: 25).isActive = true
 		aboutTextView.widthAnchor.constraint(equalToConstant: 400).isActive = true
@@ -175,11 +175,7 @@ class aboutSPController: UIViewController {
 		
 	}
 
-
 	//Profile Button Func
-	
-	
-	
 	@objc func profileButton(_ sender: UIButton) {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -189,16 +185,13 @@ class aboutSPController: UIViewController {
 		
 	}
 	
-	
 	//UIGradient Func
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
 	}
 	
-	
 	//UIColor Gradient Func
-	
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
 			currentGradient += 1

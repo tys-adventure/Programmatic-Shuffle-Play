@@ -13,7 +13,7 @@ import MediaPlayer
 class genreScroll: UIViewController {
 	
 	let mainButtonTapped: UIButton = {
-		let button = MenuController.controllerButton()
+		let button = UIButton.controllerButton()
 		button.setTitle("Home", for: .normal)
 		button.setTitleColor(.white, for: .normal)
 		if let homeImage  = UIImage(named: "music-white.png") {

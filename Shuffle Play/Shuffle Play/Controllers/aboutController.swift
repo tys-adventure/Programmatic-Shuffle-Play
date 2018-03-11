@@ -11,9 +11,9 @@ import UIKit
 
 class aboutController: UIViewController {
 	
-	//Profile UIButton
+	//MARK: Buttons
 	let profileButton: UIButton = {
-		let button = MenuController.controllerButton()
+		let button = UIButton.controllerButton()
 		button.setTitle("Profile", for: .normal)
 		button.setTitleColor(.black, for: .normal)
 		if let homeImage  = UIImage(named: "chart1-white.png") {
@@ -82,6 +82,7 @@ class aboutController: UIViewController {
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
+		textView.textColor = UIColor.white
 		textView.text = "About The Developer"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
@@ -94,6 +95,7 @@ class aboutController: UIViewController {
 		//textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
+		textView.textColor = UIColor.white
 		textView.isUserInteractionEnabled = false
 		textView.text = "I'm Tyler, a 24 yearold iOS Developer from Cleveland, Ohio. Shuffle Play is my first iOS app, created with 2 goals. First is to create a platfrom where you can choose what genre you want to listen to. Second is to learn as much as I can while building Shuffle Play!"
 		textView.translatesAutoresizingMaskIntoConstraints = false
@@ -202,7 +204,6 @@ class aboutController: UIViewController {
 	}
 	
 	//Instagram Button Func
-
 	@objc func instaButton(_ sender: UIButton) {
 		
 		openUrl(urlStr: "https://www.instagram.com/thetylerjp")
@@ -217,7 +218,6 @@ class aboutController: UIViewController {
 	}
 	
 	//Twitter Button Func
-
 	@objc func twitterButton(_ sender: UIButton) {
 		
 		openUrl2(urlStr: "https://www.twitter.com/thetylerjp")
@@ -232,7 +232,6 @@ class aboutController: UIViewController {
 	}
 	
 	//Web Button Func
-	
 	@objc func webButton(_ sender: UIButton) {
 		
 		openUrl3(urlStr: "https://www.tylerjphillips.xyz")

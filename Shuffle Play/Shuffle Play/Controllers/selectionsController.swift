@@ -31,7 +31,7 @@ class selectionsController: UIViewController {
 	
 	//Profile UIButton
 	let profileButton: UIButton = {
-		let button = MenuController.controllerButton()
+		let button = UIButton.controllerButton()
 		if let homeImage  = UIImage(named: "chart1-white.png") {
 			button.setImage(homeImage, for: .normal)
 		}
@@ -57,7 +57,6 @@ class selectionsController: UIViewController {
 		gradientSet.append([gradientOne, gradientTwo])
 		gradientSet.append([gradientTwo, gradientThree])
 		gradientSet.append([gradientThree, gradientOne])
-		
 		
 		gradient.frame = self.view.bounds
 		gradient.colors = gradientSet[currentGradient]
@@ -97,7 +96,6 @@ class selectionsController: UIViewController {
 		selectionsTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
 		selectionsTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
 		selectionsTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-		
 		
 	}
 

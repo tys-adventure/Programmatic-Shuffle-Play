@@ -14,35 +14,26 @@ class PopController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	
-	
 	//Genre Shuffle Play textView
 	let genreTextView: UITextView = {
 		let textView = UITextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
-		textView.text = "Genres"
+		textView.textColor = UIColor.white
+		textView.text = "Pop"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
 	
 	//Profile UIButton
 	let mainButtonTapped: UIButton = {
-		let button = UIButton()
+		let button = UIButton.controllerButton()
 		button.setTitle("Home", for: .normal)
-		button.setTitleColor(.black, for: .normal)
 		if let homeImage  = UIImage(named: "music.png") {
 			button.setImage(homeImage, for: .normal)
 		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
 		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
@@ -50,16 +41,8 @@ class PopController: UIViewController {
 	
 	//Adult Contemporary Button
 	let AdultContemporaryButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Adult Contemporary", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -67,16 +50,8 @@ class PopController: UIViewController {
 	
 	//Britpop Button
 	let BritpopButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Britpop", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -84,67 +59,35 @@ class PopController: UIViewController {
 	
 	//Pop/Rock Button
 	let PopRockButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Pop/Rock", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Soft Rock Button
-	let SoftRockButton: UIButton = {//(frame: CGRect(x: 55, y: 295, width: 260, height: 45))
-		let btn = createSPButton()
+	let SoftRockButton: UIButton = {
+		let btn = UIButton.createButton()
 		btn.setTitle("Soft Rock", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Teen Pop Button
-	let TeenPopButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let btn = createSPButton()
+	let TeenPopButton: UIButton = {
+		let btn = UIButton.createButton()
 		btn.setTitle("Teen Pop", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Pop Button
-	let PopButton: UIButton = {//(frame: CGRect(x: 55, y: 360, width: 260, height: 45))
-		let btn = createSPButton()
+	let PopButton: UIButton = {
+		let btn = UIButton.createButton()
 		btn.setTitle("Pop", for: .normal)
-		btn.layer.borderWidth = 2
-		// Shadow and Radius for Circle Button
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -168,7 +111,6 @@ class PopController: UIViewController {
 		gradientSet.append([gradientTwo, gradientThree])
 		gradientSet.append([gradientThree, gradientOne])
 		
-		
 		gradient.frame = self.view.bounds
 		gradient.colors = gradientSet[currentGradient]
 		gradient.startPoint = CGPoint(x:0, y:0)
@@ -178,9 +120,7 @@ class PopController: UIViewController {
 		
 		animateGradient()
 		
-		
-		//Setup Layout
-		
+		//MARK: addSubView
 		view.addSubview(genreTextView)
 		view.addSubview(mainButtonTapped)
 		view.addSubview(AdultContemporaryButton)
@@ -207,49 +147,38 @@ class PopController: UIViewController {
 		mainButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
-		AdultContemporaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		AdultContemporaryButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
-		AdultContemporaryButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		AdultContemporaryButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		AdultContemporaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		AdultContemporaryButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -500).isActive = true
+		AdultContemporaryButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
+		AdultContemporaryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		BritpopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		BritpopButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -525).isActive = true
+		BritpopButton.topAnchor.constraint(equalTo: AdultContemporaryButton.bottomAnchor, constant: 15).isActive = true
 		BritpopButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		BritpopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		BritpopButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
-		PopRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		PopRockButton.topAnchor.constraint(equalTo: BritpopButton.bottomAnchor, constant: 15).isActive = true
+		PopRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
+		PopRockButton.topAnchor.constraint(equalTo: AdultContemporaryButton.bottomAnchor, constant: 15).isActive = true
 		PopRockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		PopRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		PopRockButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		SoftRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		SoftRockButton.topAnchor.constraint(equalTo: AdultContemporaryButton.bottomAnchor, constant: 15).isActive = true
+		SoftRockButton.topAnchor.constraint(equalTo: PopRockButton.bottomAnchor, constant: 15).isActive = true
 		SoftRockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		SoftRockButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		SoftRockButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		TeenPopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
 		TeenPopButton.topAnchor.constraint(equalTo: SoftRockButton.bottomAnchor, constant: 15).isActive = true
 		TeenPopButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		TeenPopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		TeenPopButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 		PopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		PopButton.topAnchor.constraint(equalTo: PopRockButton.bottomAnchor, constant: 15).isActive = true
+		PopButton.topAnchor.constraint(equalTo: BritpopButton.bottomAnchor, constant: 15).isActive = true
 		PopButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		PopButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		PopButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 	}
-	
-	//ALL BUTTONS
-	static func createSPButton() -> UIButton {
-		let button = UIButton()
-		button.tintColor=UIColor .gray
-		button.setTitleColor(.black, for: .normal)
-		button.layer.cornerRadius = 5
-		button.layer.borderWidth = 1
-		button.layer.borderColor = UIColor.black.cgColor
-		return button
-	}
-	
+
 	//Main Button Tapped
 	@objc func mainButtonTapped(_ sender: UIButton) {
 		
@@ -259,10 +188,8 @@ class PopController: UIViewController {
 		self.present(vc, animated: true, completion: nil)
 		
 	}
-	
-	
+
 	//Any of the genre buttons tapped = this action
-	
 	@objc func genreButtonTapped(_ sender: UIButton!) {
 		
 		MPMediaLibrary.requestAuthorization { (status) in
@@ -294,9 +221,7 @@ class PopController: UIViewController {
 		
 	}
 	
-	
 	//UIColor Gradient Func
-	
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
 			currentGradient += 1
