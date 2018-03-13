@@ -34,7 +34,7 @@ class CountryController: UIViewController {
 		let button = UIButton.controllerButton()
 		button.setTitle("Home", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "music.png") {
+		if let homeImage  = UIImage(named: "music-white.png") {
 			button.setImage(homeImage, for: .normal)
 		}
 		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
@@ -132,113 +132,102 @@ class CountryController: UIViewController {
 		return btn
 	}()
 	
-	//Gradient
-	let gradient = CAGradientLayer()
-	var gradientSet = [[CGColor]]()
-	var currentGradient: Int = 0
-	
-	//Shades of blue
-	let gradientOne = UIColor(red: 129/255, green: 219/255, blue: 181/255, alpha: 1).cgColor
-	let gradientTwo = UIColor(red: 129/255, green: 219/255, blue: 181/255, alpha: 1).cgColor
-	let gradientThree = UIColor(red: 129/255, green: 219/255, blue: 181/255, alpha: 1).cgColor
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		//Gradient
-		gradientSet.append([gradientOne, gradientTwo])
-		gradientSet.append([gradientTwo, gradientThree])
-		gradientSet.append([gradientThree, gradientOne])
+		let screensize: CGRect = UIScreen.main.bounds
+		let screenWidth = screensize.width
+		let screenHeight = screensize.height
+		var scrollView: UIScrollView!
+		scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
 		
-		gradient.frame = self.view.bounds
-		gradient.colors = gradientSet[currentGradient]
-		gradient.startPoint = CGPoint(x:0, y:0)
-		gradient.endPoint = CGPoint(x:1, y:1)
-		gradient.drawsAsynchronously = true
-		self.view.layer.addSublayer(gradient)
+		view.backgroundColor = UIColor.orange
+		scrollView.backgroundColor = UIColor .orange
 		
-		animateGradient()
-		
-		//MARK: addSubView
 		view.addSubview(genreTextView)
 		view.addSubview(mainButtonTapped)
-		view.addSubview(AlternativeCountryButton)
-		view.addSubview(AmericanaButton)
-		view.addSubview(BluegrassButton)
-		view.addSubview(ContemporaryBlueButton)
-		view.addSubview(ContemporaryCountryButton)
-		view.addSubview(CountryGospelButton)
-		view.addSubview(HonkyTonkButton)
-		view.addSubview(OutlawButton)
-		view.addSubview(TradCountryButton)
-		view.addSubview(UrbanCountryButton)
-		
 		setupLayout()
 		
+		scrollView.addSubview(AlternativeCountryButton)
+		scrollView.addSubview(AmericanaButton)
+		scrollView.addSubview(BluegrassButton)
+		scrollView.addSubview(ContemporaryBlueButton)
+		scrollView.addSubview(ContemporaryCountryButton)
+		scrollView.addSubview(CountryGospelButton)
+		scrollView.addSubview(HonkyTonkButton)
+		scrollView.addSubview(OutlawButton)
+		scrollView.addSubview(TradCountryButton)
+		scrollView.addSubview(UrbanCountryButton)
+		
+		
+		//MARK: AutoLayout Constraints
+		
+		NSLayoutConstraint(item: AlternativeCountryButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: AlternativeCountryButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: AlternativeCountryButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 75).isActive = true
+		NSLayoutConstraint(item: AlternativeCountryButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: AmericanaButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: AmericanaButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: AmericanaButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 225).isActive = true
+		NSLayoutConstraint(item: AmericanaButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: BluegrassButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: BluegrassButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: BluegrassButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 375).isActive = true
+		NSLayoutConstraint(item: BluegrassButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: ContemporaryBlueButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: ContemporaryBlueButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: ContemporaryBlueButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 525).isActive = true
+		NSLayoutConstraint(item: ContemporaryBlueButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: ContemporaryCountryButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: ContemporaryCountryButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: ContemporaryCountryButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 675).isActive = true
+		NSLayoutConstraint(item: ContemporaryCountryButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: CountryGospelButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: CountryGospelButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: CountryGospelButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 825).isActive = true
+		NSLayoutConstraint(item: CountryGospelButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: HonkyTonkButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: HonkyTonkButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: HonkyTonkButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 975).isActive = true
+		NSLayoutConstraint(item: HonkyTonkButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: OutlawButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: OutlawButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: OutlawButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1125).isActive = true
+		NSLayoutConstraint(item: OutlawButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: TradCountryButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: TradCountryButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: TradCountryButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1275).isActive = true
+		NSLayoutConstraint(item: TradCountryButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: UrbanCountryButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: UrbanCountryButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: UrbanCountryButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1425).isActive = true
+		NSLayoutConstraint(item: UrbanCountryButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+
+		scrollView.contentSize = CGSize(width: screenWidth, height: 1700)
+		view.addSubview(scrollView)
 	}
 	
 	private func setupLayout() {
 		
-		genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 45).isActive = true
+		genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
 		genreTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		genreTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		genreTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
 		genreTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
 		
-		mainButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+		mainButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
 		mainButtonTapped.widthAnchor.constraint(equalToConstant: 35).isActive = true
 		mainButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
-		
-		AlternativeCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		AlternativeCountryButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -515).isActive = true
-		AlternativeCountryButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
-		AlternativeCountryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		AmericanaButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		AmericanaButton.topAnchor.constraint(equalTo: UrbanCountryButton.bottomAnchor, constant: 10).isActive = true
-		AmericanaButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		AmericanaButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		BluegrassButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		BluegrassButton.topAnchor.constraint(equalTo: CountryGospelButton.bottomAnchor, constant: 10).isActive = true
-		BluegrassButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		BluegrassButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		ContemporaryBlueButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		ContemporaryBlueButton.topAnchor.constraint(equalTo: AlternativeCountryButton.bottomAnchor, constant: 10).isActive = true
-		ContemporaryBlueButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
-		ContemporaryBlueButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		ContemporaryCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		ContemporaryCountryButton.topAnchor.constraint(equalTo: ContemporaryBlueButton.bottomAnchor, constant: 10).isActive = true
-		ContemporaryCountryButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
-		ContemporaryCountryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		CountryGospelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		CountryGospelButton.topAnchor.constraint(equalTo: TradCountryButton.bottomAnchor, constant: 10).isActive = true
-		CountryGospelButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		CountryGospelButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		HonkyTonkButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		HonkyTonkButton.topAnchor.constraint(equalTo: TradCountryButton.bottomAnchor, constant: 10).isActive = true
-		HonkyTonkButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		HonkyTonkButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		OutlawButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		OutlawButton.topAnchor.constraint(equalTo: UrbanCountryButton.bottomAnchor, constant: 10).isActive = true
-		OutlawButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		OutlawButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		TradCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		TradCountryButton.topAnchor.constraint(equalTo: ContemporaryCountryButton.bottomAnchor, constant: 10).isActive = true
-		TradCountryButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
-		TradCountryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		UrbanCountryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		UrbanCountryButton.topAnchor.constraint(equalTo: HonkyTonkButton.bottomAnchor, constant: 10).isActive = true
-		UrbanCountryButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		UrbanCountryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
 		
 	}
 
@@ -276,28 +265,6 @@ class CountryController: UIViewController {
 		musicPlayer.shuffleMode = .songs
 		musicPlayer.play()
 		
-	}
-	
-	//UIGradient Func
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
-	}
-	
-	//UIColor Gradient Func
-	func animateGradient() {
-		if currentGradient < gradientSet.count - 1 {
-			currentGradient += 1
-		} else {
-			currentGradient = 0
-		}
-		
-		let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-		gradientChangeAnimation.duration = 15.00
-		gradientChangeAnimation.toValue = gradientSet[currentGradient]
-		gradientChangeAnimation.fillMode = kCAFillModeForwards
-		gradientChangeAnimation.isRemovedOnCompletion = false
-		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}
 	
 }

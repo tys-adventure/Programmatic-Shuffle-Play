@@ -31,7 +31,7 @@ class PopController: UIViewController {
 	let mainButtonTapped: UIButton = {
 		let button = UIButton.controllerButton()
 		button.setTitle("Home", for: .normal)
-		if let homeImage  = UIImage(named: "music.png") {
+		if let homeImage  = UIImage(named: "music-white.png") {
 			button.setImage(homeImage, for: .normal)
 		}
 		button.addTarget(self, action: #selector(mainButtonTapped(_:)), for:.touchUpInside)
@@ -93,33 +93,10 @@ class PopController: UIViewController {
 		return btn
 	}()
 	
-	//Gradient
-	let gradient = CAGradientLayer()
-	var gradientSet = [[CGColor]]()
-	var currentGradient: Int = 0
-	
-	//Shades of blue
-	let gradientOne = UIColor(red: 129/255, green: 219/255, blue: 181/255, alpha: 1).cgColor
-	let gradientTwo = UIColor(red: 129/255, green: 219/255, blue: 181/255, alpha: 1).cgColor
-	let gradientThree = UIColor(red: 129/255, green: 219/255, blue: 181/255, alpha: 1).cgColor
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		//Gradient
-		gradientSet.append([gradientOne, gradientTwo])
-		gradientSet.append([gradientTwo, gradientThree])
-		gradientSet.append([gradientThree, gradientOne])
-		
-		gradient.frame = self.view.bounds
-		gradient.colors = gradientSet[currentGradient]
-		gradient.startPoint = CGPoint(x:0, y:0)
-		gradient.endPoint = CGPoint(x:1, y:1)
-		gradient.drawsAsynchronously = true
-		self.view.layer.addSublayer(gradient)
-		
-		animateGradient()
-		
+		/*
 		//MARK: addSubView
 		view.addSubview(genreTextView)
 		view.addSubview(mainButtonTapped)
@@ -130,7 +107,62 @@ class PopController: UIViewController {
 		view.addSubview(TeenPopButton)
 		view.addSubview(PopButton)
 		
+		setupLayout() */
+		
+		let screensize: CGRect = UIScreen.main.bounds
+		let screenWidth = screensize.width
+		let screenHeight = screensize.height
+		var scrollView: UIScrollView!
+		scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
+		
+		view.backgroundColor = UIColor.orange
+		scrollView.backgroundColor = UIColor .orange
+		
+		view.addSubview(genreTextView)
+		view.addSubview(mainButtonTapped)
 		setupLayout()
+		
+		scrollView.addSubview(AdultContemporaryButton)
+		scrollView.addSubview(BritpopButton)
+		scrollView.addSubview(PopButton)
+		scrollView.addSubview(SoftRockButton)
+		scrollView.addSubview(TeenPopButton)
+		scrollView.addSubview(PopRockButton)
+		
+		//MARK: AutoLayout Constraints
+		
+		NSLayoutConstraint(item: AdultContemporaryButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: AdultContemporaryButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: AdultContemporaryButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 75).isActive = true
+		NSLayoutConstraint(item: AdultContemporaryButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: BritpopButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: BritpopButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: BritpopButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 225).isActive = true
+		NSLayoutConstraint(item: BritpopButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: PopButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: PopButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: PopButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 375).isActive = true
+		NSLayoutConstraint(item: PopButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: SoftRockButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: SoftRockButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: SoftRockButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 525).isActive = true
+		NSLayoutConstraint(item: SoftRockButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: PopRockButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: PopRockButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: PopRockButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 675).isActive = true
+		NSLayoutConstraint(item: PopRockButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		NSLayoutConstraint(item: TeenPopButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: TeenPopButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: TeenPopButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 825).isActive = true
+		NSLayoutConstraint(item: TeenPopButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		
+		scrollView.contentSize = CGSize(width: screenWidth, height: 1100)
+		view.addSubview(scrollView)
 		
 	}
 	
@@ -146,37 +178,6 @@ class PopController: UIViewController {
 		mainButtonTapped.widthAnchor.constraint(equalToConstant: 35).isActive = true
 		mainButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
-		
-		AdultContemporaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		AdultContemporaryButton.topAnchor.constraint(equalTo: genreTextView.bottomAnchor, constant: -500).isActive = true
-		AdultContemporaryButton.widthAnchor.constraint(equalToConstant: 290).isActive = true
-		AdultContemporaryButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		BritpopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		BritpopButton.topAnchor.constraint(equalTo: AdultContemporaryButton.bottomAnchor, constant: 15).isActive = true
-		BritpopButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		BritpopButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		PopRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		PopRockButton.topAnchor.constraint(equalTo: AdultContemporaryButton.bottomAnchor, constant: 15).isActive = true
-		PopRockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		PopRockButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		SoftRockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		SoftRockButton.topAnchor.constraint(equalTo: PopRockButton.bottomAnchor, constant: 15).isActive = true
-		SoftRockButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		SoftRockButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		TeenPopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80).isActive = true
-		TeenPopButton.topAnchor.constraint(equalTo: SoftRockButton.bottomAnchor, constant: 15).isActive = true
-		TeenPopButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		TeenPopButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
-		PopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80).isActive = true
-		PopButton.topAnchor.constraint(equalTo: BritpopButton.bottomAnchor, constant: 15).isActive = true
-		PopButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
-		PopButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-		
 	}
 
 	//Main Button Tapped
@@ -214,27 +215,4 @@ class PopController: UIViewController {
 		musicPlayer.play()
 		
 	}
-	
-	//UIGradient Func
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
-	}
-	
-	//UIColor Gradient Func
-	func animateGradient() {
-		if currentGradient < gradientSet.count - 1 {
-			currentGradient += 1
-		} else {
-			currentGradient = 0
-		}
-		
-		let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-		gradientChangeAnimation.duration = 15.00
-		gradientChangeAnimation.toValue = gradientSet[currentGradient]
-		gradientChangeAnimation.fillMode = kCAFillModeForwards
-		gradientChangeAnimation.isRemovedOnCompletion = false
-		gradient.add(gradientChangeAnimation, forKey: "colorChange")
-	}
-	
 }

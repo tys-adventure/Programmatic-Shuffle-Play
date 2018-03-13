@@ -22,12 +22,12 @@ class MainUIController: UIViewController {
 	var artwork: MPMediaEntityPersistentID?
 	
 	//Album Image View
-	/*
+	
 	let albumImageView: UIImageView = {
 		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
-	}() */
+	}() 
 	
 	//ProfileButton
 	let profileButton: UIButton = {
@@ -212,7 +212,7 @@ class MainUIController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = MenuController()
+		let vc = genreScroll()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
@@ -228,8 +228,8 @@ class MainUIController: UIViewController {
 	
 	@objc func secretButton(_ sender: UIButton){
 		
-//		let vc = genreScroll()
-//		self.present(vc, animated: true, completion: nil)
+		let vc = genreScroll()
+		self.present(vc, animated: true, completion: nil)
 		
 	}
 	

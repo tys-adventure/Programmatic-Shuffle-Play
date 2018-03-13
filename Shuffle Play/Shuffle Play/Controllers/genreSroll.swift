@@ -24,6 +24,13 @@ class genreScroll: UIViewController {
 		return button
 	}()
 	
+	let emojiImageView: UIImageView = {
+		let imageView = UIImageView(image: #imageLiteral(resourceName: "emoji2"))
+		imageView.clipsToBounds = true
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		return imageView
+	}()
+	
 	//Genre Shuffle Play textView
 	let genreTextView: UITextView = {
 		let textView = ProfileController.createTextView()
@@ -35,7 +42,7 @@ class genreScroll: UIViewController {
 	
 	//Blues Button
 	let BluesButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Blues", for: .normal)
 		btn.addTarget(self, action: #selector(BluesButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +51,7 @@ class genreScroll: UIViewController {
 	
 	//Pop Button
 	let PopButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Pop", for: .normal)
 		btn.layer.borderWidth = 2
 		btn.addTarget(self, action: #selector(PopButton(_:)), for:.touchUpInside)
@@ -54,7 +61,7 @@ class genreScroll: UIViewController {
 	
 	//Country Button
 	let CountryButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Country", for: .normal)
 		btn.addTarget(self, action: #selector(CountryButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +70,7 @@ class genreScroll: UIViewController {
 	
 	//Electronic Button
 	let ElectronicButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Electronic", for: .normal)
 		btn.addTarget(self, action: #selector(ElectronicButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +79,7 @@ class genreScroll: UIViewController {
 	
 	//Singer/Songwriter Button
 	let SingerButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Singer/Songwriter", for: .normal)
 		btn.addTarget(self, action: #selector(SingerButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +88,7 @@ class genreScroll: UIViewController {
 	
 	//R&B/Soul Button
 	let RBSoulButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("R&B/Soul", for: .normal)
 		btn.addTarget(self, action: #selector(RBSoulButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +97,7 @@ class genreScroll: UIViewController {
 	
 	//Dance
 	let DanceButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Dance", for: .normal)
 		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
@@ -99,36 +106,36 @@ class genreScroll: UIViewController {
 	
 	//HipHop/Rap Button
 	let HipHopRapButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Hip-Hop/Rap", for: .normal)
-		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
+		btn.addTarget(self, action: #selector(HipHopRapButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Alternative Button
 	let AlternativeButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Alternative", for: .normal)
-		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
+		btn.addTarget(self, action: #selector(AlternativeButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Rock Button
 	let RockButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Rock", for: .normal)
-		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
+		btn.addTarget(self, action: #selector(RockButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Christian/Gospel
 	let ChristianButton: UIButton = {
-		let btn = createSPButton()
+		let btn = UIButton.createButton()
 		btn.setTitle("Christian/Gospel", for: .normal)
-		btn.addTarget(self, action: #selector(DanceButton(_:)), for:.touchUpInside)
+		btn.addTarget(self, action: #selector(ChristianButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
@@ -140,13 +147,15 @@ class genreScroll: UIViewController {
 		let screenWidth = screensize.width
 		let screenHeight = screensize.height
 		var scrollView: UIScrollView!
-		scrollView = UIScrollView(frame: CGRect(x: 0, y: 18, width: screenWidth, height: screenHeight))
+		scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
 		
 		view.backgroundColor = UIColor.orange
 		scrollView.backgroundColor = UIColor .orange
 		
-		scrollView.addSubview(mainButtonTapped)
-		scrollView.addSubview(genreTextView)
+		view.addSubview(genreTextView)
+		view.addSubview(mainButtonTapped)
+		setupLayout()
+		
 		scrollView.addSubview(BluesButton)
 		scrollView.addSubview(CountryButton)
 		scrollView.addSubview(PopButton)
@@ -158,105 +167,90 @@ class genreScroll: UIViewController {
 		scrollView.addSubview(AlternativeButton)
 		scrollView.addSubview(RockButton)
 		scrollView.addSubview(ChristianButton)
+		scrollView.addSubview(emojiImageView)
 		
 		//MARK: AutoLayout Constraints
-		NSLayoutConstraint(item: mainButtonTapped, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 20).isActive = true
-		NSLayoutConstraint(item: mainButtonTapped, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 35 ).isActive = true
-		NSLayoutConstraint(item: mainButtonTapped, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 5).isActive = true
-		NSLayoutConstraint(item: mainButtonTapped, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 35).isActive = true
 		
-		NSLayoutConstraint(item: genreTextView, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
-		NSLayoutConstraint(item: genreTextView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260 ).isActive = true
-		NSLayoutConstraint(item: genreTextView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 10).isActive = true
-		NSLayoutConstraint(item: genreTextView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 30).isActive = true
-		
-		NSLayoutConstraint(item: BluesButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: BluesButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: BluesButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: BluesButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 100).isActive = true
+		NSLayoutConstraint(item: BluesButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 75).isActive = true
 		NSLayoutConstraint(item: BluesButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 
-		NSLayoutConstraint(item: CountryButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: CountryButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: CountryButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: CountryButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 250).isActive = true
+		NSLayoutConstraint(item: CountryButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 225).isActive = true
 		NSLayoutConstraint(item: CountryButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 
-		NSLayoutConstraint(item: PopButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: PopButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: PopButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: PopButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 400).isActive = true
+		NSLayoutConstraint(item: PopButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 375).isActive = true
 		NSLayoutConstraint(item: PopButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: ElectronicButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: ElectronicButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: ElectronicButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: ElectronicButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 550).isActive = true
+		NSLayoutConstraint(item: ElectronicButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 525).isActive = true
 		NSLayoutConstraint(item: ElectronicButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 
-		NSLayoutConstraint(item: SingerButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: SingerButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: SingerButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: SingerButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 700).isActive = true
+		NSLayoutConstraint(item: SingerButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 675).isActive = true
 		NSLayoutConstraint(item: SingerButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: RBSoulButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: RBSoulButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: RBSoulButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: RBSoulButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 850).isActive = true
+		NSLayoutConstraint(item: RBSoulButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 825).isActive = true
 		NSLayoutConstraint(item: RBSoulButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: DanceButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: DanceButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: DanceButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: DanceButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1000).isActive = true
+		NSLayoutConstraint(item: DanceButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 975).isActive = true
 		NSLayoutConstraint(item: DanceButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: HipHopRapButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: HipHopRapButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: HipHopRapButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: HipHopRapButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1150).isActive = true
+		NSLayoutConstraint(item: HipHopRapButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1125).isActive = true
 		NSLayoutConstraint(item: HipHopRapButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: AlternativeButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: AlternativeButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: AlternativeButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: AlternativeButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1300).isActive = true
+		NSLayoutConstraint(item: AlternativeButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1275).isActive = true
 		NSLayoutConstraint(item: AlternativeButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: RockButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: RockButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: RockButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: RockButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1450).isActive = true
+		NSLayoutConstraint(item: RockButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1425).isActive = true
 		NSLayoutConstraint(item: RockButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: ChristianButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leadingMargin, multiplier: 1, constant: 50).isActive = true
+		NSLayoutConstraint(item: ChristianButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: ChristianButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: ChristianButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1600).isActive = true
+		NSLayoutConstraint(item: ChristianButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1575).isActive = true
 		NSLayoutConstraint(item: ChristianButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		//Change height to larger size
-		scrollView.contentSize = CGSize(width: screenWidth, height: 3000)
-		view.addSubview(scrollView)
+		NSLayoutConstraint(item: emojiImageView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: emojiImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100).isActive = true
+		NSLayoutConstraint(item: emojiImageView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1750).isActive = true
+		NSLayoutConstraint(item: emojiImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100).isActive = true
 		
+		scrollView.contentSize = CGSize(width: screenWidth, height: 2000)
+		view.addSubview(scrollView)
 		
 		//ViewDidLoadEnd
 	}
+	
+	private func setupLayout() {
+		
+		genreTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
+		genreTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+		genreTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		genreTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+		genreTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
-	static func createSPButton() -> UIButton {
-		
-		let btn = UIButton()
-		btn.tintColor=UIColor .gray
-		btn.backgroundColor = UIColor.white
-		btn.alpha = 0.4
-		btn.setTitleColor(.black, for: .normal)
-		btn.layer.cornerRadius = 5
-		btn.layer.borderWidth = 2
-		btn.layer.borderColor = UIColor.white.cgColor
-		
-		btn.layer.shadowColor = UIColor.black.cgColor
-		btn.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		btn.layer.masksToBounds = false
-		btn.layer.shadowRadius = 2.0
-		btn.layer.shadowOpacity = 0.5
-		
-		return btn
-	}
-	
-	func switchViewController() {
+		mainButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+		mainButtonTapped.widthAnchor.constraint(equalToConstant: 35).isActive = true
+		mainButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
+		mainButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
 	}
-	
 	
 	@objc func BluesButton(_ sender: UIButton) {
 		
@@ -264,8 +258,7 @@ class genreScroll: UIViewController {
 		self.present(vc, animated: true, completion: nil)
 		
 	}
-
-
+	
 	@objc func CountryButton(_ sender: UIButton) {
 		let vc = CountryController()
 		self.present(vc, animated: true, completion: nil)
@@ -288,55 +281,53 @@ class genreScroll: UIViewController {
 	
 	@objc func SingerButton(_ sender: UIButton) {
 		
-		//Change
-		let vc = ElectronicController()
+		let vc = SingerController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
 	@objc func RBSoulButton(_ sender: UIButton) {
 		
-		//Change
-		let vc = ElectronicController()
+		let vc = RBSoulController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
 	@objc func DanceButton(_ sender: UIButton) {
 		
-		//Change
-		let vc = ElectronicController()
+		let vc = DanceController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
 	@objc func HipHopRapButton(_ sender: UIButton){
 		
-		let vc = ElectronicController()
+		let vc = HipHopRapController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
 	@objc func AlternativeButton(_ sender: UIButton){
 		
-		let vc = ElectronicController()
+		let vc = AlternativeController()
 		self.present(vc, animated: true, completion: nil)
 	}
 	
 	@objc func RockButton(_ sender: UIButton){
 		
-		let vc = ElectronicController()
+		let vc = RockController()
 		self.present(vc, animated: true, completion: nil)
 	}
 	
 	@objc func ChristianButton(_ sender: UIButton){
 		
-		let vc = ElectronicController()
+		let vc = ChristianController()
 		self.present(vc, animated: true, completion: nil)
 	}
 	
-	
 	@objc func mainButtonTapped(_ sender: UIButton){
+		
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
 		let vc = MainUIController()
 		self.present(vc, animated: true, completion: nil)
