@@ -196,6 +196,7 @@ class PopController: UIViewController {
 		MPMediaLibrary.requestAuthorization { (status) in
 			if status == .authorized{
 				self.playGenre(genre: sender.currentTitle!)
+				
 			}
 		}
 		sender.pulsate()
@@ -213,6 +214,7 @@ class PopController: UIViewController {
 		musicPlayer.setQueue(with: query)
 		musicPlayer.shuffleMode = .songs
 		musicPlayer.play()
+		
 		
 	}
 }

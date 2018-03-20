@@ -15,26 +15,12 @@ import AVFoundation
 class MainUIController: UIViewController {
 	
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
+	let myMediaQuery = MPMediaQuery.songs()
 //	let nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo
-	
-	let url = URL(string: stringURL)
-	let asset = AVURLAsset(url: url!)
-	let item = AVPlayerItem(asset: asset)
-	let player = AVPlayer(playerItem: item)
-	
-	isPlaying = true
-	player.play()
-	do {
-		try AVAudioSession.sharedInstance().setActive(true)
-	} catch {
-	
-	}
-	self.setNowPlayingInfo()
-	
 	
 	//Album Image View
 	var albumImageView: UIImageView = {
-		let imageView = UIImageView(image: #imageLiteral(resourceName: "ShufflePlayIconNew"))
+		let imageView = UIImageView()
 		imageView.layer.shadowColor = UIColor.black.cgColor
 		imageView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		imageView.layer.masksToBounds = false
@@ -42,7 +28,41 @@ class MainUIController: UIViewController {
 		imageView.layer.shadowOpacity = 1.0
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
-	}() 
+	}()
+	
+	//Song Label
+	var nowPlayingLabel : UILabel = {
+		let label = UILabel()
+		label.textAlignment = .center
+		label.backgroundColor = UIColor.clear
+		label.isUserInteractionEnabled = false
+		label.textColor = UIColor.white
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()
+	
+	//Artist Label
+	var artistLabel : UILabel = {
+		let label = UILabel()
+		label.textAlignment = .center
+		label.backgroundColor = UIColor.clear
+		label.isUserInteractionEnabled = false
+		label.textColor = UIColor.white
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()
+	
+	//Logo Image View
+	var logoImageView: UIImageView = {
+		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
+		imageView.layer.shadowColor = UIColor.black.cgColor
+		imageView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		imageView.layer.masksToBounds = false
+		imageView.layer.shadowRadius = 3.0
+		imageView.layer.shadowOpacity = 1.0
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		return imageView
+	}()
 	
 	//ProfileButton
 	let profileButton: UIButton = {
@@ -150,7 +170,10 @@ class MainUIController: UIViewController {
 		setNowPlayingInfo()
 		
 		//MARK: addSubView
+		view.addSubview(logoImageView)
 		view.addSubview(albumImageView)
+		view.addSubview(nowPlayingLabel)
+		view.addSubview(artistLabel)
 		view.addSubview(profileButton)
 		view.addSubview(menuButton)
 		view.addSubview(playButton)
@@ -160,15 +183,33 @@ class MainUIController: UIViewController {
 		
 		setupLayout()
 		
+
+		
+		
         // Do any additional setup after loading the view.
     }
 	
 	private func setupLayout() {
 		
+		logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+		logoImageView.widthAnchor.constraint(equalToConstant: 225).isActive = true
+		logoImageView.heightAnchor.constraint(equalToConstant: 225).isActive = true
+		
 		albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		albumImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
-		albumImageView.widthAnchor.constraint(equalToConstant: 225).isActive = true
-		albumImageView.heightAnchor.constraint(equalToConstant: 225).isActive = true
+		albumImageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+		albumImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+		
+		nowPlayingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		nowPlayingLabel.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 75).isActive = true
+		nowPlayingLabel.widthAnchor.constraint(equalToConstant: 275).isActive = true
+		nowPlayingLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+		
+		artistLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		artistLabel.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 55).isActive = true
+		artistLabel.widthAnchor.constraint(equalToConstant: 225).isActive = true
+		artistLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
 	
 		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
 		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
@@ -229,6 +270,9 @@ class MainUIController: UIViewController {
     
 	@objc func playButtonTapped(_ sender: UIButton) {
 		
+		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+		artistLabel.text = musicPlayer.nowPlayingItem?.artist
         musicPlayer.shuffleMode = .songs
         musicPlayer.play()
         sender.pulsate()
@@ -238,7 +282,10 @@ class MainUIController: UIViewController {
 	var pauseButtonTapped : UIButton!
     
     @objc func pauseButtonTapped(_ sender: UIButton) {
-        
+		
+		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+		artistLabel.text = musicPlayer.nowPlayingItem?.artist
         musicPlayer.pause()
         sender.pulsate()
     }
@@ -246,7 +293,10 @@ class MainUIController: UIViewController {
 	var previousButtonTapped : UIButton!
     
     @objc func previousButtonTapped(_ sender: UIButton) {
-        
+		
+		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+		artistLabel.text = musicPlayer.nowPlayingItem?.artist
         musicPlayer.skipToPreviousItem()
         sender.pulsate()
     }
@@ -254,7 +304,10 @@ class MainUIController: UIViewController {
 	var nextButtonTapped : UIButton!
     
 	@objc func nextButtonTapped(_ sender: UIButton) {
-        
+		
+		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+		artistLabel.text = musicPlayer.nowPlayingItem?.artist
         musicPlayer.skipToNextItem()
         sender.pulsate()
     }
@@ -262,27 +315,62 @@ class MainUIController: UIViewController {
 	//Shake to skip
 	override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
 		
+		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+		artistLabel.text = musicPlayer.nowPlayingItem?.artist
 		musicPlayer.skipToNextItem()
 		
 	}
 	
+	@objc func genreButtonTapped(_ sender: UIButton!) {
+		
+		MPMediaLibrary.requestAuthorization { (status) in
+			if status == .authorized{
+				self.playGenre(genre: sender.currentTitle!)
+			}
+		}
+		sender.pulsate()
+		
+	}
+	
+	public func playGenre(genre: String){
+		
+		musicPlayer.stop()
+		let query = MPMediaQuery()
+		let predicate = MPMediaPropertyPredicate(value: genre, forProperty: MPMediaItemPropertyGenre)
+		
+		query.addFilterPredicate(predicate)
+
+		musicPlayer.setQueue(with: query)
+		musicPlayer.shuffleMode = .songs
+		musicPlayer.play()
+		setNowPlayingInfo()
+		
+		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+		artistLabel.text = musicPlayer.nowPlayingItem?.artist
+		
+	}
+	
+
 	//MARK: setNowPlayingInfo()
-	func setNowPlayingInfo() {
+	public func setNowPlayingInfo() {
 		
-		let nowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
-		var nowPlayingInfo = nowPlayingInfoCenter.nowPlayingInfo ?? [String: Any]()
+		if musicPlayer.playbackState == .playing {
+			albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+			nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+			artistLabel.text = musicPlayer.nowPlayingItem?.artist
+			
+			albumImageView.isHidden = false
+			nowPlayingLabel.isHidden = false
+			artistLabel.isHidden = false
+			logoImageView.isHidden = true
+		}
 		
-		let Title = PlayerController.stationTitle
-		let artworkData = Data()
-		let image = UIImage(data: artworkData) ?? UIImage()
-		let artwork = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { (_) -> UIImage in
-			return image })
-		
-	
-	nowPlayingInfo[MPMediaItemPropertyTitle] = title
-	nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
-	
-	nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
+//		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+//		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+//		artistLabel.text = musicPlayer.nowPlayingItem?.artist
+
 	}
 
 	
