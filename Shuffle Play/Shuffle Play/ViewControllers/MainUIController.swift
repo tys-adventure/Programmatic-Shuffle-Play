@@ -8,23 +8,38 @@
 
 import UIKit
 import MediaPlayer
+import AVFoundation
 
 //Yo How You doing?
 
 class MainUIController: UIViewController {
 	
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
+//	let nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo
 	
-	//var nowPlayingInfo: [String : Any]? { albumArtist }
-	var albumArtist: String?
-	var albumTitle: String?
-	var artist: String?
-	var artwork: MPMediaEntityPersistentID?
+	let url = URL(string: stringURL)
+	let asset = AVURLAsset(url: url!)
+	let item = AVPlayerItem(asset: asset)
+	let player = AVPlayer(playerItem: item)
+	
+	isPlaying = true
+	player.play()
+	do {
+		try AVAudioSession.sharedInstance().setActive(true)
+	} catch {
+	
+	}
+	self.setNowPlayingInfo()
+	
 	
 	//Album Image View
-	
-	let albumImageView: UIImageView = {
-		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
+	var albumImageView: UIImageView = {
+		let imageView = UIImageView(image: #imageLiteral(resourceName: "ShufflePlayIconNew"))
+		imageView.layer.shadowColor = UIColor.black.cgColor
+		imageView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		imageView.layer.masksToBounds = false
+		imageView.layer.shadowRadius = 3.0
+		imageView.layer.shadowOpacity = 1.0
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
 	}() 
@@ -53,17 +68,6 @@ class MainUIController: UIViewController {
 			button.tintColor = UIColor.black
 		}
 		button.addTarget(self, action: #selector(menuButton(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
-	
-	let secretButton: UIButton = {
-		let button = UIButton.musicButton()
-		if let homeImage  = UIImage(named: "SPEmoji.png") {
-			button.setImage(homeImage, for: .normal)
-			button.tintColor = UIColor.black
-		}
-		button.addTarget(self, action: #selector(secretButton(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
@@ -143,9 +147,10 @@ class MainUIController: UIViewController {
 		
 		animateGradient()
 		
+		setNowPlayingInfo()
+		
 		//MARK: addSubView
-		view.addSubview(secretButton)
-		//view.addSubview(albumImageView)
+		view.addSubview(albumImageView)
 		view.addSubview(profileButton)
 		view.addSubview(menuButton)
 		view.addSubview(playButton)
@@ -154,24 +159,17 @@ class MainUIController: UIViewController {
 		view.addSubview(nextButton)
 		
 		setupLayout()
-	
+		
         // Do any additional setup after loading the view.
     }
 	
 	private func setupLayout() {
-	
-		secretButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		secretButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
-		secretButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
-		secretButton.heightAnchor.constraint(equalToConstant: 150).isActive = true
 		
-		/*
 		albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		albumImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
-		albumImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-		albumImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-		*/
-
+		albumImageView.widthAnchor.constraint(equalToConstant: 225).isActive = true
+		albumImageView.heightAnchor.constraint(equalToConstant: 225).isActive = true
+	
 		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
 		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
 		profileButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
@@ -182,22 +180,22 @@ class MainUIController: UIViewController {
 		menuButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		menuButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -35).isActive = true
 		
-		playButton.topAnchor.constraint(equalTo: secretButton.bottomAnchor, constant: 150).isActive = true
+		playButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		playButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		playButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 40).isActive = true
 		
-		pauseButton.topAnchor.constraint(equalTo: secretButton.bottomAnchor, constant: 150).isActive = true
+		pauseButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		pauseButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		pauseButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40).isActive = true
 		
-		previousButton.topAnchor.constraint(equalTo: secretButton.bottomAnchor, constant: 150).isActive = true
+		previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		previousButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		previousButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		previousButton.leftAnchor.constraint(equalTo: pauseButton.leftAnchor, constant: -75).isActive = true
 	
-		nextButton.topAnchor.constraint(equalTo: secretButton.bottomAnchor, constant: 150).isActive = true
+		nextButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
 		nextButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
 		nextButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
 		nextButton.rightAnchor.constraint(equalTo: playButton.rightAnchor, constant: 80).isActive = true
@@ -223,13 +221,6 @@ class MainUIController: UIViewController {
 		self.present(vc, animated: true, completion: nil)
 		
 		sender.flash()
-		
-	}
-	
-	@objc func secretButton(_ sender: UIButton){
-		
-		let vc = genreScroll()
-		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
@@ -275,6 +266,26 @@ class MainUIController: UIViewController {
 		
 	}
 	
+	//MARK: setNowPlayingInfo()
+	func setNowPlayingInfo() {
+		
+		let nowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
+		var nowPlayingInfo = nowPlayingInfoCenter.nowPlayingInfo ?? [String: Any]()
+		
+		let Title = PlayerController.stationTitle
+		let artworkData = Data()
+		let image = UIImage(data: artworkData) ?? UIImage()
+		let artwork = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { (_) -> UIImage in
+			return image })
+		
+	
+	nowPlayingInfo[MPMediaItemPropertyTitle] = title
+	nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork
+	
+	nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
+	}
+
+	
 	//UIColor Gradient Func
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
@@ -291,7 +302,6 @@ class MainUIController: UIViewController {
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}
 
-	
 }
 
 	

@@ -8,15 +8,27 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+	
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+		
+		// MPNowPlayingInfoCenter
+		do {
+			try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+			try AVAudioSession.sharedInstance().setActive(true)
+			
+		} catch {
+			
+			print(error)
+		}
+		
+		application.beginReceivingRemoteControlEvents()
 		
 		self.window?.rootViewController = MainUIController()
 		self.window?.makeKeyAndVisible()

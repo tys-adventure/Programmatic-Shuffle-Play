@@ -63,14 +63,6 @@ class ProfileController: UIViewController {
 		return btn
 	}()
 	
-	let GenreSelectionButtonTapped: UIButton = {
-		let btn = UIButton.createButton()
-		btn.setTitle("Your Genre Selections", for: .normal)
-		btn.addTarget(self, action: #selector(GenreSelectionButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
 	let ReviewButtonTapped: UIButton = {
 		let btn = UIButton.createButton()
 		btn.setTitle("Review SPP on the App Store!", for: .normal)
@@ -120,7 +112,6 @@ class ProfileController: UIViewController {
 		view.addSubview(profileTextView)
 		view.addSubview(aboutSPButtonTapped)
 		view.addSubview(AboutButton)
-		view.addSubview(GenreSelectionButtonTapped)
 		view.addSubview(ReviewButtonTapped)
 		view.addSubview(reviewTextView)
 		
@@ -144,15 +135,10 @@ class ProfileController: UIViewController {
 		profileTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
 		
 		AboutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		AboutButton.topAnchor.constraint(equalTo: GenreSelectionButtonTapped.bottomAnchor, constant: 25  ).isActive = true
+		AboutButton.topAnchor.constraint(equalTo: aboutSPButtonTapped.bottomAnchor, constant: 50  ).isActive = true
 		AboutButton.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		AboutButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-		
-		GenreSelectionButtonTapped.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		GenreSelectionButtonTapped.topAnchor.constraint(equalTo: aboutSPButtonTapped.bottomAnchor, constant: 25).isActive = true
-		GenreSelectionButtonTapped.widthAnchor.constraint(equalToConstant: 260).isActive = true
-		GenreSelectionButtonTapped.heightAnchor.constraint(equalToConstant: 45).isActive = true
-		
+
 		ReviewButtonTapped.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		ReviewButtonTapped.topAnchor.constraint(equalTo: AboutButton.bottomAnchor, constant: 200).isActive = true
 		ReviewButtonTapped.widthAnchor.constraint(equalToConstant: 260).isActive = true
@@ -216,14 +202,6 @@ class ProfileController: UIViewController {
 	@objc func aboutSPButtonTapped(_ sender: UIButton) {
 		
 		let vc = aboutSPController()
-		self.present(vc, animated: true, completion: nil)
-		sender.pulsate()
-		
-	}
-	
-	@objc func GenreSelectionButtonTapped(_ sender: UIButton) {
-		
-		let vc = selectionsController()
 		self.present(vc, animated: true, completion: nil)
 		sender.pulsate()
 		

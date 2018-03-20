@@ -105,7 +105,7 @@ class RockController: UIViewController {
 	
 	let MetalButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Metal", for: .normal)
+		btn.setTitle("Heavy Metal", for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
