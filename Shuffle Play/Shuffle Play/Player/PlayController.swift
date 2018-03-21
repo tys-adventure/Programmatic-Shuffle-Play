@@ -347,10 +347,11 @@ class PlayController: UIViewController {
 		musicPlayer.play()
 		setNowPlayingInfo()
 		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-		
+		DispatchQueue.main.async {
+			self.albumImageView.image = self.musicPlayer.nowPlayingItem?.artwork?.image(at: self.albumImageView.bounds.size)
+			self.nowPlayingLabel.text = self.musicPlayer.nowPlayingItem?.title
+			self.artistLabel.text = self.musicPlayer.nowPlayingItem?.artist
+		}
 	}
 	
 
