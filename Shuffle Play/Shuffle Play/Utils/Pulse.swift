@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension aboutSPController: CAAnimationDelegate {
+extension SPController: CAAnimationDelegate {
 	func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
 		if flag {
 			gradient.colors = gradientSet[currentGradient]

@@ -1,8 +1,8 @@
 //
-//  ElectronicController.swift
+//  SingerController.swift
 //  Shuffle Play
 //
-//  Created by Tyler Phillips on 3/2/18.
+//  Created by Tyler Phillips on 3/13/18.
 //  Copyright © 2018 Tyler Phillips. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MediaPlayer
 
-class ElectronicController: UIViewController {
+class SingerController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	
@@ -22,7 +22,7 @@ class ElectronicController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "Electronic"
+		textView.text = "Singer/Songwriter"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -41,45 +41,45 @@ class ElectronicController: UIViewController {
 	}()
 	
 	//Ambient Button
-	let AmbientButton: UIButton = {
+	let AlternativeFolkButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Ambient", for: .normal)
+		btn.setTitle("Alernative Folk", for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Downtempo Button
-	let DowntempoButton: UIButton = {
+	let FolkRockButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Downtempo", for: .normal)
+		btn.setTitle("Folk-Rock", for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Electronica Button
-	let ElectronicaButton: UIButton = {
+	let NewAcousticButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Electronica", for: .normal)
+		btn.setTitle("New Acoustic", for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
 	
 	//Industrial Button
-	let IndustrialButton: UIButton = {
+	let TraditionalFolkButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Industrial", for: .normal)
+		btn.setTitle("Traditional Folk", for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
-
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		let screensize: CGRect = UIScreen.main.bounds
 		let screenWidth = screensize.width
 		let screenHeight = screensize.height
@@ -93,32 +93,32 @@ class ElectronicController: UIViewController {
 		view.addSubview(mainButtonTapped)
 		setupLayout()
 		
-		scrollView.addSubview(AmbientButton)
-		scrollView.addSubview(DowntempoButton)
-		scrollView.addSubview(ElectronicaButton)
-		scrollView.addSubview(IndustrialButton)
+		scrollView.addSubview(AlternativeFolkButton)
+		scrollView.addSubview(FolkRockButton)
+		scrollView.addSubview(NewAcousticButton)
+		scrollView.addSubview(TraditionalFolkButton)
 		
 		//MARK: AutoLayout Constraints
 		
-		NSLayoutConstraint(item: AmbientButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-		NSLayoutConstraint(item: AmbientButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: AmbientButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 75).isActive = true
-		NSLayoutConstraint(item: AmbientButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		NSLayoutConstraint(item: AlternativeFolkButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: AlternativeFolkButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: AlternativeFolkButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 75).isActive = true
+		NSLayoutConstraint(item: AlternativeFolkButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: DowntempoButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-		NSLayoutConstraint(item: DowntempoButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: DowntempoButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 225).isActive = true
-		NSLayoutConstraint(item: DowntempoButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		NSLayoutConstraint(item: FolkRockButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: FolkRockButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: FolkRockButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 225).isActive = true
+		NSLayoutConstraint(item: FolkRockButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: ElectronicaButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-		NSLayoutConstraint(item: ElectronicaButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: ElectronicaButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 375).isActive = true
-		NSLayoutConstraint(item: ElectronicaButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		NSLayoutConstraint(item: NewAcousticButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: NewAcousticButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: NewAcousticButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 375).isActive = true
+		NSLayoutConstraint(item: NewAcousticButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
-		NSLayoutConstraint(item: IndustrialButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-		NSLayoutConstraint(item: IndustrialButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
-		NSLayoutConstraint(item: IndustrialButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 525).isActive = true
-		NSLayoutConstraint(item: IndustrialButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
+		NSLayoutConstraint(item: TraditionalFolkButton, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+		NSLayoutConstraint(item: TraditionalFolkButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260).isActive = true
+		NSLayoutConstraint(item: TraditionalFolkButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 525).isActive = true
+		NSLayoutConstraint(item: TraditionalFolkButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 130).isActive = true
 		
 		
 		scrollView.contentSize = CGSize(width: screenWidth, height: 800)
@@ -145,7 +145,7 @@ class ElectronicController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = MenuController()
+		let vc = GenreController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}

@@ -195,7 +195,7 @@ class ChristianController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = MenuController()
+		let vc = PlayController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}

@@ -9,7 +9,7 @@
 import UIKit
 import MediaPlayer
 
-class ProfileController: UIViewController {
+class SettingsController: UIViewController {
 
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	var nowPlayingInfo = MPNowPlayingInfoCenter.self
@@ -30,7 +30,7 @@ class ProfileController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "Your Profile"
+		textView.text = "Settings"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -194,14 +194,14 @@ class ProfileController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = MainUIController()
+		let vc = PlayController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
 	@objc func aboutSPButtonTapped(_ sender: UIButton) {
 		
-		let vc = aboutSPController()
+		let vc = SPController()
 		self.present(vc, animated: true, completion: nil)
 		sender.pulsate()
 		
@@ -209,7 +209,7 @@ class ProfileController: UIViewController {
 	
 	@objc func AboutButton(_ sender: UIButton) {
 		
-		let vc = aboutController()
+		let vc = SPController()
 		self.present(vc, animated: true, completion: nil)
 		sender.pulsate()
 		

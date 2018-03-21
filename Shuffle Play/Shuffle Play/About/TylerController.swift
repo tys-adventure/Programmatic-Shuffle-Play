@@ -1,5 +1,5 @@
 //
-//  aboutController.swift
+//  TylerController.swift
 //  Shuffle Play
 //
 //  Created by Tyler Phillips on 1/27/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class aboutController: UIViewController {
+class TylerController: UIViewController {
 	
 	//MARK: Buttons
 	let profileButton: UIButton = {
@@ -198,7 +198,7 @@ class aboutController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = ProfileController()
+		let vc = SettingsController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}

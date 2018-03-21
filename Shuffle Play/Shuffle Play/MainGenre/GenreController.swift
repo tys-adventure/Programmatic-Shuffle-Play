@@ -1,5 +1,5 @@
 //
-//  genreSroll.swift
+//  GenreSroll.swift
 //  Shuffle Play
 //
 //  Created by Tyler Phillips on 3/2/18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MediaPlayer
 
-class genreScroll: UIViewController {
+class GenreController: UIViewController {
 	
 	let mainButtonTapped: UIButton = {
 		let button = UIButton.controllerButton()
@@ -33,7 +33,7 @@ class genreScroll: UIViewController {
 	
 	//Genre Shuffle Play textView
 	let genreTextView: UITextView = {
-		let textView = ProfileController.createTextView()
+		let textView = SettingsController.createTextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
 		textView.text = "Select Your Main Genre"
 		textView.translatesAutoresizingMaskIntoConstraints = false
@@ -329,7 +329,7 @@ class genreScroll: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = MainUIController()
+		let vc = PlayController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}

@@ -195,7 +195,7 @@ class RBSoulController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = MenuController()
+		let vc = GenreController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
