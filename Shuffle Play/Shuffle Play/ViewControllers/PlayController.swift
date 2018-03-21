@@ -190,17 +190,6 @@ class PlayController: UIViewController {
 		
 		setupLayout()
 		
-		//MARK: NowPlaying Info (Possible function)
-		if musicPlayer.playbackState == .playing {
-			albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-			nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-			artistLabel.text = musicPlayer.nowPlayingItem?.artist
-			
-			albumImageView.isHidden = false
-			nowPlayingLabel.isHidden = false
-			artistLabel.isHidden = false
-			logoImageView.isHidden = true
-		}
 		
         // Do any additional setup after loading the view.
     }
@@ -258,6 +247,22 @@ class PlayController: UIViewController {
 		nextButton.rightAnchor.constraint(equalTo: playButton.rightAnchor, constant: 80).isActive = true
 
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		//MARK: NowPlaying Info (Possible function)
+		if musicPlayer.playbackState == .playing {
+			albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+			nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+			artistLabel.text = musicPlayer.nowPlayingItem?.artist
+			
+			albumImageView.isHidden = false
+			nowPlayingLabel.isHidden = false
+			artistLabel.isHidden = false
+			logoImageView.isHidden = true
+		}
+	}
 
 	//Menu/Profile Button
 	
@@ -303,7 +308,11 @@ class PlayController: UIViewController {
 	var previousButtonTapped : UIButton!
     
     @objc func previousButtonTapped(_ sender: UIButton) {
-		
+		if musicPlayer.playbackState == .playing {
+			albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+			nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+			artistLabel.text = musicPlayer.nowPlayingItem?.artist
+		}
         musicPlayer.skipToPreviousItem()
         sender.pulsate()
     }
@@ -311,6 +320,12 @@ class PlayController: UIViewController {
 	var nextButtonTapped : UIButton!
     
 	@objc func nextButtonTapped(_ sender: UIButton) {
+		
+		if musicPlayer.playbackState == .playing {
+			albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+			nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+			artistLabel.text = musicPlayer.nowPlayingItem?.artist
+		}
 		
         musicPlayer.skipToNextItem()
         sender.pulsate()
@@ -320,36 +335,6 @@ class PlayController: UIViewController {
 	override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
 		
 		musicPlayer.skipToNextItem()
-		
-	}
-	
-	@objc func genreButtonTapped(_ sender: UIButton!) {
-		
-		MPMediaLibrary.requestAuthorization { (status) in
-			if status == .authorized{
-				self.playGenre(genre: sender.currentTitle!)
-			}
-		}
-		
-		sender.pulsate()
-		
-	}
-	
-	func playGenre(genre: String){
-		
-		musicPlayer.stop()
-		let query = MPMediaQuery()
-		let predicate = MPMediaPropertyPredicate(value: genre, forProperty: MPMediaItemPropertyGenre)
-		
-		query.addFilterPredicate(predicate)
-
-		musicPlayer.setQueue(with: query)
-		musicPlayer.shuffleMode = .songs
-		musicPlayer.play()
-		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
 		
 	}
 
@@ -373,15 +358,15 @@ class PlayController: UIViewController {
 	//MARK: setNowPlayingInfo()
 	func setNowPlayingInfo() {
 
-	if musicPlayer.playbackState == .playing {
-	albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-	nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-	artistLabel.text = musicPlayer.nowPlayingItem?.artist
+		if musicPlayer.playbackState == .playing {
+		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+		artistLabel.text = musicPlayer.nowPlayingItem?.artist
 
-	albumImageView.isHidden = false
-	nowPlayingLabel.isHidden = false
-	artistLabel.isHidden = false
-	logoImageView.isHidden = true
+		albumImageView.isHidden = false
+		nowPlayingLabel.isHidden = false
+		artistLabel.isHidden = false
+		logoImageView.isHidden = true
 	} */
 }
 

@@ -311,8 +311,6 @@ class RockController: UIViewController {
 				self.playGenre(genre: sender.currentTitle!)
 			}
 		}
-		let vc = PlayController()
-		self.present(vc, animated: true, completion: nil)
 		sender.pulsate()
 		
 	}
