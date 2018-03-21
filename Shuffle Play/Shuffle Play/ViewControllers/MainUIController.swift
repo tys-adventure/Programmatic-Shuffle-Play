@@ -1,5 +1,5 @@
 //
-//  PlayController.swift
+//  MainUIController.swift
 //  Shuffle Play
 //
 //  Created by Tyler Phillips on 1/12/18.
@@ -12,7 +12,7 @@ import AVFoundation
 
 //Yo How You doing?
 
-class PlayController: UIViewController {
+class MainUIController: UIViewController {
 	
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	let myMediaQuery = MPMediaQuery.songs()
@@ -251,14 +251,14 @@ class PlayController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = GenreController()
+		let vc = genreScroll()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
 	
 	@objc func profileButton(_ sender: UIButton) {
 		
-		let vc = SettingsController()
+		let vc = ProfileController()
 		self.present(vc, animated: true, completion: nil)
 		
 		sender.flash()
@@ -322,17 +322,16 @@ class PlayController: UIViewController {
 		
 	}
 	
-//	@objc func genreButtonTapped(_ sender: UIButton!) {
-//		
-//		MPMediaLibrary.requestAuthorization { (status) in
-//			if status == .authorized{
-//				self.playGenre(genre: sender.currentTitle!)
-//			}
-//		}
-//		sender.pulsate()
-//		let vc = PlayController()
-//		self.present(vc, animated: true, completion: nil)
-//	}
+	@objc func genreButtonTapped(_ sender: UIButton!) {
+		
+		MPMediaLibrary.requestAuthorization { (status) in
+			if status == .authorized{
+				self.playGenre(genre: sender.currentTitle!)
+			}
+		}
+		sender.pulsate()
+		
+	}
 	
 	public func playGenre(genre: String){
 		

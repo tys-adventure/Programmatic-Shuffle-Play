@@ -28,7 +28,7 @@ class HipHopRapController: UIViewController {
 	
 	//Genre Shuffle Play textView
 	let genreTextView: UITextView = {
-		let textView = SettingsController.createTextView()
+		let textView = ProfileController.createTextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
 		textView.text = "Hip-Hop/Rap"
 		textView.translatesAutoresizingMaskIntoConstraints = false
@@ -240,7 +240,7 @@ class HipHopRapController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = PlayController()
+		let vc = MainUIController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}

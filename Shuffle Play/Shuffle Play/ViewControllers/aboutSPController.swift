@@ -1,5 +1,5 @@
 //
-//  SPController.swift
+//  aboutSPController.swift
 //  Shuffle Play
 //
 //  Created by Tyler Phillips on 2/4/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SPController: UIViewController {
+class aboutSPController: UIViewController {
 	
 
 	//Profile UIButton
@@ -180,7 +180,7 @@ class SPController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = SettingsController()
+		let vc = ProfileController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}

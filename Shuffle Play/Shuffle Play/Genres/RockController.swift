@@ -295,7 +295,7 @@ class RockController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = GenreController()
+		let vc = MenuController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
@@ -306,9 +306,7 @@ class RockController: UIViewController {
 		
 		MPMediaLibrary.requestAuthorization { (status) in
 			if status == .authorized{
-				DispatchQueue.main.async {
-					self.playGenre(genre: sender.currentTitle!)
-				}
+				self.playGenre(genre: sender.currentTitle!)
 			}
 		}
 		sender.pulsate()

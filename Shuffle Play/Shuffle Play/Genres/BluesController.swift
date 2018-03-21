@@ -105,7 +105,7 @@ class BluesController: UIViewController {
 		scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
 
 		view.backgroundColor = UIColor.orange
-		scrollView.backgroundColor = UIColor.orange
+		scrollView.backgroundColor = UIColor .orange
 
 		view.addSubview(genreTextView)
 		view.addSubview(mainButtonTapped)
@@ -181,7 +181,7 @@ class BluesController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = GenreController()
+		let vc = MenuController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}

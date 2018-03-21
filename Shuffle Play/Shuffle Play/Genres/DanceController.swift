@@ -181,7 +181,7 @@ class DanceController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = GenreController()
+		let vc = MenuController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
