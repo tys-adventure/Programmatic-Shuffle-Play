@@ -13,7 +13,8 @@ import MediaPlayer
 class CountryController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-	
+	let myMediaQuery = MPMediaQuery.songs()
+	let nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo
 	
 	//Genre Shuffle Play textView
 	let genreTextView: UITextView = {
@@ -243,12 +244,14 @@ class CountryController: UIViewController {
 	
 	//Any of the genre buttons tapped = this action
 	@objc func genreButtonTapped(_ sender: UIButton!) {
-		
+	
 		MPMediaLibrary.requestAuthorization { (status) in
 			if status == .authorized{
 				self.playGenre(genre: sender.currentTitle!)
 			}
 		}
+		let vc = PlayController()
+		self.present(vc, animated: true, completion: nil)
 		sender.pulsate()
 		
 	}

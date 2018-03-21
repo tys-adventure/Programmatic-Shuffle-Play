@@ -194,7 +194,7 @@ class ProfileController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = MainUIController()
+		let vc = PlayController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}

@@ -13,6 +13,8 @@ import MediaPlayer
 class ChristianController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
+	let myMediaQuery = MPMediaQuery.songs()
+	let nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo
 	
 	//MARK: textView
 	let genreTextView: UITextView = {
@@ -209,6 +211,8 @@ class ChristianController: UIViewController {
 				self.playGenre(genre: sender.currentTitle!)
 			}
 		}
+		let vc = PlayController()
+		self.present(vc, animated: true, completion: nil)
 		sender.pulsate()
 		
 	}

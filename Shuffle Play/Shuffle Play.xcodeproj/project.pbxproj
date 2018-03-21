@@ -21,7 +21,7 @@
 		5C3D66BF2048AA360058A20B /* PopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D66BE2048AA360058A20B /* PopController.swift */; };
 		5C3D67452049DD310058A20B /* genreSroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D67442049DD310058A20B /* genreSroll.swift */; };
 		5C3D67472049F4E50058A20B /* ElectronicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D67462049F4E50058A20B /* ElectronicController.swift */; };
-		5C698CAE20099745005FD7C4 /* MainUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CAD20099745005FD7C4 /* MainUIController.swift */; };
+		5C698CAE20099745005FD7C4 /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CAD20099745005FD7C4 /* PlayController.swift */; };
 		5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CAF2009975A005FD7C4 /* MenuController.swift */; };
 		5C698CB22009976C005FD7C4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CB12009976C005FD7C4 /* ProfileController.swift */; };
 		5C7FF3DD205F75C000668E23 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7FF3DC205F75C000668E23 /* Track.swift */; };
@@ -81,7 +81,7 @@
 		5C3D66BE2048AA360058A20B /* PopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopController.swift; sourceTree = "<group>"; };
 		5C3D67442049DD310058A20B /* genreSroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genreSroll.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5C3D67462049F4E50058A20B /* ElectronicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectronicController.swift; sourceTree = "<group>"; };
-		5C698CAD20099745005FD7C4 /* MainUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIController.swift; sourceTree = "<group>"; };
+		5C698CAD20099745005FD7C4 /* PlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayController.swift; sourceTree = "<group>"; };
 		5C698CAF2009975A005FD7C4 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		5C698CB12009976C005FD7C4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		5C7FF3DC205F75C000668E23 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		5C7FF3DB205F758F00668E23 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5C698CAD20099745005FD7C4 /* MainUIController.swift */,
+				5C698CAD20099745005FD7C4 /* PlayController.swift */,
 				5C698CB12009976C005FD7C4 /* ProfileController.swift */,
 				5CEF02A1201D3DDB00D63D3E /* aboutController.swift */,
 				5C286CA32027E02200DD90FB /* aboutSPController.swift */,
@@ -403,7 +403,7 @@
 				5CD87DDA202EBB2600F795EF /* pulseExtension.swift in Sources */,
 				5CC20AE3202FB69E00CFF27C /* Constants.swift in Sources */,
 				5C00C0CF204D4003002F346F /* MainScreenController.swift in Sources */,
-				5C698CAE20099745005FD7C4 /* MainUIController.swift in Sources */,
+				5C698CAE20099745005FD7C4 /* PlayController.swift in Sources */,
 				5C7FF3DD205F75C000668E23 /* Track.swift in Sources */,
 				5CEF02A2201D3DDB00D63D3E /* aboutController.swift in Sources */,
 				5CA5423D2047CBBF005FCBD6 /* BluesController.swift in Sources */,

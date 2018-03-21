@@ -12,11 +12,19 @@ import AVFoundation
 
 //Yo How You doing?
 
-class MainUIController: UIViewController {
+protocol musicInfoDelegate {
+	func albumArt(image: UIImage, name: String)
+	func artistName(label: UILabel, name: String)
+	func trackTitle(label: UILabel, name: String)
+}
+
+class PlayController: UIViewController {
 	
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	let myMediaQuery = MPMediaQuery.songs()
-//	let nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo
+	let nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo
+	
+	var infoDelegate: musicInfoDelegate!
 	
 	//Album Image View
 	var albumImageView: UIImageView = {
@@ -149,7 +157,6 @@ class MainUIController: UIViewController {
 	let gradientTwo = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
 	let gradientThree = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
 
-	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -167,7 +174,7 @@ class MainUIController: UIViewController {
 		
 		animateGradient()
 		
-		setNowPlayingInfo()
+//		setNowPlayingInfo()
 		
 		//MARK: addSubView
 		view.addSubview(logoImageView)
@@ -183,8 +190,17 @@ class MainUIController: UIViewController {
 		
 		setupLayout()
 		
-
-		
+		//MARK: NowPlaying Info (Possible function)
+		if musicPlayer.playbackState == .playing {
+			albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+			nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+			artistLabel.text = musicPlayer.nowPlayingItem?.artist
+			
+			albumImageView.isHidden = false
+			nowPlayingLabel.isHidden = false
+			artistLabel.isHidden = false
+			logoImageView.isHidden = true
+		}
 		
         // Do any additional setup after loading the view.
     }
@@ -270,9 +286,6 @@ class MainUIController: UIViewController {
     
 	@objc func playButtonTapped(_ sender: UIButton) {
 		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
         musicPlayer.shuffleMode = .songs
         musicPlayer.play()
         sender.pulsate()
@@ -283,9 +296,6 @@ class MainUIController: UIViewController {
     
     @objc func pauseButtonTapped(_ sender: UIButton) {
 		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
         musicPlayer.pause()
         sender.pulsate()
     }
@@ -294,9 +304,6 @@ class MainUIController: UIViewController {
     
     @objc func previousButtonTapped(_ sender: UIButton) {
 		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
         musicPlayer.skipToPreviousItem()
         sender.pulsate()
     }
@@ -305,9 +312,6 @@ class MainUIController: UIViewController {
     
 	@objc func nextButtonTapped(_ sender: UIButton) {
 		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
         musicPlayer.skipToNextItem()
         sender.pulsate()
     }
@@ -315,9 +319,6 @@ class MainUIController: UIViewController {
 	//Shake to skip
 	override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
 		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
 		musicPlayer.skipToNextItem()
 		
 	}
@@ -329,11 +330,12 @@ class MainUIController: UIViewController {
 				self.playGenre(genre: sender.currentTitle!)
 			}
 		}
+		
 		sender.pulsate()
 		
 	}
 	
-	public func playGenre(genre: String){
+	func playGenre(genre: String){
 		
 		musicPlayer.stop()
 		let query = MPMediaQuery()
@@ -344,36 +346,13 @@ class MainUIController: UIViewController {
 		musicPlayer.setQueue(with: query)
 		musicPlayer.shuffleMode = .songs
 		musicPlayer.play()
-		setNowPlayingInfo()
 		
 		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
 		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
 		artistLabel.text = musicPlayer.nowPlayingItem?.artist
 		
 	}
-	
 
-	//MARK: setNowPlayingInfo()
-	public func setNowPlayingInfo() {
-		
-		if musicPlayer.playbackState == .playing {
-			albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-			nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-			artistLabel.text = musicPlayer.nowPlayingItem?.artist
-			
-			albumImageView.isHidden = false
-			nowPlayingLabel.isHidden = false
-			artistLabel.isHidden = false
-			logoImageView.isHidden = true
-		}
-		
-//		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-//		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-//		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-
-	}
-
-	
 	//UIColor Gradient Func
 	func animateGradient() {
 		if currentGradient < gradientSet.count - 1 {
@@ -389,8 +368,28 @@ class MainUIController: UIViewController {
 		gradientChangeAnimation.isRemovedOnCompletion = false
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}
+	
+	/*
+	//MARK: setNowPlayingInfo()
+	func setNowPlayingInfo() {
 
+	if musicPlayer.playbackState == .playing {
+	albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+	nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+	artistLabel.text = musicPlayer.nowPlayingItem?.artist
+
+	albumImageView.isHidden = false
+	nowPlayingLabel.isHidden = false
+	artistLabel.isHidden = false
+	logoImageView.isHidden = true
+	} */
 }
 
+
+//MARK: nowPlayingItem calls for Album Art, Song Title, and Artist Name
+
+//		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+//		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+//		artistLabel.text = musicPlayer.nowPlayingItem?.artist
 	
 
