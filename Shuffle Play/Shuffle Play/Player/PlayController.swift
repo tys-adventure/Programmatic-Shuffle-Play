@@ -14,9 +14,17 @@ import AVFoundation
 
 class PlayController: UIViewController {
 	
+	// MARK: -- Properties
 	let musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	let myMediaQuery = MPMediaQuery.songs()
-//	let nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo
+	
+	let gradient = CAGradientLayer()
+	var gradientSet = [[CGColor]]()
+	var currentGradient: Int = 0
+	
+	let gradientOne = UIColor.rgb(red: 26, green: 152, blue: 175).cgColor
+	let gradientTwo = UIColor.rgb(red: 26, green: 152, blue: 170).cgColor
+	let gradientThree = UIColor.rgb(red: 26, green: 152, blue: 165).cgColor
 	
 	//Album Image View
 	var albumImageView: UIImageView = {
@@ -26,7 +34,6 @@ class PlayController: UIViewController {
 		imageView.layer.masksToBounds = false
 		imageView.layer.shadowRadius = 3.0
 		imageView.layer.shadowOpacity = 1.0
-		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
 	}()
 	
@@ -37,7 +44,6 @@ class PlayController: UIViewController {
 		label.backgroundColor = UIColor.clear
 		label.isUserInteractionEnabled = false
 		label.textColor = UIColor.white
-		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 	
@@ -48,7 +54,6 @@ class PlayController: UIViewController {
 		label.backgroundColor = UIColor.clear
 		label.isUserInteractionEnabled = false
 		label.textColor = UIColor.white
-		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 	
@@ -58,14 +63,13 @@ class PlayController: UIViewController {
 		imageView.layer.shadowColor = UIColor.black.cgColor
 		imageView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		imageView.layer.masksToBounds = false
-		imageView.layer.shadowRadius = 3.0
-		imageView.layer.shadowOpacity = 1.0
-		imageView.translatesAutoresizingMaskIntoConstraints = false
+		imageView.layer.shadowRadius = 1.5
+		imageView.layer.shadowOpacity = 0.5
 		return imageView
 	}()
 	
 	//ProfileButton
-	let profileButton: UIButton = {
+	let settingsButton: UIButton = {
 		let button = UIButton.controllerButton()
 		button.setTitle("Profile", for: .normal)
 		button.setTitleColor(.black, for: .normal)
@@ -73,8 +77,7 @@ class PlayController: UIViewController {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(settingsButtonTapped), for:.touchUpInside)
 		return button
 	}()
 	
@@ -87,19 +90,18 @@ class PlayController: UIViewController {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		button.addTarget(self, action: #selector(menuButton(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(menuButtonTapped), for:.touchUpInside)
 		return button
 	}()
 	
 	//Play
 	let playButton: UIButton = {
 		let button = UIButton.musicButton()
-			if let homeImage  = UIImage(named: "play-white.png") {
-				button.setImage(homeImage, for: .normal)
-				button.tintColor = UIColor.black
-			}
-		button.addTarget(self, action: #selector(playButtonTapped(_:)), for:.touchUpInside)
+		if let homeImage  = UIImage(named: "play-white.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		button.addTarget(self, action: #selector(playButtonTapped), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
@@ -107,11 +109,11 @@ class PlayController: UIViewController {
 	//Pause
 	let pauseButton: UIButton = {
 		let button = UIButton.musicButton()
-			if let homeImage  = UIImage(named: "pause-white3.png") {
-				button.setImage(homeImage, for: .normal)
-				button.tintColor = UIColor.black
-			}
-		button.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
+		if let homeImage  = UIImage(named: "pause-white3.png") {
+			button.setImage(homeImage, for: .normal)
+			button.tintColor = UIColor.black
+		}
+		button.addTarget(self, action: #selector(pauseButtonTapped), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
@@ -119,13 +121,12 @@ class PlayController: UIViewController {
 	//Previous
 	let previousButton: UIButton = {
 		let button = UIButton.musicButton()
-
+		
 		if let homeImage  = UIImage(named: "previous-white.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		button.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(previousButtonTapped), for:.touchUpInside)
 		return button
 	}()
 	
@@ -136,23 +137,23 @@ class PlayController: UIViewController {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		button.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
+		button.addTarget(self, action: #selector(nextButtonTapped), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
 	
-	let gradient = CAGradientLayer()
-	var gradientSet = [[CGColor]]()
-	var currentGradient: Int = 0
-	
-	let gradientOne = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
-	let gradientTwo = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
-	let gradientThree = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1).cgColor
-
-	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	// MARK: -- viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
+		setUpGradient()
+		animateGradient()
+		setNowPlayingInfo()
+		setupLayout()
+	}
+	
+	// MARK: -- View Setup
+	fileprivate func setUpGradient() {
 		//Gradient
 		gradientSet.append([gradientOne, gradientTwo])
 		gradientSet.append([gradientTwo, gradientThree])
@@ -164,189 +165,9 @@ class PlayController: UIViewController {
 		gradient.endPoint = CGPoint(x:1, y:1)
 		gradient.drawsAsynchronously = true
 		self.view.layer.addSublayer(gradient)
-		
-		animateGradient()
-		
-		setNowPlayingInfo()
-		
-		//MARK: addSubView
-		view.addSubview(logoImageView)
-		view.addSubview(albumImageView)
-		view.addSubview(nowPlayingLabel)
-		view.addSubview(artistLabel)
-		view.addSubview(profileButton)
-		view.addSubview(menuButton)
-		view.addSubview(playButton)
-		view.addSubview(pauseButton)
-		view.addSubview(previousButton)
-		view.addSubview(nextButton)
-		
-		setupLayout()
-		
-
-		
-		
-        // Do any additional setup after loading the view.
-    }
-	
-	private func setupLayout() {
-		
-		logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
-		logoImageView.widthAnchor.constraint(equalToConstant: 225).isActive = true
-		logoImageView.heightAnchor.constraint(equalToConstant: 225).isActive = true
-		
-		albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		albumImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
-		albumImageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
-		albumImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-		
-		nowPlayingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		nowPlayingLabel.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 75).isActive = true
-		nowPlayingLabel.widthAnchor.constraint(equalToConstant: 275).isActive = true
-		nowPlayingLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-		
-		artistLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		artistLabel.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 55).isActive = true
-		artistLabel.widthAnchor.constraint(equalToConstant: 225).isActive = true
-		artistLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-	
-		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
-		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
-		profileButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
-		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
-		
-		menuButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
-		menuButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
-		menuButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
-		menuButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -35).isActive = true
-		
-		playButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
-		playButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
-		playButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
-		playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 40).isActive = true
-		
-		pauseButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
-		pauseButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
-		pauseButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
-		pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40).isActive = true
-		
-		previousButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
-		previousButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
-		previousButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
-		previousButton.leftAnchor.constraint(equalTo: pauseButton.leftAnchor, constant: -75).isActive = true
-	
-		nextButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
-		nextButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
-		nextButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
-		nextButton.rightAnchor.constraint(equalTo: playButton.rightAnchor, constant: 80).isActive = true
-
-	}
-
-	//Menu/Profile Button
-	
-	@objc func menuButton(_ sender: UIButton) {
-		
-		sender.flash()
-		
-		self.presentingViewController?.dismiss(animated: true, completion: nil)
-		
-		let vc = GenreController()
-		self.present(vc, animated: true, completion: nil)
-		
 	}
 	
-	@objc func profileButton(_ sender: UIButton) {
-		
-		let vc = SettingsController()
-		self.present(vc, animated: true, completion: nil)
-		
-		sender.flash()
-		
-	}
-	
-    //User Button controls--Play, Pause, Stop, Skip
-	var playButtonTapped : UIButton!
-    
-	@objc func playButtonTapped(_ sender: UIButton) {
-		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-        musicPlayer.shuffleMode = .songs
-        musicPlayer.play()
-        sender.pulsate()
-		
-    }
-    
-	var pauseButtonTapped : UIButton!
-    
-    @objc func pauseButtonTapped(_ sender: UIButton) {
-		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-        musicPlayer.pause()
-        sender.pulsate()
-    }
-    
-	var previousButtonTapped : UIButton!
-    
-    @objc func previousButtonTapped(_ sender: UIButton) {
-		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-        musicPlayer.skipToPreviousItem()
-        sender.pulsate()
-    }
-    
-	var nextButtonTapped : UIButton!
-    
-	@objc func nextButtonTapped(_ sender: UIButton) {
-		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-        musicPlayer.skipToNextItem()
-        sender.pulsate()
-    }
-
-	//Shake to skip
-	override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-		musicPlayer.skipToNextItem()
-		
-	}
-	
-//	@objc func genreButtonTapped(_ sender: UIButton!) {
-//		
-//		MPMediaLibrary.requestAuthorization { (status) in
-//			if status == .authorized{
-//				self.playGenre(genre: sender.currentTitle!)
-//			}
-//		}
-//		sender.pulsate()
-//		let vc = PlayController()
-//		self.present(vc, animated: true, completion: nil)
-//	}
-	
-	public func playGenre(genre: String){
-		
-		musicPlayer.stop()
-		let query = MPMediaQuery()
-		let predicate = MPMediaPropertyPredicate(value: genre, forProperty: MPMediaItemPropertyGenre)
-		
-		query.addFilterPredicate(predicate)
-
-		musicPlayer.setQueue(with: query)
-		musicPlayer.shuffleMode = .songs
-		musicPlayer.play()
-		setNowPlayingInfo()
-		
+	fileprivate func setupAlbumInfo() {
 		DispatchQueue.main.async {
 			self.albumImageView.image = self.musicPlayer.nowPlayingItem?.artwork?.image(at: self.albumImageView.bounds.size)
 			self.nowPlayingLabel.text = self.musicPlayer.nowPlayingItem?.title
@@ -354,27 +175,122 @@ class PlayController: UIViewController {
 		}
 	}
 	
+	private func setupLayout() {
+		
+		view.addSubview(logoImageView)
+		logoImageView.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 125, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 220, height: 250)
+		logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		
+		view.addSubview(albumImageView)
+		albumImageView.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 125, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 255, height: 255)
+		albumImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		
+		view.addSubview(nowPlayingLabel)
+		nowPlayingLabel.anchor(top: albumImageView.bottomAnchor, left: nil, bottom: nil, right: nil, paddingTop: 15, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 275, height: 30)
+		nowPlayingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		
+		view.addSubview(artistLabel)
+		artistLabel.anchor(top: nowPlayingLabel.bottomAnchor, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 225, height: 30)
+		artistLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		
+		view.addSubview(settingsButton)
+		settingsButton.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 60, paddingLeft: 35, paddingBottom: 0, paddingRight: 0, width: 35, height: 35)
+		
+		view.addSubview(menuButton)
+		menuButton.anchor(top: view.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 60, paddingLeft: 0, paddingBottom: 0, paddingRight: 35, width: 35, height: 35)
+		
+		view.addSubview(playButton)
+		playButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
+		playButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
+		playButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+		playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 40).isActive = true
+		
+		view.addSubview(pauseButton)
+		pauseButton.topAnchor.constraint(equalTo: albumImageView.bottomAnchor, constant: 150).isActive = true
+		pauseButton.widthAnchor.constraint(equalToConstant: 55).isActive = true
+		pauseButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+		pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40).isActive = true
+		
+		view.addSubview(previousButton)
+		previousButton.anchor(top: artistLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 75, paddingLeft: 35, paddingBottom: 0, paddingRight: 0, width: 55, height: 55)
+		
+		view.addSubview(nextButton)
+		nextButton.anchor(top: artistLabel.bottomAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 75, paddingLeft: 0, paddingBottom: 0, paddingRight: 35, width: 55, height: 55)
+	}
+	
+	// MARK: -- Menu and Settings functions
+	@objc func menuButtonTapped() {
+		menuButton.flash()
+		
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+		
+		let vc = GenreController()
+		self.present(vc, animated: true, completion: nil)
+	}
+	
+	@objc func settingsButtonTapped() {
+		let vc = SettingsController()
+		self.present(vc, animated: true, completion: nil)
+		settingsButton.flash()
+	}
+	
+	// MARK: -- Button functions
+	@objc func playButtonTapped() {
+		setupAlbumInfo()
+		musicPlayer.shuffleMode = .songs
+		musicPlayer.play()
+		playButton.pulsate()
+	}
 
+	@objc func pauseButtonTapped() {
+		setupAlbumInfo()
+		musicPlayer.pause()
+		pauseButton.pulsate()
+	}
+	
+	@objc func previousButtonTapped() {
+		setupAlbumInfo()
+		musicPlayer.skipToPreviousItem()
+		previousButton.pulsate()
+	}
+	
+	@objc func nextButtonTapped() {
+		setupAlbumInfo()
+		musicPlayer.skipToNextItem()
+		nextButton.pulsate()
+	}
+	
+	//Shake to skip
+	override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+		setupAlbumInfo()
+		musicPlayer.skipToNextItem()
+	}
+	
+	public func playGenre(genre: String){
+		musicPlayer.stop()
+		
+		let query = MPMediaQuery()
+		let predicate = MPMediaPropertyPredicate(value: genre, forProperty: MPMediaItemPropertyGenre)
+		
+		query.addFilterPredicate(predicate)
+		
+		musicPlayer.setQueue(with: query)
+		musicPlayer.shuffleMode = .songs
+		musicPlayer.play()
+		setNowPlayingInfo()
+		setupAlbumInfo()
+	}
+	
 	//MARK: setNowPlayingInfo()
 	public func setNowPlayingInfo() {
-		
 		if musicPlayer.playbackState == .playing {
-			albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-			nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-			artistLabel.text = musicPlayer.nowPlayingItem?.artist
-			
+			setupAlbumInfo()
 			albumImageView.isHidden = false
 			nowPlayingLabel.isHidden = false
 			artistLabel.isHidden = false
 			logoImageView.isHidden = true
 		}
-		
-//		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-//		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-//		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-
 	}
-
 	
 	//UIColor Gradient Func
 	func animateGradient() {
@@ -391,8 +307,7 @@ class PlayController: UIViewController {
 		gradientChangeAnimation.isRemovedOnCompletion = false
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}
-
 }
 
-	
+
 
