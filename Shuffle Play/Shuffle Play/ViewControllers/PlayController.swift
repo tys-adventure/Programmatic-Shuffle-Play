@@ -10,7 +10,7 @@ import UIKit
 import MediaPlayer
 import AVFoundation
 
-//Yo How You doing?
+//Keep on pushing!
 
 protocol musicInfoDelegate {
 	func albumArt(image: UIImage, name: String)
