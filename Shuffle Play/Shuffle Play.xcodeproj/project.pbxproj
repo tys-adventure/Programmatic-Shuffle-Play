@@ -25,6 +25,7 @@
 		5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CAF2009975A005FD7C4 /* MenuController.swift */; };
 		5C698CB22009976C005FD7C4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C698CB12009976C005FD7C4 /* ProfileController.swift */; };
 		5C7FF3DD205F75C000668E23 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7FF3DC205F75C000668E23 /* Track.swift */; };
+		5C8C6B2D2076973D007A68AF /* AutoLayoutContraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8C6B2C2076973D007A68AF /* AutoLayoutContraints.swift */; };
 		5CA5423D2047CBBF005FCBD6 /* BluesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA5423C2047CBBF005FCBD6 /* BluesController.swift */; };
 		5CA600AD1FF855C200DD40E6 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA600AC1FF855C200DD40E6 /* UIButtonExtension.swift */; };
 		5CB9377D2058156A00F8EC98 /* SingerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB9377C2058156A00F8EC98 /* SingerController.swift */; };
@@ -85,6 +86,7 @@
 		5C698CAF2009975A005FD7C4 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		5C698CB12009976C005FD7C4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		5C7FF3DC205F75C000668E23 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		5C8C6B2C2076973D007A68AF /* AutoLayoutContraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutContraints.swift; sourceTree = "<group>"; };
 		5CA5423C2047CBBF005FCBD6 /* BluesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluesController.swift; sourceTree = "<group>"; };
 		5CA600AC1FF855C200DD40E6 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		5CB9377C2058156A00F8EC98 /* SingerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingerController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				5C1B384B1FE86197003179A1 /* Shuffle Play */,
+				5CB9378A20584FE400F8EC98 /* Not USED */,
 				5C1B38631FE86197003179A1 /* Shuffle PlayTests */,
 				5C1B386E1FE86197003179A1 /* Shuffle PlayUITests */,
 				5C1B384A1FE86197003179A1 /* Products */,
@@ -153,14 +156,12 @@
 			isa = PBXGroup;
 			children = (
 				5C1B384C1FE86197003179A1 /* AppDelegate.swift */,
-				5C7FF3DB205F758F00668E23 /* ViewControllers */,
-				5C698CB32009AAD8005FD7C4 /* Extensions */,
-				5CA542522047CC8D005FCBD6 /* Genres */,
-				5C1B38501FE86197003179A1 /* Main.storyboard */,
-				5C1B387D1FE861EB003179A1 /* GenreButtonScreen.swift */,
+				5C7FF3DB205F758F00668E23 /* UI ViewControllers */,
+				5CA542522047CC8D005FCBD6 /* Genre ViewControllers */,
+				5C698CB32009AAD8005FD7C4 /* Helpers */,
 				5C1B38561FE86197003179A1 /* Assets.xcassets */,
+				5C1B38501FE86197003179A1 /* Main.storyboard */,
 				5C1B38581FE86197003179A1 /* LaunchScreen.storyboard */,
-				5CB9378A20584FE400F8EC98 /* Not USED */,
 				5C1B385B1FE86197003179A1 /* Info.plist */,
 				5C1B38531FE86197003179A1 /* Shuffle_Play.xcdatamodeld */,
 			);
@@ -185,7 +186,7 @@
 			path = "Shuffle PlayUITests";
 			sourceTree = "<group>";
 		};
-		5C698CB32009AAD8005FD7C4 /* Extensions */ = {
+		5C698CB32009AAD8005FD7C4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				5CA600AC1FF855C200DD40E6 /* UIButtonExtension.swift */,
@@ -194,11 +195,12 @@
 				5CDA80D320467BED003995B8 /* AlertExtension.swift */,
 				5CC20AE2202FB69E00CFF27C /* Constants.swift */,
 				5C7FF3DC205F75C000668E23 /* Track.swift */,
+				5C8C6B2C2076973D007A68AF /* AutoLayoutContraints.swift */,
 			);
-			path = Extensions;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
-		5C7FF3DB205F758F00668E23 /* ViewControllers */ = {
+		5C7FF3DB205F758F00668E23 /* UI ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				5C698CAD20099745005FD7C4 /* PlayController.swift */,
@@ -208,10 +210,10 @@
 				5C3D67442049DD310058A20B /* genreSroll.swift */,
 				5C00C0CE204D4003002F346F /* MainScreenController.swift */,
 			);
-			path = ViewControllers;
+			path = "UI ViewControllers";
 			sourceTree = "<group>";
 		};
-		5CA542522047CC8D005FCBD6 /* Genres */ = {
+		5CA542522047CC8D005FCBD6 /* Genre ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				5CA5423C2047CBBF005FCBD6 /* BluesController.swift */,
@@ -226,12 +228,13 @@
 				5CB9378620582B5800F8EC98 /* RockController.swift */,
 				5CB937882058328200F8EC98 /* ChristianController.swift */,
 			);
-			path = Genres;
+			path = "Genre ViewControllers";
 			sourceTree = "<group>";
 		};
 		5CB9378A20584FE400F8EC98 /* Not USED */ = {
 			isa = PBXGroup;
 			children = (
+				5C1B387D1FE861EB003179A1 /* GenreButtonScreen.swift */,
 				5C698CAF2009975A005FD7C4 /* MenuController.swift */,
 				5CEF02A5201E353100D63D3E /* streamingController.swift */,
 				5CEF02A3201E34F800D63D3E /* selectionsController.swift */,
@@ -391,6 +394,7 @@
 				5C3D66BD20489CB30058A20B /* CountryController.swift in Sources */,
 				5C3D66BF2048AA360058A20B /* PopController.swift in Sources */,
 				5C3D67452049DD310058A20B /* genreSroll.swift in Sources */,
+				5C8C6B2D2076973D007A68AF /* AutoLayoutContraints.swift in Sources */,
 				5CB9378720582B5800F8EC98 /* RockController.swift in Sources */,
 				5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */,
 				5CB9377F2058185600F8EC98 /* RBSoulController.swift in Sources */,

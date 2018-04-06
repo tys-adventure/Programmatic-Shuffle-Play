@@ -18,17 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		
-		// MPNowPlayingInfoCenter
-		do {
-			try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-			try AVAudioSession.sharedInstance().setActive(true)
-			
-		} catch {
-			
-			print(error)
-		}
-		
-		application.beginReceivingRemoteControlEvents()
+		UIApplication.shared.beginReceivingRemoteControlEvents()
 		
 		self.window?.rootViewController = PlayController()
 		self.window?.makeKeyAndVisible()
