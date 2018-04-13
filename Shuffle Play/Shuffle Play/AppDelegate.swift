@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		UIApplication.shared.beginReceivingRemoteControlEvents()
 		
-		self.window?.rootViewController = PlayController()
+		self.window?.rootViewController = PlayerController()
 		self.window?.makeKeyAndVisible()
 		
 		return true

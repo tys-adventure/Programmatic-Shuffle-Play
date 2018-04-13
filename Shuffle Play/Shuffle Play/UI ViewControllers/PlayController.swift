@@ -164,8 +164,7 @@ class PlayController: UIViewController {
 		
 		view.backgroundColor = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1)
 		
-		let notificationCenter = NotificationCenter.default
-		notificationCenter.addObserver(self, selector: Selector(("sayHello")), name:NSNotification.Name(rawValue: "dataDownloadCompleted"), object: nil)
+		createObservers()
 		
 		//MARK: addSubView
 		view.addSubview(logoImageView)
@@ -267,16 +266,17 @@ class PlayController: UIViewController {
 		
 	}
 	
+	//Key Functions
 	@objc func updateAlbumArt(notifacation: NSNotification) {
-		
+		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
 	}
 	
 	@objc func updateArtist(notifacation: NSNotification) {
-		
+		artistLabel.text = musicPlayer.nowPlayingItem?.artist
 	}
 	
 	@objc func updateTrackTitle(notifaction: NSNotification) {
-		
+		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
 	}
 	
 	//Menu/Profile Button
@@ -318,6 +318,7 @@ class PlayController: UIViewController {
 		
 		setNowPlayingInfo()
         musicPlayer.shuffleMode = .songs
+		createObservers()
         musicPlayer.play()
         sender.pulsate()
 		
