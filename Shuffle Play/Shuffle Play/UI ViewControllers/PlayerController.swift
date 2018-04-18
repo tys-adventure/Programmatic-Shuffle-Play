@@ -30,7 +30,7 @@ class PlayerController: UIViewController {
 	}()
 
 	var downArrowImageView: UIImageView = {
-		let imageView = UIImageView(image: #imageLiteral(resourceName: "downArrow"))
+		let imageView = UIImageView(image: #imageLiteral(resourceName: "downArrow")) 
 		imageView.layer.shadowColor = UIColor.black.cgColor
 		imageView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		imageView.layer.masksToBounds = false
