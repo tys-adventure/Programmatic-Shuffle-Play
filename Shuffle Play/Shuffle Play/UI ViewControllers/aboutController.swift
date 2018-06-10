@@ -82,7 +82,7 @@ class aboutController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "About The Developer"
+		textView.text = "About The Developers"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -106,6 +106,10 @@ class aboutController: UIViewController {
 		super.viewDidLoad()
 
 		view.backgroundColor = UIColor(red: 192/255, green: 144/255, blue: 232/255, alpha: 1)
+		view.layer.cornerRadius = 10
+		view.layer.borderWidth = 1.0
+		view.layer.borderColor = UIColor.clear.cgColor
+		view.layer.masksToBounds = true
 		
 		//setupLayout
 		

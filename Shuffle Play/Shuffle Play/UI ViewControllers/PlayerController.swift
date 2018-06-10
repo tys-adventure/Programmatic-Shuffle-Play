@@ -245,6 +245,10 @@ class PlayerController: UIViewController {
 		
 		//Views Colors
 		view.backgroundColor = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1)
+		view.layer.cornerRadius = 10
+		view.layer.borderWidth = 1.0
+		view.layer.borderColor = UIColor.clear.cgColor
+		view.layer.masksToBounds = true
 		scrollView.backgroundColor = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1)
 		
 		
