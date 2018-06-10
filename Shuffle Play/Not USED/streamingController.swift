@@ -43,7 +43,7 @@ class streamingController: UIViewController {
 		
 		//Menu Button
 		
-		let profileButton = UIButton(type: UIButtonType.system) as UIButton
+		let profileButton = UIButton(type: UIButton.ButtonType.system) as UIButton
 		profileButton.frame = CGRect(x: 50, y: 50, width: 35, height: 35)
 		profileButton.tintColor=UIColor .black
 		profileButton.setTitle("Profile", for: .normal)
@@ -140,7 +140,8 @@ class streamingController: UIViewController {
 		let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
 		gradientChangeAnimation.duration = 7.00
 		gradientChangeAnimation.toValue = gradientSet[currentGradient]
-		gradientChangeAnimation.fillMode = kCAFillModeForwards
+		//gradientChangeAnimation.fillMode = kCAFillModeForwards
+		gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
 		gradientChangeAnimation.isRemovedOnCompletion = false
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}

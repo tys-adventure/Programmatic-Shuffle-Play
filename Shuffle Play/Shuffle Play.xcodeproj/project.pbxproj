@@ -37,12 +37,14 @@
 		5CB9378720582B5800F8EC98 /* RockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB9378620582B5800F8EC98 /* RockController.swift */; };
 		5CB937892058328200F8EC98 /* ChristianController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB937882058328200F8EC98 /* ChristianController.swift */; };
 		5CC20AE1202FB3AB00CFF27C /* gradientUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */; };
-		5CC20AE3202FB69E00CFF27C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC20AE2202FB69E00CFF27C /* Constants.swift */; };
+		5CC20AE3202FB69E00CFF27C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC20AE2202FB69E00CFF27C /* ColorExtensions.swift */; };
 		5CD87DDA202EBB2600F795EF /* pulseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD87DD9202EBB2600F795EF /* pulseExtension.swift */; };
 		5CDA80D420467BED003995B8 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA80D320467BED003995B8 /* AlertExtension.swift */; };
 		5CEF02A2201D3DDB00D63D3E /* aboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A1201D3DDB00D63D3E /* aboutController.swift */; };
 		5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A3201E34F800D63D3E /* selectionsController.swift */; };
 		5CEF02A6201E353100D63D3E /* streamingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A5201E353100D63D3E /* streamingController.swift */; };
+		DCD001F320C9C026002C7222 /* NotificationsNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */; };
+		DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F420CB1100002C7222 /* CoreSpotlight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,12 +101,14 @@
 		5CB9378620582B5800F8EC98 /* RockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockController.swift; sourceTree = "<group>"; };
 		5CB937882058328200F8EC98 /* ChristianController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristianController.swift; sourceTree = "<group>"; };
 		5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradientUIViewExtension.swift; sourceTree = "<group>"; };
-		5CC20AE2202FB69E00CFF27C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5CC20AE2202FB69E00CFF27C /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		5CD87DD9202EBB2600F795EF /* pulseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pulseExtension.swift; sourceTree = "<group>"; };
 		5CDA80D320467BED003995B8 /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
 		5CEF02A1201D3DDB00D63D3E /* aboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutController.swift; sourceTree = "<group>"; };
 		5CEF02A3201E34F800D63D3E /* selectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectionsController.swift; sourceTree = "<group>"; };
 		5CEF02A5201E353100D63D3E /* streamingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streamingController.swift; sourceTree = "<group>"; };
+		DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsNameExtension.swift; sourceTree = "<group>"; };
+		DCD001F420CB1100002C7222 /* CoreSpotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSpotlight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,15 +161,13 @@
 		5C1B384B1FE86197003179A1 /* Shuffle Play */ = {
 			isa = PBXGroup;
 			children = (
-				5C1B384C1FE86197003179A1 /* AppDelegate.swift */,
 				5C7FF3DB205F758F00668E23 /* UI ViewControllers */,
 				5CA542522047CC8D005FCBD6 /* Genre ViewControllers */,
+				DC3EFFF120C9BF2900F4AFC9 /* Model */,
+				DC3EFFF020C9BE1900F4AFC9 /* Extensions */,
 				5C698CB32009AAD8005FD7C4 /* Helpers */,
-				5C1B38561FE86197003179A1 /* Assets.xcassets */,
-				5C1B38501FE86197003179A1 /* Main.storyboard */,
-				5C1B38581FE86197003179A1 /* LaunchScreen.storyboard */,
 				5C1B385B1FE86197003179A1 /* Info.plist */,
-				5C1B38531FE86197003179A1 /* Shuffle_Play.xcdatamodeld */,
+				DCD001F420CB1100002C7222 /* CoreSpotlight.swift */,
 			);
 			path = "Shuffle Play";
 			sourceTree = "<group>";
@@ -191,13 +193,11 @@
 		5C698CB32009AAD8005FD7C4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				5CA600AC1FF855C200DD40E6 /* UIButtonExtension.swift */,
-				5CD87DD9202EBB2600F795EF /* pulseExtension.swift */,
-				5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */,
-				5CDA80D320467BED003995B8 /* AlertExtension.swift */,
-				5CC20AE2202FB69E00CFF27C /* Constants.swift */,
-				5C7FF3DC205F75C000668E23 /* Track.swift */,
-				5C8C6B2C2076973D007A68AF /* AutoLayoutContraints.swift */,
+				5C1B38561FE86197003179A1 /* Assets.xcassets */,
+				5C1B38501FE86197003179A1 /* Main.storyboard */,
+				5C1B38581FE86197003179A1 /* LaunchScreen.storyboard */,
+				5C1B38531FE86197003179A1 /* Shuffle_Play.xcdatamodeld */,
+				5C1B384C1FE86197003179A1 /* AppDelegate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -243,6 +243,28 @@
 				5CEF02A3201E34F800D63D3E /* selectionsController.swift */,
 			);
 			path = "Not USED";
+			sourceTree = "<group>";
+		};
+		DC3EFFF020C9BE1900F4AFC9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5CA600AC1FF855C200DD40E6 /* UIButtonExtension.swift */,
+				5CD87DD9202EBB2600F795EF /* pulseExtension.swift */,
+				5CC20AE0202FB3AB00CFF27C /* gradientUIViewExtension.swift */,
+				5CDA80D320467BED003995B8 /* AlertExtension.swift */,
+				5CC20AE2202FB69E00CFF27C /* ColorExtensions.swift */,
+				5C8C6B2C2076973D007A68AF /* AutoLayoutContraints.swift */,
+				DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DC3EFFF120C9BF2900F4AFC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C7FF3DC205F75C000668E23 /* Track.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,11 +344,13 @@
 					};
 					5C1B385F1FE86197003179A1 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5C1B38481FE86197003179A1;
 					};
 					5C1B386A1FE86197003179A1 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5C1B38481FE86197003179A1;
 					};
@@ -390,6 +414,7 @@
 				5C3D67472049F4E50058A20B /* ElectronicController.swift in Sources */,
 				5C698CB22009976C005FD7C4 /* ProfileController.swift in Sources */,
 				5CB937892058328200F8EC98 /* ChristianController.swift in Sources */,
+				DCD001F320C9C026002C7222 /* NotificationsNameExtension.swift in Sources */,
 				5C1B384D1FE86197003179A1 /* AppDelegate.swift in Sources */,
 				5CA600AD1FF855C200DD40E6 /* UIButtonExtension.swift in Sources */,
 				5C1B38551FE86197003179A1 /* Shuffle_Play.xcdatamodeld in Sources */,
@@ -400,6 +425,7 @@
 				5C8C6B2D2076973D007A68AF /* AutoLayoutContraints.swift in Sources */,
 				5CB9378720582B5800F8EC98 /* RockController.swift in Sources */,
 				5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */,
+				DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */,
 				5CB9377F2058185600F8EC98 /* RBSoulController.swift in Sources */,
 				5C1B387E1FE861EB003179A1 /* GenreButtonScreen.swift in Sources */,
 				5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */,
@@ -408,7 +434,7 @@
 				5C286CA42027E02200DD90FB /* aboutSPController.swift in Sources */,
 				5CDA80D420467BED003995B8 /* AlertExtension.swift in Sources */,
 				5CD87DDA202EBB2600F795EF /* pulseExtension.swift in Sources */,
-				5CC20AE3202FB69E00CFF27C /* Constants.swift in Sources */,
+				5CC20AE3202FB69E00CFF27C /* ColorExtensions.swift in Sources */,
 				5C00C0CF204D4003002F346F /* MainScreenController.swift in Sources */,
 				5C698CAE20099745005FD7C4 /* PlayController.swift in Sources */,
 				5C7FF3DD205F75C000668E23 /* Track.swift in Sources */,
@@ -525,6 +551,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -576,6 +603,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -586,14 +614,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4H9LZ77XG;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -604,14 +632,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4H9LZ77XG;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -622,7 +650,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4H9LZ77XG;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				INFOPLIST_FILE = "Shuffle PlayTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.tylerjphillips.Shuffle-PlayTests";
@@ -639,7 +667,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4H9LZ77XG;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				INFOPLIST_FILE = "Shuffle PlayTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.tylerjphillips.Shuffle-PlayTests";
@@ -655,7 +683,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4H9LZ77XG;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				INFOPLIST_FILE = "Shuffle PlayUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.tylerjphillips.Shuffle-PlayUITests";
@@ -671,7 +699,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4H9LZ77XG;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				INFOPLIST_FILE = "Shuffle PlayUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.tylerjphillips.Shuffle-PlayUITests";

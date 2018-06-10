@@ -383,7 +383,8 @@ class MenuController: UIViewController {
 		let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
 		gradientChangeAnimation.duration = 15.00
 		gradientChangeAnimation.toValue = gradientSet[currentGradient]
-		gradientChangeAnimation.fillMode = kCAFillModeForwards
+		//gradientChangeAnimation.fillMode = kCAFillModeForwards
+		gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
 		gradientChangeAnimation.isRemovedOnCompletion = false
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}			

@@ -18,10 +18,6 @@ import AVFoundation
 //	func trackTitle(label: UILabel, name: String)
 //}
 
-let albumArtNotifacationKey = "xyz.tyler.isplaying"
-let trackTitleNotifactionKey = "xyz.tyler.isplaying"
-let artistNotifacationKey = "xyz.tyler.isplaying"
-
 class PlayController: UIViewController {
 	
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
@@ -31,10 +27,6 @@ class PlayController: UIViewController {
 //	var infoDelegate: musicInfoDelegate!
 	var currentTrack: Track!
 	
-	let album = Notification.Name(rawValue: albumArtNotifacationKey)
-	let artist = Notification.Name(rawValue: artistNotifacationKey)
-	let track = Notification.Name(rawValue: trackTitleNotifactionKey)
-
 	//Album Image View
 	var albumImageView: UIImageView = {
 		let imageView = UIImageView()
@@ -256,13 +248,13 @@ class PlayController: UIViewController {
 	func createObservers() {
 		
 		//Album
-		NotificationCenter.default.addObserver(self, selector: #selector(PlayController.updateAlbumArt(notifacation:)), name: album, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(PlayController.updateAlbumArt(notifacation:)), name: Notification.Name.albumArtNotifacationKey, object: nil)
 		
 		//Artist
-		NotificationCenter.default.addObserver(self, selector: #selector(PlayController.updateArtist(notifacation:)), name: artist, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(PlayController.updateArtist(notifacation:)), name: Notification.Name.artistNotifacationKey, object: nil)
 		
 		//Track
-		NotificationCenter.default.addObserver(self, selector: #selector(PlayController.updateTrackTitle(notifaction:)), name: track, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(PlayController.updateTrackTitle(notifaction:)), name: Notification.Name.trackTitleNotifactionKey, object: nil)
 		
 	}
 	
@@ -307,13 +299,13 @@ class PlayController: UIViewController {
 	@objc func playButtonTapped(_ sender: UIButton) {
 		
 		//Keys for Observers
-		let name = Notification.Name(rawValue: albumArtNotifacationKey)
+		let name = Notification.Name.albumArtNotifacationKey
 		NotificationCenter.default.post(name: name, object: nil)
 		
-		let artistName = Notification.Name(rawValue: artistNotifacationKey)
+		let artistName = Notification.Name.artistNotifacationKey
 		NotificationCenter.default.post(name: artistName, object: nil)
 		
-		let trackName = Notification.Name(rawValue: trackTitleNotifactionKey)
+		let trackName = Notification.Name.trackTitleNotifactionKey
 		NotificationCenter.default.post(name: trackName, object: nil)
 		
 		setNowPlayingInfo()
@@ -329,13 +321,13 @@ class PlayController: UIViewController {
     @objc func pauseButtonTapped(_ sender: UIButton) {
 		
 		//Keys for Observers
-		let albumArt = Notification.Name(rawValue: albumArtNotifacationKey)
+		let albumArt = Notification.Name.albumArtNotifacationKey
 		NotificationCenter.default.post(name: albumArt, object: nil)
 		
-		let artistName = Notification.Name(rawValue: artistNotifacationKey)
+		let artistName = Notification.Name.artistNotifacationKey
 		NotificationCenter.default.post(name: artistName, object: nil)
 		
-		let trackName = Notification.Name(rawValue: trackTitleNotifactionKey)
+		let trackName = Notification.Name.trackTitleNotifactionKey
 		NotificationCenter.default.post(name: trackName, object: nil)
 		
 		setNowPlayingInfo()
@@ -348,13 +340,13 @@ class PlayController: UIViewController {
     @objc func previousButtonTapped(_ sender: UIButton) {
 		
 		//Keys for Observers
-		let name = Notification.Name(rawValue: albumArtNotifacationKey)
+		let name = Notification.Name.albumArtNotifacationKey
 		NotificationCenter.default.post(name: name, object: nil)
 		
-		let artistName = Notification.Name(rawValue: artistNotifacationKey)
+		let artistName = Notification.Name.artistNotifacationKey
 		NotificationCenter.default.post(name: artistName, object: nil)
 		
-		let trackName = Notification.Name(rawValue: trackTitleNotifactionKey)
+		let trackName = Notification.Name.trackTitleNotifactionKey
 		NotificationCenter.default.post(name: trackName, object: nil)
 		
 		setNowPlayingInfo()
@@ -367,13 +359,13 @@ class PlayController: UIViewController {
 	@objc func nextButtonTapped(_ sender: UIButton) {
 		
 		//Keys for Observers
-		let name = Notification.Name(rawValue: albumArtNotifacationKey)
+		let name = Notification.Name.albumArtNotifacationKey
 		NotificationCenter.default.post(name: name, object: nil)
 		
-		let artistName = Notification.Name(rawValue: artistNotifacationKey)
+		let artistName = Notification.Name.artistNotifacationKey
 		NotificationCenter.default.post(name: artistName, object: nil)
 		
-		let trackName = Notification.Name(rawValue: trackTitleNotifactionKey)
+		let trackName = Notification.Name.trackTitleNotifactionKey
 		NotificationCenter.default.post(name: trackName, object: nil)
 		
 		setNowPlayingInfo()
@@ -382,16 +374,16 @@ class PlayController: UIViewController {
     }
 
 	//Shake to skip
-	override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+	override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
 		
 		//Keys for Observers
-		let name = Notification.Name(rawValue: albumArtNotifacationKey)
+		let name = Notification.Name.albumArtNotifacationKey
 		NotificationCenter.default.post(name: name, object: nil)
 		
-		let artistName = Notification.Name(rawValue: artistNotifacationKey)
+		let artistName = Notification.Name.artistNotifacationKey
 		NotificationCenter.default.post(name: artistName, object: nil)
 		
-		let trackName = Notification.Name(rawValue: trackTitleNotifactionKey)
+		let trackName = Notification.Name.trackTitleNotifactionKey
 		NotificationCenter.default.post(name: trackName, object: nil)
 		
 		setNowPlayingInfo()

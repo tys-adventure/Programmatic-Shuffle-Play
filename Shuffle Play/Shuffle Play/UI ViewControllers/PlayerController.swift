@@ -380,6 +380,25 @@ class PlayerController: UIViewController {
 		scrollView.contentSize = CGSize(width: screenWidth, height: 2175)
 		view.addSubview(scrollView)
 		
+		let spotlightVC = SpotlightSupport()
+		spotlightVC.integrateCoreSpotlight()
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		NotificationCenter.default.addObserver(forName: Notification.Name.genreNotificationKey, object: nil, queue: OperationQueue.main) { (notification) in
+			if let userInfo = notification.userInfo {
+				self.viaCoreSportlight(genre: userInfo["genre"] as! String)
+			}
+			//print(userInfo)
+		}
+		
+//		observer = NotificationCenter.default.addObserver(forName: .saveDateTime, object: nil, queue: OperationQueue.main) { (notification) in
+//			guard let dateVC = notification.object as? DatePopUpViewController else { return }
+//			self.dateLabel.text = dateVC.formattedDate
+//		}
+
 	}
 	
 	private func setupLayout() {
@@ -445,7 +464,7 @@ class PlayerController: UIViewController {
 	}
 	
 	//Shake to skip
-	override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+	override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
 		
 		setNowPlayingInfo()
 		musicPlayer.skipToNextItem()
@@ -473,7 +492,10 @@ class PlayerController: UIViewController {
 		
 		MPMediaLibrary.requestAuthorization { (status) in
 			if status == .authorized{
-				self.playGenre(genre: sender.currentTitle!)
+				DispatchQueue.main.async {
+					self.playGenre(genre: sender.currentTitle!)
+				}
+				//self.playGenre(genre: sender.currentTitle!)
 			}
 		}
 		
@@ -485,6 +507,21 @@ class PlayerController: UIViewController {
 		setNowPlayingInfo()
 		sender.pulsate()
 		
+	}
+	
+	func viaCoreSportlight(genre: String) {
+		MPMediaLibrary.requestAuthorization { (status) in
+			if status == .authorized {
+				self.playGenre(genre: genre)
+			}
+		}
+		
+		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
+		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
+		artistLabel.text = musicPlayer.nowPlayingItem?.artist
+		
+		
+		setNowPlayingInfo()
 	}
 	
 	func playGenre(genre: String){

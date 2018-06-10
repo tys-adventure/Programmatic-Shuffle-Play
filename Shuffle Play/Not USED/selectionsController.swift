@@ -125,7 +125,8 @@ class selectionsController: UIViewController {
 		let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
 		gradientChangeAnimation.duration = 7.00
 		gradientChangeAnimation.toValue = gradientSet[currentGradient]
-		gradientChangeAnimation.fillMode = kCAFillModeForwards
+		gradientChangeAnimation.fillMode = CAMediaTimingFillMode.forwards
+		//gradientChangeAnimation.fillMode = kCAFillModeForwards
 		gradientChangeAnimation.isRemovedOnCompletion = false
 		gradient.add(gradientChangeAnimation, forKey: "colorChange")
 	}
