@@ -237,11 +237,10 @@
 		5CB9378A20584FE400F8EC98 /* Not USED */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
+
 				5CA542522047CC8D005FCBD6 /* Genre ViewControllers */,
-=======
+
 				5C698CAD20099745005FD7C4 /* PlayController.swift */,
->>>>>>> 8e4ce86f2876cc9642b40d12f3a8d6db0bda12a1
 				5C1B387D1FE861EB003179A1 /* GenreButtonScreen.swift */,
 				5C698CAF2009975A005FD7C4 /* MenuController.swift */,
 				5CEF02A5201E353100D63D3E /* streamingController.swift */,
