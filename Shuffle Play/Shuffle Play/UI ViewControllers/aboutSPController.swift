@@ -96,6 +96,10 @@ class aboutSPController: UIViewController {
 		super.viewDidLoad()
 
 		view.backgroundColor = UIColor(red: 137/255, green: 217/255, blue: 255/255, alpha: 1)
+		view.layer.cornerRadius = 10
+		view.layer.borderWidth = 1.0
+		view.layer.borderColor = UIColor.clear.cgColor
+		view.layer.masksToBounds = true
 		
 		//setupLayout
 		

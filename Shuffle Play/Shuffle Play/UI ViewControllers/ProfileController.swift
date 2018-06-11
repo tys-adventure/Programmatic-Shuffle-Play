@@ -83,6 +83,10 @@ class ProfileController: UIViewController {
         super.viewDidLoad()
 		
 		view.backgroundColor = UIColor(red: 235/255, green: 88/255, blue: 80/255, alpha: 1)
+		view.layer.cornerRadius = 10
+		view.layer.borderWidth = 1.0
+		view.layer.borderColor = UIColor.clear.cgColor
+		view.layer.masksToBounds = true
 		
 		//MARK: .addSubView
 		view.addSubview(profileButtonTapped)

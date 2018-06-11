@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24F555EF20CDC86400D4EF7E /* DeveloperMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F555EE20CDC86400D4EF7E /* DeveloperMenuViewController.swift */; };
 		5C00C0CF204D4003002F346F /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00C0CE204D4003002F346F /* MainScreenController.swift */; };
 		5C1B384D1FE86197003179A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B384C1FE86197003179A1 /* AppDelegate.swift */; };
 		5C1B38521FE86197003179A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B38501FE86197003179A1 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24F555EE20CDC86400D4EF7E /* DeveloperMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperMenuViewController.swift; sourceTree = "<group>"; };
 		5C00C0CE204D4003002F346F /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		5C1B38491FE86197003179A1 /* Shuffle Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shuffle Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1B384C1FE86197003179A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,13 +205,13 @@
 		5C7FF3DB205F758F00668E23 /* UI ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5C698CAD20099745005FD7C4 /* PlayController.swift */,
 				5C698CB12009976C005FD7C4 /* ProfileController.swift */,
 				5CEF02A1201D3DDB00D63D3E /* aboutController.swift */,
 				5C286CA32027E02200DD90FB /* aboutSPController.swift */,
 				5C3D67442049DD310058A20B /* genreSroll.swift */,
 				5C00C0CE204D4003002F346F /* MainScreenController.swift */,
 				5C643F24207EB48300926DDD /* PlayerController.swift */,
+				24F555EE20CDC86400D4EF7E /* DeveloperMenuViewController.swift */,
 			);
 			path = "UI ViewControllers";
 			sourceTree = "<group>";
@@ -235,7 +237,11 @@
 		5CB9378A20584FE400F8EC98 /* Not USED */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				5CA542522047CC8D005FCBD6 /* Genre ViewControllers */,
+=======
+				5C698CAD20099745005FD7C4 /* PlayController.swift */,
+>>>>>>> 8e4ce86f2876cc9642b40d12f3a8d6db0bda12a1
 				5C1B387D1FE861EB003179A1 /* GenreButtonScreen.swift */,
 				5C698CAF2009975A005FD7C4 /* MenuController.swift */,
 				5CEF02A5201E353100D63D3E /* streamingController.swift */,
@@ -414,6 +420,7 @@
 				5C3D67472049F4E50058A20B /* ElectronicController.swift in Sources */,
 				5C698CB22009976C005FD7C4 /* ProfileController.swift in Sources */,
 				5CB937892058328200F8EC98 /* ChristianController.swift in Sources */,
+				24F555EF20CDC86400D4EF7E /* DeveloperMenuViewController.swift in Sources */,
 				DCD001F320C9C026002C7222 /* NotificationsNameExtension.swift in Sources */,
 				5C1B384D1FE86197003179A1 /* AppDelegate.swift in Sources */,
 				5CA600AD1FF855C200DD40E6 /* UIButtonExtension.swift in Sources */,
@@ -614,11 +621,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -632,11 +639,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

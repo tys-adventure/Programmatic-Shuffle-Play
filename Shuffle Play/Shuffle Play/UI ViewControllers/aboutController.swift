@@ -82,7 +82,7 @@ class aboutController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "About The Developer"
+		textView.text = "About The Developers"
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -96,7 +96,7 @@ class aboutController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.textColor = UIColor.white
 		textView.isUserInteractionEnabled = false
-		textView.text = "I'm Tyler, a 24 yearold iOS Developer from Cleveland, Ohio. Shuffle Play is my first iOS app, created with 2 goals. First is to create a platfrom where you can choose what genre you want to listen to. Second is to learn as much as I can while building Shuffle Play!"
+		textView.text = "Shuffle Play Plus is the project of two iOS Software Engineers, looking to make a dent in the way people listen to their music."
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -106,6 +106,10 @@ class aboutController: UIViewController {
 		super.viewDidLoad()
 
 		view.backgroundColor = UIColor(red: 192/255, green: 144/255, blue: 232/255, alpha: 1)
+		view.layer.cornerRadius = 10
+		view.layer.borderWidth = 1.0
+		view.layer.borderColor = UIColor.clear.cgColor
+		view.layer.masksToBounds = true
 		
 		//setupLayout
 		
@@ -165,9 +169,16 @@ class aboutController: UIViewController {
 		aboutTylerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
 	}
 	
+
+	
 	//SP Logo Func
 	
 	var logoView : UIImageView!
+	
+	@objc func menuTapped(_ sender: UIButton) {
+		let vc = DeveloperMenuViewController()
+		self.present(vc, animated: true, completion: nil)
+	}
 	
 	//Profile Button Func
 	@objc func profileButton(_ sender: UIButton) {
