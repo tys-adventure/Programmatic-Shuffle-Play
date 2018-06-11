@@ -63,6 +63,12 @@ extension UIButton {
 	//MARK: Button Animations
 	func pulsate(){
 		
+		//TODO: Maybe check if it is available on a device
+		// So that it doesn't crash on an iPhone SE
+		// But there isn't a functions for so I think it's ok now.
+		let haptics = UISelectionFeedbackGenerator()
+		haptics.selectionChanged()
+		
 		let pulse = CASpringAnimation(keyPath: "transform.scale")
 		pulse.duration = 0.6
 		pulse.fromValue = 0.95

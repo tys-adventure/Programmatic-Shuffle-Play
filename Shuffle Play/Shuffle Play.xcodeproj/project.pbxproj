@@ -162,12 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				5C7FF3DB205F758F00668E23 /* UI ViewControllers */,
-				5CA542522047CC8D005FCBD6 /* Genre ViewControllers */,
 				DC3EFFF120C9BF2900F4AFC9 /* Model */,
 				DC3EFFF020C9BE1900F4AFC9 /* Extensions */,
 				5C698CB32009AAD8005FD7C4 /* Helpers */,
 				5C1B385B1FE86197003179A1 /* Info.plist */,
-				DCD001F420CB1100002C7222 /* CoreSpotlight.swift */,
 			);
 			path = "Shuffle Play";
 			sourceTree = "<group>";
@@ -237,6 +235,7 @@
 		5CB9378A20584FE400F8EC98 /* Not USED */ = {
 			isa = PBXGroup;
 			children = (
+				5CA542522047CC8D005FCBD6 /* Genre ViewControllers */,
 				5C1B387D1FE861EB003179A1 /* GenreButtonScreen.swift */,
 				5C698CAF2009975A005FD7C4 /* MenuController.swift */,
 				5CEF02A5201E353100D63D3E /* streamingController.swift */,
@@ -255,6 +254,7 @@
 				5CC20AE2202FB69E00CFF27C /* ColorExtensions.swift */,
 				5C8C6B2C2076973D007A68AF /* AutoLayoutContraints.swift */,
 				DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */,
+				DCD001F420CB1100002C7222 /* CoreSpotlight.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

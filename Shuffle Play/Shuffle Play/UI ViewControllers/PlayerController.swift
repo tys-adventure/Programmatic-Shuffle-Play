@@ -13,10 +13,12 @@ import AVFoundation
 
 class PlayerController: UIViewController {
 	
+	//MARK:- proporties
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	let myMediaQuery = MPMediaQuery.songs()
 	let nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo
 	
+	//MARK:- Setting up layout
 	//Album Image View
 	var albumImageView: UIImageView = {
 		let imageView = UIImageView()
@@ -28,7 +30,7 @@ class PlayerController: UIViewController {
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
 	}()
-
+	
 	var downArrowImageView: UIImageView = {
 		let imageView = UIImageView(image: #imageLiteral(resourceName: "downArrow")) 
 		imageView.layer.shadowColor = UIColor.black.cgColor
@@ -70,7 +72,7 @@ class PlayerController: UIViewController {
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
-
+	
 	let spTextView: UITextView = {
 		let textView = ProfileController.createTextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
@@ -149,7 +151,7 @@ class PlayerController: UIViewController {
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
 	}()
-
+	
 	let PopButton: UIButton = {
 		let btn = UIButton.createButton()
 		btn.setTitle("Pop", for: .normal)
@@ -233,7 +235,8 @@ class PlayerController: UIViewController {
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
-
+	
+	//MARK:- View Live Cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -285,11 +288,11 @@ class PlayerController: UIViewController {
 		NSLayoutConstraint(item: logoImageView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: logoImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 175).isActive = true
 		NSLayoutConstraint(item: logoImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 175).isActive = true
-		NSLayoutConstraint(item: logoImageView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 15).isActive = true
+		NSLayoutConstraint(item: logoImageView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 25).isActive = true
 		
 		NSLayoutConstraint(item: albumImageView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: albumImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 225).isActive = true
-		NSLayoutConstraint(item: albumImageView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 15).isActive = true
+		NSLayoutConstraint(item: albumImageView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 25).isActive = true
 		NSLayoutConstraint(item: albumImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 225).isActive = true
 		
 		NSLayoutConstraint(item: downArrowImageView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
@@ -299,12 +302,12 @@ class PlayerController: UIViewController {
 		
 		NSLayoutConstraint(item: artistLabel, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: artistLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 225).isActive = true
-		NSLayoutConstraint(item: artistLabel, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 250).isActive = true
+		NSLayoutConstraint(item: artistLabel, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 280).isActive = true
 		NSLayoutConstraint(item: artistLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 30).isActive = true
 		
 		NSLayoutConstraint(item: nowPlayingLabel, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: nowPlayingLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 225).isActive = true
-		NSLayoutConstraint(item: nowPlayingLabel, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 275).isActive = true
+		NSLayoutConstraint(item: nowPlayingLabel, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 305).isActive = true
 		NSLayoutConstraint(item: nowPlayingLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 30).isActive = true
 		
 		NSLayoutConstraint(item: previousButton, attribute: .left, relatedBy: .equal, toItem: pauseButton, attribute: .leftMargin, multiplier: 1, constant: -80).isActive = true
@@ -391,16 +394,11 @@ class PlayerController: UIViewController {
 			if let userInfo = notification.userInfo {
 				self.viaCoreSportlight(genre: userInfo["genre"] as! String)
 			}
-			//print(userInfo)
 		}
 		
-//		observer = NotificationCenter.default.addObserver(forName: .saveDateTime, object: nil, queue: OperationQueue.main) { (notification) in
-//			guard let dateVC = notification.object as? DatePopUpViewController else { return }
-//			self.dateLabel.text = dateVC.formattedDate
-//		}
-
 	}
 	
+	//MARK:- last bit of setup
 	private func setupLayout() {
 		
 		spTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
@@ -415,6 +413,7 @@ class PlayerController: UIViewController {
 		
 	}
 	
+	//MARK: - Go to the profile view
 	@objc func profileButton(_ sender: UIButton) {
 		
 		let vc = ProfileController()
@@ -424,25 +423,39 @@ class PlayerController: UIViewController {
 		
 	}
 	
-	//User Button controls--Play, Pause, Stop, Skip
+	//MARK:- User Button controls--Play, Pause, Stop, Skip
 	var playButtonTapped : UIButton!
 	
 	@objc func playButtonTapped(_ sender: UIButton) {
 		
 		setNowPlayingInfo()
-		musicPlayer.shuffleMode = .songs
-		musicPlayer.play()
-		sender.pulsate()
+		
+		if musicPlayer.nowPlayingItem != nil {
+			self.musicPlayer.shuffleMode = .songs
+			self.musicPlayer.play()
+			sender.pulsate()
+			UIView.animate(withDuration: 0.5) {
+				self.albumImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+			}
+		} else {
+			let ac = UIAlertController(title: "Select Genre", message: "You need to select a genre to be able to shuffle songs.", preferredStyle: .alert)
+			ac.addAction(UIAlertAction(title: "Continue", style: .default , handler: nil))
+			present(ac, animated: true, completion: nil)
+		}
+		
 		
 	}
 	
 	var pauseButtonTapped : UIButton!
 	
 	@objc func pauseButtonTapped(_ sender: UIButton) {
-	
+		
 		setNowPlayingInfo()
 		musicPlayer.pause()
 		sender.pulsate()
+		UIView.animate(withDuration: 0.5) {
+			self.albumImageView.transform = .identity
+		}
 	}
 	
 	var previousButtonTapped : UIButton!
@@ -471,7 +484,7 @@ class PlayerController: UIViewController {
 		
 	}
 	
-	//MARK: setNowPlayingInfo()
+	//MARK:- setNowPlayingInfo()
 	@objc func setNowPlayingInfo() {
 		
 		if musicPlayer.playbackState == .playing {
@@ -484,8 +497,14 @@ class PlayerController: UIViewController {
 			artistLabel.isHidden = false
 			logoImageView.isHidden = true
 		}
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+			self.albumImageView.image = self.musicPlayer.nowPlayingItem?.artwork?.image(at: self.albumImageView.bounds.size)
+			self.nowPlayingLabel.text = self.musicPlayer.nowPlayingItem?.title
+			self.artistLabel.text = self.musicPlayer.nowPlayingItem?.artist
+		}
 	}
-	 
+	
+	//MARK:- code to let the genre play
 	//Any of the genre buttons tapped = this action
 	
 	@objc func genreButtonTapped(_ sender: UIButton!) {
@@ -495,18 +514,14 @@ class PlayerController: UIViewController {
 				DispatchQueue.main.async {
 					self.playGenre(genre: sender.currentTitle!)
 				}
-				//self.playGenre(genre: sender.currentTitle!)
 			}
 		}
 		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-	
-		
 		setNowPlayingInfo()
 		sender.pulsate()
-		
+		UIView.animate(withDuration: 0.5) {
+			self.albumImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+		}
 	}
 	
 	func viaCoreSportlight(genre: String) {
@@ -515,13 +530,10 @@ class PlayerController: UIViewController {
 				self.playGenre(genre: genre)
 			}
 		}
-		
-		albumImageView.image = musicPlayer.nowPlayingItem?.artwork?.image(at: albumImageView.bounds.size)
-		nowPlayingLabel.text = musicPlayer.nowPlayingItem?.title
-		artistLabel.text = musicPlayer.nowPlayingItem?.artist
-		
-		
 		setNowPlayingInfo()
+		UIView.animate(withDuration: 0.5) {
+			self.albumImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+		}
 	}
 	
 	func playGenre(genre: String){

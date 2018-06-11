@@ -11,10 +11,11 @@ import CoreSpotlight
 import MobileCoreServices
 
 class SpotlightSupport {
-	//static let genres = ["Blues", "Country", "Pop", "Electronic", "Singer", "RB Soul", "Dance", "Hip Hop Rap", "Alternative", "Christian"]
-	static let genres = ["Hip-Hop", "Pop", "Rock", "Electronic", "K-Pop", "Country", "R&B/Soul", "Singer/Songwriter", "Rap"]
-	static let descriptions = ["Shuffle Blues", "Shuffle Country", "Shuffle Pop", "Shuffle Electronic", "Shuffle Singer", "Shuffle RB Soul", "Shuffle Dance", "Shuffle Hip Hop Rap", "Shuffle Alternative", "Shuffle Christian"]
 	
+	static let genres = ["Hip-Hop", "Pop", "Rock", "Electronic", "K-Pop", "Country", "R&B/Soul", "Singer/Songwriter", "Rap"]
+	//TODO:- Add better descriptions
+	//TODO:- Use User Defaults to instantiate core spotlight once
+	static let descriptions = ["Shuffle Blues", "Shuffle Country", "Shuffle Pop", "Shuffle Electronic", "Shuffle Singer", "Shuffle RB Soul", "Shuffle Dance", "Shuffle Hip Hop Rap", "Shuffle Alternative", "Shuffle Christian"]
 	
 	func integrateCoreSpotlight() {
 		

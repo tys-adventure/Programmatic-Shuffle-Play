@@ -81,7 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     // MARK: - Core Data Saving support
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -106,54 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		return true
 	}
-
-//	private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-//		if userActivity.activityType == CSSearchableItemActionType {
-//			if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-//				//let playerVC = PlayerController()
-//				let userInfo = ["genre":uniqueIdentifier]
-//				NotificationCenter.default.post(name: Notification.Name.genreNotificationKey, object: nil, userInfo: userInfo)
-////				switch uniqueIdentifier {
-////				case SpotlightSupport.genres[0]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[0])
-////				case SpotlightSupport.genres[1]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[1])
-////				case SpotlightSupport.genres[2]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[2])
-////				case SpotlightSupport.genres[3]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[3])
-////				case SpotlightSupport.genres[4]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[4])
-////				case SpotlightSupport.genres[5]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[5])
-////				case SpotlightSupport.genres[6]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[6])
-////				case SpotlightSupport.genres[7]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[7])
-////				case SpotlightSupport.genres[8]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[8])
-////				case SpotlightSupport.genres[9]: playerVC.viaCoreSportlight(genre: SpotlightSupport.genres[9])
-////				default: break
-////				}
-//
-//			}
-//		}
-//		return true
-//	}
-	
-
-	
-	
-	
-	static let genres = ["Blues", "Country", "Pop", "Electronic", "Singer", "RB Soul", "Dance", "Hip Hop Rap", "Alternative", "Christian"]
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
 
