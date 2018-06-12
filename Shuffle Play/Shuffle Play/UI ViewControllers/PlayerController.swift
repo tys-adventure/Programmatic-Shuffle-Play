@@ -18,6 +18,10 @@ class PlayerController: UIViewController {
 	let myMediaQuery = MPMediaQuery.songs()
 	let nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo
 	
+	var scrollView: UIScrollView!
+	var screenWidth: CGFloat = 0.0
+	var screenHeight: CGFloat = 0.0
+	
 	//MARK:- Setting up layout
 	//Album Image View
 	var albumImageView: UIImageView = {
@@ -241,9 +245,8 @@ class PlayerController: UIViewController {
 		super.viewDidLoad()
 		
 		let screensize: CGRect = UIScreen.main.bounds
-		let screenWidth = screensize.width
-		let screenHeight = screensize.height
-		var scrollView: UIScrollView!
+		screenWidth = screensize.width
+		screenHeight = screensize.height
 		scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
 		
 		//Views Colors
@@ -525,6 +528,10 @@ class PlayerController: UIViewController {
 		sender.pulsate()
 		UIView.animate(withDuration: 0.5) {
 			self.albumImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+		}
+		
+		UIView.animate(withDuration: 0.4) {
+			self.scrollView.bounds = CGRect(x: 0, y: 0, width: self.screenWidth, height: self.screenHeight)
 		}
 	}
 	

@@ -73,7 +73,7 @@ class ProfileController: UIViewController {
 
 	let AboutButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("About The Developer", for: .normal)
+		btn.setTitle("About The Developers", for: .normal)
 		btn.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
