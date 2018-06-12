@@ -72,7 +72,8 @@ class PlayerController: UIViewController {
 	let genreTextView: UITextView = {
 		let textView = ProfileController.createTextView()
 		textView.font = UIFont(name:"Avenir Next", size: 35.0)
-		textView.text = "Genres"
+		//textView.text = "Genres"
+		textView.text = NSLocalizedString("playerControllerGenreTextView", comment: "The_genre_text_view_in_playerController")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -80,7 +81,8 @@ class PlayerController: UIViewController {
 	let spTextView: UITextView = {
 		let textView = ProfileController.createTextView()
 		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.text = "Shuffle Play Plus"
+		//textView.text = "Shuffle Play Plus"
+		textView.text = NSLocalizedString("playerControllerSpTextView", comment: "The_sp_text_view_playerController")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -88,7 +90,8 @@ class PlayerController: UIViewController {
 	//ProfileButton
 	let profileButton: UIButton = {
 		let button = UIButton.controllerButton()
-		button.setTitle("Profile", for: .normal)
+		//button.setTitle("Profile", for: .normal)
+		button.setTitle(NSLocalizedString("playerControllerProfileButton", comment: "TheProfileButtonInPlayerController"), for: .normal)
 		button.setTitleColor(.black, for: .normal)
 		if let homeImage  = UIImage(named: "chart1-white.png") {
 			button.setImage(homeImage, for: .normal)
@@ -150,7 +153,8 @@ class PlayerController: UIViewController {
 	
 	let HHButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Hip-Hop", for: .normal)
+		//btn.setTitle("Hip-Hop", for: .normal)
+		btn.setTitle(NSLocalizedString("playerControllerHHButton", comment: "TheHHButtonInPlayerController"), for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -158,7 +162,8 @@ class PlayerController: UIViewController {
 	
 	let PopButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Pop", for: .normal)
+		//btn.setTitle("Pop", for: .normal)
+		btn.setTitle(NSLocalizedString("playerControllerPopButton", comment: "ThePopButtonInPlayerController"), for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -166,7 +171,8 @@ class PlayerController: UIViewController {
 	
 	let RockButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Rock", for: .normal)
+		//btn.setTitle("Rock", for: .normal)
+		btn.setTitle(NSLocalizedString("playerControllerRockButton", comment: "TheRockButtonInPlayerController"), for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -174,7 +180,8 @@ class PlayerController: UIViewController {
 	
 	let ElectronicButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Electronic", for: .normal)
+		//btn.setTitle("Electronic", for: .normal)
+		btn.setTitle(NSLocalizedString("playerControllerElectronicButton", comment: "theElectronicButtonInPlayerController"), for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -182,7 +189,8 @@ class PlayerController: UIViewController {
 	
 	let KPOPButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("K-Pop", for: .normal)
+		//btn.setTitle("K-Pop", for: .normal)
+		btn.setTitle(NSLocalizedString("playerControllerKPOPButton", comment: "TheKPOPButtonInPlayerController"), for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -190,7 +198,8 @@ class PlayerController: UIViewController {
 	
 	let CountryButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Country", for: .normal)
+		//btn.setTitle("Country", for: .normal)
+		btn.setTitle(NSLocalizedString("playerControllerCountryButton", comment: "TheCountryButtonInPlayerController"), for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -198,7 +207,8 @@ class PlayerController: UIViewController {
 	
 	let RBSoulButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("R&B/Soul", for: .normal)
+		//btn.setTitle("R&B/Soul", for: .normal)
+		btn.setTitle(NSLocalizedString("playerControllerRBSoulButton", comment: "TheRBSOULButtonInPlayerController"), for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -206,7 +216,8 @@ class PlayerController: UIViewController {
 	
 	let SingerButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Singer/Songwriter", for: .normal)
+		//btn.setTitle("Singer/Songwriter", for: .normal)
+		btn.setTitle(NSLocalizedString("playerControllerSingerButton", comment: "TheSingerButtonInPlayerController"), for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -214,7 +225,8 @@ class PlayerController: UIViewController {
 	
 	let RapButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Rap", for: .normal)
+		//btn.setTitle("Rap", for: .normal)
+		btn.setTitle(NSLocalizedString("playerControllerRapButton", comment: "TheRapButtonInPlayerController"), for: .normal)
 		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -235,7 +247,8 @@ class PlayerController: UIViewController {
 	let helloTextView: UITextView = {
 		let textView = ProfileController.createTextView()
 		textView.font = UIFont(name:"Avenir Next", size: 18.0)
-		textView.text = "You're Awesome! "
+		//textView.text = "You're Awesome! "
+		textView.text = NSLocalizedString("playerControllerHelloTextView", comment: "TheHelloTextViewInPlayerController")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -445,8 +458,10 @@ class PlayerController: UIViewController {
 				self.albumImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
 			}
 		} else {
-			let ac = UIAlertController(title: "Select Genre", message: "You need to select a genre to be able to shuffle songs.", preferredStyle: .alert)
-			ac.addAction(UIAlertAction(title: "Continue", style: .default , handler: nil))
+			let ac = UIAlertController(title: NSLocalizedString("alertTitlePlayerController", comment: "TheAlertTitleInPlayerController"), message: NSLocalizedString("alertMessagePlayerController", comment: "TheAlertMessageInPlayerController"), preferredStyle: .alert)
+			//let ac = UIAlertController(title: "Select Genre", message: "You need to select a genre to be able to shuffle songs.", preferredStyle: .alert)
+			//ac.addAction(UIAlertAction(title: "Continue", style: .default , handler: nil))
+			ac.addAction(UIAlertAction(title: NSLocalizedString("continueMessaePlayerController", comment: "TheContinueMessageInPlayerController"), style: .default, handler: nil))
 			present(ac, animated: true, completion: nil)
 		}
 		

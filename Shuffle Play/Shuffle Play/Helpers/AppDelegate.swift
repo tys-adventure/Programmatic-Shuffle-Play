@@ -98,7 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
 		if userActivity.activityType == CSSearchableItemActionType {
 			if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-				//let playerVC = PlayerController()
 				let userInfo = ["genre":uniqueIdentifier]
 				NotificationCenter.default.post(name: Notification.Name.genreNotificationKey, object: nil, userInfo: userInfo)
 			}

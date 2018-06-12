@@ -15,6 +15,7 @@ class SpotlightSupport {
 	static let genres = ["Hip-Hop", "Pop", "Rock", "Electronic", "K-Pop", "Country", "R&B/Soul", "Singer/Songwriter", "Rap"]
 	//TODO:- Add better descriptions
 	//TODO:- Use User Defaults to instantiate core spotlight once
+	//TODO:- Localize Core Spotlight
 	static let descriptions = ["Shuffle Blues", "Shuffle Country", "Shuffle Pop", "Shuffle Electronic", "Shuffle Singer", "Shuffle RB Soul", "Shuffle Dance", "Shuffle Hip Hop Rap", "Shuffle Alternative", "Shuffle Christian"]
 	
 	func integrateCoreSpotlight() {

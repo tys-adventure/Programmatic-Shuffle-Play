@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Shuffle Play
+
+  Created by Thom Pheijffer on 12/06/2018.
+  Copyright © 2018 Tyler Phillips. All rights reserved.
+*/
+
+//English
+//English
+//English
+"playerControllerGenreTextView" = "Genres";
+"playerControllerSpTextView" = "Shuffle Play Plus";
+"playerControllerProfileButton" = "Profile";
+"playerControllerHHButton" = "Hip-Hop";
+"playerControllerPopButton" = "Pop";
+"playerControllerRockButton" = "Rock";
+"playerControllerElectronicButton" = "Electronic";
+"playerControllerKPOPButton" = "K-Pop";
+"playerControllerCountryButton" = "Country";
+"playerControllerRBSoulButton" = "R&B/Soul";
+"playerControllerSingerButton" = "Singer/Songwriter";
+"playerControllerRapButton" = "Rap";
+"playerControllerHelloTextView" = "You're Awesome!";
+"alertTitlePlayerController" = "Select Genre";
+"alertMessagePlayerController" = "You need to select a genre to be able to shuffle songs.";
+"continueMessaePlayerController" = "Continue";

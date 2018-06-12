@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Shuffle Play
+
+  Created by Thom Pheijffer on 12/06/2018.
+  Copyright © 2018 Tyler Phillips. All rights reserved.
+*/
+
+//Dutch
+//Dutch
+//Dutch
+"playerControllerGenreTextView" = "Genres";
+"playerControllerSpTextView" = "Shuffle Play Plus";
+"playerControllerProfileButton" = "Profiel";
+"playerControllerHHButton" = "Hip Hop";
+"playerControllerPopButton" = "Pop";
+"playerControllerRockButton" = "Rock";
+"playerControllerElectronicButton" = "Elektrisch";
+"playerControllerKPOPButton" = "Koreanse Pop";
+"playerControllerCountryButton" = "Country";
+"playerControllerRBSoulButton" = "R&B/Soul";
+"playerControllerSingerButton" = "Singer/Songwriter";
+"playerControllerRapButton" = "Rap";
+"playerControllerHelloTextView" = "Je bent Geweldig!";
+"alertTitlePlayerController" = "Selecteer je favoriete Genre";
+"alertMessagePlayerController" = "Je moet een genre selecteren als je nummers wilt Shufflen.";
+"continueMessaePlayerController" = "Oké";
