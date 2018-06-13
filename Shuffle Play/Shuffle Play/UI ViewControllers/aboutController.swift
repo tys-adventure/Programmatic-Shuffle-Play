@@ -82,7 +82,8 @@ class aboutController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "About The Developers"
+		//textView.text = "About The Developers"
+		textView.text = NSLocalizedString("aboutControllerAboutTextView", comment: "")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -96,7 +97,8 @@ class aboutController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.textColor = UIColor.white
 		textView.isUserInteractionEnabled = false
-		textView.text = "Shuffle Play Plus is the project of two iOS Software Engineers, looking to make a dent in the way people listen to their music."
+		//textView.text = "Shuffle Play Plus is the project of two iOS Software Engineers, looking to make a dent in the way people listen to their music."
+		textView.text = NSLocalizedString("aboutControllerAboutTylerTextView", comment: "")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -157,7 +159,7 @@ class aboutController: UIViewController {
 		webButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -80).isActive = true
 		
 		tylerImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		tylerImageView.topAnchor.constraint(equalTo: aboutTextView.bottomAnchor, constant: -500 ).isActive = true
+		tylerImageView.topAnchor.constraint(equalTo: aboutTextView.bottomAnchor, constant: -480 ).isActive = true
 		tylerImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
 		tylerImageView.heightAnchor.constraint(equalToConstant: 110).isActive = true
 		

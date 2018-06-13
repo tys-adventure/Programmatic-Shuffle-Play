@@ -18,7 +18,8 @@ class ProfileController: UIViewController {
 	let reviewTextView: UITextView = {
 		let textView = createTextView()
 		textView.font = UIFont(name:"Avenir Next", size: 18.0)
-		textView.text = "If you like Shuffle Play Plus, or you have ways I can improve Shuffle Play Plus, please leave a review on the app store and I'll make sure to try and add it to the feature list!"
+		//textView.text = "If you like Shuffle Play Plus, or you have ways I can improve Shuffle Play Plus, please leave a review on the app store and I'll make sure to try and add it to the feature list!"
+		textView.text = NSLocalizedString("profileControllerReviewTextView", comment: "")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -30,7 +31,8 @@ class ProfileController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "Your Profile"
+		//textView.text = "Your Profile"
+		textView.text = NSLocalizedString("profileControllerProfileTextView", comment: "")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -57,7 +59,8 @@ class ProfileController: UIViewController {
 	
 	let aboutSPButtonTapped: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("About Shuffle Play", for: .normal)
+		//btn.setTitle("About Shuffle Play", for: .normal)
+		btn.setTitle(NSLocalizedString("profileControllerAboutSPButtonTapped", comment: ""), for: .normal)
 		btn.addTarget(self, action: #selector(aboutSPButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -65,7 +68,8 @@ class ProfileController: UIViewController {
 	
 	let ReviewButtonTapped: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("Review SPP on the App Store!", for: .normal)
+		//btn.setTitle("Review SPP on the App Store!", for: .normal)
+		btn.setTitle(NSLocalizedString("profileControllerReviewButtonTapped", comment: ""), for: .normal)
 		btn.addTarget(self, action: #selector(ReviewButtonTapped(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn
@@ -73,7 +77,8 @@ class ProfileController: UIViewController {
 
 	let AboutButton: UIButton = {
 		let btn = UIButton.createButton()
-		btn.setTitle("About The Developers", for: .normal)
+		//btn.setTitle("About The Developers", for: .normal)
+		btn.setTitle(NSLocalizedString("profileControllerAboutButton", comment: ""), for: .normal)
 		btn.addTarget(self, action: #selector(AboutButton(_:)), for:.touchUpInside)
 		btn.translatesAutoresizingMaskIntoConstraints = false
 		return btn

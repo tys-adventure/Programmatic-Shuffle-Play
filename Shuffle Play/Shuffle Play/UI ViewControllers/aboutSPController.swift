@@ -47,7 +47,8 @@ class aboutSPController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "About Shuffle Play"
+		//textView.text = "About Shuffle Play"
+		textView.text = NSLocalizedString("aboutSPControllerAboutLabelTextView", comment: "")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -60,7 +61,8 @@ class aboutSPController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "Have you ever wanted to listen to a specific genre? Shuffle Play let's you do just that! Using your locally stored library from Apple Music, or your iPhone's storage, Shuffle Play shuffles the music on your phone by genre. Allowing you to choose a genre and listen!"
+		//textView.text = "Have you ever wanted to listen to a specific genre? Shuffle Play let's you do just that! Using your locally stored library from Apple Music, or your iPhone's storage, Shuffle Play shuffles the music on your phone by genre. Allowing you to choose a genre and listen!"
+		textView.text = NSLocalizedString("aboutSPControllerAboutTextView", comment: "")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -73,7 +75,8 @@ class aboutSPController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "Select a genre from the menu screen on the right. Once a genre is selected, music from your locally stored library, or your Apple Music library will play! **Note: If you do not have a specific genre within your library, music will not play.**"
+		//textView.text = "Select a genre from the menu screen on the right. Once a genre is selected, music from your locally stored library, or your Apple Music library will play! **Note: If you do not have a specific genre within your library, music will not play.**"
+		textView.text = NSLocalizedString("aboutSPControllerHowToTextView", comment: "")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -87,7 +90,8 @@ class aboutSPController: UIViewController {
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
 		textView.textColor = UIColor.white
-		textView.text = "How To Use Shuffle Play Plus:"
+		//textView.text = "How To Use Shuffle Play Plus:"
+		textView.text = NSLocalizedString("aboutSPControllerHowToLabelTextView", comment: "")
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		return textView
 	}()
@@ -121,7 +125,7 @@ class aboutSPController: UIViewController {
 		aboutLabelTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
 		aboutLabelTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		aboutLabelTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		aboutLabelTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+		aboutLabelTextView.widthAnchor.constraint(equalToConstant: 250).isActive = true
 		aboutLabelTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
 		
 		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
