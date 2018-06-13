@@ -531,16 +531,22 @@ class PlayerController: UIViewController {
 	
 	@objc func genreButtonTapped(_ sender: UIButton!) {
 		
-		MPMediaLibrary.requestAuthorization { (status) in
-			if status == .authorized{
-				DispatchQueue.main.async {
-					self.playGenre(genre: sender.currentTitle!)
+		sender.pulsate()
+		
+		DispatchQueue.global().async {
+			MPMediaLibrary.requestAuthorization { (status) in
+				if status == .authorized{
+					DispatchQueue.main.async {
+						self.playGenre(genre: sender.currentTitle!)
+					}
 				}
 			}
 		}
 		
+		//sender.pulsate()
+		
 		setNowPlayingInfo()
-		sender.pulsate()
+		//sender.pulsate()
 		UIView.animate(withDuration: 0.5) {
 			self.albumImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
 		}
