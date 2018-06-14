@@ -23,85 +23,55 @@ class aboutController: UIViewController {
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
-
-	let instaButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("Instagram", for: .normal)
+	
+	let tylerImageButton: UIButton = {
+		let button = UIButton.controllerButton()
+		button.setTitle("Tyler", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "insta-logo-2.png") {
+		if let homeImage  = UIImage(named: "tyler2.jpg") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		button.addTarget(self, action: #selector(instaButton(_:)), for:.touchUpInside)
+		button.layer.cornerRadius = 50
+		button.layer.masksToBounds = true
+		button.addTarget(self, action: #selector(tylerTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
 	
-	let twitterButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("Twitter", for: .normal)
+	let tylerLabel: UILabel = {
+		let label = UILabel()
+		label.textColor = .white
+		label.textAlignment = .center
+		label.text = NSLocalizedString("aboutControllertylerLabel", comment: "")
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()
+	
+	let thomImageButton: UIButton = {
+		let button = UIButton.controllerButton()
+		button.setTitle("Thom", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "twitter-logo-3.png") {
+		if let homeImage  = UIImage(named: "dummyImage.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 		}
-		button.addTarget(self, action: #selector(twitterButton(_:)), for:.touchUpInside)
+		button.layer.cornerRadius = 50
+		button.layer.masksToBounds = true
+		button.addTarget(self, action: #selector(thomTapped(_:)), for:.touchUpInside)
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
 	
-	let webButton: UIButton = {
-		let button = UIButton()
-		button.setTitle("My Website", for: .normal)
-		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "globeicon2.png") {
-			button.setImage(homeImage, for: .normal)
-			button.tintColor = UIColor.black
-		}
-		button.addTarget(self, action: #selector(webButton(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
-
-	
-	//Tyler Image View
-	let tylerImageView: UIImageView = {
-		let imageView = UIImageView(image: #imageLiteral(resourceName: "tyler2"))
-		imageView.layer.cornerRadius = 5
-		imageView.clipsToBounds = true
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		return imageView
+	let thomLabel: UILabel = {
+		let label = UILabel()
+		label.textColor = .white
+		label.textAlignment = .center
+		label.text = NSLocalizedString("aboutControllerthomLabel", comment: "")
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
 	}()
 	
-	//About Developer textView
-	let aboutTextView: UITextView = {
-		let textView = UITextView()
-		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.font = UIFont.boldSystemFont(ofSize: 18)
-		textView.textAlignment = .center
-		textView.backgroundColor = UIColor.clear
-		textView.isUserInteractionEnabled = false
-		textView.textColor = UIColor.white
-		//textView.text = "About The Developers"
-		textView.text = NSLocalizedString("aboutControllerAboutTextView", comment: "")
-		textView.translatesAutoresizingMaskIntoConstraints = false
-		return textView
-	}()
-	
-	//About Tyler textView
-	let aboutTylerTextView: UITextView = {
-		let textView = UITextView()
-		textView.font = UIFont(name:"Avenir Next", size: 18.0)
-		//textView.font = UIFont.boldSystemFont(ofSize: 18)
-		textView.textAlignment = .center
-		textView.backgroundColor = UIColor.clear
-		textView.textColor = UIColor.white
-		textView.isUserInteractionEnabled = false
-		//textView.text = "Shuffle Play Plus is the project of two iOS Software Engineers, looking to make a dent in the way people listen to their music."
-		textView.text = NSLocalizedString("aboutControllerAboutTylerTextView", comment: "")
-		textView.translatesAutoresizingMaskIntoConstraints = false
-		return textView
-	}()
 	
 	
 		override func viewDidLoad() {
@@ -115,62 +85,103 @@ class aboutController: UIViewController {
 		
 		//setupLayout
 		
-		view.addSubview(aboutTylerTextView)
-		view.addSubview(aboutTextView)
+		view.addSubview(tylerImageButton)
+		view.addSubview(thomImageButton)
 		view.addSubview(profileButton)
-		view.addSubview(tylerImageView)
-		view.addSubview(instaButton)
-		view.addSubview(twitterButton)
-		view.addSubview(webButton)
-		
+		view.addSubview(tylerLabel)
+		view.addSubview(thomLabel)
+
 		setupLayout()
 
 		// Do any additional setup after loading the view.
 	}
 	
-	private func setupLayout() {
+	@objc func tylerTapped(_ sender: UIButton) {
 		
-		aboutTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
-		aboutTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-		aboutTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		aboutTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-		aboutTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+		let alertController : UIAlertController = UIAlertController(title: "Social Media", message: "Checkout Tylers Social Media", preferredStyle: .actionSheet)
+		let instagramAction : UIAlertAction = UIAlertAction(title: "Instagram", style: .default, handler: {(cameraAction) in
+			print("Instagram Selected...")
+			self.openUrl(urlStr: "https://instagram.com/TheTylerJP")
+		})
+		let twitterAction : UIAlertAction = UIAlertAction(title: "Twitter", style: .default, handler: {(libraryAction) in
+			print("Twitter Selected...")
+			self.openUrl(urlStr: "https://twitter.com/TheTylerJP")
+		})
+		let websiteAction : UIAlertAction = UIAlertAction(title: "Website", style: .default, handler: {(libraryAction) in
+			print("Twitter Selected...")
+			self.openUrl(urlStr: "https://thetylerjp.onuniverse.com")
+		})
+		let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel , handler: {(cancelActn) in
+			print("Cancel action was pressed")
+		})
+		alertController.addAction(instagramAction)
+		alertController.addAction(twitterAction)
+		alertController.addAction(websiteAction)
+		alertController.addAction(cancelAction)
+		alertController.popoverPresentationController?.sourceView = self.view
+		alertController.popoverPresentationController?.sourceRect = self.view.frame
+		
+		self.present(alertController, animated: true, completion: nil)
+	}
+	
+	@objc func thomTapped(_ sender: UIButton) {
+		
+		let alertController : UIAlertController = UIAlertController(title: "Social Media", message: "Checkout Thoms Social Media", preferredStyle: .actionSheet)
+		let instagramAction : UIAlertAction = UIAlertAction(title: "Instagram", style: .default, handler: {(cameraAction) in
+			print("Instagram Selected...")
+			self.openUrl(urlStr: "LINK GOES HERE")
+		})
+		let twitterAction : UIAlertAction = UIAlertAction(title: "Twitter", style: .default, handler: {(libraryAction) in
+			print("Twitter Selected...")
+			self.openUrl(urlStr: "LINK GOES HERE")
+		})
+		let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel , handler: {(cancelActn) in
+			print("Cancel action was pressed")
+		})
+		alertController.addAction(instagramAction)
+		alertController.addAction(twitterAction)
+		alertController.addAction(cancelAction)
+		alertController.popoverPresentationController?.sourceView = self.view
+		alertController.popoverPresentationController?.sourceRect = self.view.frame
+		
+		self.present(alertController, animated: true, completion: nil)
+	}
+	
+	private func setupLayout() {
 		
 		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
 		profileButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
 		profileButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
 		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
-		instaButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		instaButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
-		instaButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
-		instaButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+		tylerImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		tylerImageButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
+		tylerImageButton.widthAnchor.constraint(equalToConstant: 110).isActive = true
+		tylerImageButton.heightAnchor.constraint(equalToConstant: 110).isActive = true
 		
-		twitterButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-		twitterButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
-		twitterButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
-		twitterButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-		twitterButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 75).isActive = true
+		tylerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		tylerLabel.topAnchor.constraint(equalTo: tylerImageButton.bottomAnchor, constant: 10).isActive = true
+		tylerLabel.widthAnchor.constraint(equalToConstant: 70).isActive = true
+		tylerLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
 		
-		webButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-		webButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
-		webButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
-		webButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-		webButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -80).isActive = true
+		thomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		thomLabel.topAnchor.constraint(equalTo: thomImageButton.bottomAnchor, constant: 10).isActive = true
+		thomLabel.widthAnchor.constraint(equalToConstant: 70).isActive = true
+		thomLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
 		
-		tylerImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		tylerImageView.topAnchor.constraint(equalTo: aboutTextView.bottomAnchor, constant: -480 ).isActive = true
-		tylerImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
-		tylerImageView.heightAnchor.constraint(equalToConstant: 110).isActive = true
-		
-		aboutTylerTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-		aboutTylerTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		aboutTylerTextView.widthAnchor.constraint(equalToConstant: 400).isActive = true
-		aboutTylerTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-		aboutTylerTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-		aboutTylerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+		thomImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		thomImageButton.topAnchor.constraint(equalTo: tylerImageButton.bottomAnchor, constant: 75).isActive = true
+		thomImageButton.widthAnchor.constraint(equalToConstant: 110).isActive = true
+		thomImageButton.heightAnchor.constraint(equalToConstant: 110).isActive = true
 	}
 	
+		func openUrl(urlStr:String!) {
+			
+			if let url = NSURL(string:urlStr) {
+				UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+			}
+			
+		}
 
 	
 	//SP Logo Func
@@ -198,13 +209,7 @@ class aboutController: UIViewController {
 		openUrl(urlStr: "https://www.instagram.com/thetylerjp")
 	}
 	
-	func openUrl(urlStr:String!) {
-		
-		if let url = NSURL(string:urlStr) {
-			UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
-		}
-		
-	}
+
 	
 	//Twitter Button Func
 	@objc func twitterButton(_ sender: UIButton) {

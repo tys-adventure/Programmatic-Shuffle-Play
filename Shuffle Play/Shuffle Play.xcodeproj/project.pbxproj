@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24A955A920D1DFDF009B48E6 /* TylerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A955A820D1DFDF009B48E6 /* TylerViewController.swift */; };
+		24A955AB20D1E03E009B48E6 /* ThomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A955AA20D1E03E009B48E6 /* ThomViewController.swift */; };
 		24F555EF20CDC86400D4EF7E /* DeveloperMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F555EE20CDC86400D4EF7E /* DeveloperMenuViewController.swift */; };
 		5C00C0CF204D4003002F346F /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00C0CE204D4003002F346F /* MainScreenController.swift */; };
 		5C1B384D1FE86197003179A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B384C1FE86197003179A1 /* AppDelegate.swift */; };
@@ -67,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24A955A820D1DFDF009B48E6 /* TylerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TylerViewController.swift; sourceTree = "<group>"; };
+		24A955AA20D1E03E009B48E6 /* ThomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThomViewController.swift; sourceTree = "<group>"; };
 		24F555EE20CDC86400D4EF7E /* DeveloperMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperMenuViewController.swift; sourceTree = "<group>"; };
 		5C00C0CE204D4003002F346F /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		5C1B38491FE86197003179A1 /* Shuffle Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shuffle Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +223,8 @@
 				5C00C0CE204D4003002F346F /* MainScreenController.swift */,
 				5C643F24207EB48300926DDD /* PlayerController.swift */,
 				24F555EE20CDC86400D4EF7E /* DeveloperMenuViewController.swift */,
+				24A955A820D1DFDF009B48E6 /* TylerViewController.swift */,
+				24A955AA20D1E03E009B48E6 /* ThomViewController.swift */,
 			);
 			path = "UI ViewControllers";
 			sourceTree = "<group>";
@@ -444,11 +450,13 @@
 				5C3D66BF2048AA360058A20B /* PopController.swift in Sources */,
 				5C3D67452049DD310058A20B /* genreSroll.swift in Sources */,
 				5C8C6B2D2076973D007A68AF /* AutoLayoutContraints.swift in Sources */,
+				24A955A920D1DFDF009B48E6 /* TylerViewController.swift in Sources */,
 				5CB9378720582B5800F8EC98 /* RockController.swift in Sources */,
 				5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */,
 				DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */,
 				5CB9377F2058185600F8EC98 /* RBSoulController.swift in Sources */,
 				5C1B387E1FE861EB003179A1 /* GenreButtonScreen.swift in Sources */,
+				24A955AB20D1E03E009B48E6 /* ThomViewController.swift in Sources */,
 				5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */,
 				5CB9378120581ACF00F8EC98 /* DanceController.swift in Sources */,
 				5CB937852058283E00F8EC98 /* AlternativeController.swift in Sources */,
@@ -649,7 +657,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -667,7 +675,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

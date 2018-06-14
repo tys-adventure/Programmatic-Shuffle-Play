@@ -37,5 +37,5 @@
 "aboutSPControllerHowToTextView" = "Select a genre from the menu screen on the right. Once a genre is selected, music from your locally stored library, or your Apple Music library will play! **Note: If you do not have a specific genre within your library, music will not play.**";
 "aboutSPControllerHowToLabelTextView" = "How To Use Shuffle Play Plus:";
 
-"aboutControllerAboutTextView" = "About The Developers";
-"aboutControllerAboutTylerTextView" = "Shuffle Play Plus is the project of two iOS Software Engineers, looking to make a dent in the way people listen to their music.";
+"aboutControllertylerLabel" = "Tyler";
+"aboutControllerthomLabel" = "Thom";
