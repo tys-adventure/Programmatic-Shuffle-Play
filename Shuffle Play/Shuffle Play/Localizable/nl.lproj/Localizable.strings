@@ -37,5 +37,5 @@
 "aboutSPControllerHowToTextView" = "Selecteer een genre van het menu scherm. Wanneer een genre geselecteerd is, start de muziek uit je lokale bibliotheek te spelen, of die uit je Apple Music bibliotheek! **Opmerking: Als je geen specifiek genre in je bibliotheek hebt, start de muziek niet met spelen.**";
 "aboutSPControllerHowToLabelTextView" = "Zo Gebruik je Shuffle Play Plus:";
 
-"aboutControllerAboutTextView" = "Over De Ontwikkelaars";
-"aboutControllerAboutTylerTextView" = "Shuffle Play Plus is een project van twee iOS Software Ontwikkelaars, die proberen de muziek ervaring te verbeteren.";
+"aboutControllertylerLabel" = "Tyler";
+"aboutControllerthomLabel" = "Thom";
