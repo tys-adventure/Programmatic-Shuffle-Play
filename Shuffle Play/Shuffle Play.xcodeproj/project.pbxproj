@@ -46,6 +46,15 @@
 		5CEF02A2201D3DDB00D63D3E /* aboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A1201D3DDB00D63D3E /* aboutController.swift */; };
 		5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A3201E34F800D63D3E /* selectionsController.swift */; };
 		5CEF02A6201E353100D63D3E /* streamingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF02A5201E353100D63D3E /* streamingController.swift */; };
+		DC20975620D43503000905F4 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC20975420D43503000905F4 /* Interface.storyboard */; };
+		DC20975820D43504000905F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC20975720D43504000905F4 /* Assets.xcassets */; };
+		DC20975F20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DC20975E20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DC20976420D43505000905F4 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20976320D43505000905F4 /* InterfaceController.swift */; };
+		DC20976620D43505000905F4 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20976520D43505000905F4 /* ExtensionDelegate.swift */; };
+		DC20976820D43505000905F4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20976720D43505000905F4 /* NotificationController.swift */; };
+		DC20976A20D43506000905F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC20976920D43506000905F4 /* Assets.xcassets */; };
+		DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */; };
+		DC20977920D441B3000905F4 /* GenreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20977820D441B3000905F4 /* GenreRow.swift */; };
 		DCD001F320C9C026002C7222 /* NotificationsNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */; };
 		DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F420CB1100002C7222 /* CoreSpotlight.swift */; };
 		DCED793420D049B300EE9ACB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCED793620D049B300EE9ACB /* Localizable.strings */; };
@@ -66,7 +75,46 @@
 			remoteGlobalIDString = 5C1B38481FE86197003179A1;
 			remoteInfo = "Shuffle Play";
 		};
+		DC20976020D43505000905F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C1B38411FE86197003179A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC20975D20D43505000905F4;
+			remoteInfo = "WatchAppShufflePlayPlus Extension";
+		};
+		DC20976D20D43506000905F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C1B38411FE86197003179A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC20975120D43503000905F4;
+			remoteInfo = WatchAppShufflePlayPlus;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DC20977520D43506000905F4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DC20975F20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC20977720D43506000905F4 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		24A955A820D1DFDF009B48E6 /* TylerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TylerViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +162,18 @@
 		5CEF02A1201D3DDB00D63D3E /* aboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutController.swift; sourceTree = "<group>"; };
 		5CEF02A3201E34F800D63D3E /* selectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectionsController.swift; sourceTree = "<group>"; };
 		5CEF02A5201E353100D63D3E /* streamingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streamingController.swift; sourceTree = "<group>"; };
+		DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchAppShufflePlayPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC20975520D43503000905F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		DC20975720D43504000905F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC20975920D43504000905F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC20975E20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchAppShufflePlayPlus Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC20976320D43505000905F4 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		DC20976520D43505000905F4 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		DC20976720D43505000905F4 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		DC20976920D43506000905F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC20976B20D43506000905F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC20976C20D43506000905F4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		DC20977820D441B3000905F4 /* GenreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRow.swift; sourceTree = "<group>"; };
 		DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsNameExtension.swift; sourceTree = "<group>"; };
 		DCD001F420CB1100002C7222 /* CoreSpotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSpotlight.swift; sourceTree = "<group>"; };
 		DCED793120D0494100EE9ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -145,6 +205,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC20975B20D43505000905F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -155,6 +222,8 @@
 				5CB9378A20584FE400F8EC98 /* Not USED */,
 				5C1B38631FE86197003179A1 /* Shuffle PlayTests */,
 				5C1B386E1FE86197003179A1 /* Shuffle PlayUITests */,
+				DC20975320D43503000905F4 /* WatchAppShufflePlayPlus */,
+				DC20976220D43505000905F4 /* WatchAppShufflePlayPlus Extension */,
 				5C1B384A1FE86197003179A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +235,8 @@
 				5C1B38491FE86197003179A1 /* Shuffle Play.app */,
 				5C1B38601FE86197003179A1 /* Shuffle PlayTests.xctest */,
 				5C1B386B1FE86197003179A1 /* Shuffle PlayUITests.xctest */,
+				DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */,
+				DC20975E20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,6 +331,30 @@
 			path = "Not USED";
 			sourceTree = "<group>";
 		};
+		DC20975320D43503000905F4 /* WatchAppShufflePlayPlus */ = {
+			isa = PBXGroup;
+			children = (
+				DC20975420D43503000905F4 /* Interface.storyboard */,
+				DC20975720D43504000905F4 /* Assets.xcassets */,
+				DC20975920D43504000905F4 /* Info.plist */,
+			);
+			path = WatchAppShufflePlayPlus;
+			sourceTree = "<group>";
+		};
+		DC20976220D43505000905F4 /* WatchAppShufflePlayPlus Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DC20976320D43505000905F4 /* InterfaceController.swift */,
+				DC20977820D441B3000905F4 /* GenreRow.swift */,
+				DC20976520D43505000905F4 /* ExtensionDelegate.swift */,
+				DC20976720D43505000905F4 /* NotificationController.swift */,
+				DC20976920D43506000905F4 /* Assets.xcassets */,
+				DC20976B20D43506000905F4 /* Info.plist */,
+				DC20976C20D43506000905F4 /* PushNotificationPayload.apns */,
+			);
+			path = "WatchAppShufflePlayPlus Extension";
+			sourceTree = "<group>";
+		};
 		DC3EFFF020C9BE1900F4AFC9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,10 +396,12 @@
 				5C1B38451FE86197003179A1 /* Sources */,
 				5C1B38461FE86197003179A1 /* Frameworks */,
 				5C1B38471FE86197003179A1 /* Resources */,
+				DC20977720D43506000905F4 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DC20976E20D43506000905F4 /* PBXTargetDependency */,
 			);
 			name = "Shuffle Play";
 			productName = "Shuffle Play";
@@ -347,13 +444,47 @@
 			productReference = 5C1B386B1FE86197003179A1 /* Shuffle PlayUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		DC20975120D43503000905F4 /* WatchAppShufflePlayPlus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC20977620D43506000905F4 /* Build configuration list for PBXNativeTarget "WatchAppShufflePlayPlus" */;
+			buildPhases = (
+				DC20975020D43503000905F4 /* Resources */,
+				DC20977520D43506000905F4 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC20976120D43505000905F4 /* PBXTargetDependency */,
+			);
+			name = WatchAppShufflePlayPlus;
+			productName = WatchAppShufflePlayPlus;
+			productReference = DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		DC20975D20D43505000905F4 /* WatchAppShufflePlayPlus Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC20977420D43506000905F4 /* Build configuration list for PBXNativeTarget "WatchAppShufflePlayPlus Extension" */;
+			buildPhases = (
+				DC20975A20D43505000905F4 /* Sources */,
+				DC20975B20D43505000905F4 /* Frameworks */,
+				DC20975C20D43505000905F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchAppShufflePlayPlus Extension";
+			productName = "WatchAppShufflePlayPlus Extension";
+			productReference = DC20975E20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		5C1B38411FE86197003179A1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Tyler Phillips";
 				TargetAttributes = {
@@ -378,6 +509,14 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5C1B38481FE86197003179A1;
 					};
+					DC20975120D43503000905F4 = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+					};
+					DC20975D20D43505000905F4 = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 5C1B38441FE86197003179A1 /* Build configuration list for PBXProject "Shuffle Play" */;
@@ -397,6 +536,8 @@
 				5C1B38481FE86197003179A1 /* Shuffle Play */,
 				5C1B385F1FE86197003179A1 /* Shuffle PlayTests */,
 				5C1B386A1FE86197003179A1 /* Shuffle PlayUITests */,
+				DC20975120D43503000905F4 /* WatchAppShufflePlayPlus */,
+				DC20975D20D43505000905F4 /* WatchAppShufflePlayPlus Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -424,6 +565,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC20975020D43503000905F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC20975820D43504000905F4 /* Assets.xcassets in Resources */,
+				DC20975620D43503000905F4 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC20975C20D43505000905F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC20976A20D43506000905F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +647,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC20975A20D43505000905F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC20976820D43505000905F4 /* NotificationController.swift in Sources */,
+				DC20976620D43505000905F4 /* ExtensionDelegate.swift in Sources */,
+				DC20977920D441B3000905F4 /* GenreRow.swift in Sources */,
+				DC20976420D43505000905F4 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -501,6 +670,16 @@
 			isa = PBXTargetDependency;
 			target = 5C1B38481FE86197003179A1 /* Shuffle Play */;
 			targetProxy = 5C1B386C1FE86197003179A1 /* PBXContainerItemProxy */;
+		};
+		DC20976120D43505000905F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC20975D20D43505000905F4 /* WatchAppShufflePlayPlus Extension */;
+			targetProxy = DC20976020D43505000905F4 /* PBXContainerItemProxy */;
+		};
+		DC20976E20D43506000905F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC20975120D43503000905F4 /* WatchAppShufflePlayPlus */;
+			targetProxy = DC20976D20D43506000905F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -522,6 +701,14 @@
 				DCED793820D04A3900EE9ACB /* nl */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DC20975420D43503000905F4 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC20975520D43503000905F4 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 		DCED793620D049B300EE9ACB /* Localizable.strings */ = {
@@ -753,6 +940,86 @@
 			};
 			name = Release;
 		};
+		DC20977020D43506000905F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				IBSC_MODULE = WatchAppShufflePlayPlus_Extension;
+				INFOPLIST_FILE = WatchAppShufflePlayPlus/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		DC20977120D43506000905F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				IBSC_MODULE = WatchAppShufflePlayPlus_Extension;
+				INFOPLIST_FILE = WatchAppShufflePlayPlus/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		DC20977220D43506000905F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				INFOPLIST_FILE = "WatchAppShufflePlayPlus Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		DC20977320D43506000905F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				INFOPLIST_FILE = "WatchAppShufflePlayPlus Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -788,6 +1055,24 @@
 			buildConfigurations = (
 				5C1B387B1FE86197003179A1 /* Debug */,
 				5C1B387C1FE86197003179A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC20977420D43506000905F4 /* Build configuration list for PBXNativeTarget "WatchAppShufflePlayPlus Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC20977220D43506000905F4 /* Debug */,
+				DC20977320D43506000905F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC20977620D43506000905F4 /* Build configuration list for PBXNativeTarget "WatchAppShufflePlayPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC20977020D43506000905F4 /* Debug */,
+				DC20977120D43506000905F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

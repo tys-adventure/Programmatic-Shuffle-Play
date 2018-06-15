@@ -31,6 +31,7 @@ class aboutController: UIViewController {
 		if let homeImage  = UIImage(named: "tyler2.jpg") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
+			button.imageView?.contentMode = .scaleAspectFill
 		}
 		button.layer.cornerRadius = 50
 		button.layer.masksToBounds = true
@@ -55,6 +56,7 @@ class aboutController: UIViewController {
 		if let homeImage  = UIImage(named: "dummyImage.png") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
+			button.imageView?.contentMode = .scaleAspectFill
 		}
 		button.layer.cornerRadius = 50
 		button.layer.masksToBounds = true
