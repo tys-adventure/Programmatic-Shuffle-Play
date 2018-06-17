@@ -11,7 +11,7 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
-    
+	
     @IBOutlet weak var tableView: WKInterfaceTable!
     var genres = ["Pop", "Rock"]
     
@@ -41,5 +41,12 @@ class InterfaceController: WKInterfaceController {
         }
         
     }
+	
+	override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
+		
+		#warning("send a alert to the phone, and the phone will start playing music")
+		
+		return nil
+	}
 
 }

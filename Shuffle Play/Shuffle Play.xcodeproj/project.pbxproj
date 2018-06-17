@@ -57,6 +57,7 @@
 		DC20977920D441B3000905F4 /* GenreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20977820D441B3000905F4 /* GenreRow.swift */; };
 		DCD001F320C9C026002C7222 /* NotificationsNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */; };
 		DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F420CB1100002C7222 /* CoreSpotlight.swift */; };
+		DCECCB2D20D69D19002950EE /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECCB2C20D69D19002950EE /* ViewControllerExtension.swift */; };
 		DCED793420D049B300EE9ACB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCED793620D049B300EE9ACB /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +177,7 @@
 		DC20977820D441B3000905F4 /* GenreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRow.swift; sourceTree = "<group>"; };
 		DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsNameExtension.swift; sourceTree = "<group>"; };
 		DCD001F420CB1100002C7222 /* CoreSpotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSpotlight.swift; sourceTree = "<group>"; };
+		DCECCB2C20D69D19002950EE /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		DCED793120D0494100EE9ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DCED793520D049B300EE9ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DCED793720D04A3900EE9ACB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				5C8C6B2C2076973D007A68AF /* AutoLayoutContraints.swift */,
 				DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */,
 				DCD001F420CB1100002C7222 /* CoreSpotlight.swift */,
+				DCECCB2C20D69D19002950EE /* ViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */,
 				5CB9378120581ACF00F8EC98 /* DanceController.swift in Sources */,
 				5CB937852058283E00F8EC98 /* AlternativeController.swift in Sources */,
+				DCECCB2D20D69D19002950EE /* ViewControllerExtension.swift in Sources */,
 				5C286CA42027E02200DD90FB /* aboutSPController.swift in Sources */,
 				5CDA80D420467BED003995B8 /* AlertExtension.swift in Sources */,
 				5CD87DDA202EBB2600F795EF /* pulseExtension.swift in Sources */,

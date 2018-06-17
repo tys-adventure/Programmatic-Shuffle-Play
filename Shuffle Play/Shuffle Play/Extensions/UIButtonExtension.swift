@@ -63,7 +63,7 @@ extension UIButton {
 	//MARK: Button Animations
 	func pulsate(){
 		
-		//TODO: Maybe check if it is available on a device
+		#warning("Maybe check if haptic feedback is available on a device to avoid crashes")
 		// So that it doesn't crash on an iPhone SE
 		// But there isn't a functions for so I think it's ok now.
 		let haptics = UISelectionFeedbackGenerator()

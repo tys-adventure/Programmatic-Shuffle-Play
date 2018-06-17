@@ -458,11 +458,7 @@ class PlayerController: UIViewController {
 				self.albumImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
 			}
 		} else {
-			let ac = UIAlertController(title: NSLocalizedString("alertTitlePlayerController", comment: "TheAlertTitleInPlayerController"), message: NSLocalizedString("alertMessagePlayerController", comment: "TheAlertMessageInPlayerController"), preferredStyle: .alert)
-			//let ac = UIAlertController(title: "Select Genre", message: "You need to select a genre to be able to shuffle songs.", preferredStyle: .alert)
-			//ac.addAction(UIAlertAction(title: "Continue", style: .default , handler: nil))
-			ac.addAction(UIAlertAction(title: NSLocalizedString("continueMessaePlayerController", comment: "TheContinueMessageInPlayerController"), style: .default, handler: nil))
-			present(ac, animated: true, completion: nil)
+			showAlertErrorView(title: NSLocalizedString("alertTitlePlayerController", comment: "TheAlertTitleInPlayerController"), message: NSLocalizedString("alertMessagePlayerController", comment: "TheAlertMessageInPlayerController"), continueMessage: NSLocalizedString("continueMessaePlayerController", comment: "TheContinueMessageInPlayerController"))
 		}
 		
 		
