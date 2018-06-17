@@ -26,6 +26,7 @@ class PlayerController: UIViewController {
 	//Album Image View
 	var albumImageView: UIImageView = {
 		let imageView = UIImageView()
+		imageView.isUserInteractionEnabled = true
 		imageView.layer.shadowColor = UIColor.black.cgColor
 		imageView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		imageView.layer.masksToBounds = false
@@ -276,7 +277,7 @@ class PlayerController: UIViewController {
 		view.addSubview(profileButton)
 		
 		setupLayout()
-		
+		setupGestures()
 		
 		//scrollView
 		scrollView.addSubview(logoImageView)
@@ -431,6 +432,24 @@ class PlayerController: UIViewController {
 		profileButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
 		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
 		
+	}
+	
+	//MARK:- Gestures
+	private func setupGestures() {
+		let logoAlbumGesture = UITapGestureRecognizer(target: self, action: #selector(handleAlbumTapGesture(sender:)))
+		albumImageView.addGestureRecognizer(logoAlbumGesture)
+	}
+	
+	@objc func handleAlbumTapGesture(sender: UITapGestureRecognizer) {
+		if sender.state == .ended {
+			//#warning("Go to the new arkit environment")
+			if #available(iOS 11.3, *) {
+				let vc = ArkitAlbumPreviewViewController()
+				self.present(vc, animated: true, completion: nil)
+			} else {
+				#warning("Show error message because no ARKit possible")
+			}
+		}
 	}
 	
 	//MARK: - Go to the profile view

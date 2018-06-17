@@ -55,6 +55,8 @@
 		DC20976A20D43506000905F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC20976920D43506000905F4 /* Assets.xcassets */; };
 		DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */; };
 		DC20977920D441B3000905F4 /* GenreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20977820D441B3000905F4 /* GenreRow.swift */; };
+		DC832FB820D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */; };
+		DC832FBA20D6D4CA00AC305B /* mona+lisa+frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */; };
 		DCD001F320C9C026002C7222 /* NotificationsNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */; };
 		DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F420CB1100002C7222 /* CoreSpotlight.swift */; };
 		DCECCB2D20D69D19002950EE /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECCB2C20D69D19002950EE /* ViewControllerExtension.swift */; };
@@ -175,6 +177,8 @@
 		DC20976B20D43506000905F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC20976C20D43506000905F4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		DC20977820D441B3000905F4 /* GenreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRow.swift; sourceTree = "<group>"; };
+		DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkitAlbumPreviewViewController.swift; sourceTree = "<group>"; };
+		DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mona+lisa+frame.png"; sourceTree = "<group>"; };
 		DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsNameExtension.swift; sourceTree = "<group>"; };
 		DCD001F420CB1100002C7222 /* CoreSpotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSpotlight.swift; sourceTree = "<group>"; };
 		DCECCB2C20D69D19002950EE /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -295,9 +299,11 @@
 				5C3D67442049DD310058A20B /* genreSroll.swift */,
 				5C00C0CE204D4003002F346F /* MainScreenController.swift */,
 				5C643F24207EB48300926DDD /* PlayerController.swift */,
+				DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */,
 				24F555EE20CDC86400D4EF7E /* DeveloperMenuViewController.swift */,
 				24A955A820D1DFDF009B48E6 /* TylerViewController.swift */,
 				24A955AA20D1E03E009B48E6 /* ThomViewController.swift */,
+				DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */,
 			);
 			path = "UI ViewControllers";
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC832FBA20D6D4CA00AC305B /* mona+lisa+frame.png in Resources */,
 				5C1B385A1FE86197003179A1 /* LaunchScreen.storyboard in Resources */,
 				DCED793420D049B300EE9ACB /* Localizable.strings in Resources */,
 				5C1B38571FE86197003179A1 /* Assets.xcassets in Resources */,
@@ -620,6 +627,7 @@
 				24A955AB20D1E03E009B48E6 /* ThomViewController.swift in Sources */,
 				5C698CB02009975A005FD7C4 /* MenuController.swift in Sources */,
 				5CB9378120581ACF00F8EC98 /* DanceController.swift in Sources */,
+				DC832FB820D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift in Sources */,
 				5CB937852058283E00F8EC98 /* AlternativeController.swift in Sources */,
 				DCECCB2D20D69D19002950EE /* ViewControllerExtension.swift in Sources */,
 				5C286CA42027E02200DD90FB /* aboutSPController.swift in Sources */,
