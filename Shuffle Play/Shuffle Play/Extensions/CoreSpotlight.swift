@@ -13,10 +13,10 @@ import MobileCoreServices
 class SpotlightSupport {
 	
 	#warning("Add better descriptions")
-	#warning("Use User Defaults to instantiate core spotlight once")
-	#warning("Localize Core Spotlight")
+	#warning("Descriptions doesn't match")
+	#warning("Initialize two times")
 	
-	static let genres = ["Hip-Hop", "Pop", "Rock", "Electronic", "K-Pop", "Country", "R&B/Soul", "Singer/Songwriter", "Rap"]
+	static let genres = PlayerController.buttonTitles
 	
 	static let descriptions = ["Shuffle Blues", "Shuffle Country", "Shuffle Pop", "Shuffle Electronic", "Shuffle Singer", "Shuffle RB Soul", "Shuffle Dance", "Shuffle Hip Hop Rap", "Shuffle Alternative", "Shuffle Christian"]
 	

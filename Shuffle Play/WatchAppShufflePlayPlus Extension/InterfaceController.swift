@@ -8,9 +8,9 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
-
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, WCSessionDelegate {
 	
     @IBOutlet weak var tableView: WKInterfaceTable!
     var genres = ["Pop", "Rock"]
@@ -19,7 +19,7 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        
+        checkOfWCSessionIsSupported()
     }
     
     override func willActivate() {
@@ -42,11 +42,30 @@ class InterfaceController: WKInterfaceController {
         
     }
 	
+	func checkOfWCSessionIsSupported() {
+		let session = WCSession.default
+		session.delegate = self
+		session.activate()
+	}
+	
+	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+		
+	}
+	
 	override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
 		
 		#warning("send a alert to the phone, and the phone will start playing music")
+		sendDataToPhone()
 		
 		return nil
+	}
+	
+	func sendDataToPhone() {
+		let session = WCSession.default
+		if session.isReachable {
+			let data = ["genre":"genre??"]
+			session.sendMessage(data, replyHandler: nil)
+		}
 	}
 
 }

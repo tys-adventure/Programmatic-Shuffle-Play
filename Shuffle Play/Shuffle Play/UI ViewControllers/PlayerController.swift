@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import MediaPlayer
 import AVFoundation
+import WatchConnectivity
 
-class PlayerController: UIViewController {
+class PlayerController: UIViewController, WCSessionDelegate {
 	
 	//MARK:- proporties
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
@@ -21,6 +22,10 @@ class PlayerController: UIViewController {
 	var scrollView: UIScrollView!
 	var screenWidth: CGFloat = 0.0
 	var screenHeight: CGFloat = 0.0
+	
+	static var buttonTitles: [String?] = []
+	
+	let userDefaults = UserDefaults.standard
 	
 	//MARK:- Setting up layout
 	//Album Image View
@@ -258,6 +263,9 @@ class PlayerController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		PlayerController.buttonTitles = [HHButton.currentTitle, PopButton.currentTitle, RockButton.currentTitle, ElectronicButton.currentTitle, KPOPButton.currentTitle, CountryButton.currentTitle, RBSoulButton.currentTitle, SingerButton.currentTitle, RapButton.currentTitle]
+		print(PlayerController.buttonTitles)
+		
 		let screensize: CGRect = UIScreen.main.bounds
 		screenWidth = screensize.width
 		screenHeight = screensize.height
@@ -277,7 +285,7 @@ class PlayerController: UIViewController {
 		view.addSubview(profileButton)
 		
 		setupLayout()
-		setupGestures()
+		//setupGestures()
 		
 		//scrollView
 		scrollView.addSubview(logoImageView)
@@ -404,8 +412,13 @@ class PlayerController: UIViewController {
 		scrollView.contentSize = CGSize(width: screenWidth, height: 2175)
 		view.addSubview(scrollView)
 		
-		let spotlightVC = SpotlightSupport()
-		spotlightVC.integrateCoreSpotlight()
+		//let spotlightVC = SpotlightSupport()
+		if !userDefaults.bool(forKey: "spotlight") {
+			SpotlightSupport().integrateCoreSpotlight()
+			userDefaults.set(true, forKey: "spotlight")
+		}
+		
+		checkOfWCSessionIsSupported()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -435,22 +448,21 @@ class PlayerController: UIViewController {
 	}
 	
 	//MARK:- Gestures
-	private func setupGestures() {
-		let logoAlbumGesture = UITapGestureRecognizer(target: self, action: #selector(handleAlbumTapGesture(sender:)))
-		albumImageView.addGestureRecognizer(logoAlbumGesture)
-	}
+//	private func setupGestures() {
+//		let logoAlbumGesture = UITapGestureRecognizer(target: self, action: #selector(handleAlbumTapGesture(sender:)))
+//		albumImageView.addGestureRecognizer(logoAlbumGesture)
+//	}
 	
-	@objc func handleAlbumTapGesture(sender: UITapGestureRecognizer) {
-		if sender.state == .ended {
-			//#warning("Go to the new arkit environment")
-			if #available(iOS 11.3, *) {
-				let vc = ArkitAlbumPreviewViewController()
-				self.present(vc, animated: true, completion: nil)
-			} else {
-				#warning("Show error message because no ARKit possible")
-			}
-		}
-	}
+//	@objc func handleAlbumTapGesture(sender: UITapGestureRecognizer) {
+//		if sender.state == .ended {
+//			if #available(iOS 11.3, *) {
+//				let vc = ArkitAlbumPreviewViewController()
+//				self.present(vc, animated: true, completion: nil)
+//			} else {
+//				#warning("Show error message because no ARKit possible")
+//			}
+//		}
+//	}
 	
 	//MARK: - Go to the profile view
 	@objc func profileButton(_ sender: UIButton) {
@@ -547,12 +559,19 @@ class PlayerController: UIViewController {
 	@objc func genreButtonTapped(_ sender: UIButton!) {
 		
 		sender.pulsate()
+		var title = ""
+		switch sender.currentTitle! {
+		case "Hip Hop": title = "Hip-Hop"
+		case "Elektrisch": title = "Electronic"
+		case "Koreanse Pop": title = "K-Pop"
+		default: title = sender.currentTitle!
+		}
 		
 		DispatchQueue.global().async {
 			MPMediaLibrary.requestAuthorization { (status) in
 				if status == .authorized{
 					DispatchQueue.main.async {
-						self.playGenre(genre: sender.currentTitle!)
+						self.playGenre(genre: title)
 					}
 				}
 			}
@@ -595,6 +614,37 @@ class PlayerController: UIViewController {
 		musicPlayer.shuffleMode = .songs
 		musicPlayer.play()
 		
+	}
+	
+	//MARK:- Apple watch communication code
+	func checkOfWCSessionIsSupported() {
+		let session = WCSession.default
+		session.delegate = self
+		session.activate()
+	}
+	
+	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+		DispatchQueue.main.async {
+			if activationState == .activated {
+				if session.isWatchAppInstalled {
+					print("Connection setup")
+				}
+			}
+		}
+	}
+	
+	func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+		if let genre = message["genre"] as? String {
+			playGenre(genre: genre)
+		}
+	}
+	
+	func sessionDidBecomeInactive(_ session: WCSession) {
+		
+	}
+	
+	func sessionDidDeactivate(_ session: WCSession) {
+		WCSession.default.activate()
 	}
 	
 	
