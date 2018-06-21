@@ -13,9 +13,7 @@ import MobileCoreServices
 class SpotlightSupport {
 	
 	#warning("Add better descriptions")
-	#warning("Descriptions doesn't match")
-	#warning("Initialize two times")
-	
+	#warning("Descriptions doesn't match")	
 	static let genres = PlayerController.buttonTitles
 	
 	static let descriptions = ["Shuffle Blues", "Shuffle Country", "Shuffle Pop", "Shuffle Electronic", "Shuffle Singer", "Shuffle RB Soul", "Shuffle Dance", "Shuffle Hip Hop Rap", "Shuffle Alternative", "Shuffle Christian"]

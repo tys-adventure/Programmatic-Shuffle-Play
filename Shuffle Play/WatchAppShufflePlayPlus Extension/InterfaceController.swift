@@ -12,35 +12,45 @@ import WatchConnectivity
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
 	
-    @IBOutlet weak var tableView: WKInterfaceTable!
-    var genres = ["Pop", "Rock"]
-    
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        
-        // Configure interface objects here.
-        checkOfWCSessionIsSupported()
-    }
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-    
-    func updateTable() {
-        tableView.setNumberOfRows(genres.count, withRowType: "Cell")
-        
-        for (index,genre) in genres.enumerated() {
-            guard let row = tableView.rowController(at: index) as? GenreRow else { return }
-            row.textLabel.setText(genre)
-        }
-        
-    }
+	@IBOutlet weak var tableView: WKInterfaceTable!
+	var genres: [String] = []
+	
+	let userDefaults = UserDefaults.standard
+	
+	override func awake(withContext context: Any?) {
+		super.awake(withContext: context)
+		
+		if userDefaults.value(forKey: "genresWatch") != nil {
+			let genres = userDefaults.value(forKey: "genresWatch") as! [String]
+			self.genres = genres
+		} else {
+			genres = []
+		}
+		
+		// Configure interface objects here.
+		checkOfWCSessionIsSupported()
+		updateTable()
+	}
+	
+	override func willActivate() {
+		// This method is called when watch view controller is about to be visible to user
+		super.willActivate()
+	}
+	
+	override func didDeactivate() {
+		// This method is called when watch view controller is no longer visible
+		super.didDeactivate()
+	}
+	
+	func updateTable() {
+		tableView.setNumberOfRows(genres.count, withRowType: "Cell")
+		
+		for (index,genre) in genres.enumerated() {
+			guard let row = tableView.rowController(at: index) as? GenreRow else { return }
+			row.textLabel.setText(genre)
+		}
+		
+	}
 	
 	func checkOfWCSessionIsSupported() {
 		let session = WCSession.default
@@ -53,19 +63,32 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 	}
 	
 	override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
-		
-		#warning("send a alert to the phone, and the phone will start playing music")
-		sendDataToPhone()
+		let genre = genres[rowIndex]
+		sendDataToPhone(genre: genre)
 		
 		return nil
 	}
 	
-	func sendDataToPhone() {
+	func sendDataToPhone(genre: String) {
 		let session = WCSession.default
 		if session.isReachable {
-			let data = ["genre":"genre??"]
+			var data: [String : String] = ["":""]
+			switch genre {
+			case "Hip Hop": data = ["genre":"Hip-Hop"]
+			case "Elektrisch": data = ["genre":"Electronic"]
+			case "Koreanse Pop": data = ["genre":"K-Pop"]
+			default: data = ["genre":genre]
+			}
 			session.sendMessage(data, replyHandler: nil)
 		}
 	}
-
+	
+	func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
+		if let genres = userInfo["genres"] as? [String] {
+			self.genres = genres
+			userDefaults.set(genres, forKey: "genresWatch")
+			updateTable()
+		}
+	}
+	
 }

@@ -23,7 +23,7 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	var screenWidth: CGFloat = 0.0
 	var screenHeight: CGFloat = 0.0
 	
-	static var buttonTitles: [String?] = []
+	static var buttonTitles: [String] = []
 	
 	let userDefaults = UserDefaults.standard
 	
@@ -263,7 +263,7 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		PlayerController.buttonTitles = [HHButton.currentTitle, PopButton.currentTitle, RockButton.currentTitle, ElectronicButton.currentTitle, KPOPButton.currentTitle, CountryButton.currentTitle, RBSoulButton.currentTitle, SingerButton.currentTitle, RapButton.currentTitle]
+		PlayerController.buttonTitles = [HHButton.currentTitle!, PopButton.currentTitle!, RockButton.currentTitle!, ElectronicButton.currentTitle!, KPOPButton.currentTitle!, CountryButton.currentTitle!, RBSoulButton.currentTitle!, SingerButton.currentTitle!, RapButton.currentTitle!]
 		print(PlayerController.buttonTitles)
 		
 		let screensize: CGRect = UIScreen.main.bounds
@@ -419,6 +419,7 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		}
 		
 		checkOfWCSessionIsSupported()
+		sendGenresArray()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -636,6 +637,15 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
 		if let genre = message["genre"] as? String {
 			playGenre(genre: genre)
+		}
+	}
+	
+	func sendGenresArray() {
+		let session = WCSession.default
+		if session.activationState == .activated {
+			let data = PlayerController.buttonTitles
+			let userInfo = ["genres":data]
+			session.transferUserInfo(userInfo)
 		}
 	}
 	
