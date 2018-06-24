@@ -55,6 +55,7 @@
 		DC20976A20D43506000905F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC20976920D43506000905F4 /* Assets.xcassets */; };
 		DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */; };
 		DC20977920D441B3000905F4 /* GenreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20977820D441B3000905F4 /* GenreRow.swift */; };
+		DC6D85AB20E019A500970586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B38561FE86197003179A1 /* Assets.xcassets */; };
 		DC832FB820D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */; };
 		DC832FBA20D6D4CA00AC305B /* mona+lisa+frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */; };
 		DC9AA9B920E00CBE008262E8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9AA9B820E00CBE008262E8 /* NotificationCenter.framework */; };
@@ -742,6 +743,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6D85AB20E019A500970586 /* Assets.xcassets in Resources */,
 				DC9AA9BF20E00CBE008262E8 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

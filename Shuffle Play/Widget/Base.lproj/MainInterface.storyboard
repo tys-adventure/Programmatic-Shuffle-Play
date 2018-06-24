@@ -30,6 +30,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="M4Y-Lb-cyx" id="8NA-Ry-msC"/>
+                                    <outlet property="delegate" destination="M4Y-Lb-cyx" id="vh9-AU-H6l"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <constraints>
@@ -43,6 +47,9 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="200"/>
+                    <connections>
+                        <outlet property="table" destination="chw-pV-Z70" id="Dy1-NC-KAD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

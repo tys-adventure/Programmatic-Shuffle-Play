@@ -424,6 +424,10 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		sendGenresArray()
 		
 		musicProvider = .AppleMusic
+		
+		if let defaults = UserDefaults(suiteName: "group.com.thom.shufflePlayPlus") {
+			defaults.set(PlayerController.buttonTitles, forKey: "genresForExtension")
+		}
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {

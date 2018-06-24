@@ -13,19 +13,19 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
 	
 	//let userDefaults = UserDefaults.standard
 	var genres: [String] = []
-        
+    @IBOutlet weak var table: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
 		if let defaults = UserDefaults(suiteName: "group.com.thom.shufflePlayPlus") {
-			if defaults.value(forKey: "genresWatch") != nil {
-				let genres = defaults.value(forKey: "genresWatch") as! [String]
+			if defaults.value(forKey: "genresForExtension") != nil {
+				let genres = defaults.value(forKey: "genresForExtension") as! [String]
 				self.genres = genres
 			} else {
 				genres = ["Hip Hop", "Rap", "Rock"]
 			}
 		}
-		
     }
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,7 +43,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+        #warning("Integrating the didSelectRowAt")
 	}
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

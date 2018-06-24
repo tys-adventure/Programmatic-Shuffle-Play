@@ -15,17 +15,18 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 	@IBOutlet weak var tableView: WKInterfaceTable!
 	var genres: [String] = []
 	
-	let userDefaults = UserDefaults.standard
-	
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
 		
-		if userDefaults.value(forKey: "genresWatch") != nil {
-			let genres = userDefaults.value(forKey: "genresWatch") as! [String]
-			self.genres = genres
-		} else {
-			genres = []
+		if let defaults = UserDefaults(suiteName: "group.com.thom.shufflePlayPlus") {
+			if defaults.value(forKey: "genresWatch") != nil {
+				let genres = defaults.value(forKey: "genresWatch") as! [String]
+				self.genres = genres
+			} else {
+				genres = []
+			}
 		}
+		
 		
 		// Configure interface objects here.
 		checkOfWCSessionIsSupported()
@@ -86,8 +87,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 	func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
 		if let genres = userInfo["genres"] as? [String] {
 			self.genres = genres
-			userDefaults.set(genres, forKey: "genresWatch")
-			updateTable()
+			if let defaults = UserDefaults(suiteName: "group.com.thom.shufflePlayPlus") {
+				defaults.set(genres, forKey: "genresWatch")
+				updateTable()
+			}
 		}
 	}
 	
