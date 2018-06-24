@@ -26,8 +26,6 @@ class SpotifyLoginScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, S
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		// Do any additional setup after loading the view.
 		setup()
 		NotificationCenter.default.addObserver(self, selector: #selector(SpotifyLoginScreen.updateAfterFirstLogin), name: Notification.Name.spotifyLoginSuccessfulNotificationKey, object: nil)
 	}
@@ -49,6 +47,7 @@ class SpotifyLoginScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, S
 			self.player!.delegate = self
 			try! player!.start(withClientId: auth.clientID)
 			self.player!.login(withAccessToken: authSession.accessToken)
+			
 		}
 	}
 	
@@ -67,7 +66,7 @@ class SpotifyLoginScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, S
 		#warning("Our own client id here")
 		SPTAuth.defaultInstance()?.redirectURL  = URL(string: "")
 		#warning("Our own redirectURL here")
-		SPTAuth.defaultInstance()?.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistReadPrivateScope]
+		SPTAuth.defaultInstance()?.requestedScopes = [SPTAuthStreamingScope, SPTAuthUserLibraryReadScope]
 		#warning("Select the functions we need")
 		loginURL = SPTAuth.defaultInstance()?.spotifyWebAuthenticationURL()
 	}

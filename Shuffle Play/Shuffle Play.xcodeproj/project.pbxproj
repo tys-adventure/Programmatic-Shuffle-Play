@@ -57,6 +57,10 @@
 		DC20977920D441B3000905F4 /* GenreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20977820D441B3000905F4 /* GenreRow.swift */; };
 		DC832FB820D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */; };
 		DC832FBA20D6D4CA00AC305B /* mona+lisa+frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */; };
+		DC9AA9B920E00CBE008262E8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9AA9B820E00CBE008262E8 /* NotificationCenter.framework */; };
+		DC9AA9BC20E00CBE008262E8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AA9BB20E00CBE008262E8 /* TodayViewController.swift */; };
+		DC9AA9BF20E00CBE008262E8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9AA9BD20E00CBE008262E8 /* MainInterface.storyboard */; };
+		DC9AA9C320E00CBE008262E8 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DC9AA9B620E00CBE008262E8 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DC9EECDB20DFBD6D002E2F94 /* MusicProviderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9EECDA20DFBD6D002E2F94 /* MusicProviderEnum.swift */; };
 		DC9EECDE20DFBEA2002E2F94 /* SpotifyLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9EECDD20DFBEA2002E2F94 /* SpotifyLoginScreen.swift */; };
 		DC9EECE320DFBFFC002E2F94 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9EECE020DFBFFB002E2F94 /* SpotifyAudioPlayback.framework */; };
@@ -97,6 +101,13 @@
 			remoteGlobalIDString = DC20975120D43503000905F4;
 			remoteInfo = WatchAppShufflePlayPlus;
 		};
+		DC9AA9C120E00CBE008262E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C1B38411FE86197003179A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC9AA9B520E00CBE008262E8;
+			remoteInfo = Widget;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -120,6 +131,17 @@
 				DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9AA9C720E00CBE008262E8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DC9AA9C320E00CBE008262E8 /* Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -184,6 +206,15 @@
 		DC20977820D441B3000905F4 /* GenreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRow.swift; sourceTree = "<group>"; };
 		DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkitAlbumPreviewViewController.swift; sourceTree = "<group>"; };
 		DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mona+lisa+frame.png"; sourceTree = "<group>"; };
+		DC9AA9B620E00CBE008262E8 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC9AA9B820E00CBE008262E8 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		DC9AA9BB20E00CBE008262E8 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		DC9AA9BE20E00CBE008262E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DC9AA9C020E00CBE008262E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC9AA9C820E01045008262E8 /* Shuffle Play.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Shuffle Play.entitlements"; sourceTree = "<group>"; };
+		DC9AA9C920E01077008262E8 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
+		DC9AA9CA20E0107F008262E8 /* WatchAppShufflePlayPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchAppShufflePlayPlus.entitlements; sourceTree = "<group>"; };
+		DC9AA9CB20E01085008262E8 /* WatchAppShufflePlayPlus Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchAppShufflePlayPlus Extension.entitlements"; sourceTree = "<group>"; };
 		DC9EECDA20DFBD6D002E2F94 /* MusicProviderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProviderEnum.swift; sourceTree = "<group>"; };
 		DC9EECDD20DFBEA2002E2F94 /* SpotifyLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyLoginScreen.swift; sourceTree = "<group>"; };
 		DC9EECE020DFBFFB002E2F94 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
@@ -232,6 +263,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC9AA9B320E00CBE008262E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC9AA9B920E00CBE008262E8 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -244,6 +283,8 @@
 				5C1B386E1FE86197003179A1 /* Shuffle PlayUITests */,
 				DC20975320D43503000905F4 /* WatchAppShufflePlayPlus */,
 				DC20976220D43505000905F4 /* WatchAppShufflePlayPlus Extension */,
+				DC9AA9BA20E00CBE008262E8 /* Widget */,
+				DC9AA9B720E00CBE008262E8 /* Frameworks */,
 				5C1B384A1FE86197003179A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -257,6 +298,7 @@
 				5C1B386B1FE86197003179A1 /* Shuffle PlayUITests.xctest */,
 				DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */,
 				DC20975E20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex */,
+				DC9AA9B620E00CBE008262E8 /* Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,6 +306,7 @@
 		5C1B384B1FE86197003179A1 /* Shuffle Play */ = {
 			isa = PBXGroup;
 			children = (
+				DC9AA9C820E01045008262E8 /* Shuffle Play.entitlements */,
 				5C7FF3DB205F758F00668E23 /* UI ViewControllers */,
 				DCED792F20D0481D00EE9ACB /* Localizable */,
 				DC3EFFF120C9BF2900F4AFC9 /* Model */,
@@ -359,6 +402,7 @@
 		DC20975320D43503000905F4 /* WatchAppShufflePlayPlus */ = {
 			isa = PBXGroup;
 			children = (
+				DC9AA9CA20E0107F008262E8 /* WatchAppShufflePlayPlus.entitlements */,
 				DC20975420D43503000905F4 /* Interface.storyboard */,
 				DC20975720D43504000905F4 /* Assets.xcassets */,
 				DC20975920D43504000905F4 /* Info.plist */,
@@ -369,6 +413,7 @@
 		DC20976220D43505000905F4 /* WatchAppShufflePlayPlus Extension */ = {
 			isa = PBXGroup;
 			children = (
+				DC9AA9CB20E01085008262E8 /* WatchAppShufflePlayPlus Extension.entitlements */,
 				DC20976320D43505000905F4 /* InterfaceController.swift */,
 				DC20977820D441B3000905F4 /* GenreRow.swift */,
 				DC20976520D43505000905F4 /* ExtensionDelegate.swift */,
@@ -402,6 +447,25 @@
 				5C7FF3DC205F75C000668E23 /* Track.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC9AA9B720E00CBE008262E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC9AA9B820E00CBE008262E8 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC9AA9BA20E00CBE008262E8 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				DC9AA9C920E01077008262E8 /* Widget.entitlements */,
+				DC9AA9BB20E00CBE008262E8 /* TodayViewController.swift */,
+				DC9AA9BD20E00CBE008262E8 /* MainInterface.storyboard */,
+				DC9AA9C020E00CBE008262E8 /* Info.plist */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		DC9EECDC20DFBD74002E2F94 /* Enums */ = {
@@ -442,11 +506,13 @@
 				5C1B38461FE86197003179A1 /* Frameworks */,
 				5C1B38471FE86197003179A1 /* Resources */,
 				DC20977720D43506000905F4 /* Embed Watch Content */,
+				DC9AA9C720E00CBE008262E8 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				DC20976E20D43506000905F4 /* PBXTargetDependency */,
+				DC9AA9C220E00CBE008262E8 /* PBXTargetDependency */,
 			);
 			name = "Shuffle Play";
 			productName = "Shuffle Play";
@@ -523,6 +589,23 @@
 			productReference = DC20975E20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		DC9AA9B520E00CBE008262E8 /* Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC9AA9C620E00CBE008262E8 /* Build configuration list for PBXNativeTarget "Widget" */;
+			buildPhases = (
+				DC9AA9B220E00CBE008262E8 /* Sources */,
+				DC9AA9B320E00CBE008262E8 /* Frameworks */,
+				DC9AA9B420E00CBE008262E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Widget;
+			productName = Widget;
+			productReference = DC9AA9B620E00CBE008262E8 /* Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -538,6 +621,9 @@
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -558,10 +644,29 @@
 					DC20975120D43503000905F4 = {
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					DC20975D20D43505000905F4 = {
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					DC9AA9B520E00CBE008262E8 = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -584,6 +689,7 @@
 				5C1B386A1FE86197003179A1 /* Shuffle PlayUITests */,
 				DC20975120D43503000905F4 /* WatchAppShufflePlayPlus */,
 				DC20975D20D43505000905F4 /* WatchAppShufflePlayPlus Extension */,
+				DC9AA9B520E00CBE008262E8 /* Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -629,6 +735,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC20976A20D43506000905F4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9AA9B420E00CBE008262E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC9AA9BF20E00CBE008262E8 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +823,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC9AA9B220E00CBE008262E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC9AA9BC20E00CBE008262E8 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -731,6 +853,11 @@
 			isa = PBXTargetDependency;
 			target = DC20975120D43503000905F4 /* WatchAppShufflePlayPlus */;
 			targetProxy = DC20976D20D43506000905F4 /* PBXContainerItemProxy */;
+		};
+		DC9AA9C220E00CBE008262E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC9AA9B520E00CBE008262E8 /* Widget */;
+			targetProxy = DC9AA9C120E00CBE008262E8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -760,6 +887,14 @@
 				DC20975520D43503000905F4 /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		DC9AA9BD20E00CBE008262E8 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC9AA9BE20E00CBE008262E8 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		DCED793620D049B300EE9ACB /* Localizable.strings */ = {
@@ -892,8 +1027,10 @@
 		5C1B38751FE86197003179A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Shuffle Play/Shuffle Play.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BRLV2FEPT;
@@ -919,8 +1056,10 @@
 		5C1B38761FE86197003179A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Shuffle Play/Shuffle Play.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BRLV2FEPT;
@@ -1014,6 +1153,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = WatchAppShufflePlayPlus/WatchAppShufflePlayPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				IBSC_MODULE = WatchAppShufflePlayPlus_Extension;
@@ -1035,6 +1175,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = WatchAppShufflePlayPlus/WatchAppShufflePlayPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				IBSC_MODULE = WatchAppShufflePlayPlus_Extension;
@@ -1054,6 +1195,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "WatchAppShufflePlayPlus Extension/WatchAppShufflePlayPlus Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				INFOPLIST_FILE = "WatchAppShufflePlayPlus Extension/Info.plist";
@@ -1074,6 +1216,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = "WatchAppShufflePlayPlus Extension/WatchAppShufflePlayPlus Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BRLV2FEPT;
 				INFOPLIST_FILE = "WatchAppShufflePlayPlus Extension/Info.plist";
@@ -1085,6 +1228,43 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		DC9AA9C420E00CBE008262E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC9AA9C520E00CBE008262E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1141,6 +1321,15 @@
 			buildConfigurations = (
 				DC20977020D43506000905F4 /* Debug */,
 				DC20977120D43506000905F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC9AA9C620E00CBE008262E8 /* Build configuration list for PBXNativeTarget "Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC9AA9C420E00CBE008262E8 /* Debug */,
+				DC9AA9C520E00CBE008262E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
