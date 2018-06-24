@@ -25,6 +25,8 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	
 	static var buttonTitles: [String] = []
 	
+	var musicProvider: MusicProvider = .notSet
+	
 	let userDefaults = UserDefaults.standard
 	
 	//MARK:- Setting up layout
@@ -420,6 +422,8 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		
 		checkOfWCSessionIsSupported()
 		sendGenresArray()
+		
+		musicProvider = .AppleMusic
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {

@@ -24,6 +24,3 @@ struct Track {
 		self.artist = artist
 	}
 }
-
-
-

@@ -15,6 +15,7 @@ import CoreSpotlight
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var window: UIWindow?
+	var auth = SPTAuth()
 	
 	internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
@@ -23,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		self.window?.rootViewController = PlayerController()
 		self.window?.makeKeyAndVisible()
+		
+		auth.redirectURL = URL(string: ""); #warning("our redirect url here")
+		auth.sessionUserDefaultsKey = "current session"
 		
 		return true
 	}
@@ -109,6 +113,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 		}
 		return true
+	}
+	
+	// 1
+	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+		// 2- check if app can handle redirect URL
+		if auth.canHandle(auth.redirectURL) {
+			// 3 - handle callback in closure
+			auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
+				// 4- handle error
+				if error != nil {
+					print("error!")
+				}
+				// 5- Add session to User Defaults
+				let userDefaults = UserDefaults.standard
+				let sessionData = NSKeyedArchiver.archivedData(withRootObject: session)
+				userDefaults.set(sessionData, forKey: "SpotifySession")
+				userDefaults.synchronize()
+				// 6 - Tell notification center login is successful
+				NotificationCenter.default.post(name: Notification.Name.spotifyLoginSuccessfulNotificationKey, object: nil)
+			})
+			return true
+		}
+		return false
 	}
 	
 }

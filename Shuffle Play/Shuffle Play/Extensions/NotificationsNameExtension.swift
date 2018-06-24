@@ -13,4 +13,5 @@ extension Notification.Name {
 	static let artistNotifacationKey = Notification.Name("xyz.tyler.isplaying")
 	static let trackTitleNotifactionKey = Notification.Name("xyz.tyler.isplaying")
 	static let genreNotificationKey = Notification.Name("xyz.tyler.genreFromSpotlightSelected")
+	static let spotifyLoginSuccessfulNotificationKey = Notification.Name("loginSuccessfull")
 }
