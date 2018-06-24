@@ -17,6 +17,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		
         // Do any additional setup after loading the view from its nib.
 		if let defaults = UserDefaults(suiteName: "group.com.thom.shufflePlayPlus") {
 			if defaults.value(forKey: "genresForExtension") != nil {

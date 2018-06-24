@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.thom.shuffleplayplus</string>
+	<string>com.tyler.shuffleplayplus</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

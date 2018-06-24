@@ -623,7 +623,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -647,7 +647,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -656,7 +656,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -665,7 +665,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1032,10 +1032,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Shuffle Play/Shuffle Play.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Shuffle\\ Play/Helpers/Frameworks",
@@ -1045,7 +1044,7 @@
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Shuffle Play/Helpers/Frameworks/Shuffle Play-Bridging-Header.h";
@@ -1061,10 +1060,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Shuffle Play/Shuffle Play.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Shuffle\\ Play/Helpers/Frameworks",
@@ -1074,7 +1072,7 @@
 				INFOPLIST_FILE = "Shuffle Play/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Shuffle Play/Helpers/Frameworks/Shuffle Play-Bridging-Header.h";
@@ -1155,13 +1153,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = WatchAppShufflePlayPlus/WatchAppShufflePlayPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				IBSC_MODULE = WatchAppShufflePlayPlus_Extension;
 				INFOPLIST_FILE = WatchAppShufflePlayPlus/Info.plist;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1177,12 +1174,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = WatchAppShufflePlayPlus/WatchAppShufflePlayPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				IBSC_MODULE = WatchAppShufflePlayPlus_Extension;
 				INFOPLIST_FILE = WatchAppShufflePlayPlus/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1197,13 +1193,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = "WatchAppShufflePlayPlus Extension/WatchAppShufflePlayPlus Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "WatchAppShufflePlayPlus Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1218,12 +1213,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = "WatchAppShufflePlayPlus Extension/WatchAppShufflePlayPlus Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "WatchAppShufflePlayPlus Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1237,14 +1231,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.Widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -1256,13 +1249,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thom.shuffleplayplus.Widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
