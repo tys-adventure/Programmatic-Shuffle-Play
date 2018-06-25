@@ -70,6 +70,9 @@
 		DCD001F320C9C026002C7222 /* NotificationsNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */; };
 		DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F420CB1100002C7222 /* CoreSpotlight.swift */; };
 		DCECCB2D20D69D19002950EE /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECCB2C20D69D19002950EE /* ViewControllerExtension.swift */; };
+		DCED665420E169AB0060DC70 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED665320E169AB0060DC70 /* CustomImageView.swift */; };
+		DCED665620E16DB90060DC70 /* CustomLabelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED665520E16DB90060DC70 /* CustomLabelClass.swift */; };
+		DCED665820E16E5D0060DC70 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED665720E16E5D0060DC70 /* CustomTextView.swift */; };
 		DCED793420D049B300EE9ACB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCED793620D049B300EE9ACB /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -225,6 +228,9 @@
 		DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsNameExtension.swift; sourceTree = "<group>"; };
 		DCD001F420CB1100002C7222 /* CoreSpotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSpotlight.swift; sourceTree = "<group>"; };
 		DCECCB2C20D69D19002950EE /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		DCED665320E169AB0060DC70 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		DCED665520E16DB90060DC70 /* CustomLabelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelClass.swift; sourceTree = "<group>"; };
+		DCED665720E16E5D0060DC70 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		DCED793120D0494100EE9ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DCED793520D049B300EE9ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DCED793720D04A3900EE9ACB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
@@ -311,6 +317,7 @@
 				5C7FF3DB205F758F00668E23 /* UI ViewControllers */,
 				DCED792F20D0481D00EE9ACB /* Localizable */,
 				DC3EFFF120C9BF2900F4AFC9 /* Model */,
+				DCED665220E169880060DC70 /* View */,
 				DC3EFFF020C9BE1900F4AFC9 /* Extensions */,
 				5C698CB32009AAD8005FD7C4 /* Helpers */,
 				5C1B385B1FE86197003179A1 /* Info.plist */,
@@ -486,6 +493,16 @@
 				DC9EECE620DFC03F002E2F94 /* Shuffle Play-Bridging-Header.h */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCED665220E169880060DC70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DCED665320E169AB0060DC70 /* CustomImageView.swift */,
+				DCED665520E16DB90060DC70 /* CustomLabelClass.swift */,
+				DCED665720E16E5D0060DC70 /* CustomTextView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DCED792F20D0481D00EE9ACB /* Localizable */ = {
@@ -756,6 +773,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CEF02A6201E353100D63D3E /* streamingController.swift in Sources */,
+				DCED665420E169AB0060DC70 /* CustomImageView.swift in Sources */,
 				DC9EECDB20DFBD6D002E2F94 /* MusicProviderEnum.swift in Sources */,
 				5CB93783205820F700F8EC98 /* HipHopRapController.swift in Sources */,
 				5CB9377D2058156A00F8EC98 /* SingerController.swift in Sources */,
@@ -770,11 +788,13 @@
 				5CC20AE1202FB3AB00CFF27C /* gradientUIViewExtension.swift in Sources */,
 				5C3D66BD20489CB30058A20B /* CountryController.swift in Sources */,
 				5C3D66BF2048AA360058A20B /* PopController.swift in Sources */,
+				DCED665620E16DB90060DC70 /* CustomLabelClass.swift in Sources */,
 				5C3D67452049DD310058A20B /* genreSroll.swift in Sources */,
 				5C8C6B2D2076973D007A68AF /* AutoLayoutContraints.swift in Sources */,
 				24A955A920D1DFDF009B48E6 /* TylerViewController.swift in Sources */,
 				5CB9378720582B5800F8EC98 /* RockController.swift in Sources */,
 				5CEF02A4201E34F900D63D3E /* selectionsController.swift in Sources */,
+				DCED665820E16E5D0060DC70 /* CustomTextView.swift in Sources */,
 				DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */,
 				5CB9377F2058185600F8EC98 /* RBSoulController.swift in Sources */,
 				5C1B387E1FE861EB003179A1 /* GenreButtonScreen.swift in Sources */,

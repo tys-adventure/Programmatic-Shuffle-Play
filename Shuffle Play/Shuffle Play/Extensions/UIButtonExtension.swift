@@ -11,6 +11,13 @@ import UIKit
 
 extension UIButton {
 	
+	enum typeButton {
+		case normalButton
+		case colorButton
+		case controllerButton
+		case musicButton
+	}
+	
 	//MARK: UIButton Styles
 	static func createButton() -> UIButton {
 		let button = UIButton()

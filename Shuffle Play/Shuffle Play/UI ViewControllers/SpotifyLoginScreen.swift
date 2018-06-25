@@ -62,10 +62,9 @@ class SpotifyLoginScreen: UIViewController, SPTAudioStreamingPlaybackDelegate, S
 	}
 	
 	func setup() {
-		SPTAuth.defaultInstance()?.clientID = ""
-		#warning("Our own client id here")
-		SPTAuth.defaultInstance()?.redirectURL  = URL(string: "")
-		#warning("Our own redirectURL here")
+		SPTAuth.defaultInstance()?.clientID = "6d3f7d9b2bf543d79513756f859e3261"
+//		SPTAuth.defaultInstance()?.redirectURL  = URL(string: "")
+//		#warning("Our own redirectURL here")
 		SPTAuth.defaultInstance()?.requestedScopes = [SPTAuthStreamingScope, SPTAuthUserLibraryReadScope]
 		#warning("Select the functions we need")
 		loginURL = SPTAuth.defaultInstance()?.spotifyWebAuthenticationURL()

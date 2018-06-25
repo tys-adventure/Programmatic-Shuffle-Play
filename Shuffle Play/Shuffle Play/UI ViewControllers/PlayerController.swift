@@ -31,71 +31,20 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	
 	//MARK:- Setting up layout
 	//Album Image View
-	var albumImageView: UIImageView = {
-		let imageView = UIImageView()
-		imageView.isUserInteractionEnabled = true
-		imageView.layer.shadowColor = UIColor.black.cgColor
-		imageView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		imageView.layer.masksToBounds = false
-		imageView.layer.shadowRadius = 4.0
-		imageView.layer.shadowOpacity = 5.0
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		return imageView
-	}()
+	var albumImageView = CustomImageView(shadowRadius: 4.0, shadowOpacity: 5.0)
 	
-	var downArrowImageView: UIImageView = {
-		let imageView = UIImageView(image: #imageLiteral(resourceName: "downArrow")) 
-		imageView.layer.shadowColor = UIColor.black.cgColor
-		imageView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		imageView.layer.masksToBounds = false
-		imageView.layer.shadowRadius = 3.0
-		imageView.layer.shadowOpacity = 1.0
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		return imageView
-	}()
+	var downArrowImageView = CustomImageView(shadowRadius: 3.0, shadowOpacity: 1.0)
 	
 	//Song Label
-	var nowPlayingLabel : UILabel = {
-		let label = UILabel()
-		label.textAlignment = .center
-		label.backgroundColor = UIColor.clear
-		label.isUserInteractionEnabled = false
-		label.textColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 1)
-		label.translatesAutoresizingMaskIntoConstraints = false
-		return label
-	}()
+	var nowPlayingLabel = CustomLabelClass()
 	
 	//Artist Label
-	var artistLabel : UILabel = {
-		let label = UILabel()
-		label.textAlignment = .center
-		label.backgroundColor = UIColor.clear
-		label.isUserInteractionEnabled = false
-		label.textColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 1)
-		label.translatesAutoresizingMaskIntoConstraints = false
-		return label
-	}()
+	var artistLabel = CustomLabelClass()
 	
 	//Genre Shuffle Play textView
-	let genreTextView: UITextView = {
-		let textView = ProfileController.createTextView()
-		textView.font = UIFont(name:"Avenir Next", size: 35.0)
-		textView.textColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 1)
-		//textView.text = "Genres"
-		textView.text = NSLocalizedString("playerControllerGenreTextView", comment: "The_genre_text_view_in_playerController")
-		textView.translatesAutoresizingMaskIntoConstraints = false
-		return textView
-	}()
+	let genreTextView = CustomTextView(text: NSLocalizedString("playerControllerGenreTextView", comment: "The_genre_text_view_in_playerController"), size: 35.0)
 	
-	let spTextView: UITextView = {
-		let textView = ProfileController.createTextView()
-		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.textColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 1)
-		//textView.text = "Shuffle Play Plus"
-		textView.text = NSLocalizedString("playerControllerSpTextView", comment: "The_sp_text_view_playerController")
-		textView.translatesAutoresizingMaskIntoConstraints = false
-		return textView
-	}()
+	let spTextView = CustomTextView(text: NSLocalizedString("playerControllerSpTextView", comment: "The_sp_text_view_playerController"), size: 25.0)
 	
 	//ProfileButton
 	let profileButton: UIButton = {
