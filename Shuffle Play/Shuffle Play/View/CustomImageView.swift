@@ -10,8 +10,11 @@ import UIKit
 
 class CustomImageView: UIImageView {
 
-	init(shadowRadius: CGFloat, shadowOpacity: Float) {
+	init(shadowRadius: CGFloat, shadowOpacity: Float, image: UIImage?) {
 		super.init(frame: .zero)
+		if image != nil {
+			self.image = image
+		}
 		isUserInteractionEnabled = true
 		layer.shadowColor = UIColor.black.cgColor
 		layer.shadowOffset = CGSize(width: 0.0, height: 2.0)

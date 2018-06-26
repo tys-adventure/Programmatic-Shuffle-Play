@@ -31,186 +31,39 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	
 	//MARK:- Setting up layout
 	//Album Image View
-	var albumImageView = CustomImageView(shadowRadius: 4.0, shadowOpacity: 5.0)
-	
-	var downArrowImageView = CustomImageView(shadowRadius: 3.0, shadowOpacity: 1.0)
-	
+	var albumImageView = CustomImageView(shadowRadius: 4.0, shadowOpacity: 5.0, image: nil)
+	var downArrowImageView = CustomImageView(shadowRadius: 3.0, shadowOpacity: 1.0, image: #imageLiteral(resourceName: "downArrow"))
 	//Song Label
-	var nowPlayingLabel = CustomLabelClass()
-	
+	var nowPlayingLabel = CustomLabel()
 	//Artist Label
-	var artistLabel = CustomLabelClass()
-	
+	var artistLabel = CustomLabel()
 	//Genre Shuffle Play textView
 	let genreTextView = CustomTextView(text: NSLocalizedString("playerControllerGenreTextView", comment: "The_genre_text_view_in_playerController"), size: 35.0)
-	
 	let spTextView = CustomTextView(text: NSLocalizedString("playerControllerSpTextView", comment: "The_sp_text_view_playerController"), size: 25.0)
-	
 	//ProfileButton
-	let profileButton: UIButton = {
-		let button = UIButton.controllerButton()
-		//button.setTitle("Profile", for: .normal)
-		button.setTitle(NSLocalizedString("playerControllerProfileButton", comment: "TheProfileButtonInPlayerController"), for: .normal)
-		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "chart1-white.png") {
-			button.setImage(homeImage, for: .normal)
-			button.tintColor = UIColor.black
-		}
-		button.addTarget(self, action: #selector(profileButton(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
-	
+	let profileButton = CustomButton(title: NSLocalizedString("playerControllerProfileButton", comment: "TheProfileButtonInPlayerController"), imageNamed: "chart1-white.png")
 	//Play
-	let playButton: UIButton = {
-		let button = UIButton.musicButton()
-		if let homeImage  = UIImage(named: "play-white.png") {
-			button.setImage(homeImage, for: .normal)
-			button.tintColor = UIColor.black
-		}
-		button.addTarget(self, action: #selector(playButtonTapped(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
-	
+	let playButton = CustomButton(imageNamed: "play-white.png")
 	//Pause
-	let pauseButton: UIButton = {
-		let button = UIButton.musicButton()
-		if let homeImage  = UIImage(named: "pause-white3.png") {
-			button.setImage(homeImage, for: .normal)
-			button.tintColor = UIColor.black
-		}
-		button.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
-	
+	let pauseButton = CustomButton(imageNamed: "pause-white3.png")
 	//Previous
-	let previousButton: UIButton = {
-		let button = UIButton.musicButton()
-		
-		if let homeImage  = UIImage(named: "previous-white.png") {
-			button.setImage(homeImage, for: .normal)
-			button.tintColor = UIColor.black
-		}
-		button.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
-	
+	let previousButton = CustomButton(imageNamed: "previous-white.png")
 	//Next
-	let nextButton: UIButton = {
-		let button = UIButton.musicButton()
-		if let homeImage  = UIImage(named: "next-white.png") {
-			button.setImage(homeImage, for: .normal)
-			button.tintColor = UIColor.black
-		}
-		button.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
-	
-	let HHButton: UIButton = {
-		let btn = UIButton.createColorButton()
-		//btn.setTitle("Hip-Hop", for: .normal)
-		btn.setTitle(NSLocalizedString("playerControllerHHButton", comment: "TheHHButtonInPlayerController"), for: .normal)
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
-	let PopButton: UIButton = {
-		let btn = UIButton.createColorButton()
-		//btn.setTitle("Pop", for: .normal)
-		btn.setTitle(NSLocalizedString("playerControllerPopButton", comment: "ThePopButtonInPlayerController"), for: .normal)
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
-	let RockButton: UIButton = {
-		let btn = UIButton.createColorButton()
-		//btn.setTitle("Rock", for: .normal)
-		btn.setTitle(NSLocalizedString("playerControllerRockButton", comment: "TheRockButtonInPlayerController"), for: .normal)
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
-	let ElectronicButton: UIButton = {
-		let btn = UIButton.createColorButton()
-		//btn.setTitle("Electronic", for: .normal)
-		btn.setTitle(NSLocalizedString("playerControllerElectronicButton", comment: "theElectronicButtonInPlayerController"), for: .normal)
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
-	let KPOPButton: UIButton = {
-		let btn = UIButton.createColorButton()
-		//btn.setTitle("K-Pop", for: .normal)
-		btn.setTitle(NSLocalizedString("playerControllerKPOPButton", comment: "TheKPOPButtonInPlayerController"), for: .normal)
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
-	let CountryButton: UIButton = {
-		let btn = UIButton.createColorButton()
-		//btn.setTitle("Country", for: .normal)
-		btn.setTitle(NSLocalizedString("playerControllerCountryButton", comment: "TheCountryButtonInPlayerController"), for: .normal)
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
-	let RBSoulButton: UIButton = {
-		let btn = UIButton.createColorButton()
-		//btn.setTitle("R&B/Soul", for: .normal)
-		btn.setTitle(NSLocalizedString("playerControllerRBSoulButton", comment: "TheRBSOULButtonInPlayerController"), for: .normal)
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
-	let SingerButton: UIButton = {
-		let btn = UIButton.createColorButton()
-		//btn.setTitle("Singer/Songwriter", for: .normal)
-		btn.setTitle(NSLocalizedString("playerControllerSingerButton", comment: "TheSingerButtonInPlayerController"), for: .normal)
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
-	let RapButton: UIButton = {
-		let btn = UIButton.createColorButton()
-		//btn.setTitle("Rap", for: .normal)
-		btn.setTitle(NSLocalizedString("playerControllerRapButton", comment: "TheRapButtonInPlayerController"), for: .normal)
-		btn.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		btn.translatesAutoresizingMaskIntoConstraints = false
-		return btn
-	}()
-	
+	let nextButton = CustomButton(imageNamed: "next-white.png")
+	//Genre Buttons
+	let HHButton = CustomGenreButton(title: NSLocalizedString("playerControllerHHButton", comment: "TheHHButtonInPlayerController"))
+	let PopButton = CustomGenreButton(title: NSLocalizedString("playerControllerPopButton", comment: "ThePopButtonInPlayerController"))
+	let RockButton = CustomGenreButton(title: NSLocalizedString("playerControllerRockButton", comment: "TheRockButtonInPlayerController"))
+	let ElectronicButton = CustomGenreButton(title: NSLocalizedString("playerControllerElectronicButton", comment: "theElectronicButtonInPlayerController"))
+	let KPOPButton = CustomGenreButton(title: NSLocalizedString("playerControllerKPOPButton", comment: "TheKPOPButtonInPlayerController"))
+	let CountryButton = CustomGenreButton(title: NSLocalizedString("playerControllerCountryButton", comment: "TheCountryButtonInPlayerController"))
+	let RBSoulButton = CustomGenreButton(title: NSLocalizedString("playerControllerRBSoulButton", comment: "TheRBSOULButtonInPlayerController"))
+	let SingerButton = CustomGenreButton(title: NSLocalizedString("playerControllerSingerButton", comment: "TheSingerButtonInPlayerController"))
+	let RapButton = CustomGenreButton(title: NSLocalizedString("playerControllerRapButton", comment: "TheRapButtonInPlayerController"))
 	//Logo Image View
-	var logoImageView: UIImageView = {
-		let imageView = UIImageView(image: #imageLiteral(resourceName: "SPEmoji"))
-		imageView.layer.shadowColor = UIColor.black.cgColor
-		imageView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		imageView.layer.masksToBounds = false
-		imageView.layer.shadowRadius = 3.0
-		imageView.layer.shadowOpacity = 1.0
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		return imageView
-	}()
-	
-	let helloTextView: UITextView = {
-		let textView = ProfileController.createTextView()
-		textView.font = UIFont(name:"Avenir Next", size: 18.0)
-		//textView.text = "You're Awesome! "
-		textView.text = NSLocalizedString("playerControllerHelloTextView", comment: "TheHelloTextViewInPlayerController")
-		textView.translatesAutoresizingMaskIntoConstraints = false
-		return textView
-	}()
+	var logoImageView = CustomImageView(shadowRadius: 3.0, shadowOpacity: 1.0, image: #imageLiteral(resourceName: "SPEmoji"))
+	//HelloTextView
+	let helloTextView = CustomTextView(text: NSLocalizedString("playerControllerHelloTextView", comment: "TheHelloTextViewInPlayerController"), size: 18.0)
 	
 	//MARK:- View Live Cycle
 	override func viewDidLoad() {
@@ -223,6 +76,8 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		screenWidth = screensize.width
 		screenHeight = screensize.height
 		scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
+		
+		addButtonTargets()
 		
 		//Views Colors
 //		view.backgroundColor = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1)
@@ -617,6 +472,24 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	
 	func sessionDidDeactivate(_ session: WCSession) {
 		WCSession.default.activate()
+	}
+	
+	func addButtonTargets() {
+		profileButton.addTarget(self, action: #selector(profileButton(_:)), for: .touchUpInside)
+		playButton.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
+		pauseButton.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
+		previousButton.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
+		nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
+		
+		HHButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		PopButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		RockButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		ElectronicButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		KPOPButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		CountryButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		RBSoulButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		SingerButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		RapButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 	}
 	
 	

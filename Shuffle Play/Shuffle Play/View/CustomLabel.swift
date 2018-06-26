@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomLabelClass: UILabel {
+class CustomLabel: UILabel {
 
 	init() {
 		super.init(frame: .zero)

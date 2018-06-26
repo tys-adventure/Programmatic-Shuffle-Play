@@ -67,11 +67,13 @@
 		DC9EECE320DFBFFC002E2F94 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9EECE020DFBFFB002E2F94 /* SpotifyAudioPlayback.framework */; };
 		DC9EECE420DFBFFC002E2F94 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9EECE120DFBFFB002E2F94 /* SpotifyAuthentication.framework */; };
 		DC9EECE520DFBFFC002E2F94 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9EECE220DFBFFC002E2F94 /* SpotifyMetadata.framework */; };
+		DCA2F09A20E2A8D000BAE625 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2F09920E2A8D000BAE625 /* CustomButton.swift */; };
+		DCA2F09C20E2AF8B00BAE625 /* CustomGenreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2F09B20E2AF8B00BAE625 /* CustomGenreButton.swift */; };
 		DCD001F320C9C026002C7222 /* NotificationsNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */; };
 		DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD001F420CB1100002C7222 /* CoreSpotlight.swift */; };
 		DCECCB2D20D69D19002950EE /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECCB2C20D69D19002950EE /* ViewControllerExtension.swift */; };
 		DCED665420E169AB0060DC70 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED665320E169AB0060DC70 /* CustomImageView.swift */; };
-		DCED665620E16DB90060DC70 /* CustomLabelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED665520E16DB90060DC70 /* CustomLabelClass.swift */; };
+		DCED665620E16DB90060DC70 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED665520E16DB90060DC70 /* CustomLabel.swift */; };
 		DCED665820E16E5D0060DC70 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED665720E16E5D0060DC70 /* CustomTextView.swift */; };
 		DCED793420D049B300EE9ACB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCED793620D049B300EE9ACB /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -225,11 +227,13 @@
 		DC9EECE120DFBFFB002E2F94 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		DC9EECE220DFBFFC002E2F94 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
 		DC9EECE620DFC03F002E2F94 /* Shuffle Play-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Shuffle Play-Bridging-Header.h"; sourceTree = "<group>"; };
+		DCA2F09920E2A8D000BAE625 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		DCA2F09B20E2AF8B00BAE625 /* CustomGenreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGenreButton.swift; sourceTree = "<group>"; };
 		DCD001F220C9C025002C7222 /* NotificationsNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsNameExtension.swift; sourceTree = "<group>"; };
 		DCD001F420CB1100002C7222 /* CoreSpotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSpotlight.swift; sourceTree = "<group>"; };
 		DCECCB2C20D69D19002950EE /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		DCED665320E169AB0060DC70 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
-		DCED665520E16DB90060DC70 /* CustomLabelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelClass.swift; sourceTree = "<group>"; };
+		DCED665520E16DB90060DC70 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		DCED665720E16E5D0060DC70 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		DCED793120D0494100EE9ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DCED793520D049B300EE9ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -457,6 +461,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DC42B78020E2A87B0068A7A1 /* Custom Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				DCA2F09920E2A8D000BAE625 /* CustomButton.swift */,
+				DCA2F09B20E2AF8B00BAE625 /* CustomGenreButton.swift */,
+			);
+			path = "Custom Buttons";
+			sourceTree = "<group>";
+		};
 		DC9AA9B720E00CBE008262E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,8 +511,9 @@
 		DCED665220E169880060DC70 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DC42B78020E2A87B0068A7A1 /* Custom Buttons */,
 				DCED665320E169AB0060DC70 /* CustomImageView.swift */,
-				DCED665520E16DB90060DC70 /* CustomLabelClass.swift */,
+				DCED665520E16DB90060DC70 /* CustomLabel.swift */,
 				DCED665720E16E5D0060DC70 /* CustomTextView.swift */,
 			);
 			path = View;
@@ -778,6 +792,7 @@
 				5CB93783205820F700F8EC98 /* HipHopRapController.swift in Sources */,
 				5CB9377D2058156A00F8EC98 /* SingerController.swift in Sources */,
 				5C3D67472049F4E50058A20B /* ElectronicController.swift in Sources */,
+				DCA2F09C20E2AF8B00BAE625 /* CustomGenreButton.swift in Sources */,
 				5C698CB22009976C005FD7C4 /* ProfileController.swift in Sources */,
 				5CB937892058328200F8EC98 /* ChristianController.swift in Sources */,
 				24F555EF20CDC86400D4EF7E /* DeveloperMenuViewController.swift in Sources */,
@@ -788,7 +803,7 @@
 				5CC20AE1202FB3AB00CFF27C /* gradientUIViewExtension.swift in Sources */,
 				5C3D66BD20489CB30058A20B /* CountryController.swift in Sources */,
 				5C3D66BF2048AA360058A20B /* PopController.swift in Sources */,
-				DCED665620E16DB90060DC70 /* CustomLabelClass.swift in Sources */,
+				DCED665620E16DB90060DC70 /* CustomLabel.swift in Sources */,
 				5C3D67452049DD310058A20B /* genreSroll.swift in Sources */,
 				5C8C6B2D2076973D007A68AF /* AutoLayoutContraints.swift in Sources */,
 				24A955A920D1DFDF009B48E6 /* TylerViewController.swift in Sources */,
@@ -814,6 +829,7 @@
 				5C7FF3DD205F75C000668E23 /* Track.swift in Sources */,
 				5CEF02A2201D3DDB00D63D3E /* aboutController.swift in Sources */,
 				5C643F25207EB48300926DDD /* PlayerController.swift in Sources */,
+				DCA2F09A20E2A8D000BAE625 /* CustomButton.swift in Sources */,
 				5CA5423D2047CBBF005FCBD6 /* BluesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
