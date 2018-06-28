@@ -997,7 +997,7 @@
 					"$(PROJECT_DIR)/Shuffle\\ Play/Helpers/Frameworks",
 					"$(PROJECT_DIR)/Shuffle\\ Play/Helpers/Frameworks",
 				);
-				INFOPLIST_FILE = "Shuffle Play/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
@@ -1025,7 +1025,7 @@
 					"$(PROJECT_DIR)/Shuffle\\ Play/Helpers/Frameworks",
 					"$(PROJECT_DIR)/Shuffle\\ Play/Helpers/Frameworks",
 				);
-				INFOPLIST_FILE = "Shuffle Play/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tyler.shuffleplayplus;
