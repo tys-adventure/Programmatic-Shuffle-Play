@@ -180,7 +180,7 @@ class ProfileController: UIViewController {
 		
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 		
-		let vc = PlayController()
+		let vc = PlayerController()
 		self.present(vc, animated: true, completion: nil)
 		
 	}
