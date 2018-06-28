@@ -256,6 +256,7 @@
 		5C1B38401FE86197003179A1 = {
 			isa = PBXGroup;
 			children = (
+				5C1B385B1FE86197003179A1 /* Info.plist */,
 				5C1B384B1FE86197003179A1 /* Shuffle Play */,
 				5C1B38631FE86197003179A1 /* Shuffle PlayTests */,
 				5C1B386E1FE86197003179A1 /* Shuffle PlayUITests */,
@@ -323,7 +324,6 @@
 				5C1B38581FE86197003179A1 /* LaunchScreen.storyboard */,
 				5C1B38531FE86197003179A1 /* Shuffle_Play.xcdatamodeld */,
 				5C1B384C1FE86197003179A1 /* AppDelegate.swift */,
-				5C1B385B1FE86197003179A1 /* Info.plist */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
