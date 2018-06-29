@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.1</string>
+	<string>2.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>31</string>
+	<string>33</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -28,6 +28,6 @@
 	<key>WKCompanionAppBundleIdentifier</key>
 	<string>com.tyler.shuffleplayplus</string>
 	<key>WKWatchKitApp</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

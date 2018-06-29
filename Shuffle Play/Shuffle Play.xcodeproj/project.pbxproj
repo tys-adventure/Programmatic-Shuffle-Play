@@ -1043,7 +1043,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle PlayTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.tylerjphillips.Shuffle-PlayTests";
@@ -1060,7 +1060,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle PlayTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.tylerjphillips.Shuffle-PlayTests";
@@ -1076,7 +1076,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle PlayUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.tylerjphillips.Shuffle-PlayUITests";
@@ -1092,7 +1092,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
 				INFOPLIST_FILE = "Shuffle PlayUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.tylerjphillips.Shuffle-PlayUITests";
