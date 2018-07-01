@@ -70,33 +70,65 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		super.viewDidLoad()
 		
 		PlayerController.buttonTitles = [HHButton.currentTitle!, PopButton.currentTitle!, RockButton.currentTitle!, ElectronicButton.currentTitle!, KPOPButton.currentTitle!, CountryButton.currentTitle!, RBSoulButton.currentTitle!, SingerButton.currentTitle!, RapButton.currentTitle!]
-		print(PlayerController.buttonTitles)
 		
 		let screensize: CGRect = UIScreen.main.bounds
 		screenWidth = screensize.width
 		screenHeight = screensize.height
-		scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
 		
-		addButtonTargets()
-		
-		//Views Colors
-//		view.backgroundColor = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1)
-		view.backgroundColor = .white
-		view.layer.cornerRadius = 10
-		view.layer.borderWidth = 1.0
-		view.layer.borderColor = UIColor.clear.cgColor
-		view.layer.masksToBounds = true
-//		scrollView.backgroundColor = UIColor(red: 26/255, green: 152/255, blue: 177/255, alpha: 1)
-		scrollView.backgroundColor = .white
-		
-		//setupLayout()
 		view.addSubview(spTextView)
 		view.addSubview(profileButton)
 		
+		setupView()
 		setupLayout()
-		//setupGestures()
+		setupScrollView()
+		setupConstraints()
+		setupButtonTargets()
 		
-		//scrollView
+		//let spotlightVC = SpotlightSupport()
+		if !userDefaults.bool(forKey: "spotlight") {
+			SpotlightSupport().integrateCoreSpotlight()
+			userDefaults.set(true, forKey: "spotlight")
+		}
+		
+		checkOfWCSessionIsSupported()
+		sendGenresArray()
+		
+		musicProvider = .AppleMusic
+		
+		if let defaults = UserDefaults(suiteName: "group.com.thom.shufflePlayPlus") {
+			defaults.set(PlayerController.buttonTitles, forKey: "genresForExtension")
+		}
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		NotificationCenter.default.addObserver(forName: Notification.Name.genreNotificationKey, object: nil, queue: OperationQueue.main) { (notification) in
+			if let userInfo = notification.userInfo {
+				self.viaCoreSportlight(genre: userInfo["genre"] as! String)
+			}
+		}
+		
+	}
+	
+	//MARK:- last bit of setup
+	private func setupLayout() {
+		
+		spTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
+		spTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		spTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+		spTextView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+		
+		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 45).isActive = true
+		profileButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+		profileButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+		
+	}
+	
+	func setupScrollView() {
+		scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
+		scrollView.backgroundColor = .white
 		scrollView.addSubview(logoImageView)
 		scrollView.addSubview(albumImageView)
 		scrollView.addSubview(artistLabel)
@@ -117,7 +149,11 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		scrollView.addSubview(genreTextView)
 		scrollView.addSubview(downArrowImageView)
 		scrollView.addSubview(helloTextView)
-		
+		scrollView.contentSize = CGSize(width: screenWidth, height: 2175)
+		view.addSubview(scrollView)
+	}
+	
+	func setupConstraints() {
 		NSLayoutConstraint(item: helloTextView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: helloTextView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200).isActive = true
 		NSLayoutConstraint(item: helloTextView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40).isActive = true
@@ -220,49 +256,32 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		NSLayoutConstraint(item: RapButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1000).isActive = true
 		NSLayoutConstraint(item: RapButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60).isActive = true
 		
-		scrollView.contentSize = CGSize(width: screenWidth, height: 2175)
-		view.addSubview(scrollView)
-		
-		//let spotlightVC = SpotlightSupport()
-		if !userDefaults.bool(forKey: "spotlight") {
-			SpotlightSupport().integrateCoreSpotlight()
-			userDefaults.set(true, forKey: "spotlight")
-		}
-		
-		checkOfWCSessionIsSupported()
-		sendGenresArray()
-		
-		musicProvider = .AppleMusic
-		
-		if let defaults = UserDefaults(suiteName: "group.com.thom.shufflePlayPlus") {
-			defaults.set(PlayerController.buttonTitles, forKey: "genresForExtension")
-		}
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
-		NotificationCenter.default.addObserver(forName: Notification.Name.genreNotificationKey, object: nil, queue: OperationQueue.main) { (notification) in
-			if let userInfo = notification.userInfo {
-				self.viaCoreSportlight(genre: userInfo["genre"] as! String)
-			}
-		}
-		
+	func setupView() {
+		view.backgroundColor = .white
+		view.layer.cornerRadius = 10
+		view.layer.borderWidth = 1.0
+		view.layer.borderColor = UIColor.clear.cgColor
+		view.layer.masksToBounds = true
 	}
 	
-	//MARK:- last bit of setup
-	private func setupLayout() {
+	func setupButtonTargets() {
+		profileButton.addTarget(self, action: #selector(profileButton(_:)), for: .touchUpInside)
+		playButton.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
+		pauseButton.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
+		previousButton.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
+		nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
 		
-		spTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
-		spTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		spTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-		spTextView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-		
-		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 45).isActive = true
-		profileButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-		profileButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-		
+		HHButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		PopButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		RockButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		ElectronicButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		KPOPButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		CountryButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		RBSoulButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		SingerButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
+		RapButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
 	}
 	
 	//MARK:- Gestures
@@ -293,8 +312,6 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	}
 	
 	//MARK:- User Button controls--Play, Pause, Stop, Skip
-	var playButtonTapped : UIButton!
-	
 	@objc func playButtonTapped(_ sender: UIButton) {
 		
 		setNowPlayingInfo()
@@ -310,10 +327,7 @@ class PlayerController: UIViewController, WCSessionDelegate {
 			showAlertErrorView(title: NSLocalizedString("alertTitlePlayerController", comment: "TheAlertTitleInPlayerController"), message: NSLocalizedString("alertMessagePlayerController", comment: "TheAlertMessageInPlayerController"), continueMessage: NSLocalizedString("continueMessaePlayerController", comment: "TheContinueMessageInPlayerController"))
 		}
 		
-		
 	}
-	
-	var pauseButtonTapped : UIButton!
 	
 	@objc func pauseButtonTapped(_ sender: UIButton) {
 		
@@ -325,16 +339,12 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		}
 	}
 	
-	var previousButtonTapped : UIButton!
-	
 	@objc func previousButtonTapped(_ sender: UIButton) {
 		
 		setNowPlayingInfo()
 		musicPlayer.skipToPreviousItem()
 		sender.pulsate()
 	}
-	
-	var nextButtonTapped : UIButton!
 	
 	@objc func nextButtonTapped(_ sender: UIButton) {
 		
@@ -474,23 +484,7 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		WCSession.default.activate()
 	}
 	
-	func addButtonTargets() {
-		profileButton.addTarget(self, action: #selector(profileButton(_:)), for: .touchUpInside)
-		playButton.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
-		pauseButton.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
-		previousButton.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
-		nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for:.touchUpInside)
-		
-		HHButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		PopButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		RockButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		ElectronicButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		KPOPButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		CountryButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		RBSoulButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		SingerButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-		RapButton.addTarget(self, action: #selector(genreButtonTapped(_:)), for:.touchUpInside)
-	}
+	
 	
 	
 }
