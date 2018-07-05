@@ -53,7 +53,7 @@ class aboutController: UIViewController {
 		let button = UIButton.controllerButton()
 		button.setTitle("Thom", for: .normal)
 		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "dummyImage.png") {
+		if let homeImage  = UIImage(named: "thom1.jpg") {
 			button.setImage(homeImage, for: .normal)
 			button.tintColor = UIColor.black
 			button.imageView?.contentMode = .scaleAspectFill
@@ -131,11 +131,11 @@ class aboutController: UIViewController {
 		let alertController : UIAlertController = UIAlertController(title: "Social Media", message: "Checkout Thoms Social Media", preferredStyle: .actionSheet)
 		let instagramAction : UIAlertAction = UIAlertAction(title: "Instagram", style: .default, handler: {(cameraAction) in
 			print("Instagram Selected...")
-			self.openUrl(urlStr: "LINK GOES HERE")
+			self.openUrl(urlStr: "https://www.instagram.com/thom_29_/")
 		})
 		let twitterAction : UIAlertAction = UIAlertAction(title: "Twitter", style: .default, handler: {(libraryAction) in
 			print("Twitter Selected...")
-			self.openUrl(urlStr: "LINK GOES HERE")
+			self.openUrl(urlStr: "https://twitter.com/Thom_dev072")
 		})
 		let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel , handler: {(cancelActn) in
 			print("Cancel action was pressed")
