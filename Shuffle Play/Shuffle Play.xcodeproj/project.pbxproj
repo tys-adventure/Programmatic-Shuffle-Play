@@ -42,6 +42,7 @@
 		DC6D85AB20E019A500970586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B38561FE86197003179A1 /* Assets.xcassets */; };
 		DC832FB820D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */; };
 		DC832FBA20D6D4CA00AC305B /* mona+lisa+frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */; };
+		DC9A46F920EF8A6F00CC8367 /* CADisplayLinkExtensionPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A46F820EF8A6F00CC8367 /* CADisplayLinkExtensionPlayerController.swift */; };
 		DC9AA9B920E00CBE008262E8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9AA9B820E00CBE008262E8 /* NotificationCenter.framework */; };
 		DC9AA9BC20E00CBE008262E8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AA9BB20E00CBE008262E8 /* TodayViewController.swift */; };
 		DC9AA9BF20E00CBE008262E8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9AA9BD20E00CBE008262E8 /* MainInterface.storyboard */; };
@@ -180,6 +181,7 @@
 		DC20977820D441B3000905F4 /* GenreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRow.swift; sourceTree = "<group>"; };
 		DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkitAlbumPreviewViewController.swift; sourceTree = "<group>"; };
 		DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mona+lisa+frame.png"; sourceTree = "<group>"; };
+		DC9A46F820EF8A6F00CC8367 /* CADisplayLinkExtensionPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CADisplayLinkExtensionPlayerController.swift; sourceTree = "<group>"; };
 		DC9AA9B620E00CBE008262E8 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9AA9B820E00CBE008262E8 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		DC9AA9BB20E00CBE008262E8 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				5C3D67442049DD310058A20B /* genreSroll.swift */,
 				5C00C0CE204D4003002F346F /* MainScreenController.swift */,
 				5C643F24207EB48300926DDD /* PlayerController.swift */,
+				DC9A46F820EF8A6F00CC8367 /* CADisplayLinkExtensionPlayerController.swift */,
 				DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */,
 				24F555EE20CDC86400D4EF7E /* DeveloperMenuViewController.swift */,
 				DC9EECDD20DFBEA2002E2F94 /* SpotifyLoginScreen.swift */,
@@ -729,6 +732,7 @@
 				24F555EF20CDC86400D4EF7E /* DeveloperMenuViewController.swift in Sources */,
 				DCD001F320C9C026002C7222 /* NotificationsNameExtension.swift in Sources */,
 				5C1B384D1FE86197003179A1 /* AppDelegate.swift in Sources */,
+				DC9A46F920EF8A6F00CC8367 /* CADisplayLinkExtensionPlayerController.swift in Sources */,
 				5CA600AD1FF855C200DD40E6 /* UIButtonExtension.swift in Sources */,
 				5C1B38551FE86197003179A1 /* Shuffle_Play.xcdatamodeld in Sources */,
 				5CC20AE1202FB3AB00CFF27C /* gradientUIViewExtension.swift in Sources */,

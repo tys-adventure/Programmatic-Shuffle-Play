@@ -14,6 +14,14 @@ import WatchConnectivity
 
 class PlayerController: UIViewController, WCSessionDelegate {
 	
+	var textValue: String = ""
+	var startDate: Date! = Date()
+	var duration: Double = 3
+	var startValue: String = ""
+	var endValue: String = "Genres"
+	
+	var displayLink: CADisplayLink?
+	
 	//MARK:- proporties
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	let myMediaQuery = MPMediaQuery.songs()
@@ -38,7 +46,11 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	//Artist Label
 	var artistLabel = CustomLabel()
 	//Genre Shuffle Play textView
+	
+	//The text view i'll try to animate using CADisplayLink
 	let genreTextView = CustomTextView(text: NSLocalizedString("playerControllerGenreTextView", comment: "The_genre_text_view_in_playerController"), size: 35.0)
+	
+	
 	let spTextView = CustomTextView(text: NSLocalizedString("playerControllerSpTextView", comment: "The_sp_text_view_playerController"), size: 25.0)
 	//ProfileButton
 	let profileButton = CustomButton(title: NSLocalizedString("playerControllerProfileButton", comment: "TheProfileButtonInPlayerController"), imageNamed: "chart1-white.png")
@@ -65,11 +77,20 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	//HelloTextView
 	let helloTextView = CustomTextView(text: NSLocalizedString("playerControllerHelloTextView", comment: "TheHelloTextViewInPlayerController"), size: 18.0)
 	
+	lazy var collectionView: UICollectionView = {
+		let flowLayout = UICollectionViewFlowLayout()
+		let cv = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width , height: self.view.frame.height), collectionViewLayout: flowLayout)
+		
+		return cv
+	}()
+	
 	//MARK:- View Live Cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		PlayerController.buttonTitles = [HHButton.currentTitle!, PopButton.currentTitle!, RockButton.currentTitle!, ElectronicButton.currentTitle!, KPOPButton.currentTitle!, CountryButton.currentTitle!, RBSoulButton.currentTitle!, SingerButton.currentTitle!, RapButton.currentTitle!]
+		
+		collectionView.register(ButtonCell.self, forCellWithReuseIdentifier: "buttonCell")
 		
 		let screensize: CGRect = UIScreen.main.bounds
 		screenWidth = screensize.width
@@ -98,6 +119,11 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		if let defaults = UserDefaults(suiteName: "group.com.thom.shufflePlayPlus") {
 			defaults.set(PlayerController.buttonTitles, forKey: "genresForExtension")
 		}
+		
+		beginCounting()
+		
+		collectionView.frame = self.view.frame
+		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -430,7 +456,7 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		}
 	}
 	
-	func playGenre(genre: String){
+	func playGenre(genre: String) {
 		
 		musicPlayer.stop()
 		let query = MPMediaQuery()
@@ -486,5 +512,54 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	
 	
 	
+	
+}
+
+extension PlayerController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return PlayerController.buttonTitles.count
+	}
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell =	collectionView.dequeueReusableCell(withReuseIdentifier: "buttonCell", for: indexPath) as! ButtonCell
+		cell.title.text = PlayerController.buttonTitles[indexPath.row]
+		return cell
+	}
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return CGSize(width: 150, height: 60)
+	}
+}
+
+class ButtonCell: UICollectionViewCell {
+	
+	var title: UILabel!
+	
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		title = UILabel()
+		title.backgroundColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 0.5)
+		title.alpha = 0.5
+		title.textColor = UIColor.black
+		title.layer.cornerRadius = 5
+		self.layer.shadowColor = UIColor.black.cgColor
+		title.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		title.layer.masksToBounds = false
+		title.layer.shadowRadius = 4.0
+		title.layer.shadowOpacity = 0.5
+		title.translatesAutoresizingMaskIntoConstraints = false
+	}
+	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		var frame = title.frame
+		frame.size.height = self.frame.size.height
+		frame.size.width = self.frame.size.width
+		frame.origin.x = 0
+		frame.origin.y = 0
+		title.frame = frame
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 }
