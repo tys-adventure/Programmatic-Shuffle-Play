@@ -22,6 +22,7 @@ class GenresCollectionViewController: UICollectionViewController, UICollectionVi
 		self.collectionView!.register(ButtonCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 		self.collectionView.backgroundColor = UIColor.red
 		// Do any additional setup after loading the view.
+		collectionView.delegate = self
 	}
 	
 	/*
@@ -49,6 +50,7 @@ class GenresCollectionViewController: UICollectionViewController, UICollectionVi
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell =	collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ButtonCell
+		cell.backgroundColor = UIColor.black
 		cell.title.text = PlayerController.buttonTitles[indexPath.row]
 		return cell
 	}
