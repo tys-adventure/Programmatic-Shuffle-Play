@@ -10,13 +10,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shuffle Play/UI ViewControllers/GenresCollectionViewController.swift"
-            timestampString = "552768727.926789"
+            timestampString = "552769111.006391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "GenresCollectionViewController"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "ButtonCell"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shuffle_Play.ButtonCell.title.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Shuffle Play"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thompheijffer/Desktop/Programmatic-Shuffle-Play-master/Programmatic-Shuffle-Play/Shuffle%20Play/Shuffle%20Play/UI%20ViewControllers/GenresCollectionViewController.swift"
+                  timestampString = "552769111.31958"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shuffle_Play.ButtonCell.title.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Shuffle Play"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thompheijffer/Desktop/Programmatic-Shuffle-Play-master/Programmatic-Shuffle-Play/Shuffle%20Play/Shuffle%20Play/UI%20ViewControllers/GenresCollectionViewController.swift"
+                  timestampString = "552769111.3228869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +58,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shuffle Play/UI ViewControllers/GenresCollectionViewController.swift"
-            timestampString = "552768846.1547379"
+            timestampString = "552769111.007001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "GenresCollectionViewController"
-            landmarkType = "3">
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shuffle Play/UI ViewControllers/GenresCollectionViewController.swift"
+            timestampString = "552769111.0073431"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "collectionView(_:layout:minimumInteritemSpacingForSectionAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
