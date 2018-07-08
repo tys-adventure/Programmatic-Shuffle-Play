@@ -91,6 +91,10 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		PlayerController.buttonTitles = [HHButton.currentTitle!, PopButton.currentTitle!, RockButton.currentTitle!, ElectronicButton.currentTitle!, KPOPButton.currentTitle!, CountryButton.currentTitle!, RBSoulButton.currentTitle!, SingerButton.currentTitle!, RapButton.currentTitle!]
 		
 		collectionView.register(ButtonCell.self, forCellWithReuseIdentifier: "buttonCell")
+		collectionView.delegate = self
+		collectionView.dataSource = self
+		
+		
 		
 		let screensize: CGRect = UIScreen.main.bounds
 		screenWidth = screensize.width
@@ -536,6 +540,7 @@ class ButtonCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		title = UILabel()
+		title.text = "Test"
 		title.backgroundColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 0.5)
 		title.alpha = 0.5
 		title.textColor = UIColor.black
