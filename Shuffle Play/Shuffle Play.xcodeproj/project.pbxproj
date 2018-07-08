@@ -39,6 +39,7 @@
 		DC20976A20D43506000905F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC20976920D43506000905F4 /* Assets.xcassets */; };
 		DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */; };
 		DC20977920D441B3000905F4 /* GenreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20977820D441B3000905F4 /* GenreRow.swift */; };
+		DC38B5CA20F28EE100B1B62F /* GenresCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38B5C920F28EE100B1B62F /* GenresCollectionViewController.swift */; };
 		DC6D85AB20E019A500970586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B38561FE86197003179A1 /* Assets.xcassets */; };
 		DC832FB820D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */; };
 		DC832FBA20D6D4CA00AC305B /* mona+lisa+frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */; };
@@ -179,6 +180,7 @@
 		DC20976B20D43506000905F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC20976C20D43506000905F4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		DC20977820D441B3000905F4 /* GenreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRow.swift; sourceTree = "<group>"; };
+		DC38B5C920F28EE100B1B62F /* GenresCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresCollectionViewController.swift; sourceTree = "<group>"; };
 		DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkitAlbumPreviewViewController.swift; sourceTree = "<group>"; };
 		DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mona+lisa+frame.png"; sourceTree = "<group>"; };
 		DC9A46F820EF8A6F00CC8367 /* CADisplayLinkExtensionPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CADisplayLinkExtensionPlayerController.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				5C3D67442049DD310058A20B /* genreSroll.swift */,
 				5C00C0CE204D4003002F346F /* MainScreenController.swift */,
 				5C643F24207EB48300926DDD /* PlayerController.swift */,
+				DC38B5C920F28EE100B1B62F /* GenresCollectionViewController.swift */,
 				DC9A46F820EF8A6F00CC8367 /* CADisplayLinkExtensionPlayerController.swift */,
 				DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */,
 				24F555EE20CDC86400D4EF7E /* DeveloperMenuViewController.swift */,
@@ -741,6 +744,7 @@
 				5C8C6B2D2076973D007A68AF /* AutoLayoutContraints.swift in Sources */,
 				24A955A920D1DFDF009B48E6 /* TylerViewController.swift in Sources */,
 				DCED665820E16E5D0060DC70 /* CustomTextView.swift in Sources */,
+				DC38B5CA20F28EE100B1B62F /* GenresCollectionViewController.swift in Sources */,
 				DCD001F520CB1100002C7222 /* CoreSpotlight.swift in Sources */,
 				24A955AB20D1E03E009B48E6 /* ThomViewController.swift in Sources */,
 				DC9EECDE20DFBEA2002E2F94 /* SpotifyLoginScreen.swift in Sources */,
