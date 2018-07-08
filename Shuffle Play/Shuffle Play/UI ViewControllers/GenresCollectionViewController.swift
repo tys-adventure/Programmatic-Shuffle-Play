@@ -20,8 +20,14 @@ class GenresCollectionViewController: UICollectionViewController, UICollectionVi
 		
 		// Register cell classes
 		self.collectionView!.register(ButtonCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-		self.collectionView.backgroundColor = UIColor.red
+		self.collectionView.backgroundColor = .lightGray
 		// Do any additional setup after loading the view.
+		
+		if let flowLayout = collectionView?.collectionViewLayout as?
+			UICollectionViewFlowLayout {
+			flowLayout.scrollDirection = .vertical
+			flowLayout.minimumLineSpacing = 0
+		}
 	}
 	
 	/*
@@ -38,7 +44,7 @@ class GenresCollectionViewController: UICollectionViewController, UICollectionVi
 	
 	override func numberOfSections(in collectionView: UICollectionView) -> Int {
 		// #warning Incomplete implementation, return the number of sections
-		return 0
+		return 1
 	}
 	
 	
@@ -50,11 +56,13 @@ class GenresCollectionViewController: UICollectionViewController, UICollectionVi
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell =	collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ButtonCell
 		cell.title.text = PlayerController.buttonTitles[indexPath.row]
+	
+		cell.backgroundColor = .blue
 		return cell
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: 150, height: 60)
+		return CGSize(width: view.frame.width, height: view.frame.height)
 	}
 	
 	// MARK: UICollectionViewDelegate
@@ -108,6 +116,7 @@ class ButtonCell: UICollectionViewCell {
 		title.layer.shadowRadius = 4.0
 		title.layer.shadowOpacity = 0.5
 		title.translatesAutoresizingMaskIntoConstraints = false
+		
 	}
 	
 	override func layoutSubviews() {
