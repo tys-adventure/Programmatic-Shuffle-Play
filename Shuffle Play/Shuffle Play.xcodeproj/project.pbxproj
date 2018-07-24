@@ -40,6 +40,14 @@
 		DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */; };
 		DC20977920D441B3000905F4 /* GenreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20977820D441B3000905F4 /* GenreRow.swift */; };
 		DC38B5CA20F28EE100B1B62F /* GenresCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38B5C920F28EE100B1B62F /* GenresCollectionViewController.swift */; };
+		DC45C7A921061306008BD015 /* CustomUIElements.h in Headers */ = {isa = PBXBuildFile; fileRef = DC45C7A721061306008BD015 /* CustomUIElements.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC45C7AC21061306008BD015 /* CustomUIElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC45C7A521061306008BD015 /* CustomUIElements.framework */; };
+		DC45C7AD21061306008BD015 /* CustomUIElements.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC45C7A521061306008BD015 /* CustomUIElements.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC45C7B221061319008BD015 /* CustomButtonFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45C7B121061319008BD015 /* CustomButtonFramework.swift */; };
+		DC45C7B4210613B4008BD015 /* CustomGenreButtonFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45C7B3210613B4008BD015 /* CustomGenreButtonFramework.swift */; };
+		DC45C7B721061449008BD015 /* CustomImageViewFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45C7B521061424008BD015 /* CustomImageViewFramework.swift */; };
+		DC45C7B921061487008BD015 /* CustomLabelFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45C7B821061487008BD015 /* CustomLabelFramework.swift */; };
+		DC45C7BC21061513008BD015 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45C7BB21061513008BD015 /* CustomTextView.swift */; };
 		DC6D85AB20E019A500970586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B38561FE86197003179A1 /* Assets.xcassets */; };
 		DC832FB820D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */; };
 		DC832FBA20D6D4CA00AC305B /* mona+lisa+frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */; };
@@ -93,6 +101,13 @@
 			remoteGlobalIDString = DC20975120D43503000905F4;
 			remoteInfo = WatchAppShufflePlayPlus;
 		};
+		DC45C7AA21061306008BD015 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C1B38411FE86197003179A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC45C7A421061306008BD015;
+			remoteInfo = CustomUIElements;
+		};
 		DC9AA9C120E00CBE008262E8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C1B38411FE86197003179A1 /* Project object */;
@@ -123,6 +138,17 @@
 				DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC45C79D21061226008BD015 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DC45C7AD21061306008BD015 /* CustomUIElements.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DC9AA9C720E00CBE008262E8 /* Embed App Extensions */ = {
@@ -181,6 +207,14 @@
 		DC20976C20D43506000905F4 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		DC20977820D441B3000905F4 /* GenreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRow.swift; sourceTree = "<group>"; };
 		DC38B5C920F28EE100B1B62F /* GenresCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresCollectionViewController.swift; sourceTree = "<group>"; };
+		DC45C7A521061306008BD015 /* CustomUIElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomUIElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC45C7A721061306008BD015 /* CustomUIElements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomUIElements.h; sourceTree = "<group>"; };
+		DC45C7A821061306008BD015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC45C7B121061319008BD015 /* CustomButtonFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonFramework.swift; sourceTree = "<group>"; };
+		DC45C7B3210613B4008BD015 /* CustomGenreButtonFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGenreButtonFramework.swift; sourceTree = "<group>"; };
+		DC45C7B521061424008BD015 /* CustomImageViewFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageViewFramework.swift; sourceTree = "<group>"; };
+		DC45C7B821061487008BD015 /* CustomLabelFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelFramework.swift; sourceTree = "<group>"; };
+		DC45C7BB21061513008BD015 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		DC832FB720D6D38C00AC305B /* ArkitAlbumPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkitAlbumPreviewViewController.swift; sourceTree = "<group>"; };
 		DC832FB920D6D4CA00AC305B /* mona+lisa+frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mona+lisa+frame.png"; sourceTree = "<group>"; };
 		DC9A46F820EF8A6F00CC8367 /* CADisplayLinkExtensionPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CADisplayLinkExtensionPlayerController.swift; sourceTree = "<group>"; };
@@ -222,6 +256,7 @@
 				DC9EECE320DFBFFC002E2F94 /* SpotifyAudioPlayback.framework in Frameworks */,
 				DC9EECE520DFBFFC002E2F94 /* SpotifyMetadata.framework in Frameworks */,
 				DC9EECE420DFBFFC002E2F94 /* SpotifyAuthentication.framework in Frameworks */,
+				DC45C7AC21061306008BD015 /* CustomUIElements.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +275,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DC20975B20D43505000905F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC45C7A221061306008BD015 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -267,6 +309,7 @@
 				DC20975320D43503000905F4 /* WatchAppShufflePlayPlus */,
 				DC20976220D43505000905F4 /* WatchAppShufflePlayPlus Extension */,
 				DC9AA9BA20E00CBE008262E8 /* Widget */,
+				DC45C7BA210614B5008BD015 /* SelfMadeFrameworks */,
 				DC9AA9B720E00CBE008262E8 /* Frameworks */,
 				5C1B384A1FE86197003179A1 /* Products */,
 			);
@@ -282,6 +325,7 @@
 				DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */,
 				DC20975E20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex */,
 				DC9AA9B620E00CBE008262E8 /* Widget.appex */,
+				DC45C7A521061306008BD015 /* CustomUIElements.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -412,6 +456,28 @@
 			path = "Custom Buttons";
 			sourceTree = "<group>";
 		};
+		DC45C7A621061306008BD015 /* CustomUIElements */ = {
+			isa = PBXGroup;
+			children = (
+				DC45C7A721061306008BD015 /* CustomUIElements.h */,
+				DC45C7B121061319008BD015 /* CustomButtonFramework.swift */,
+				DC45C7B3210613B4008BD015 /* CustomGenreButtonFramework.swift */,
+				DC45C7B521061424008BD015 /* CustomImageViewFramework.swift */,
+				DC45C7B821061487008BD015 /* CustomLabelFramework.swift */,
+				DC45C7BB21061513008BD015 /* CustomTextView.swift */,
+				DC45C7A821061306008BD015 /* Info.plist */,
+			);
+			path = CustomUIElements;
+			sourceTree = "<group>";
+		};
+		DC45C7BA210614B5008BD015 /* SelfMadeFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC45C7A621061306008BD015 /* CustomUIElements */,
+			);
+			path = SelfMadeFrameworks;
+			sourceTree = "<group>";
+		};
 		DC9AA9B720E00CBE008262E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +537,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		DC45C7A021061306008BD015 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC45C7A921061306008BD015 /* CustomUIElements.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		5C1B38481FE86197003179A1 /* Shuffle Play */ = {
 			isa = PBXNativeTarget;
@@ -481,12 +558,14 @@
 				5C1B38471FE86197003179A1 /* Resources */,
 				DC20977720D43506000905F4 /* Embed Watch Content */,
 				DC9AA9C720E00CBE008262E8 /* Embed App Extensions */,
+				DC45C79D21061226008BD015 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				DC20976E20D43506000905F4 /* PBXTargetDependency */,
 				DC9AA9C220E00CBE008262E8 /* PBXTargetDependency */,
+				DC45C7AB21061306008BD015 /* PBXTargetDependency */,
 			);
 			name = "Shuffle Play";
 			productName = "Shuffle Play";
@@ -563,6 +642,24 @@
 			productReference = DC20975E20D43505000905F4 /* WatchAppShufflePlayPlus Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		DC45C7A421061306008BD015 /* CustomUIElements */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC45C7AE21061306008BD015 /* Build configuration list for PBXNativeTarget "CustomUIElements" */;
+			buildPhases = (
+				DC45C7A021061306008BD015 /* Headers */,
+				DC45C7A121061306008BD015 /* Sources */,
+				DC45C7A221061306008BD015 /* Frameworks */,
+				DC45C7A321061306008BD015 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomUIElements;
+			productName = CustomUIElements;
+			productReference = DC45C7A521061306008BD015 /* CustomUIElements.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		DC9AA9B520E00CBE008262E8 /* Widget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC9AA9C620E00CBE008262E8 /* Build configuration list for PBXNativeTarget "Widget" */;
@@ -633,6 +730,11 @@
 							};
 						};
 					};
+					DC45C7A421061306008BD015 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+					};
 					DC9AA9B520E00CBE008262E8 = {
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
@@ -664,6 +766,7 @@
 				DC20975120D43503000905F4 /* WatchAppShufflePlayPlus */,
 				DC20975D20D43505000905F4 /* WatchAppShufflePlayPlus Extension */,
 				DC9AA9B520E00CBE008262E8 /* Widget */,
+				DC45C7A421061306008BD015 /* CustomUIElements */,
 			);
 		};
 /* End PBXProject section */
@@ -709,6 +812,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC20976A20D43506000905F4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC45C7A321061306008BD015 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +899,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC45C7A121061306008BD015 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC45C7B221061319008BD015 /* CustomButtonFramework.swift in Sources */,
+				DC45C7BC21061513008BD015 /* CustomTextView.swift in Sources */,
+				DC45C7B721061449008BD015 /* CustomImageViewFramework.swift in Sources */,
+				DC45C7B921061487008BD015 /* CustomLabelFramework.swift in Sources */,
+				DC45C7B4210613B4008BD015 /* CustomGenreButtonFramework.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC9AA9B220E00CBE008262E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -819,6 +941,11 @@
 			isa = PBXTargetDependency;
 			target = DC20975120D43503000905F4 /* WatchAppShufflePlayPlus */;
 			targetProxy = DC20976D20D43506000905F4 /* PBXContainerItemProxy */;
+		};
+		DC45C7AB21061306008BD015 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC45C7A421061306008BD015 /* CustomUIElements */;
+			targetProxy = DC45C7AA21061306008BD015 /* PBXContainerItemProxy */;
 		};
 		DC9AA9C220E00CBE008262E8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1191,6 +1318,64 @@
 			};
 			name = Release;
 		};
+		DC45C7AF21061306008BD015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/SelfMadeFrameworks/CustomUIElements/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.pheijffer.CustomUIElements;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DC45C7B021061306008BD015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L4H9LZ77XG;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/SelfMadeFrameworks/CustomUIElements/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.pheijffer.CustomUIElements;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		DC9AA9C420E00CBE008262E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1279,6 +1464,15 @@
 			buildConfigurations = (
 				DC20977020D43506000905F4 /* Debug */,
 				DC20977120D43506000905F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC45C7AE21061306008BD015 /* Build configuration list for PBXNativeTarget "CustomUIElements" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC45C7AF21061306008BD015 /* Debug */,
+				DC45C7B021061306008BD015 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

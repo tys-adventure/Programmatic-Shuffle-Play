@@ -121,7 +121,6 @@ class aboutSPController: UIViewController {
 	}
 	
 	private func setupLayout() {
-		
 		aboutLabelTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
 		aboutLabelTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 		aboutLabelTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
