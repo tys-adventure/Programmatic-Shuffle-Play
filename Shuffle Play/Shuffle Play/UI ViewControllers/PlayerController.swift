@@ -77,12 +77,11 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	//HelloTextView
 	let helloTextView = CustomTextView(text: NSLocalizedString("playerControllerHelloTextView", comment: "TheHelloTextViewInPlayerController"), size: 18.0)
 	
-	var genresCollectionView: UICollectionView = {
-		let flowLayout = UICollectionViewFlowLayout()
-		let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
-		
-		return cv
-	}()
+//	var genresCollectionView: UICollectionView = {
+//		let flowLayout = UICollectionViewFlowLayout()
+//		let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+//		return cv
+//	}()
 	
 	//MARK:- View Live Cycle
 	override func viewDidLoad() {
@@ -90,7 +89,7 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		
 		PlayerController.buttonTitles = [HHButton.currentTitle!, PopButton.currentTitle!, RockButton.currentTitle!, ElectronicButton.currentTitle!, KPOPButton.currentTitle!, CountryButton.currentTitle!, RBSoulButton.currentTitle!, SingerButton.currentTitle!, RapButton.currentTitle!]
 		
-		genresCollectionView.register(ButtonCell.self, forCellWithReuseIdentifier: "buttonCell")
+//		genresCollectionView.register(ButtonCell1.self, forCellWithReuseIdentifier: "buttonCell")
 //		genresCollectionView.delegate = self
 //		genresCollectionView.dataSource = self
 		
@@ -126,9 +125,17 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		
 		beginCounting()
 		
-		genresCollectionView.frame = self.view.frame
-		genresCollectionView.frame = CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight)
-		genresCollectionView.backgroundColor = UIColor.red
+//		genresCollectionView.frame = self.view.frame
+//		genresCollectionView.frame = CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight)
+//		genresCollectionView.backgroundColor = UIColor.red
+		
+//		addChild(GenresCollectionViewController())
+//		guard let genresCV = self.children.first else {return}
+//		//genresCV.view
+//		NSLayoutConstraint(item: genresCV.view, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 80).isActive = true
+//		NSLayoutConstraint(item: genresCV.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150).isActive = true
+//		NSLayoutConstraint(item: genresCV.view, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 600).isActive = true
+//		NSLayoutConstraint(item: genresCV.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60).isActive = true
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -535,9 +542,9 @@ class PlayerController: UIViewController, WCSessionDelegate {
 //}
 //
 //class ButtonCell: UICollectionViewCell {
-//	
+//
 //	var title: UILabel!
-//	
+//
 //	override init(frame: CGRect) {
 //		super.init(frame: frame)
 //		title = UILabel()
@@ -553,7 +560,7 @@ class PlayerController: UIViewController, WCSessionDelegate {
 //		title.layer.shadowOpacity = 0.5
 //		title.translatesAutoresizingMaskIntoConstraints = false
 //	}
-//	
+//
 //	override func layoutSubviews() {
 //		super.layoutSubviews()
 //		var frame = title.frame
@@ -563,9 +570,9 @@ class PlayerController: UIViewController, WCSessionDelegate {
 //		frame.origin.y = 0
 //		title.frame = frame
 //	}
-//	
+//
 //	required init?(coder aDecoder: NSCoder) {
 //		fatalError("init(coder:) has not been implemented")
 //	}
-//	
+//
 //}

@@ -52,7 +52,7 @@ class GenresCollectionViewController: UICollectionViewController, UICollectionVi
 		cell.title.text = genres[indexPath.row]
         //cell.title.text = PlayerController.buttonTitles[indexPath.row]
 	
-		cell.backgroundColor = .blue
+		//cell.backgroundColor = .blue
         return cell
     }
     
@@ -79,29 +79,55 @@ class ButtonCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-		self.backgroundColor = .clear
-		//self.backgroundColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 0.5)
-		self.alpha = 0
+		
         title = UILabel()
-        //title.text = "Test"
-        title.backgroundColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 0.5)
-        title.alpha = 0.5
-        title.textColor = UIColor.black
 		title.textAlignment = .center
-        title.layer.cornerRadius = 5
-        self.layer.shadowColor = UIColor.black.cgColor
-        title.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		title.backgroundColor = .clear
+		title.backgroundColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 0.5)
 		
-		#warning("The style isn't yet the same")
-        title.layer.masksToBounds = false
+		let view = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.frame.height))
+		view.backgroundColor = .white
+
+		self.tintColor = UIColor.gray
+		//self.backgroundColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 0.5)
+		self.backgroundColor = .clear
+		//self.backgroundColor = UIColor.darkGray
+		self.alpha = 0.5
+		title.textColor = .black
+		
+		self.layer.cornerRadius = 5
+		title.layer.cornerRadius = 5
+		view.layer.cornerRadius = 5
 		self.layer.masksToBounds = false
-		title.clipsToBounds = false
-		self.clipsToBounds = false
+		title.layer.masksToBounds = false
+		view.layer.masksToBounds = false
 		
-        title.layer.shadowRadius = 4.0
-        title.layer.shadowOpacity = 0.5
-        title.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(title)
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOffset = CGSize(width: 0.0, height: 	2.0)
+//		self.layer.shadowOffset = CGSize(width: 8, height: 8)
+//		self.layer.masksToBounds = false
+//		self.layer.shadowRadius = 4.0
+//		self.layer.shadowOpacity = 0.5
+//		self.layer.shouldRasterize = true
+		
+		view.layer.shadowColor = UIColor.black.cgColor
+		view.layer.shadowOffset = CGSize(width: 0.0, height: 	2.0)
+		view.layer.shadowOffset = CGSize(width: 8, height: 8)
+		view.layer.masksToBounds = false
+		view.layer.shadowRadius = 4.0
+		view.layer.shadowOpacity = 0.5
+		view.layer.shouldRasterize = true
+		
+		title.translatesAutoresizingMaskIntoConstraints = false
+		view.translatesAutoresizingMaskIntoConstraints = false
+		
+		addSubview(view)
+		addSubview(title)
+
+		#warning("The style isn't yet the same")
+		
+		
+		
     }
     
     override func layoutSubviews() {
