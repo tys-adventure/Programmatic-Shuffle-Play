@@ -32,6 +32,8 @@ class GenresCollectionViewController: UICollectionViewController, UICollectionVi
 			flowLayout.minimumInteritemSpacing = 40
 			flowLayout.sectionInset = UIEdgeInsets(top: 30, left: 45, bottom: 30, right: 45)
 		}
+//		self.prefersHomeIndicatorAutoHidden = true
+//		self.childForHomeIndicatorAutoHidden = true
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

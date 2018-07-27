@@ -83,17 +83,21 @@ class PlayerController: UIViewController, WCSessionDelegate {
 //		return cv
 //	}()
 	
+//	let layout = UICollectionViewFlowLayout()
+//	let cv = GenresCollectionViewController(collectionViewLayout: layout)
+	var cv: UICollectionViewController = UICollectionViewController()
+	
 	//MARK:- View Live Cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		PlayerController.buttonTitles = [HHButton.currentTitle!, PopButton.currentTitle!, RockButton.currentTitle!, ElectronicButton.currentTitle!, KPOPButton.currentTitle!, CountryButton.currentTitle!, RBSoulButton.currentTitle!, SingerButton.currentTitle!, RapButton.currentTitle!]
 		
-//		genresCollectionView.register(ButtonCell1.self, forCellWithReuseIdentifier: "buttonCell")
-//		genresCollectionView.delegate = self
-//		genresCollectionView.dataSource = self
-		
-		
+		let layout = UICollectionViewFlowLayout()
+		cv = GenresCollectionViewController(collectionViewLayout: layout)
+		addChild(cv)
+		view.addSubview(cv.view)
+		cv.didMove(toParent: self)
 		
 		let screensize: CGRect = UIScreen.main.bounds
 		screenWidth = screensize.width
@@ -125,17 +129,9 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		
 		beginCounting()
 		
-//		genresCollectionView.frame = self.view.frame
-//		genresCollectionView.frame = CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight)
-//		genresCollectionView.backgroundColor = UIColor.red
 		
-//		addChild(GenresCollectionViewController())
-//		guard let genresCV = self.children.first else {return}
-//		//genresCV.view
-//		NSLayoutConstraint(item: genresCV.view, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 80).isActive = true
-//		NSLayoutConstraint(item: genresCV.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150).isActive = true
-//		NSLayoutConstraint(item: genresCV.view, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 600).isActive = true
-//		NSLayoutConstraint(item: genresCV.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60).isActive = true
+		
+		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -293,6 +289,11 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		NSLayoutConstraint(item: RapButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150).isActive = true
 		NSLayoutConstraint(item: RapButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1000).isActive = true
 		NSLayoutConstraint(item: RapButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60).isActive = true
+		
+//		NSLayoutConstraint(item: cv.view, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 80).isActive = true
+//		NSLayoutConstraint(item: cv.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150).isActive = true
+//		NSLayoutConstraint(item: cv.view, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 600).isActive = true
+//		NSLayoutConstraint(item: cv.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60).isActive = true
 		
 	}
 	

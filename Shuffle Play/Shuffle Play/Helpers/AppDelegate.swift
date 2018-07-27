@@ -22,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		UIApplication.shared.beginReceivingRemoteControlEvents()
 		
-		let layout = UICollectionViewFlowLayout()
-		self.window?.rootViewController = GenresCollectionViewController(collectionViewLayout: layout)
-		//self.window?.rootViewController = PlayerController()
+//		let layout = UICollectionViewFlowLayout()
+//		self.window?.rootViewController = GenresCollectionViewController(collectionViewLayout: layout)
+		self.window?.rootViewController = PlayerController()
 		self.window?.makeKeyAndVisible()
 		
 		auth.redirectURL = URL(string: ""); #warning("our redirect url here")
