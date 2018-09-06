@@ -12,6 +12,9 @@ import UIKit
 class aboutSPController: UIViewController {
 	
 
+	let kVersion        = "CFBundleShortVersionString"
+	let kBuildNumber    = "CFBundleVersion"
+	
 	//Profile UIButton
 	let profileButton: UIButton = {
 		let button = UIButton()
@@ -96,6 +99,14 @@ class aboutSPController: UIViewController {
 		return textView
 	}()
 	
+	lazy var versionLabel: CustomLabel = {
+		let lbl = CustomLabel()
+		lbl.text = getVersion()
+		lbl.translatesAutoresizingMaskIntoConstraints = false
+		lbl.textColor = UIColor.white
+		return lbl
+	}()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -113,6 +124,7 @@ class aboutSPController: UIViewController {
 		view.addSubview(aboutTextView)
 		view.addSubview(howToTextView)
 		view.addSubview(howToLabelTextView)
+		view.addSubview(versionLabel)
 		
 		setupLayout()
 
@@ -156,6 +168,11 @@ class aboutSPController: UIViewController {
 		howToLabelTextView.widthAnchor.constraint(equalToConstant: 350).isActive = true
 		howToLabelTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
 		
+		versionLabel.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+		versionLabel.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+		versionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+		//versionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		//versionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 	}
 
 	//Profile Button Func
@@ -166,6 +183,14 @@ class aboutSPController: UIViewController {
 		let vc = ProfileController()
 		self.present(vc, animated: true, completion: nil)
 		
+	}
+	
+	func getVersion() -> String {
+		let dictionary  = Bundle.main.infoDictionary!
+		let version     = dictionary[kVersion] as! String
+		let build       = dictionary[kBuildNumber] as! String
+		
+		return "Version: \(version) Build: (\(build))"
 	}
 	
 }
