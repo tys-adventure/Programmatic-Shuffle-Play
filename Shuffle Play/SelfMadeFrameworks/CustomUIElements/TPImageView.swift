@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CustomImageViewFramework: UIImageView {
+class TPImageView: UIImageView {
 	
 	init(shadowRadius: CGFloat, shadowOpacity: Float, image: UIImage?) {
 		super.init(frame: .zero)

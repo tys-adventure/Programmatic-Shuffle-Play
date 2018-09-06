@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CustomButtonFramework: UIButton {
+class TPButton: UIButton {
 	//private var selector: Selector
 	
 	init(title: String = "", imageNamed: String) {

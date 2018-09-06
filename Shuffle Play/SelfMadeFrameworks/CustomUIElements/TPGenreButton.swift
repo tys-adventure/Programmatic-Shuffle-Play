@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CustomGenreButtonFramework: UIButton {
+class TPGenreButton: UIButton {
 	
 	init(title: String) {
 		super.init(frame: .zero)
