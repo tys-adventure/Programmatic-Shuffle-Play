@@ -11,7 +11,7 @@ import UIKit
 import MediaPlayer
 import AVFoundation
 import WatchConnectivity
-import CustomUIElements
+//import CustomUIElements
 
 class PlayerController: UIViewController, WCSessionDelegate {
 	
