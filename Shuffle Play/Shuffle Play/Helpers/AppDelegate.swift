@@ -24,8 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 //		let layout = UICollectionViewFlowLayout()
 //		self.window?.rootViewController = GenresCollectionViewController(collectionViewLayout: layout)
-		self.window?.rootViewController = PlayerController()
+//		self.window?.rootViewController = PlayerController()
+//		self.window?.makeKeyAndVisible()
+
+		window = UIWindow(frame: UIScreen.main.bounds)
+		let mainController = PlayerController() as UIViewController
+		let navigationController = UINavigationController(rootViewController: mainController)
+		navigationController.navigationBar.isTranslucent = false
+		self.window?.rootViewController = navigationController
 		self.window?.makeKeyAndVisible()
+		
+		let navigationBarAppearance = UINavigationBar.appearance()
+		
+		navigationBarAppearance.isTranslucent = true
 		
 		auth.redirectURL = URL(string: ""); #warning("our redirect url here")
 		auth.sessionUserDefaultsKey = "current session"

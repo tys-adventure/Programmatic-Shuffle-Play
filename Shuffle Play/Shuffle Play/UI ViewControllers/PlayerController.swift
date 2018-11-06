@@ -13,7 +13,7 @@ import AVFoundation
 import WatchConnectivity
 //import CustomUIElements
 
-class PlayerController: UIViewController, WCSessionDelegate {
+class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDelegate {
 	
 	var textValue: String = ""
 	var startDate: Date! = Date()
@@ -51,10 +51,6 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	//The text view i'll try to animate using CADisplayLink
 	let genreTextView = CustomTextView(text: NSLocalizedString("playerControllerGenreTextView", comment: "The_genre_text_view_in_playerController"), size: 35.0)
 	
-	
-	let spTextView = CustomTextView(text: NSLocalizedString("playerControllerSpTextView", comment: "The_sp_text_view_playerController"), size: 25.0)
-	//ProfileButton
-	let profileButton = CustomButton(title: NSLocalizedString("playerControllerProfileButton", comment: "TheProfileButtonInPlayerController"), imageNamed: "chart1-white.png")
 	//Play
 	let playButton = CustomButton(imageNamed: "play-white.png")
 	//Pause
@@ -108,11 +104,7 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		screenWidth = screensize.width
 		screenHeight = screensize.height
 		
-		view.addSubview(spTextView)
-		view.addSubview(profileButton)
-		
 		setupView()
-		setupLayout()
 		setupScrollView()
 		setupConstraints()
 		setupButtonTargets()
@@ -135,7 +127,8 @@ class PlayerController: UIViewController, WCSessionDelegate {
 		beginCounting()
 		
 		
-		
+		navigationItem.title = "Shuffle Play Plus"
+		setupNavBarButtons()
 		
 	}
 	
@@ -151,23 +144,9 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	}
 	
 	//MARK:- last bit of setup
-	private func setupLayout() {
-		
-		spTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
-		spTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		spTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-		spTextView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-		
-		profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 45).isActive = true
-		profileButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-		profileButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-		
-	}
-	
 	func setupScrollView() {
-		scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
-		scrollView.backgroundColor = .white
+		scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+		scrollView.backgroundColor = UIColor(red: 255/255, green: 202/255, blue: 146/255, alpha: 1)
 		scrollView.addSubview(logoImageView)
 		scrollView.addSubview(albumImageView)
 		scrollView.addSubview(artistLabel)
@@ -303,15 +282,10 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	}
 	
 	func setupView() {
-		view.backgroundColor = .white
-		view.layer.cornerRadius = 10
-		view.layer.borderWidth = 1.0
-		view.layer.borderColor = UIColor.clear.cgColor
-		view.layer.masksToBounds = true
+		view.backgroundColor = UIColor(red: 255/255, green: 202/255, blue: 146/255, alpha: 1)
 	}
 	
 	func setupButtonTargets() {
-		profileButton.addTarget(self, action: #selector(profileButton(_:)), for: .touchUpInside)
 		playButton.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
 		pauseButton.addTarget(self, action: #selector(pauseButtonTapped(_:)), for:.touchUpInside)
 		previousButton.addTarget(self, action: #selector(previousButtonTapped(_:)), for:.touchUpInside)
@@ -526,6 +500,25 @@ class PlayerController: UIViewController, WCSessionDelegate {
 	
 	func sessionDidDeactivate(_ session: WCSession) {
 		WCSession.default.activate()
+	}
+	
+	public func setupNavBarButtons() {
+		
+		//Menu Button == Left Navigation Bar Button Item
+		let menuButton = UIButton(type: .custom)
+		menuButton.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
+		menuButton.setImage(UIImage(named: "chart1.png"), for: .normal)
+		menuButton.addTarget(self, action: #selector(profileButton(_:)), for: UIControl.Event.touchUpInside)
+		
+		let menuBarButtonItem = UIBarButtonItem(customView: menuButton)
+		let currWidth = menuBarButtonItem.customView?.widthAnchor.constraint(equalToConstant: 30);currWidth?.isActive = true
+		let currHeight = menuBarButtonItem.customView?.heightAnchor.constraint(equalToConstant: 30);currHeight?.isActive = true
+		self.navigationItem.leftBarButtonItem = menuBarButtonItem
+		
+		self.navigationController?.navigationBar.layer.shadowOpacity = 0.2
+		self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+		self.navigationController?.navigationBar.layer.shadowRadius = 2
+		
 	}
 	
 	
