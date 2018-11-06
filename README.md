@@ -1,10 +1,8 @@
-# Programmatic-Shuffle-Play
+<p align="center">
+<b>Shuffle Play Plus<b>
+</p>
 
-Shuffle Play is my first complete iOS App for the App Store. 
-Written in Swift, without the use of .storyboard. 
-Feel free to check it out, but please don't steal.
-
-sincerely,
-
-TheTylerJP <3
-
+<p align="center">
+    <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-4.2-orange.svg?longCache=true&style=plastic" alt="Swift" /></a>
+    <a href=""><img src="https://img.shields.io/badge/Build-Passing-brightgreen.svg?longCache=true&style=plastic" alt="Platform" /></a>
+</p>
