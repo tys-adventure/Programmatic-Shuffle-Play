@@ -80,25 +80,12 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 		return cv
 	}()
 	
-//	let layout = UICollectionViewFlowLayout()
-//	let cv = GenresCollectionViewController(collectionViewLayout: layout)
-	//var cv: UICollectionViewController = UICollectionViewController()
-	
 	//MARK:- View Live Cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		PlayerController.buttonTitles = [HHButton.currentTitle!, PopButton.currentTitle!, RockButton.currentTitle!, ElectronicButton.currentTitle!, KPOPButton.currentTitle!, CountryButton.currentTitle!, RBSoulButton.currentTitle!, SingerButton.currentTitle!, RapButton.currentTitle!]
 		//PlayerController.buttonTitles = []
-//		let layout = UICollectionViewFlowLayout()
-//		cv = GenresCollectionViewController(collectionViewLayout: layout)
-//		cv.view.frame = CGRect(x: 0, y: 600, width: 100, height: 600)
-//		cv.view.backgroundColor = .red
-//		addChild(cv)
-//		view.addSubview(cv.view)
-//		cv.didMove(toParent: self)
-		
-		genresCollectionView.register(MusicCell.self, forCellWithReuseIdentifier: "cell")
 		
 		let screensize: CGRect = UIScreen.main.bounds
 		screenWidth = screensize.width
@@ -175,7 +162,7 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 		NSLayoutConstraint(item: helloTextView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: helloTextView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200).isActive = true
 		NSLayoutConstraint(item: helloTextView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40).isActive = true
-		NSLayoutConstraint(item: helloTextView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: -50).isActive = true
+		NSLayoutConstraint(item: helloTextView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 0).isActive = true
 		
 		NSLayoutConstraint(item: logoImageView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: logoImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 175).isActive = true
@@ -273,11 +260,6 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 		NSLayoutConstraint(item: RapButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150).isActive = true
 		NSLayoutConstraint(item: RapButton, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 1000).isActive = true
 		NSLayoutConstraint(item: RapButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60).isActive = true
-		
-//		NSLayoutConstraint(item: cv.view, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 80).isActive = true
-//		NSLayoutConstraint(item: cv.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150).isActive = true
-//		NSLayoutConstraint(item: cv.view, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 600).isActive = true
-//		NSLayoutConstraint(item: cv.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60).isActive = true
 		
 	}
 	
@@ -524,57 +506,4 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 	
 	
 	
-}
-
-extension PlayerController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 4
-		//return PlayerController.buttonTitles.count
-	}
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell =	collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MusicCell
-		//cell.title.text = PlayerController.buttonTitles[indexPath.row]
-		cell.title.text = "text"
-		return cell
-	}
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: 150, height: 60)
-	}
-	
-}
-
-class MusicCell: UICollectionViewCell {
-
-	var title: UILabel!
-
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		title = UILabel()
-		title.text = "Test"
-		title.backgroundColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 0.5)
-		title.alpha = 0.5
-		title.textColor = UIColor.black
-		title.layer.cornerRadius = 5
-		self.layer.shadowColor = UIColor.black.cgColor
-		title.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		title.layer.masksToBounds = false
-		title.layer.shadowRadius = 4.0
-		title.layer.shadowOpacity = 0.5
-		title.translatesAutoresizingMaskIntoConstraints = false
-	}
-
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		var frame = title.frame
-		frame.size.height = self.frame.size.height
-		frame.size.width = self.frame.size.width
-		frame.origin.x = 0
-		frame.origin.y = 0
-		title.frame = frame
-	}
-
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
-
 }

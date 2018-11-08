@@ -15,7 +15,8 @@ class CustomLabel: UILabel {
 		self.textAlignment = .center
 		self.backgroundColor = UIColor.clear
 		self.isUserInteractionEnabled = false
-		self.textColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 1)
+//		self.textColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 1)
+		self.textColor = .black
 		self.translatesAutoresizingMaskIntoConstraints = false
 	}
 	
