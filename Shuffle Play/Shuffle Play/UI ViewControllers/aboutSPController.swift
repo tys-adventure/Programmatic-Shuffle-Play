@@ -59,7 +59,7 @@ class aboutSPController: UIViewController {
 	//About Shuffle Play textView
 	let aboutTextView: UITextView = {
 		let textView = UITextView()
-		textView.font = UIFont(name:"Avenir Next", size: 15.0)
+		textView.font = UIFont(name:"Avenir Next", size: 16.0)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
@@ -73,7 +73,7 @@ class aboutSPController: UIViewController {
 	//HowTo Text View
 	let howToTextView: UITextView = {
 		let textView = UITextView()
-		textView.font = UIFont(name:"Avenir Next", size: 15.0)
+		textView.font = UIFont(name:"Avenir Next", size: 16.0)
 		textView.textAlignment = .center
 		textView.backgroundColor = UIColor.clear
 		textView.isUserInteractionEnabled = false
@@ -145,7 +145,7 @@ class aboutSPController: UIViewController {
 		profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
 		shuffleImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		shuffleImageView.topAnchor.constraint(equalTo: aboutLabelTextView.bottomAnchor, constant: -465).isActive = true
+		shuffleImageView.topAnchor.constraint(equalTo: aboutLabelTextView.bottomAnchor, constant: -600).isActive = true
 		shuffleImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
 		shuffleImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
 		
@@ -170,7 +170,7 @@ class aboutSPController: UIViewController {
 		
 		versionLabel.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
 		versionLabel.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-		versionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+		versionLabel.bottomAnchor.constraint(equalTo: howToTextView.bottomAnchor, constant: 20).isActive = true
 		//versionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		//versionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 	}

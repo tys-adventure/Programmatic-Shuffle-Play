@@ -21,7 +21,7 @@
 "playerControllerRBSoulButton" = "R&B/Soul";
 "playerControllerSingerButton" = "Singer/Songwriter";
 "playerControllerRapButton" = "Rap";
-"playerControllerHelloTextView" = "You're Awesome!";
+//"playerControllerHelloTextView" = "You're Awesome!";
 "alertTitlePlayerController" = "Select Genre";
 "alertMessagePlayerController" = "You need to select a genre to be able to shuffle songs.";
 "continueMessaePlayerController" = "Continue";

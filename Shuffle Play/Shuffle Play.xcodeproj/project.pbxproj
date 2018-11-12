@@ -37,7 +37,6 @@
 		DC20976620D43505000905F4 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20976520D43505000905F4 /* ExtensionDelegate.swift */; };
 		DC20976820D43505000905F4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20976720D43505000905F4 /* NotificationController.swift */; };
 		DC20976A20D43506000905F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC20976920D43506000905F4 /* Assets.xcassets */; };
-		DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DC20975220D43503000905F4 /* WatchAppShufflePlayPlus.app */; };
 		DC20977920D441B3000905F4 /* GenreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20977820D441B3000905F4 /* GenreRow.swift */; };
 		DC38B5CA20F28EE100B1B62F /* GenresCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38B5C920F28EE100B1B62F /* GenresCollectionViewController.swift */; };
 		DC45C7A921061306008BD015 /* CustomUIElements.h in Headers */ = {isa = PBXBuildFile; fileRef = DC45C7A721061306008BD015 /* CustomUIElements.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -99,13 +98,6 @@
 			remoteGlobalIDString = DC20975D20D43505000905F4;
 			remoteInfo = "WatchAppShufflePlayPlus Extension";
 		};
-		DC20976D20D43506000905F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5C1B38411FE86197003179A1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC20975120D43503000905F4;
-			remoteInfo = WatchAppShufflePlayPlus;
-		};
 		DC45C7AA21061306008BD015 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C1B38411FE86197003179A1 /* Project object */;
@@ -140,7 +132,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				DC20976F20D43506000905F4 /* WatchAppShufflePlayPlus.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,7 +559,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DC20976E20D43506000905F4 /* PBXTargetDependency */,
 				DC9AA9C220E00CBE008262E8 /* PBXTargetDependency */,
 				DC45C7AB21061306008BD015 /* PBXTargetDependency */,
 			);
@@ -949,11 +939,6 @@
 			isa = PBXTargetDependency;
 			target = DC20975D20D43505000905F4 /* WatchAppShufflePlayPlus Extension */;
 			targetProxy = DC20976020D43505000905F4 /* PBXContainerItemProxy */;
-		};
-		DC20976E20D43506000905F4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC20975120D43503000905F4 /* WatchAppShufflePlayPlus */;
-			targetProxy = DC20976D20D43506000905F4 /* PBXContainerItemProxy */;
 		};
 		DC45C7AB21061306008BD015 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

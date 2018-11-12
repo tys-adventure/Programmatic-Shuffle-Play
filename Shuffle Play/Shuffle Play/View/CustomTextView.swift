@@ -16,7 +16,8 @@ class CustomTextView: UITextView {
 		self.backgroundColor = UIColor.clear
 		self.isUserInteractionEnabled = false
 		self.font = UIFont(name:"Avenir Next", size: size)
-		self.textColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 1)
+//		self.textColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 1)
+		self.textColor = .black
 		self.text = text
 		self.translatesAutoresizingMaskIntoConstraints = false
 	}

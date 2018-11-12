@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSSiriUsageDescription</key>
-	<string>Shuffle Play Plus wants you to be able to speake the genres you want to hear!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -34,7 +32,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>33</string>
+	<string>34</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
@@ -43,6 +41,8 @@
 	<string>Let Shuffle Play access your music library to play your favorite genres!</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We need your camera, so that you can use ARKit</string>
+	<key>NSSiriUsageDescription</key>
+	<string>Shuffle Play Plus wants you to be able to speake the genres you want to hear!</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

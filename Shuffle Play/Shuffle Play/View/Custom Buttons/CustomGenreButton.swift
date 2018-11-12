@@ -13,7 +13,8 @@ class CustomGenreButton: UIButton {
 	init(title: String) {
 		super.init(frame: .zero)
 		self.tintColor = UIColor.gray
-		self.backgroundColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 0.5)
+//		self.backgroundColor = UIColor(red: 37/255, green: 227/255, blue: 232/255, alpha: 0.5)
+		self.backgroundColor = .white
 		self.alpha = 0.5
 		self.setTitleColor(.black, for: .normal)
 		self.layer.cornerRadius = 5

@@ -9,7 +9,7 @@
 import UIKit
 import MediaPlayer
 
-class ProfileController: UIViewController {
+class ProfileController: UIViewController, UINavigationBarDelegate {
 
 	var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
 	var nowPlayingInfo = MPNowPlayingInfoCenter.self
@@ -24,38 +24,38 @@ class ProfileController: UIViewController {
 		return textView
 	}()
 	
-	let profileTextView: UITextView = {
-		let textView = UITextView()
-		textView.font = UIFont(name:"Avenir Next", size: 25.0)
-		textView.textAlignment = .center
-		textView.backgroundColor = UIColor.clear
-		textView.isUserInteractionEnabled = false
-		textView.textColor = UIColor.white
-		//textView.text = "Your Profile"
-		textView.text = NSLocalizedString("profileControllerProfileTextView", comment: "")
-		textView.translatesAutoresizingMaskIntoConstraints = false
-		return textView
-	}()
-	
+//	let profileTextView: UITextView = {
+//		let textView = UITextView()
+//		textView.font = UIFont(name:"Avenir Next", size: 25.0)
+//		textView.textAlignment = .center
+//		textView.backgroundColor = UIColor.clear
+//		textView.isUserInteractionEnabled = false
+//		textView.textColor = UIColor.white
+//		//textView.text = "Your Profile"
+//		textView.text = NSLocalizedString("profileControllerProfileTextView", comment: "")
+//		textView.translatesAutoresizingMaskIntoConstraints = false
+//		return textView
+//	}()
+//
 	//MARK: Buttons
-	let profileButtonTapped: UIButton = {
-		let button = UIButton()
-		button.setTitle("Home", for: .normal)
-		button.setTitleColor(.black, for: .normal)
-		if let homeImage  = UIImage(named: "music-white.png") {
-			button.setImage(homeImage, for: .normal)
-		}
-		// Shadow and Radius for Circle Button
-		button.layer.shadowColor = UIColor.black.cgColor
-		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-		button.layer.masksToBounds = false
-		button.layer.shadowRadius = 3.0
-		button.layer.shadowOpacity = 1.0
-		
-		button.addTarget(self, action: #selector(profileButtonTapped(_:)), for:.touchUpInside)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}()
+//	let profileButtonTapped: UIButton = {
+//		let button = UIButton()
+//		button.setTitle("Home", for: .normal)
+//		button.setTitleColor(.black, for: .normal)
+//		if let homeImage  = UIImage(named: "music-white.png") {
+//			button.setImage(homeImage, for: .normal)
+//		}
+//		// Shadow and Radius for Circle Button
+//		button.layer.shadowColor = UIColor.black.cgColor
+//		button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+//		button.layer.masksToBounds = false
+//		button.layer.shadowRadius = 3.0
+//		button.layer.shadowOpacity = 1.0
+//		
+//		button.addTarget(self, action: #selector(profileButtonTapped(_:)), for:.touchUpInside)
+//		button.translatesAutoresizingMaskIntoConstraints = false
+//		return button
+//	}()
 	
 	let aboutSPButtonTapped: UIButton = {
 		let btn = UIButton.createButton()
@@ -94,14 +94,17 @@ class ProfileController: UIViewController {
 		view.layer.masksToBounds = true
 		
 		//MARK: .addSubView
-		view.addSubview(profileButtonTapped)
-		view.addSubview(profileTextView)
+//		view.addSubview(profileButtonTapped)
+//		view.addSubview(profileTextView)
 		view.addSubview(aboutSPButtonTapped)
 		view.addSubview(AboutButton)
 		view.addSubview(ReviewButtonTapped)
 		view.addSubview(reviewTextView)
 		
 		setupLayout()
+		setupNavBarButtons()
+		navigationItem.title = "About SPP"
+		
 		
         // Do any additional setup after loading the view.
     }
@@ -109,16 +112,16 @@ class ProfileController: UIViewController {
 	
 	private func setupLayout() {
 	
-		profileButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
-		profileButtonTapped.widthAnchor.constraint(equalToConstant: 35).isActive = true
-		profileButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
-		profileButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
+//		profileButtonTapped.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+//		profileButtonTapped.widthAnchor.constraint(equalToConstant: 35).isActive = true
+//		profileButtonTapped.heightAnchor.constraint(equalToConstant: 35).isActive = true
+//		profileButtonTapped.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 35).isActive = true
 		
-		profileTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
-		profileTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-		profileTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		profileTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-		profileTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//		profileTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+//		profileTextView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//		profileTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//		profileTextView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+//		profileTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
 		
 		AboutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 		AboutButton.topAnchor.constraint(equalTo: aboutSPButtonTapped.bottomAnchor, constant: 50  ).isActive = true
@@ -131,7 +134,7 @@ class ProfileController: UIViewController {
 		ReviewButtonTapped.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
 		aboutSPButtonTapped.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		aboutSPButtonTapped.topAnchor.constraint(equalTo: profileTextView.bottomAnchor, constant: -450 ).isActive = true
+		aboutSPButtonTapped.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
 		aboutSPButtonTapped.widthAnchor.constraint(equalToConstant: 260).isActive = true
 		aboutSPButtonTapped.heightAnchor.constraint(equalToConstant: 45).isActive = true
 		
@@ -211,6 +214,25 @@ class ProfileController: UIViewController {
 		if let url = NSURL(string:urlStr) {
 			UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
 		}
+		
+	}
+	
+	public func setupNavBarButtons() {
+		
+		//Menu Button == Left Navigation Bar Button Item
+		let menuButton = UIButton(type: .custom)
+		menuButton.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
+		menuButton.setImage(UIImage(named: "music.png"), for: .normal)
+		menuButton.addTarget(self, action: #selector(profileButtonTapped(_:)), for: UIControl.Event.touchUpInside)
+		
+		let menuBarButtonItem = UIBarButtonItem(customView: menuButton)
+		let currWidth = menuBarButtonItem.customView?.widthAnchor.constraint(equalToConstant: 30);currWidth?.isActive = true
+		let currHeight = menuBarButtonItem.customView?.heightAnchor.constraint(equalToConstant: 30);currHeight?.isActive = true
+		self.navigationItem.leftBarButtonItem = menuBarButtonItem
+		
+		self.navigationController?.navigationBar.layer.shadowOpacity = 0.2
+		self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+		self.navigationController?.navigationBar.layer.shadowRadius = 2
 		
 	}
 	

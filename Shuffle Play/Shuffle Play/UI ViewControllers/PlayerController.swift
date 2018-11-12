@@ -72,7 +72,7 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 	//Logo Image View
 	var logoImageView = CustomImageView(shadowRadius: 3.0, shadowOpacity: 1.0, image: #imageLiteral(resourceName: "SPEmoji"))
 	//HelloTextView
-	let helloTextView = CustomTextView(text: NSLocalizedString("playerControllerHelloTextView", comment: "TheHelloTextViewInPlayerController"), size: 18.0)
+//	let helloTextView = CustomTextView(text: NSLocalizedString("playerControllerHelloTextView", comment: "TheHelloTextViewInPlayerController"), size: 18.0)
 	
 	var genresCollectionView: UICollectionView = {
 		let flowLayout = UICollectionViewFlowLayout()
@@ -95,6 +95,7 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 		setupScrollView()
 		setupConstraints()
 		setupButtonTargets()
+		setupNavbar()
 		
 		//let spotlightVC = SpotlightSupport()
 		if !userDefaults.bool(forKey: "spotlight") {
@@ -113,10 +114,6 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 		
 		beginCounting()
 		
-		
-		navigationItem.title = "Shuffle Play Plus"
-		setupNavBarButtons()
-		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -128,6 +125,13 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 			}
 		}
 		
+	}
+	
+	//MARK: - Setup NavBar
+	func setupNavbar() {
+		navigationItem.title = "Shuffle Play Plus"
+		//		navigationController?.hidesBarsOnSwipe = true
+		setupNavBarButtons()
 	}
 	
 	//MARK:- last bit of setup
@@ -153,17 +157,17 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 		scrollView.addSubview(RapButton)
 		scrollView.addSubview(genreTextView)
 		scrollView.addSubview(downArrowImageView)
-		scrollView.addSubview(helloTextView)
-		scrollView.contentSize = CGSize(width: screenWidth, height: 2175)
+//		scrollView.addSubview(helloTextView)
+		scrollView.contentSize = CGSize(width: screenWidth, height: 1150)
 		view.addSubview(scrollView)
 	}
 	
 	func setupConstraints() {
-		NSLayoutConstraint(item: helloTextView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-		NSLayoutConstraint(item: helloTextView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200).isActive = true
-		NSLayoutConstraint(item: helloTextView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40).isActive = true
-		NSLayoutConstraint(item: helloTextView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: 0).isActive = true
-		
+//		NSLayoutConstraint(item: helloTextView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+//		NSLayoutConstraint(item: helloTextView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200).isActive = true
+//		NSLayoutConstraint(item: helloTextView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40).isActive = true
+//		NSLayoutConstraint(item: helloTextView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .topMargin, multiplier: 1, constant: -100).isActive = true
+//		
 		NSLayoutConstraint(item: logoImageView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
 		NSLayoutConstraint(item: logoImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 175).isActive = true
 		NSLayoutConstraint(item: logoImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 175).isActive = true
@@ -304,8 +308,12 @@ class PlayerController: UIViewController, WCSessionDelegate, UINavigationBarDele
 	//MARK: - Go to the profile view
 	@objc func profileButton(_ sender: UIButton) {
 		
-		let vc = ProfileController()
-		self.present(vc, animated: true, completion: nil)
+//		let vc = ProfileController()
+//		self.present(vc, animated: true, completion: nil)
+		
+		let mainController = ProfileController() as UIViewController
+		let navigationController = UINavigationController(rootViewController: mainController)
+		self.present(navigationController, animated: true, completion: nil)
 		
 		sender.flash()
 		
