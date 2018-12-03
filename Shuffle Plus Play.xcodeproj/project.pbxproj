@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC023E3721B304EC00446EFE /* NotificationsNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC023E3621B304EC00446EFE /* NotificationsNameExtension.swift */; };
+		DC06A4C521B2E1EC009D2C21 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC06A4BD21B2E1EC009D2C21 /* UIButtonExtension.swift */; };
+		DC06A4CD21B2FDCD009D2C21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC06A4CC21B2FDCD009D2C21 /* Assets.xcassets */; };
+		DC0DEC5D218606F4003B5487 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DEC5C218606F4003B5487 /* AppDelegate.swift */; };
+		DC0DEC62218606F4003B5487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC0DEC60218606F4003B5487 /* Main.storyboard */; };
+		DC0DEC67218606F5003B5487 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC0DEC65218606F5003B5487 /* LaunchScreen.storyboard */; };
+		DC0DEC712186070F003B5487 /* GenreButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DEC6E2186070E003B5487 /* GenreButtonCell.swift */; };
+		DC0DEC722186070F003B5487 /* GenresCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC0DEC6F2186070E003B5487 /* GenresCardViewController.xib */; };
+		DC0DEC732186070F003B5487 /* GenresCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DEC702186070E003B5487 /* GenresCardViewController.swift */; };
+		DC0DEC7521860870003B5487 /* NowPlayingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DEC7421860870003B5487 /* NowPlayingVC.swift */; };
+		DC0DEC7D21863506003B5487 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DEC7C21863506003B5487 /* PageViewController.swift */; };
+		DC0DEC7F21863819003B5487 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DEC7E21863819003B5487 /* AboutViewController.swift */; };
+		DC0DEC852187620B003B5487 /* AboutDevelopersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0DEC842187620B003B5487 /* AboutDevelopersViewController.swift */; };
+		DCB3AC6F21B462DD00CD2CF1 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB3AC6E21B462DD00CD2CF1 /* PlayView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC023E3621B304EC00446EFE /* NotificationsNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsNameExtension.swift; sourceTree = "<group>"; };
+		DC06A4BD21B2E1EC009D2C21 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		DC06A4CC21B2FDCD009D2C21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC0DEC59218606F4003B5487 /* Shuffle Plus Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shuffle Plus Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC0DEC5C218606F4003B5487 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC0DEC61218606F4003B5487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC0DEC66218606F5003B5487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC0DEC68218606F5003B5487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC0DEC6E2186070E003B5487 /* GenreButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreButtonCell.swift; sourceTree = "<group>"; };
+		DC0DEC6F2186070E003B5487 /* GenresCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenresCardViewController.xib; sourceTree = "<group>"; };
+		DC0DEC702186070E003B5487 /* GenresCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenresCardViewController.swift; sourceTree = "<group>"; };
+		DC0DEC7421860870003B5487 /* NowPlayingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingVC.swift; sourceTree = "<group>"; };
+		DC0DEC7C21863506003B5487 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		DC0DEC7E21863819003B5487 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		DC0DEC842187620B003B5487 /* AboutDevelopersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevelopersViewController.swift; sourceTree = "<group>"; };
+		DCB3AC6E21B462DD00CD2CF1 /* PlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC0DEC56218606F4003B5487 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC06A4BB21B2E1EC009D2C21 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC06A4BD21B2E1EC009D2C21 /* UIButtonExtension.swift */,
+				DC023E3621B304EC00446EFE /* NotificationsNameExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DC0DEC50218606F4003B5487 = {
+			isa = PBXGroup;
+			children = (
+				DC0DEC5B218606F4003B5487 /* Shuffle Plus Play */,
+				DC0DEC5A218606F4003B5487 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC0DEC5A218606F4003B5487 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC0DEC59218606F4003B5487 /* Shuffle Plus Play.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC0DEC5B218606F4003B5487 /* Shuffle Plus Play */ = {
+			isa = PBXGroup;
+			children = (
+				DC0DEC5C218606F4003B5487 /* AppDelegate.swift */,
+				DC0DEC83218638EF003B5487 /* View */,
+				DC0DEC81218638BD003B5487 /* ViewControllers */,
+				DC06A4BB21B2E1EC009D2C21 /* Extensions */,
+				DC0DEC60218606F4003B5487 /* Main.storyboard */,
+				DC0DEC6F2186070E003B5487 /* GenresCardViewController.xib */,
+				DC0DEC65218606F5003B5487 /* LaunchScreen.storyboard */,
+				DC06A4CC21B2FDCD009D2C21 /* Assets.xcassets */,
+				DC0DEC68218606F5003B5487 /* Info.plist */,
+			);
+			path = "Shuffle Plus Play";
+			sourceTree = "<group>";
+		};
+		DC0DEC80218638B2003B5487 /* PageVC */ = {
+			isa = PBXGroup;
+			children = (
+				DC0DEC7C21863506003B5487 /* PageViewController.swift */,
+			);
+			path = PageVC;
+			sourceTree = "<group>";
+		};
+		DC0DEC81218638BD003B5487 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DC0DEC7E21863819003B5487 /* AboutViewController.swift */,
+				DC0DEC7421860870003B5487 /* NowPlayingVC.swift */,
+				DC0DEC842187620B003B5487 /* AboutDevelopersViewController.swift */,
+				DC0DEC82218638D3003B5487 /* CardView */,
+				DC0DEC80218638B2003B5487 /* PageVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DC0DEC82218638D3003B5487 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				DC0DEC702186070E003B5487 /* GenresCardViewController.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		DC0DEC83218638EF003B5487 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DC0DEC6E2186070E003B5487 /* GenreButtonCell.swift */,
+				DCB3AC6E21B462DD00CD2CF1 /* PlayView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC0DEC58218606F4003B5487 /* Shuffle Plus Play */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC0DEC6B218606F5003B5487 /* Build configuration list for PBXNativeTarget "Shuffle Plus Play" */;
+			buildPhases = (
+				DC0DEC55218606F4003B5487 /* Sources */,
+				DC0DEC56218606F4003B5487 /* Frameworks */,
+				DC0DEC57218606F4003B5487 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Shuffle Plus Play";
+			productName = "Shuffle Plus Play";
+			productReference = DC0DEC59218606F4003B5487 /* Shuffle Plus Play.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC0DEC51218606F4003B5487 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Thom Pheijffer";
+				TargetAttributes = {
+					DC0DEC58218606F4003B5487 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = DC0DEC54218606F4003B5487 /* Build configuration list for PBXProject "Shuffle Plus Play" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC0DEC50218606F4003B5487;
+			productRefGroup = DC0DEC5A218606F4003B5487 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC0DEC58218606F4003B5487 /* Shuffle Plus Play */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC0DEC57218606F4003B5487 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC0DEC67218606F5003B5487 /* LaunchScreen.storyboard in Resources */,
+				DC0DEC722186070F003B5487 /* GenresCardViewController.xib in Resources */,
+				DC06A4CD21B2FDCD009D2C21 /* Assets.xcassets in Resources */,
+				DC0DEC62218606F4003B5487 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC0DEC55218606F4003B5487 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC0DEC712186070F003B5487 /* GenreButtonCell.swift in Sources */,
+				DC0DEC852187620B003B5487 /* AboutDevelopersViewController.swift in Sources */,
+				DC0DEC732186070F003B5487 /* GenresCardViewController.swift in Sources */,
+				DC0DEC7521860870003B5487 /* NowPlayingVC.swift in Sources */,
+				DC0DEC7F21863819003B5487 /* AboutViewController.swift in Sources */,
+				DC06A4C521B2E1EC009D2C21 /* UIButtonExtension.swift in Sources */,
+				DC0DEC5D218606F4003B5487 /* AppDelegate.swift in Sources */,
+				DC023E3721B304EC00446EFE /* NotificationsNameExtension.swift in Sources */,
+				DCB3AC6F21B462DD00CD2CF1 /* PlayView.swift in Sources */,
+				DC0DEC7D21863506003B5487 /* PageViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DC0DEC60218606F4003B5487 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC0DEC61218606F4003B5487 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC0DEC65218606F5003B5487 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC0DEC66218606F5003B5487 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC0DEC69218606F5003B5487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DC0DEC6A218606F5003B5487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC0DEC6C218606F5003B5487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				INFOPLIST_FILE = "Shuffle Plus Play/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.pheijffer.Shuffle-Plus-Play";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC0DEC6D218606F5003B5487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BRLV2FEPT;
+				INFOPLIST_FILE = "Shuffle Plus Play/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.pheijffer.Shuffle-Plus-Play";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC0DEC54218606F4003B5487 /* Build configuration list for PBXProject "Shuffle Plus Play" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC0DEC69218606F5003B5487 /* Debug */,
+				DC0DEC6A218606F5003B5487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC0DEC6B218606F5003B5487 /* Build configuration list for PBXNativeTarget "Shuffle Plus Play" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC0DEC6C218606F5003B5487 /* Debug */,
+				DC0DEC6D218606F5003B5487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC0DEC51218606F4003B5487 /* Project object */;
+}
