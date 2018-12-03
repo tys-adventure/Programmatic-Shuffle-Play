@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Shuffle Play
+
+  Created by Thom Pheijffer on 12/06/2018.
+  Copyright © 2018 Tyler Phillips. All rights reserved.
+*/
+
+//Dutch
+//Dutch
+//Dutch
+"playerControllerGenreTextView" = "Genres";
+"playerControllerSpTextView" = "Shuffle Play Plus";
+"playerControllerProfileButton" = "Profiel";
+"playerControllerHHButton" = "Hip Hop";
+"playerControllerPopButton" = "Pop";
+"playerControllerRockButton" = "Rock";
+"playerControllerElectronicButton" = "Elektrisch";
+"playerControllerKPOPButton" = "Koreanse Pop";
+"playerControllerCountryButton" = "Country";
+"playerControllerRBSoulButton" = "R&B/Soul";
+"playerControllerSingerButton" = "Singer/Songwriter";
+"playerControllerRapButton" = "Rap";
+"playerControllerHelloTextView" = "Je bent Geweldig!";
+"alertTitlePlayerController" = "Selecteer je favoriete Genre";
+"alertMessagePlayerController" = "Je moet een genre selecteren als je nummers wilt Shufflen.";
+"continueMessaePlayerController" = "Oké";
+
+"profileControllerReviewTextView" = "Als je Shuffle Play Plus waardeert, of je heb een verbeterpunt om Shuffle Play Plus te verbeteren, laat een review in de App Store achter!";
+"profileControllerProfileTextView" = "Jouw Profiel";
+"profileControllerAboutSPButtonTapped" = "Over Shuffle Play";
+"profileControllerReviewButtonTapped" = "Review SPP in de App Store!";
+"profileControllerAboutButton" = "Over De Ontwikkelaars";
+
+"aboutSPControllerAboutLabelTextView" = "Over Shuffle Play";
+"aboutSPControllerAboutTextView" = "Heb je altijd al naar een specifiek genre willen luisteren? Shuffle Play laat je dat doen! Het maakt gebruik van je lokale Apple Music bibliotheek, of die van je iPhone, Shuffle Play shufflet de music op je telefoon bij genre. Om jouw te laten luisteren naar één genre!";
+"aboutSPControllerHowToTextView" = "Selecteer een genre van het menu scherm. Wanneer een genre geselecteerd is, start de muziek uit je lokale bibliotheek te spelen, of die uit je Apple Music bibliotheek! **Opmerking: Als je geen specifiek genre in je bibliotheek hebt, start de muziek niet met spelen.**";
+"aboutSPControllerHowToLabelTextView" = "Zo Gebruik je Shuffle Play Plus:";
+
+"aboutControllertylerLabel" = "Tyler";
+"aboutControllerthomLabel" = "Thom";

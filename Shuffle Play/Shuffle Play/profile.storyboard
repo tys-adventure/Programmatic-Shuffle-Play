@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ph4-C7-UFs">
+            <objects>
+                <viewController id="b6v-No-TUa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="68K-5L-8Zz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="hKc-qb-Z7I">
+                                <rect key="frame" x="-47" y="-19" width="468" height="849"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="849" id="6DM-sk-cC9"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rOU-tv-T75">
+                                <rect key="frame" x="57" y="218" width="260" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldR-yt-kbz">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="P6o-dR-Vm1"/>
+                                            <constraint firstAttribute="height" constant="50" id="h6V-dX-so9"/>
+                                        </constraints>
+                                        <state key="normal" title="Your Streaming Service">
+                                            <color key="titleColor" red="0.99038461538461542" green="1" blue="0.98076923076923073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oac-AH-DXO">
+                                        <rect key="frame" x="0.0" y="83.5" width="260" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="0e3-Ce-KDP"/>
+                                            <constraint firstAttribute="width" constant="260" id="zNm-hI-STj"/>
+                                        </constraints>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.99038461538461542" green="1" blue="0.98076923076923073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evn-Gs-Kkq">
+                                        <rect key="frame" x="0.0" y="166.5" width="260" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="I2t-fD-Xmc"/>
+                                            <constraint firstAttribute="width" constant="260" id="qrO-p2-dBY"/>
+                                        </constraints>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.99038461538461542" green="1" blue="0.98076923076923073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BS8-bs-lBt">
+                                        <rect key="frame" x="0.0" y="250" width="260" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="4mQ-qb-u4L"/>
+                                            <constraint firstAttribute="height" constant="50" id="GoW-lT-MCb"/>
+                                        </constraints>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.99038461538461542" green="1" blue="0.98076923076923073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="7gP-eM-dkV"/>
+                                    <constraint firstAttribute="width" constant="260" id="XEB-3f-Je3"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hKc-qb-Z7I" firstAttribute="top" secondItem="68K-5L-8Zz" secondAttribute="topMargin" constant="-39" id="7Tt-jR-nzF"/>
+                            <constraint firstItem="rOU-tv-T75" firstAttribute="centerX" secondItem="68K-5L-8Zz" secondAttribute="centerX" id="Nol-me-nhR"/>
+                            <constraint firstItem="rOU-tv-T75" firstAttribute="top" secondItem="Jxn-Ma-8Jq" secondAttribute="top" constant="198" id="a5W-dW-hCm"/>
+                            <constraint firstItem="rOU-tv-T75" firstAttribute="centerX" secondItem="hKc-qb-Z7I" secondAttribute="centerX" id="kVh-OP-BUa"/>
+                            <constraint firstItem="hKc-qb-Z7I" firstAttribute="leading" secondItem="68K-5L-8Zz" secondAttribute="leadingMargin" constant="-63" id="xob-EC-RTm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jxn-Ma-8Jq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0LM-Hd-AbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.199999999999999" y="118.22660098522168"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="750" height="1334"/>
+    </resources>
+</document>
