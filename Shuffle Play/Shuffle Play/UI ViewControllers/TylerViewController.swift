@@ -14,7 +14,7 @@ class TylerViewController: UIViewController {
         super.viewDidLoad()
 
 		view.backgroundColor = .white
-		
+		print("WHY IS THIS CONTROLLER UNUSED")
         // Do any additional setup after loading the view.
     }
     
